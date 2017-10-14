@@ -1,0 +1,848 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "token": null, "projectHomeUrl": "/p/goagent", "relativeBaseUrl": "", "projectName": "goagent", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22302 - 
+ goagent -
+ 
+ 【自由第1季】分享一下这几年翻墙的网站，证明我曾经来过。爱着自由 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22302&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22302" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22302">22302</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >【自由第1季】分享一下这几年翻墙的网站，证明我曾经来过。爱着自由</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 4 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22302">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/117786576108007218899/">tonghua5...@gmail.com</a
+>,
+ <span class="date" title="Wed Aug 12 19:51:27 2015">Aug 12, 2015</span>
+ 
+ </div>
+<pre>
+最早接触Google是在08年，刚刚大学毕业，随便申请个Gmail邮箱，后来工作后，发现上不了了。一个同事恰好是邮电学院毕业的，告诉我有个通信行业的最高学府：“北京邮电大学”，他忙于考研，需要查资料，所以对FCUK-GFW有一定的研究。顺便告诉我有个方校长。他有个工程叫GFW,给我讲完，我才知道事实的真相！
+最初翻墙的一个方案：
+1、利用：“世界通+Skype” 这是我的第一次翻墙方案，很不稳定，慢。 
+   相关教程：<a href="https://sites.google.com/site/askofv/home/shi-jie-tong-skype" rel="nofollow">https://sites.google.com/site/askofv/home/shi-jie-tong-skype</a>
+2、在google中搜索翻墙后，认识了:&quot;freegate&quot; 也就是自由门。还有无界，相对稳定一些，但涉及政治事件后，会被全面封杀。不过对于初级小白已经很方便了。当然，涉及政治色彩，新闻可以忽略。真假自己判断。相关地址：<a href="http://dongtaiwang.com/loc/phome.php?v=0" rel="nofollow">http://dongtaiwang.com/loc/phome.php?v=0</a>
+              <a href="http://www.wujieliulan.com/" rel="nofollow">http://www.wujieliulan.com/</a>
+3、在被GFW玩了这么惨以后，在也受不了了，后来认识基于GAE的 wallproxy和goagent,用着那个酸爽！地址：<a href="https://github.com/goagent/goagent/" rel="nofollow">https://github.com/goagent/goagent/</a>
+         <a href="https://github.com/phuslu/goproxy（基于go）" rel="nofollow">https://github.com/phuslu/goproxy（基于go）</a>
+         <a href="https://github.com/wallproxy/wallproxy(GUI不错，不过好像作者对天朝政策累了，目前项目处理停止状态)" rel="nofollow">https://github.com/wallproxy/wallproxy(GUI不错，不过好像作者对天朝政策累了，目前项目处理停止状态)</a>
+   XX-NET:<a href="https://github.com/XX-net/XX-Net" rel="nofollow">https://github.com/XX-net/XX-Net</a> 一个整合Goagent和自动扫IP功能的好项目。目前作者说正在开发android版本。IOS版本暂时未听到相关消息。
+所有翻墙工具里，我最喜欢的就是goagent&amp;wallproxy。
+4、GAE失效后，让我发现了有个基于socks4/5的代理，shadowsocks 中文名：“影梭” 
+   比较好的教程在这里：<a href="http://shadowsocks.blogspot.sg/2015/01/shadowsocks.html" rel="nofollow">http://shadowsocks.blogspot.sg/2015/01/shadowsocks.html</a>
+5、tor(高度隐藏IP代理) 特点相对稳定，就是速度慢。可以做为翻墙失败后的备选翻墙方案。
+官方下载网址：<a href="https://www.torproject.org/download/download.html.en" rel="nofollow">https://www.torproject.org/download/download.html.en</a>
+还有一个不错的tor项目在这里：<a href="https://github.com/DarkSpyCyber/toranger" rel="nofollow">https://github.com/DarkSpyCyber/toranger</a>
+6、VPNgate:官方地址：<a href="http://www.vpngate.net/cn/" rel="nofollow">http://www.vpngate.net/cn/</a> 据说被天朝在协议面给强奸了。不过大家可以用自由门或者无界做它的前置代理，还是可以连接到很多优秀服务器的。
+7、google资助的lantern项目。中文名称：“灯笼” （哥现在用这个呢。对了，用它做VPNgate的前置代理效果也不错）官方地址：<a href="https://www.getlantern.org/" rel="nofollow">https://www.getlantern.org/</a>
+                github:<a href="https://github.com/getlantern/lantern/releases" rel="nofollow">https://github.com/getlantern/lantern/releases</a>
+8、赛风 <a href="https://psiphon.ca/" rel="nofollow">https://psiphon.ca/</a> （自动配置代理）速度一般，不过有一些优化措施，没时间，没有弄。
+9、I2P 官方地址：<a href="https://geti2p.net/en/" rel="nofollow">https://geti2p.net/en/</a>
+
+我的翻墙方案差不多就这些
+如果大家感兴趣可以看看这个博客：
+<a href="http://program-think.blogspot.com/2009/05/how-to-break-through-gfw.html" rel="nofollow">http://program-think.blogspot.com/2009/05/how-to-break-through-gfw.html</a>
+还有一个介绍翻墙的地址：<a href="http://allinfa.com/" rel="nofollow">http://allinfa.com/</a>
+我知道的就这些，如果哪位大神有更好的方案，请多多指教分享。
+再次真心感谢所有开发者。向phus.lu致敬！
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 21:38:13 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22302#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/110202981784339756737/">chum...@gmail.com</a
+></span>
+ 
+<pre>
+差不多全了！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 22:03:33 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22302#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+补充一下：
+2，自由门，无界的地址是：<a href="http://forums.internetfreedom.org/" rel="nofollow">http://forums.internetfreedom.org/</a>
+
+关于tor,以蓝灯，赛风作前置的效果还是很不错的！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 22:39:10 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22302#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+放在这里已不是长久之计，建议楼主及各位网友将经验写进 <a href="https://github.com/XX-net/XX-Net/wiki" rel="nofollow">https://github.com/XX-net/XX-Net/wiki</a> 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 23:17:19 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22302#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+在 GitHub 上分享翻墙经验的途径：
+
+1. 建立仓库，如 <a href="https://github.com/phuslu/goproxy/tree/wiki" rel="nofollow">https://github.com/phuslu/goproxy/tree/wiki</a>
+
+	优点： 
+
+	1. 可多人协作
+	2. 不会被恶意编辑或删除
+
+	争议点：
+
+	1. 提交的内容需被仓库所有者审核才能通过
+
+2. 在 GitHub Wiki 上编辑，如 <a href="https://github.com/XX-net/XX-Net/wiki" rel="nofollow">https://github.com/XX-net/XX-Net/wiki</a>
+
+	优点：
+
+	1. 可多人协作
+
+	缺点：
+
+	1. 条目易被恶意删除 （但可用历史记录补救，不知是否有防止 WiKi 被恶意删除的措施）
+	2. 内容易被恶意修改
+
+	争议点：
+
+	1. 内容提交即发表，不需审核
+
+3. 在 GitHub Issues 上发表，如 <a href="https://github.com/phuslu/goproxy/issues" rel="nofollow">https://github.com/phuslu/goproxy/issues</a>
+
+	优点：
+
+	1. 不会被恶意编辑或删除
+
+	缺点：
+
+	1. 不能多人协作
+
+	争议点：
+
+	1. 内容提交即发表，不需审核（但仓库所有者有权限对 Issue 作出处理，例如 <a href="https://github.com/phuslu/goproxy/issues/63" rel="nofollow">https://github.com/phuslu/goproxy/issues/63</a> ）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 04:32:06 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22302#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/107679830248967863679/">zh919580...@gmail.com</a
+></span>
+ 
+<pre>
+怎么把蓝灯用作前置代理
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 06:27:11 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22302#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/106884863266637131592/">linqingp...@gmail.com</a
+></span>
+ 
+<pre>
+lihai 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 17 15:29:06 2015">
+ Aug 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22302#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/115320349189965255022/">ghtgftgj...@gmail.com</a
+></span>
+ 
+<pre>
+蓝灯 是127.0.0.1 8787
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22302">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22302',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22302,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

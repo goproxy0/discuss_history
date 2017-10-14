@@ -1,0 +1,3629 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "projectName": "goagent", "relativeBaseUrl": "", "loggedInUserEmail": null, "projectHomeUrl": "/p/goagent", "token": null, "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22378 - 
+ goagent -
+ 
+ 某著名轻量级服务器中转包传输工具作者疑似被约谈， v2ex 上的相关节点不可访问 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22378&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22378" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22378">22378</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >某著名轻量级服务器中转包传输工具作者疑似被约谈， v2ex 上的相关节点不可访问</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 14 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22378">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+>,
+ <span class="date" title="Thu Aug 20 17:21:40 2015">Aug 20 (4 days ago)</span>
+ 
+ </div>
+<pre>
+由于涉及到作者隐私，就不发来源请求了。但作者被约谈是事实，作者很有可能不再维护此项目。
+
+同时 v2ex 上的相关节点不可访问。
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 17:38:31 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22378#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+经测试项目 / 软件的英文名字已被 v2ex 关键词屏蔽，若带此词，会发帖失败，但中文名称咱不受影响。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 17:56:55 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22378#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/107208402476650928769/">zhanqh...@gmail.com</a
+></span>
+ 
+<pre>
+不要吞吞吐吐的，请说出软件名字。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 17:57:26 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22378#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+影梭作者？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:08:58 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22378#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/106660179932404855547/">HanHyoJo...@gmail.com</a
+></span>
+ 
+<pre>
+clowwindy 被抓了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:26:02 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22378#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+<a href="http://www.zhihu.com/people/clowwindy-91" rel="nofollow">http://www.zhihu.com/people/clowwindy-91</a>
+其最后一次活动就在刚才。
+如果是同一个人的话（我倾向于认为是同一个人），相信只是被约谈要求停止开发。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:26:34 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22378#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/108198415274160958526/">onionbon...@gmail.com</a
+></span>
+ 
+<pre>
+what the fuck!!!
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:31:13 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22378#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#6 应该是同一人，没有 #5 所说的被抓那么严重。
+
+但是和 Shadowsocks 原理类似的 goproxy vps 不知会被如何对待。
+
+真的很担心作者的人身安全。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:32:14 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22378#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+Phus_Lu貌似现在在美国，真不行的话可以寻求政治庇护。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:32:31 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22378#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+这也挺好的，作者前段时间被别人COPY，搞得很不爽，而且比较累，一堆小白缠着他问白白的问题。现在他可以休息了，别人也可以名正言顺地接手他的工作
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:36:04 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22378#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#10
+同意，当时貌似就萌生退意了
+这东西可以让境外的专门组织接手
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:37:39 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22378#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#9 为作者现身处国外表示欣慰，消除了疑问 <a href="https://code.google.com/p/goagent/issues/detail?id=22361#c19" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=22361#c19</a> 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:47:05 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22378#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+这岂不是说明匪党对ss没什么办法，只能用这样的烂招？难怪共匪要猛烈打压维权律师，如果作者通知维权律师，律师肯定会告诉你，根据现有法律，共匪违法了。作者开发软件是完全正常合法的行为。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 18:59:14 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22378#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+<a href="https://ssnode.net/code.php" rel="nofollow">https://ssnode.net/code.php</a> 放码，有个码叫： clowwindy_wishOK_****************
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:02:44 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22378#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/110628058949235568235/">172877...@qq.com</a
+></span>
+ 
+<pre>
+确实很难理解，这么优秀的东东，就要一去不复还！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:10:33 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22378#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/100883746832929619146/">wengxiao...@gmail.com</a
+></span>
+ 
+<pre>
+@warmingf...@gmail.com  邀请码无效啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:11:45 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22378#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#17 你打开那个页面就能看到码了，还有一大堆。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:16:12 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22378#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+#17 不会吧，我刚注册了一个
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:22:20 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22378#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+昨晚上Shadowsocks官网看，issue没了，正奇怪呢，原来如此
+希望有人能接手，目前主力是SS
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:23:44 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=22378#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/110807761722570332450/">xsl0...@gmail.com</a
+></span>
+ 
+<pre>
+作者真被搞了的话那这项目就是个烫手山芋了，谁接手谁就得冒着被请喝茶的风险
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:25:34 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=22378#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#21 所以说可以让境外的组织接手啊。
+另外作者之前没有搞隐藏身份也是个原因，看看编程随想就知道。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:26:08 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22378#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/100883746832929619146/">wengxiao...@gmail.com</a
+></span>
+ 
+<pre>
+  出现  ----本站將不定時發送邀請碼，敬請期待！真的没有
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:31:29 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=22378#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+#22，给链接
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:35:57 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22378#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/111581872152197500711/">Runchen....@gmail.com</a
+></span>
+ 
+<pre>
+希望作者平安吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:42:28 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=22378#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/103807145679758221742/">tog...@gmail.com</a
+></span>
+ 
+<pre>
+昨晚就发现SS异常，只能说作者没有隐藏好自己网络身份，多个网站使用同一个ID绝对大忌。不管怎样，还是感谢他一直以来的付出和担当，希望他平安并早日脱离这个邪恶的国家。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:43:45 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=22378#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+作者把原码交了，软件会不会OVER??
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:44:13 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22378#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#15 ssnode taiwan初始流量多大的？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:44:42 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=22378#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#27 Shadowsocks从一开始就是自由软件，即，软件的源代码一开始就是全世界所有人都能看到的，何来“把源码交了”一说？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:44:45 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=22378#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#18 warmingf...@gmail.com
+
+无码了。。。。。。求再放几个
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:45:21 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=22378#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#29 bigslow...@gmail.com
+
+IT小白，让大家见笑了。。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:45:30 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=22378#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/110723612008139948599/">gelove...@gmail.com</a
+></span>
+ 
+<pre>
+还是申请政治庇护吧，在国内已经不安全了…
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:46:08 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=22378#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#26 作者就没想隐藏，只是当局现在开始在这方面下手了，现有的不隐藏身份的，不以营利为目的的此类软件的开发者应该不会追以刑责（毕竟没有这样的先例），但以后开发此类工具就得匿名了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:46:56 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=22378#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/108573445135250363590/">yimin...@gmail.com</a
+></span>
+ 
+<pre>
+小白手中仅剩的2大利器，SS和蓝灯，居然其中一个遇到这种问题，狗日的GFW和某档
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:47:28 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=22378#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#30 warmingf...@gmail.com除非能自己后台生产，否则他也没码，是ssnode taiwan站长放的，等下波呗。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:48:34 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=22378#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#34 怎么可以忘掉xxnet呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:48:47 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=22378#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+俺不是站长……所以不会生出码，只有等站长下次放码了。  #28 redfrog...@gmail.com 初始 10 GB 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:50:26 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=22378#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#28 redfrog...@gmail.com 需要进 QQ 群，进群后给加到了 25 GB 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:51:30 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=22378#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#38 QQ群=找死。走点心吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:53:11 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=22378#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#35 redfrog...@gmail.com#37 warmingf...@gmail.com
+
+明白了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:53:56 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=22378#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#39 多谢关心，我用 SocksCap64 挂代理上的 QQ , 不过还是有点担心，以后挂 Tor 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:54:37 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=22378#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#38 thx。不过要进QQ群加流量的，那算了，需要的人拿去看视频玩吧。我用赛风3+MEOW就好。☺
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:56:35 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=22378#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#41 warmingf...@gmail.com 我看你在G+上也是同样的id哟，小心点最好换个邮箱上去混，那上边啥人都有，你还要玩Q群的，别因为粗心付出不该付出的代价啊。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:57:23 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=22378#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#41 挂代理有什么用？腾讯会应国家机关要求提供信息。
+除非
+1.你能全程伪装成外国友人注册并使用QQ
+2.虚拟机或境外VPS运行，和你现在的运行环境彻底隔离
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:58:05 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=22378#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#43 这是我不玩G+的原因之一。我没有隐藏自己的身份，所以我不会做太多会引起注意的事情。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 19:59:36 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=22378#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#43 好，以后弄个随机 ID 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 22:08:04 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=22378#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+这是造谣.
+朝廷不会把几个小屁作者变成人权斗士.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc48">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 22:15:41 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c48" href="/p/goagent/issues/detail?id=22378#c48">#48</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#44 谢谢。
+
+#47 不是造谣。 v2ex 屏蔽 shadowsocks 一事可去 <a href="https://v2ex.com" rel="nofollow">https://v2ex.com</a> 上验证；作者被约谈一事并非子虚乌有： <a href="https://i.imgur.com/nahZ3Jt.jpg" rel="nofollow">https://i.imgur.com/nahZ3Jt.jpg</a>
+
+另已暂停开发的 ShadowsocksR 的作者今天表示会继续开发此类应用： 
+
+	关于新版本：新版本将采用全新架构，全新的配置方式，采用新通讯协议，支持新黑科技，将包含一些特性，如多路TCP，断线续传，节点分类，方便的多重代理配置，伪装短连接，非TCP通讯隧道，同时可以兼容原协议，因为马上要开学的关系，估计开发周期不会短，3个月到6个月左右出第一个版本，而从第一个版本出现起一年，为闭源发布期。一年后客户端开源。
+
+<a href="https://github.com/breakwa11/shadowsocks-rss/tree/8255e81d369866a32afc2857eeec607ff9826bdf" rel="nofollow">https://github.com/breakwa11/shadowsocks-rss/tree/8255e81d369866a32afc2857eeec607ff9826bdf</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 22:36:01 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=22378#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/107679830248967863679/">zh919580...@gmail.com</a
+></span>
+ 
+<pre>
+没看懂，v2ex还可以搜索shadowsocks啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc50">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 22:51:47 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c50" href="/p/goagent/issues/detail?id=22378#c50">#50</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+云游也在最后祝福 clowwindy ： <a href="https://ss.yvesx.com/" rel="nofollow">https://ss.yvesx.com/</a> 
+
+&quot;Thanks to clowwindy, mengskysama and orvice. I'm so sorry for the end.&quot;
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc51">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 23:34:32 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c51" href="/p/goagent/issues/detail?id=22378#c51">#51</a>
+ 
+
+ <a class="userlink"
+ href="/u/107313915909888756200/">fany...@gmail.com</a
+></span>
+ 
+<pre>
+ss 很好用， 经常用。  
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc52">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 23:57:32 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c52" href="/p/goagent/issues/detail?id=22378#c52">#52</a>
+ 
+
+ <a class="userlink"
+ href="/u/106400084385661049952/">KraBer...@gmail.com</a
+></span>
+ 
+<pre>
+c大辛苦了，谢谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc53">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 00:08:14 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c53" href="/p/goagent/issues/detail?id=22378#c53">#53</a>
+ 
+
+ <a class="userlink"
+ href="/u/103210947066284392192/">tianlich...@gmail.com</a
+></span>
+ 
+<pre>
+以后SS用不了了？求SS的服务器安装方式，“pip install shadowsocks”的安装方式是否就安装不了了？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc54">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 00:23:42 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c54" href="/p/goagent/issues/detail?id=22378#c54">#54</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#53 与此无关。Shadowsocks依然可以安装、运行，只不过目前暂时不会有Bugfix和功能改进了。
+但是Shadowsocks是开源项目，可以由境外人士或者能够良好隐匿自己身份的境内人士继续接手。
+如果原作者关闭项目，则可以进行fork，继续开发。
+另外pip不受中国政府管制。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc55">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 01:10:19 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c55" href="/p/goagent/issues/detail?id=22378#c55">#55</a>
+ 
+
+ <a class="userlink"
+ href="/u/117207160906445681884/">disct...@gmail.com</a
+></span>
+ 
+<pre>
+shadowsocks 本来就不应该在体制内网站v2ex 活跃，应该换一个体制外网站
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc56">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 01:28:04 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c56" href="/p/goagent/issues/detail?id=22378#c56">#56</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#55 v2ex只是一个自发的用户讨论区罢了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 01:34:15 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=22378#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/115029647769858744406/">just.sim...@gmail.com</a
+></span>
+ 
+<pre>
+Sigh. 真的只能肉翻了吗。还是很感谢clowwindy这些默默付出的人！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 02:40:02 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=22378#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/104346324463538644781/">rab...@gmail.com</a
+></span>
+ 
+<pre>
+艹…………无语了 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc59">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 03:03:32 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c59" href="/p/goagent/issues/detail?id=22378#c59">#59</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+补充 #48 ，ShadowsocksR 那部分的链接不是当前版本，当前版本在： <a href="https://github.com/breakwa11/shadowsocks-rss" rel="nofollow">https://github.com/breakwa11/shadowsocks-rss</a> 。
+
+作者补充了一个动容的话：“关于我：哪天我突然被消失了是完全有可能的，我也害怕各种没见识过的严刑拷打，并且我是女生，我感觉自己根本支持不了，要是有去，基本没回。不过毕竟没见过不是，没见过胆子还是有点的。”
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc60">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 03:11:02 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c60" href="/p/goagent/issues/detail?id=22378#c60">#60</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+也是一位英雄！翻墙界心存宽容，才是智慧的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc61">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 03:36:05 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c61" href="/p/goagent/issues/detail?id=22378#c61">#61</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#59 推荐这位勇敢的姑娘去看看编程随想的匿踪技术帖，用虚拟机本地写代码，用vps远程开发和推送，另外尽量不暴露自己的个人信息，基本不会有事情的。克服了自身的恐惧，加上努力保护自己的安全，最后混在翻墙界，那才是对未来自由中国的最大贡献。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc62">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 03:50:00 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c62" href="/p/goagent/issues/detail?id=22378#c62">#62</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#61 红蛙兄所言极是，已在 GitHub 上替您传达。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc63">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 06:15:05 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c63" href="/p/goagent/issues/detail?id=22378#c63">#63</a>
+ 
+
+ <a class="userlink"
+ href="/u/104246319916438198181/">mw20...@gmail.com</a
+></span>
+ 
+<pre>
+shadowsocksR 作者breakwa11 和 shadowsocks 主要原作者 clowwindy 不是同一個人。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc64">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 06:46:26 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c64" href="/p/goagent/issues/detail?id=22378#c64">#64</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+clowwindy 对 breakwa11 所说的话： <a href="https://github.com/breakwa11/shadowsocks-rss/issues/32" rel="nofollow">https://github.com/breakwa11/shadowsocks-rss/issues/32</a> 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc65">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 06:56:23 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c65" href="/p/goagent/issues/detail?id=22378#c65">#65</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+英雄应该惺惺相惜，呵呵呵，不错不错
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc66">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:00:39 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c66" href="/p/goagent/issues/detail?id=22378#c66">#66</a>
+ 
+
+ <a class="userlink"
+ href="/u/109021712546087273929/">pop123...@gmail.com</a
+></span>
+ 
+<pre>
+感觉两位同志都暴露了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc67">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:08:30 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c67" href="/p/goagent/issues/detail?id=22378#c67">#67</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+breakwa11 处境比 clowwindy 更危险，毕竟不是特别出名的公众人物。“哪天我突然被消失”也不会有多少人知道吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc69">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:18:02 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c69" href="/p/goagent/issues/detail?id=22378#c69">#69</a>
+ 
+
+ <a class="userlink"
+ href="/u/117351052346044382546/">xdm1...@gmail.com</a
+></span>
+ 
+<pre>
+不知说点什么好
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc70">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:23:30 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c70" href="/p/goagent/issues/detail?id=22378#c70">#70</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#67 低知名度未必是坏事，也可以为自己多加了一件隐身衣。从她用的登录名称来看，她还是很聪明地用了没有任何特征的名称，所以，我对她还是蛮有信心的。她很清楚，Be careful，be smart。
+
+不过她用的邮件协助开发模式是有巨大木马风险的，千万不要低估了共匪黑客的技术实力和道德底线。希望她能在虚拟机/VPS里边继续安全开发。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc71">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 09:21:55 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c71" href="/p/goagent/issues/detail?id=22378#c71">#71</a>
+ 
+
+ <a class="userlink"
+ href="/u/111632376362139847763/">yuyuanze...@gmail.com</a
+></span>
+ 
+<pre>
+#70
+breakwa11在v2ex注册过、活跃过。我感觉livid可能会有他的邮箱和ip使用记录。至于livid是个怎么样的贱货…悬
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc72">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 10:23:21 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c72" href="/p/goagent/issues/detail?id=22378#c72">#72</a>
+ 
+
+ <a class="userlink"
+ href="/u/113932960525961835947/">jollama...@gmail.com</a
+></span>
+ 
+<pre>
+一朋友刚从美国回来，给我讲了很多和国内的对比，然后今天才搭了ss，就又看到这样的消息，感慨良多，晚上又把 citzen four 看了一次。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc73">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 13:43:18 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c73" href="/p/goagent/issues/detail?id=22378#c73">#73</a>
+ 
+
+ <a class="userlink"
+ href="/u/113827333186444135754/">dukechin...@gmail.com</a
+></span>
+ 
+<pre>
+镇压越大，力量越大。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc74">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 15:46:35 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c74" href="/p/goagent/issues/detail?id=22378#c74">#74</a>
+ 
+
+ <a class="userlink"
+ href="/u/106561838904808574054/">you.a.st...@gmail.com</a
+></span>
+ 
+<pre>
+臭包子时代来临了？ 话说我的SS因为不想重新弄节点 还是2.4版本的- - 有什么影响吗？一直正常用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc75">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 17:13:16 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c75" href="/p/goagent/issues/detail?id=22378#c75">#75</a>
+ 
+
+ <a class="userlink"
+ href="/u/114278724210694114604/">bigslow...@gmail.com</a
+></span>
+ 
+<pre>
+#70 那么建议她宣称被喝茶放弃项目，做好匿名措施，然后fork一个。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc76">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 02:30:26 2015">
+ Aug 22 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c76" href="/p/goagent/issues/detail?id=22378#c76">#76</a>
+ 
+
+ <a class="userlink"
+ href="/u/113588632998924236108/">wenerm...@gmail.com</a
+></span>
+ 
+<pre>
+这是一个生病的国家,你们要体谅
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc77">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 05:55:05 2015">
+ Yesterday (36 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c77" href="/p/goagent/issues/detail?id=22378#c77">#77</a>
+ 
+
+ <a class="userlink"
+ href="/u/101064696220792731884/">nbak2...@gmail.com</a
+></span>
+ 
+<pre>
+o(︶︿︶)o 唉，越来越难番了
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22378">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22378',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22378,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

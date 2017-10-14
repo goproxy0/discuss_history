@@ -1,0 +1,1410 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"projectName": "goagent", "loggedInUserEmail": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null, "projectHomeUrl": "/p/goagent", "token": null, "relativeBaseUrl": "", "domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22122 - 
+ goagent -
+ 
+ 突然发现，搬瓦工竟然已经售罄！ - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22122&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22122" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22122">22122</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >突然发现，搬瓦工竟然已经售罄！</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 3 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22122">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/117351052346044382546/">xdm1...@gmail.com</a
+>,
+ <span class="date" title="Mon Jul 27 03:06:35 2015">Jul 27, 2015</span>
+ 
+ </div>
+<pre>
+幸亏我早就买了，也买了其他的。
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 03:59:07 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22122#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/109415165027505570053/">jfc8...@gmail.com</a
+></span>
+ 
+<pre>
+便宜的没有了 最低19.99$
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 04:07:31 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22122#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+难道免费的要全面封杀了么？搞的这么夸张。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 04:08:33 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22122#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+买了又退了的路过。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 04:26:30 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22122#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+饥饿营销.....?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 04:49:54 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22122#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+本来都有心要买了的，你又涨价，那就算了吧。。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 07:49:43 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22122#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/101442188974640895621/">jaylll...@gmail.com</a
+></span>
+ 
+<pre>
+买了一个玩美服lol延时平均300左右
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 01:43:50 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22122#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/109187213000209224529/">darkred...@gmail.com</a
+></span>
+ 
+<pre>
+这就是支持支付宝的结果
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 01:46:18 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22122#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/110642520286801552994/">open0...@gmail.com</a
+></span>
+ 
+<pre>
+板瓦工，电信线路效果好不好?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 01:48:33 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22122#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+有用过的说说，不过一个月几十块钱有点小贵了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 01:55:39 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22122#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#9 板瓦工是一年20刀，不是一个月啊。一个月20刀，linode这些敢这么叫价。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 04:11:14 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22122#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+那为毛搬瓦工不继续低价？让linode这些都倒掉
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 04:14:08 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22122#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+都是支付宝惹的祸，让中国人像蝗虫一样涌过去，搞的搬瓦工现在得瑟起来了，还要涨价
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 04:21:22 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22122#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+KAO，香港人没说错，大陆同胞是蛮象蝗虫的，不过为毛有人一听就要跳起来？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 04:22:37 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22122#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+不过话说布置SS还是有点高大上的吧，现在高大上的人口这么多了？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 04:30:00 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22122#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/103874366506621497987/">yqh1...@gmail.com</a
+></span>
+ 
+<pre>
+to #13 汗．有什么奇怪的？很简单的供需平衡问题，你情我愿的事．非要剩下来给你？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 04:41:02 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22122#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+搬瓦工售罄让我想起了“中国大妈买黄金”，“国人抢购iphone”，一个德行，一窝蜂,老外赚了钱，还偷笑国人的钱真好赚，中国人真傻逼。
+
+不是觉得他们这些人妨碍我了，而是觉得共匪领导的这个社会让人做事完全可以不讲规矩，瞎JB乱搞。 古之圣贤说的，礼让为先，秩序为先，有吗？现在是：尼玛凡事利字当头，个人利益为先，没有大局观，只顾自己，哪管他人死活。 这就是现在大陆现状，跟日本人完全没得比。当然，这种现状也是共匪的制度造成的，怪不得中国民众
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 05:08:26 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22122#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+人傻钱多速来，不过话说前几款还算价值合理，后几款，每个月几十元，真心不值。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 05:21:10 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22122#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+美中贸易额每年6000亿美刀，匪国光在非洲营生的就有100-150w，还有去其他国家
+留学经商旅游求职的，这么庞大的群体，不翻墙，怎么搞？再来10个板瓦工都要买个
+光光的。不是每个人都有那么好的精力去扫ip的，何况现在根本就扫不到了。
+最可恨的就是共匪这黄俄斧头帮，一帮烂仔。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 06:39:09 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22122#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+搬瓦工的机房不可选（11美金方案以上方案的，而现在可选方案的便宜货卖光了），一旦封了IP就直接傻逼了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 06:47:12 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=22122#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+其实我现在免费的用起来也蛮爽
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 06:52:55 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=22122#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+可能是免费的用久了，人也刁了，看到要花钱的或者贵了点的，就不想要
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 23:37:23 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22122#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+最新消息，19刀一年的也没有了，现在最便宜的是69刀一年的啦！
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22122">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22122',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22122,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

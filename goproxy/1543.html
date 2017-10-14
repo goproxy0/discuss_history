@@ -1,0 +1,2725 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-bedfc518345498ab3204d330c1727cde7e733526a09cd7df6867f6a231565091.css" media="all" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-980cd404854e87ee88b12c7281a0875365a8f966c834dc30f3f656011f7f4df6.css" media="all" rel="stylesheet" />
+  
+  
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/site-877643c520258c4fa15ac8d1664d84efd0e3db56f5e544ccac58da0e50489904.css" media="all" rel="stylesheet" />
+  
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>请问，gp是依托那个网址来运行？ · Issue #1543 · phuslu/goproxy · GitHub</title>
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta content="https://avatars3.githubusercontent.com/u/6436073?v=4&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="请问，gp是依托那个网址来运行？ · Issue #1543 · phuslu/goproxy" property="og:title" /><meta content="https://github.com/phuslu/goproxy/issues/1543" property="og:url" /><meta content="你好，我有在路由器里利用ipset来匹配google网址以自动走ss，但是电脑上想尝试下gp的效果，却发现gp一直走的路由器上的ss通道，因为当我关闭路由上的ss时，电脑上的gp也死了。
+于是我去除.appspot.com和.google.com的ipset规则，并停用路由器的ss，结果还是不行，所以产生了这个疑问，我需要去掉哪个网址的ipset规则，电脑上的gp才不会走ss通道" property="og:description" />
+
+  <link rel="assets" href="https://assets-cdn.github.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="6A94:28177:4C724F4:7686AD7:59B3BE59" data-pjax-transient>
+  
+
+  <meta name="selected-link" value="repo_issues" data-pjax-transient>
+
+  <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="https://collector.githubapp.com/github-external/browser_event" name="octolytics-event-url" /><meta content="6A94:28177:4C724F4:7686AD7:59B3BE59" name="octolytics-dimension-request_id" /><meta content="sea" name="octolytics-dimension-region_edge" /><meta content="iad" name="octolytics-dimension-region_render" />
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/issues/show" data-pjax-transient="true" name="analytics-location" />
+
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+  
+
+      <meta name="hostname" content="github.com">
+  <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="YTkyNzM2OTQ0NzNkNjI1MWMyN2RlN2U2MmFhZWY1MmFiODdhOGVkYmIwYWMwN2YzYTY5YmYzNzRhMDg3MTQyYXx7InJlbW90ZV9hZGRyZXNzIjoiMzYuMTQ5LjE5NS4xNDkiLCJyZXF1ZXN0X2lkIjoiNkE5NDoyODE3Nzo0QzcyNEY0Ojc2ODZBRDc6NTlCM0JFNTkiLCJ0aW1lc3RhbXAiOjE1MDQ5NTE4OTgsImhvc3QiOiJnaXRodWIuY29tIn0=">
+
+
+  <meta name="html-safe-nonce" content="77082b00c0afb44e120c99944750cc1d4fce3f57">
+
+  <meta http-equiv="x-pjax-version" content="374d3000b7ab48f823a919af6164f269">
+  
+
+      <link href="https://github.com/phuslu/goproxy/commits/master.atom" rel="alternate" title="Recent Commits to goproxy:master" type="application/atom+xml">
+
+  <meta name="description" content="Contribute to goproxy development by creating an account on GitHub.">
+  <meta name="go-import" content="github.com/phuslu/goproxy git https://github.com/phuslu/goproxy.git">
+
+  <meta content="195836" name="octolytics-dimension-user_id" /><meta content="phuslu" name="octolytics-dimension-user_login" /><meta content="27330467" name="octolytics-dimension-repository_id" /><meta content="phuslu/goproxy" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="27330467" name="octolytics-dimension-repository_network_root_id" /><meta content="phuslu/goproxy" name="octolytics-dimension-repository_network_root_nwo" /><meta content="false" name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" />
+
+
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+  </head>
+
+  <body class="logged-out env-production">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="px-2 py-4 show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+
+        <header class="Header header-logged-out  position-relative f4 py-3" role="banner">
+  <div class="container-lg d-flex px-3">
+    <div class="d-flex flex-justify-between flex-items-center">
+      <a class="header-logo-invertocat my-0" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+        <svg aria-hidden="true" class="octicon octicon-mark-github" height="32" version="1.1" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--bright d-flex flex-justify-between flex-auto">
+        <nav class="mt-0">
+          <ul class="d-flex list-style-none">
+              <li class="ml-2">
+                <a href="/features" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:features" data-selected-links="/features /features/project-management /features/code-review /features/project-management /features/integrations /features">
+                  Features
+</a>              </li>
+              <li class="ml-4">
+                <a href="/business" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:business" data-selected-links="/business /business/security /business/customers /business">
+                  Business
+</a>              </li>
+
+              <li class="ml-4">
+                <a href="/explore" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore">
+                  Explore
+</a>              </li>
+
+              <li class="ml-4">
+                    <a href="/marketplace" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:marketplace" data-selected-links=" /marketplace">
+                      Marketplace
+</a>              </li>
+              <li class="ml-4">
+                <a href="/pricing" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:pricing" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing">
+                  Pricing
+</a>              </li>
+          </ul>
+        </nav>
+
+      <div class="d-flex">
+          <div class="d-lg-flex flex-items-center mr-3">
+            <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/search" class="js-site-search-form" data-scoped-search-url="/phuslu/goproxy/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <label class="form-control header-search-wrapper js-chromeless-input-container">
+        <a href="/phuslu/goproxy/issues/1543" class="header-search-scope no-underline">This repository</a>
+      <input type="text"
+        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
+        data-hotkey="s"
+        name="q"
+        value=""
+        placeholder="Search"
+        aria-label="Search this repository"
+        data-unscoped-placeholder="Search GitHub"
+        data-scoped-placeholder="Search"
+        autocapitalize="off">
+        <input type="hidden" class="js-site-search-type-field" name="type" >
+    </label>
+</form></div>
+
+          </div>
+
+        <span class="d-inline-block">
+            <div class="HeaderNavlink px-0 py-2 m-0">
+              <a class="text-bold text-white no-underline" href="/login?return_to=%2Fphuslu%2Fgoproxy%2Fissues%2F1543" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+                <span class="text-gray">or</span>
+                <a class="text-bold text-white no-underline" href="/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+            </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+    <div id="js-flash-container">
+</div>
+
+
+
+  <div role="main">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
+    <div id="js-repo-pjax-container" data-pjax-container>
+      
+<style type="text/css" media="screen" id="issue-labels-style">
+  
+</style>
+
+
+
+
+
+
+    <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+      <div class="container repohead-details-container">
+
+        <ul class="pagehead-actions">
+  <li>
+      <a href="/login?return_to=%2Fphuslu%2Fgoproxy"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+  </a>
+  <a class="social-count" href="/phuslu/goproxy/watchers"
+     aria-label="38 users are watching this repository">
+    38
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fphuslu%2Fgoproxy"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/phuslu/goproxy/stargazers"
+      aria-label="154 users starred this repository">
+      154
+    </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fphuslu%2Fgoproxy"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+      </a>
+
+    <a href="/phuslu/goproxy/network" class="social-count"
+       aria-label="57 users forked this repository">
+      57
+    </a>
+  </li>
+</ul>
+
+        <h1 class="public ">
+  <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a href="/phuslu" class="url fn" rel="author">phuslu</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a href="/phuslu/goproxy" data-pjax="#js-repo-pjax-container">goproxy</a></strong>
+
+</h1>
+
+      </div>
+      <div class="container">
+        
+<nav class="reponav js-repo-nav js-sidenav-container-pjax"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/phuslu/goproxy" class="js-selected-navigation-item reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /phuslu/goproxy" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a href="/phuslu/goproxy/issues" class="js-selected-navigation-item selected reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /phuslu/goproxy/issues" itemprop="url">
+        <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">1,198</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/phuslu/goproxy/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /phuslu/goproxy/pulls" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">0</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+    <a href="/phuslu/goproxy/projects" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /phuslu/goproxy/projects">
+      <svg aria-hidden="true" class="octicon octicon-project" height="16" version="1.1" viewBox="0 0 15 16" width="15"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      Projects
+      <span class="Counter" >1</span>
+</a>
+
+
+    <div class="reponav-dropdown js-menu-container">
+      <button type="button" class="btn-link reponav-item reponav-dropdown js-menu-target " data-no-toggle aria-expanded="false" aria-haspopup="true">
+        Insights
+        <svg aria-hidden="true" class="octicon octicon-triangle-down v-align-middle text-gray" height="11" version="1.1" viewBox="0 0 12 16" width="8"><path fill-rule="evenodd" d="M0 5l6 6 6-6z"/></svg>
+      </button>
+      <div class="dropdown-menu-content js-menu-content">
+        <div class="dropdown-menu dropdown-menu-sw">
+          <a class="dropdown-item" href="/phuslu/goproxy/pulse" data-skip-pjax>
+            <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"/></svg>
+            Pulse
+          </a>
+          <a class="dropdown-item" href="/phuslu/goproxy/graphs" data-skip-pjax>
+            <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+            Graphs
+          </a>
+        </div>
+      </div>
+    </div>
+</nav>
+
+      </div>
+    </div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content">
+
+    
+  <div class="issues-listing" data-pjax>
+    
+      <div class="signup-prompt-bg rounded-1">
+      <div class="signup-prompt p-4 text-center mb-4 rounded-1">
+        <div class="position-relative">
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/site/dismiss_signup_prompt" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="nOShku+B3/lnAJMwFqF1jCNtGZCVa/0BT6sUDYGxBUvR48G9jz26XcxNY6TC9sr8BEkMeUL4ohtTuXn8e2uOSg==" /></div>
+            <button type="submit" class="position-absolute top-0 right-0 btn-link link-gray" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
+              Dismiss
+            </button>
+</form>
+          <h3 class="pt-2">Join GitHub today</h3>
+          <p class="col-6 mx-auto">GitHub is home to over 20 million developers working together to host and review code, manage projects, and build software together.</p>
+          <p class="pb-2">
+            <a class="btn btn-blue" href="/join?source=prompt-issue-show" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+  <div id="show_issue" class="js-issues-results">
+
+    
+  <div
+    id="partial-discussion-header"
+    class="gh-header js-details-container Details js-socket-channel js-updatable-content issue"
+    data-channel="issue:212723497"
+    data-url="/phuslu/goproxy/issues/1543/show_partial?partial=issues%2Ftitle">
+
+  <div class="gh-header-show ">
+      <div class="gh-header-actions">
+
+          <button type="button" data-facebox="#new_issue_modal" class="btn btn-sm btn-primary float-right" data-hotkey="c" aria-haspopup="true" data-ga-click="Issues, create new issue, view:issue_show location:issue_header style:button logged_in:false">New issue</button>
+          <div id="new_issue_modal" class="d-none">
+  <div class="mt-3 mb-2 text-center">
+    <svg aria-hidden="true" class="octicon octicon-comment-discussion text-blue" height="60" version="1.1" viewBox="0 0 16 16" width="60"><path fill-rule="evenodd" d="M15 1H6c-.55 0-1 .45-1 1v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h1v3l3-3h4c.55 0 1-.45 1-1V9h1l3 3V9h1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM9 11H4.5L3 12.5V11H1V5h4v3c0 .55.45 1 1 1h3v2zm6-3h-2v1.5L11.5 8H6V2h9v6z"/></svg>
+  </div>
+
+  <div class="px-4">
+    <p class="text-center mb-4">
+      <strong>Have a question about this project?</strong> Sign up for a free GitHub account to open an issue and contact its maintainers and the community.
+    </p>
+
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/join?return_to=%2Fphuslu%2Fgoproxy%2Fissues%2Fnew" autocomplete="off" class="js-signup-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="LXsWrTv+FTQRJsj/M4HY19q2mhqFDJKIqEwwBT0z+tVPlDhC/1OK2xP+q6xnwAhtwv+6HRpbxkYAp9RxZWOSQw==" /></div>      <dl class="form-group"><dt class="input-label"><label autocapitalize="off" autofocus="autofocus" data-autocheck-authenticity-token="w5+bSe7SZIEsEQyzW/KX1jevu/DvG+Lx/xJlkcK7T3XaRF75rEZYQGbxNpHIruTP5HdoIBr2sVRuCKVMfQdDMQ==" data-autocheck-url="/signup_check/username" data-facebox-id="user-login-issues" for="user_login_issues" name="user[login]">Pick a username</label></dt><dd><input autocapitalize="off" autofocus="autofocus" class="form-control" data-autocheck-authenticity-token="w5+bSe7SZIEsEQyzW/KX1jevu/DvG+Lx/xJlkcK7T3XaRF75rEZYQGbxNpHIruTP5HdoIBr2sVRuCKVMfQdDMQ==" data-autocheck-url="/signup_check/username" data-facebox-id="user-login-issues" id="user_login_issues" name="user[login]" size="30" type="text" /></dd></dl>
+
+      <dl class="form-group"><dt class="input-label"><label autocapitalize="off" data-autocheck-authenticity-token="xeHd3YOZFLgn/wKSrnr3S5K/pfS3uahjRZkEyF/GAox5tVDtY/iX6nz4Ft2gcN5z6H40XmBA692d77pCIoXTLA==" data-autocheck-url="/signup_check/email" data-facebox-id="user-email-issues" for="user_email_issues" name="user[email]">Email Address</label></dt><dd><input autocapitalize="off" class="form-control" data-autocheck-authenticity-token="xeHd3YOZFLgn/wKSrnr3S5K/pfS3uahjRZkEyF/GAox5tVDtY/iX6nz4Ft2gcN5z6H40XmBA692d77pCIoXTLA==" data-autocheck-url="/signup_check/email" data-facebox-id="user-email-issues" id="user_email_issues" name="user[email]" size="30" type="text" /></dd></dl>
+
+      <dl class="form-group"><dt class="input-label"><label data-autocheck-authenticity-token="QSTP6P5DoiNJ6Lu6JoftcZtUbeS5zAbY1AqQY33b2P/vsdUUcL8ebaywWWhf0IaZsrIHo9vQOyZQMgGh8SPr6g==" data-autocheck-url="/signup_check/password" data-facebox-id="user-password-issues" for="user_password_issues" name="user[password]">Password</label></dt><dd><input class="form-control" data-autocheck-authenticity-token="QSTP6P5DoiNJ6Lu6JoftcZtUbeS5zAbY1AqQY33b2P/vsdUUcL8ebaywWWhf0IaZsrIHo9vQOyZQMgGh8SPr6g==" data-autocheck-url="/signup_check/password" data-facebox-id="user-password-issues" id="user_password_issues" name="user[password]" size="30" type="password" /></dd></dl>
+
+      <input type="hidden" name="source" class="js-signup-source" value="modal-issues">
+      <input class="form-control" id="required_field_bac6" name="required_field_bac6" style="display: none" type="text" />
+<input class="form-control" name="timestamp" type="hidden" value="1504951898162" />
+<input class="form-control" name="timestamp_secret" type="hidden" value="4b4deccdd46d10205f62271bdf3aa2c86823cba14b600b4d641f8dc5dfd78a2d" />
+
+
+      <button class="btn btn-primary mt-2 btn-block" type="submit" data-ga-click="(Logged out) New issue modal, clicked Sign up, text:sign-up">Sign up for GitHub</button>
+</form>
+    <p class="mt-4 text-gray text-center">Already on GitHub? <a href="/login?return_to=%2Fphuslu%2Fgoproxy%2Fissues%2Fnew" data-ga-click="(Logged out) New issue modal, clicked Sign in, text:sign-in">Sign in</a> to your account</p>
+  </div>
+</div>
+
+      </div>
+
+    <h1 class="gh-header-title">
+      <span class="js-issue-title">
+        请问，gp是依托那个网址来运行？
+      </span>
+      <span class="gh-header-number">#1543</span>
+    </h1>
+  </div>
+
+
+  <div class="TableObject gh-header-meta">
+    <div class="TableObject-item">
+        <div class="State State--red">
+          <svg aria-hidden="true" class="octicon octicon-issue-closed" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"/></svg>
+          Closed
+        </div>
+    </div>
+    <div class="TableObject-item TableObject-item--primary">
+        <a href="/523860169" class="author">523860169</a>  opened this <span class="noun">Issue</span>
+        <relative-time datetime="2017-03-08T12:40:46Z">Mar 8, 2017</relative-time>
+        &middot; 24 comments
+    </div>
+  </div>
+</div>
+
+
+    <h2 class="sr-only">Comments</h2>
+    <div id="discussion_bucket" class="clearfix">
+      <div class="discussion-sidebar">
+        <div id="partial-discussion-sidebar"
+  class="js-socket-channel js-updatable-content"
+  data-channel="issue:212723497"
+  data-url="/phuslu/goproxy/issues/1543/show_partial?partial=issues%2Fsidebar">
+
+  <div class="discussion-sidebar-item sidebar-assignee js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/issues/1543?partial=issues%2Fsidebar%2Fshow%2Fassignees" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="31kAefcyIQ0W/H1o0cyZkwQGzW/gWey1W3t4qdzOh9fqFwkLN8So1EYIUXtl4e+K9wzCTb7m2rovfsi8kTNVsA==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Assignees
+  </div>
+
+    <span class="css-truncate">
+    No one assigned
+</span>
+
+</form></div>
+
+  <div class="discussion-sidebar-item sidebar-labels js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/issues/1543?partial=issues%2Fsidebar%2Fshow%2Flabels" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="dGXot3Zc8yM7QFN3edSScaGJec8GesFmgFqvUiwqJaVBK+HFtqp6+mu0f2TN+eRoUoN27VjF92n0Xx9HYdf3wg==" /></div>
+    <div class="js-issue-labels-container">
+      
+
+  <div class="discussion-sidebar-heading text-bold">
+    Labels
+  </div>
+
+
+    </div>
+    <div class="labels css-truncate">
+    None yet
+</div>
+
+</form></div>
+
+    <div class="discussion-sidebar-item js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/projects/issues/1543" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="CLbazB83u2/NYQyyO1/C6oVd3kCzjiaTUXbX7KhkAiWi66+aVgd+jkBnsO9/TTsyHBbeVss2uxJ1ObVIl+eIAQ==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Projects
+  </div>
+
+    <span class="css-truncate">
+    None yet
+</span>
+
+</form></div>
+
+  <div class="discussion-sidebar-item sidebar-milestone js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/issues/1543/set_milestone?partial=issues%2Fsidebar%2Fshow%2Fmilestone" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="GIKwuDDhBRBEtxO/2Vm9tOwWUXjZMq/Y4K5EY6+XpKqyNagOGQwmQ/P/cWAzBACvv/grsxZ3uD74ruPwtbl5zw==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Milestone
+  </div>
+
+      No milestone
+
+</form></div>
+
+  
+  <div id="partial-users-participants" class="discussion-sidebar-item">
+  <div class="participation">
+
+    <div class="discussion-sidebar-heading text-bold">
+      2 participants
+    </div>
+    <div class="participation-avatars">
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="523860169" href="/523860169"><img alt="@523860169" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/6436073?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="SeaHOH" href="/SeaHOH"><img alt="@SeaHOH" class="avatar" height="26" src="https://avatars1.githubusercontent.com/u/8470820?v=4&amp;s=52" width="26" /> </a>
+    </div>
+  </div>
+</div>
+
+
+  
+
+</div>
+
+      </div>
+
+      <div class="discussion-timeline js-quote-selection-container ">
+
+        <div class="js-discussion js-socket-channel" data-channel="marked-as-read:issue:212723497">
+          
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issue-212723497"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="210a3d9ec4d7413414aa21b60f0935a9">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issue-212723497" class="timestamp"><relative-time datetime="2017-03-08T12:40:46Z">Mar 8, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>你好，我有在路由器里利用ipset来匹配google网址以自动走ss，但是电脑上想尝试下gp的效果，却发现gp一直走的路由器上的ss通道，因为当我关闭路由上的ss时，电脑上的gp也死了。<br>
+于是我去除.appspot.com和.google.com的ipset规则，并停用路由器的ss，结果还是不行，所以产生了这个疑问，我需要去掉哪个网址的ipset规则，电脑上的gp才不会走ss通道</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-285036517"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="7d1d258717e2687f1f3aad25fce8dd05">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-285036517" class="timestamp"><relative-time datetime="2017-03-08T13:11:56Z">Mar 8, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>你搞错了，不是域名是 IP。域名即使配置了，也会解析成 IP 再使用。<br>
+所以只能黑名单，不能白名单。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-285036905"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="91cc907abf3395e3b1417853289dfb79">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-285036905" class="timestamp"><relative-time datetime="2017-03-08T13:13:44Z">Mar 8, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/seahoh" class="user-mention">@SeaHOH</a> 可是我浏览器里全局走gp，google显示的ip却是ss的ip，且路由器上的ss 停用后，gp也死了啊</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-285041385"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="b3d044646012bd213e43c2b8cf3f190d">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-285041385" class="timestamp"><relative-time datetime="2017-03-08T13:34:19Z">Mar 8, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/seahoh" class="user-mention">@SeaHOH</a> 找到了，应该是.gae.googleusercontent.com，因为在某个没有添加ipset规则的测ip网站上，显示的是hostname是127.194.178.107.gae.googleusercontent.com</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-285054861"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="3026ef5b6d947cdf730e3762b7e4d0e9">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-285054861" class="timestamp"><relative-time datetime="2017-03-08T14:28:27Z">Mar 8, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <blockquote>
+<p>google显示的ip却是ss的ip</p>
+</blockquote>
+<p>哪儿显示的？</p>
+<blockquote>
+<p>因为在某个没有添加ipset规则的测ip网站上，显示的是hostname是127.194.178.107.gae.googleusercontent.com</p>
+</blockquote>
+<p>没看懂，测的什么 IP？</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-285243887"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="c524a79b778e75fa1887acbf88e497ec">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-285243887" class="timestamp"><relative-time datetime="2017-03-09T03:24:55Z">Mar 9, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="523860169 edited this comment 6 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/seahoh" class="user-mention">@SeaHOH</a> 这是我浏览器全局走gp情况下，分别访问google和另一个测ip网站的结果，前者在路由器里有设置基于域名的ipset规则（例如ipset=/.google.com/proxylist），得到的ip是ss的ip，后者没有ipset规则，得到的ip是谷歌的ip<br>
+<a href="https://cloud.githubusercontent.com/assets/6436073/23734564/d0f9b668-04ba-11e7-9fe0-c12584c961a1.PNG" target="_blank"><img src="https://cloud.githubusercontent.com/assets/6436073/23734564/d0f9b668-04ba-11e7-9fe0-c12584c961a1.PNG" alt="1" style="max-width:100%;"></a><br>
+<a href="https://cloud.githubusercontent.com/assets/6436073/23734565/d15494c0-04ba-11e7-8cf0-ade509fba86e.PNG" target="_blank"><img src="https://cloud.githubusercontent.com/assets/6436073/23734565/d15494c0-04ba-11e7-8cf0-ade509fba86e.PNG" alt="2" style="max-width:100%;"></a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-285282421"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="dde65580914e7474b733deffbc4a6a35">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-285282421" class="timestamp"><relative-time datetime="2017-03-09T08:05:56Z">Mar 9, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>懂了。<br>
+第一个谷歌是 GoProxy 直连，你设置了 ipset 到 SS 的路由，所以显示 SS IP；<br>
+第二个是 GAE 出口 IP，正常。</p>
+<p>新建一个 ipset，将以下配置中的域名和 IP 添加进这个 ipset，然后配置走默认路由，不走 SS。<br>
+<code>gae.json -&gt; HostMap -&gt; google_hk | google_cn</code></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288735293"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="5e4fe349d7c17cd3cbac4482979819f4">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288735293" class="timestamp"><relative-time datetime="2017-03-23T14:25:17Z">Mar 23, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="523860169 edited this comment 6 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>我在firewall.user里是下列这样来和ipset搭配用的</p>
+<pre><code>ipset flush proxylist
+ipset create proxylist hash:ip
+iptables -t nat -I PREROUTING -p tcp -m set --match-set proxylist dst -j REDIRECT --to-port 1080
+iptables -t nat -I OUTPUT -p tcp -m set --match-set proxylist dst -j REDIRECT --to-port 1080
+ipset flush noproxylist
+ipset create noproxylist hash:ip
+
+</code></pre>
+<p>所以，如果要排除<code>gae.json -&gt; HostMap -&gt; google_hk | google_cn</code>里的域名，假设已经写好了那些排除的域名的ipset组为noproxylist，iptables规则应该怎么写才能走默认路由</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288758545"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="007769def110d80cb1adf083b82937b1">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288758545" class="timestamp"><relative-time datetime="2017-03-23T15:34:50Z">Mar 23, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>使用 -j ACCEPT 放行，记得把 noproxylist 的规则放在前面匹配。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288762246"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="c4e9cbc14efc24166b2dd2daeb58fd4b">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288762246" class="timestamp"><relative-time datetime="2017-03-23T15:45:51Z">Mar 23, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>这样吗？</p>
+<pre><code>ipset flush noproxylist
+ipset create noproxylist hash:ip
+iptables -t nat -I PREROUTING -p tcp -m set --match-set noproxylist dst -j ACCEPT
+iptables -t nat -I OUTPUT -p tcp -m set --match-set noproxylist dst -j ACCEPT
+ipset flush proxylist
+ipset create proxylist hash:ip
+iptables -t nat -I PREROUTING -p tcp -m set --match-set proxylist dst -j REDIRECT --to-port 1080
+iptables -t nat -I OUTPUT -p tcp -m set --match-set proxylist dst -j REDIRECT --to-port 1080
+</code></pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288764165"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="b706288dd67450236bd3f557355ad3df">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288764165" class="timestamp"><relative-time datetime="2017-03-23T15:51:25Z">Mar 23, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="SeaHOH edited this comment 6 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>差不多就这样，<del>其实那两条 PREROUTING 规则好像可以不用</del>。<br>
+搞忘了，你这个是路由器，PREROUTING 规则应该是给其它机器用的。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288765861"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="031873b878039b61d8f8c3bc4087fc9e">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288765861" class="timestamp"><relative-time datetime="2017-03-23T15:55:53Z">Mar 23, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>其实我之前也没有prerouting，后来好像遇到什么了，才加了这两条进去的</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288770114"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="174dc4f5e6c02286180fac3a34115834">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288770114" class="timestamp"><relative-time datetime="2017-03-23T16:07:30Z">Mar 23, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>无所谓，才四条规则，不算多。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288925431"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="2375fd738ef013612ef6953e9dc25999">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288925431" class="timestamp"><relative-time datetime="2017-03-24T03:40:30Z">Mar 24, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>我ipset这么设置</p>
+<pre><code>ipset=/mail.google.com/noproxylist
+ipset=/mail.l.google.com/noproxylist
+ipset=/maps.l.google.com/noproxylist
+ipset=/scholar.google.com/noproxylist
+ipset=/scholar.google.com.hk/noproxylist
+ipset=/www.l.google.com/noproxylist
+ipset=/.google.com/proxylist
+ipset=/.google.com.hk/proxylist
+</code></pre>
+<p>firewall.user这么设置</p>
+<pre><code>ipset flush noproxylist
+ipset create noproxylist hash:ip
+iptables -t nat -I PREROUTING -p tcp -m set --match-set noproxylist dst -j ACCEPT
+iptables -t nat -I OUTPUT -p tcp -m set --match-set noproxylist dst -j ACCEPT
+ipset flush proxylist
+ipset create proxylist hash:ip
+iptables -t nat -I PREROUTING -p tcp -m set --match-set proxylist dst -j REDIRECT --to-port 1080
+iptables -t nat -I OUTPUT -p tcp -m set --match-set proxylist dst -j REDIRECT --to-port 1080
+</code></pre>
+<p>但是不挂代理时mail.google.com还是可以上，gp在google的ip还是显示ss的ip</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288929582"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="d3f5dc9002c70ae229d4227823061583">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288929582" class="timestamp"><relative-time datetime="2017-03-24T04:18:22Z">Mar 24, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="523860169 edited this comment 6 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>算了，中午短暂好了一会，路由器重启后又不行了，又反复调整尝试，都不行</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288948634"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="a4eb118f61dbdad88f4748429c757c1a">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288948634" class="timestamp"><relative-time datetime="2017-03-24T07:04:14Z">Mar 24, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="SeaHOH edited this comment 6 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>其实你 noproxylist 里面不光是放 google_hk，还可以放 google_cn 进去。</p>
+<p>不挂代理是指 goproxy？</p>
+<p>关于调顺序的问题，我才发现你命令是 <strong>-I</strong>，下意识的想成 <strong>-A</strong> 了：<br>
+<strong>-I</strong> 是插入到前面，所以顺序要对调一下;<br>
+<strong>-A</strong> 是附加到后面，顺序刚好相反。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-288951016"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="05a83f9d59859ae2b589e67dcef5d117">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-288951016" class="timestamp"><relative-time datetime="2017-03-24T07:20:45Z">Mar 24, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>话说，其实当后面有个透明代理时，想在这个透明代理处正确分流前面一个代理的流量是比较麻烦的，而且可能不是很精准。这涉及到两个代理使用的 DNS，解析结果务必要相同。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291470355"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="1caa3cfdb52baf2b5468d5b6ab27b504">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291470355" class="timestamp"><relative-time datetime="2017-04-04T11:19:12Z">Apr 4, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="523860169 edited this comment 5 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/seahoh" class="user-mention">@SeaHOH</a> 我吧google_hk里的几个网址全删掉，替换成检测到的可用gae ip后，已经成功解决问题了。<br>
+现在不仅不需要路由器端另建ipset白名单+firewall规则，goa也不会再一直提示deadline了<br>
+就是google老提示流量异常，经常让验证有点烦</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  
+    
+<div class="discussion-item discussion-item-closed">
+  <h3 class="discussion-item-header f5 text-normal" id="event-1028198216">
+
+    <span class="discussion-item-icon">
+      <svg aria-hidden="true" class="octicon octicon-circle-slash" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm0 1.3c1.3 0 2.5.44 3.47 1.17l-8 8A5.755 5.755 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zm0 11.41c-1.3 0-2.5-.44-3.47-1.17l8-8c.73.97 1.17 2.17 1.17 3.47 0 3.14-2.56 5.7-5.7 5.7z"/></svg>
+    </span>
+    
+
+  <img src="https://avatars1.githubusercontent.com/u/6436073?v=4&amp;s=32" alt="@523860169" height="16" width="16" class="avatar">
+  <a href="/523860169" class="author">523860169</a>
+  
+
+      closed this
+      
+      
+    <a href="#event-1028198216" class="timestamp"><relative-time datetime="2017-04-04T11:19:12Z">Apr 4, 2017</relative-time></a>
+  </h3>
+</div>
+
+  <div class="closed-banner"></div>
+
+
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291473777"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="6e018d5647b2ca5e74887e9f7e6679ed">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291473777" class="timestamp"><relative-time datetime="2017-04-04T11:37:02Z">Apr 4, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>这也是种解决方法，排除了 DNS 不一致的问题。</p>
+<p>关于异常验证，试一下下面的方法。我没有使用 goproxy，但是这应该是可行的。<br>
+既然用 IP 的话，建议新加一个 IP 列表，里面全部放 gws IP；<br>
+然后把 SiteToAlias 里面的 google_hk 改成这个列表名称。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291476208"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="aab409ba88fda8219ada81d59aead5c2">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291476208" class="timestamp"><relative-time datetime="2017-04-04T11:49:02Z">Apr 4, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="523860169 edited this comment 5 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>嗯，我试试看，现在变这样了</p>
+<pre><code>	"HostMap" : {
+		"gws_ip": [
+			"115.164.140.234",
+			"172.217.25.127",
+			"189.247.160.94",
+			"61.238.239.173",
+			"66.96.224.155",
+			"113.171.247.39",
+			"115.164.140.234",
+			"113.171.247.39",
+			"66.96.224.155",
+			"66.96.224.26",
+			"203.133.72.152",
+		],
+		"google_hk": [
+			"mail.google.com",
+			"mail.l.google.com",
+			"maps.l.google.com",
+			"scholar.google.com",
+			"scholar.google.com.hk",
+			"www.l.google.com",
+		],
+		"google_cn": [
+			"www.g.cn",
+			"www.google.cn"
+			]
+	},
+	"SiteToAlias": {
+		"*.doubleclick.net": "google_cn",
+		"*.google-analytics.com": "google_cn",
+		"*.google.cn": "google_cn",
+		"*.googlesyndication.com": "google_cn",
+		"*.googletagmanager.com": "google_cn",
+		"*.googletagservices.com": "google_cn",
+		"csi.gstatic.com": "google_cn",
+		"fonts.gstatic.com": "google_cn",
+		"dl.google.com": "google_cn",
+		"fonts.googleapis.com": "google_cn",
+		"*.appspot.com": "gws_ip",
+		"*.ggpht.com": "gws_ip",
+		"*.google.com": "gws_ip",
+		"*.google.co.jp": "gws_ip",
+		"*.google.co.kr": "gws_ip",
+		"*.google.co.uk": "gws_ip",
+		"*.google.com.hk": "gws_ip",
+		"*.google.com.sg": "gws_ip",
+		"*.google.com.tw": "gws_ip",
+		"*.googleapis.com": "gws_ip",
+		"*.googlecode.com": "gws_ip",
+		"*.googlegroups.com": "gws_ip",
+		"*.googleusercontent.com": "gws_ip",
+		"*.gstatic.com": "gws_ip",
+		"*.ytimg.com": "gws_ip",
+		"upload.youtube.com": "gws_ip",
+		// "*.youtube.com": "gws_ip",
+	},
+</code></pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291480206"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="50596e97a81be155bb22f66acf79f48f">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291480206" class="timestamp"><relative-time datetime="2017-04-04T12:08:16Z">Apr 4, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="SeaHOH edited this comment 5 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>google_hk 还是要用 IP 的，刚才说漏了一点，下面这个保持原样<br>
+<code>"*.appspot.com": "google_hk",</code></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291487611"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="a80eedeef180ae7f0f17172628d130f6">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291487611" class="timestamp"><relative-time datetime="2017-04-04T12:42:33Z">Apr 4, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>这样不是就跟我之前的做法差不多吗</p>
+<pre><code>"google_hk": [
+			"115.164.140.234",
+			"172.217.25.127",
+			"189.247.160.94",
+			"61.238.239.173",
+			"66.96.224.155",
+			"113.171.247.39",
+			"115.164.140.234",
+			"113.171.247.39",
+			"66.96.224.155",
+			"66.96.224.26",
+			"203.133.72.152",
+		],
+</code></pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291491874"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="757c741335a9fcfc0d367411f78e352a">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291491874" class="timestamp"><relative-time datetime="2017-04-04T12:59:53Z">Apr 4, 2017</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="SeaHOH edited this comment 5 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>google_hk 还可以放 gvs IP，增加 good IP 数量。<br>
+另建 gws IP 列表确保直连正常使用。<br>
+如果 google_hk 也全部放 gws IP 就没区别。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/523860169">
+      <img alt="@523860169" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6436073?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291493806"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="7dd3d02952fe764b510df2e460979374">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/523860169" class="author">523860169</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291493806" class="timestamp"><relative-time datetime="2017-04-04T13:07:44Z">Apr 4, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>就是gws_ip放gws，google_hk放gvs的？<br>
+其实我不是很懂这两个的区别，要不两个都放在google_hk，就不要再弄gws_ip这个表了？</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/SeaHOH">
+      <img alt="@SeaHOH" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/8470820?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-291497517"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="6f75e7bde8445287724d6e593045ffc9">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/SeaHOH" class="author">SeaHOH</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-291497517" class="timestamp"><relative-time datetime="2017-04-04T13:21:30Z">Apr 4, 2017</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>如果你不清楚就不要改吧，只是看你说有异常提示验证才想到这么个方法，我也没用过。<br>
+google_hk 可以多放点 IP，几百上千个，gws 和 gvs 都可以。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+
+
+
+
+<!-- Rendered timeline since 2017-04-04 06:21:30 -->
+<div id="partial-timeline-marker"
+      class="js-timeline-marker js-socket-channel js-updatable-content"
+      data-channel="issue:212723497"
+      data-url="/phuslu/goproxy/issues/1543/show_partial?partial=issues%2Ftimeline_marker&amp;since=1491312090"
+      data-last-modified="Tue, 04 Apr 2017 13:21:30 GMT">
+
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/notifications/mark?ids=207286397" class="d-none js-timeline-marker-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="GFc3OFF6blvi+/8U6d/ERGkUZ7QHjqWayzvawAzbJiJ4IWZ9Obn/qdFw+gmy8Y35xPDhZsFyTgjW/qkrHKHmcQ==" /></div>
+</form></div>
+
+
+        </div>
+
+
+        <div class="discussion-timeline-actions">
+                <div class="flash flash-warn mt-3">
+    <a href="/join?source=comment-repo" class="btn btn-primary" rel="nofollow">Sign up for free</a>
+    <strong>to join this conversation on GitHub</strong>.
+    Already have an account?
+    <a href="/login?return_to=https%3A%2F%2Fgithub.com%2Fphuslu%2Fgoproxy%2Fissues%2F1543" rel="nofollow">Sign in to comment</a>
+</div>
+
+
+        </div>
+      </div>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  </div>
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+
+      
+<div class="footer container-lg px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between py-6 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3">&copy; 2017 <span title="0.50053s from unicorn-3883566284-j0ssh">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li class="mr-3"><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li class="mr-3"><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage" class="footer-octicon" title="GitHub">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+    <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
+      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li class="mr-3"><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li class="mr-3"><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+    You can't perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/compat-91f98c37fc84eac24836eec2567e9912742094369a04c4eba6e3cd1fa18902d9.js"></script>
+    <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-d3f8e3cb05c4495afc78c37af32e877f99d47cb06a8158efafa2aebf5567c830.js"></script>
+    
+    <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-8a662586ed50ce5d122edec0eca4c2db052b63588ab3fc192b418f261d2d0b53.js"></script>
+    
+    
+    
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  </body>
+</html>
+

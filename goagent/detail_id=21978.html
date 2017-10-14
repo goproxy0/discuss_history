@@ -1,0 +1,1828 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"token": null, "domainName": null, "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null, "projectHomeUrl": "/p/goagent", "projectName": "goagent", "relativeBaseUrl": ""};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21978 - 
+ goagent -
+ 
+ 最近有很多的教程，但让大部分小白看得一塌糊涂，莫名其妙。 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21978&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21978" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21978">21978</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >最近有很多的教程，但让大部分小白看得一塌糊涂，莫名其妙。</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 4 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21978">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+>,
+ <span class="date" title="Sat Jul 18 09:07:39 2015">Jul 18, 2015</span>
+ 
+ </div>
+<pre>
+我代表各位小白，提一些比较具体的问题。恳请哪位大神解答。
+
+1/ 如何使用Proxifier，3proxy或者meow为goagent设置前置代理，前置代理如果是蓝灯，赛风或者Shadowsocks，分别该怎么设置? 请举一个例子就好，其它有具体不同的请简约说明下。最好能提供详细的设置步骤。
+
+2/ 对应的设置在goagent里面又该怎么设置？以及在goagent里面设置时某些需要注意到问题。
+
+我个人就试过按照某些教程，想用proxifier设置蓝灯为goagent的前置代理，但从来没有成功过。我的设置步骤是这样的：当时已经开启了蓝灯，然后打开proxifier，添加https 127.0.0.1：8787，然后指定goagent文件夹里的goagent.exe; goagent-uv.exe; python27.exe这三个文件到proxifier里面，在action那项里选择proxy https 127.0.0.1  然后我打开goagent配置，关闭配置里的代理enable = 0，浏览器设置代理127.0.0.1 8087  然后打开goagent，马上报错。请问我的设置错误中哪里？
+
+对了蓝灯我使用的是绿色版的那个 名称为：update_windows_386  下载后直接点击使用的。
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:12:02 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21978#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/117076119666858916939/">linhaico...@gmail.com</a
+></span>
+ 
+<pre>
+设置蓝灯为goagent的前置代理，干嘛搞这么复杂，直接在goagent里的配置文件proxy.ini里设置就解决了。
+
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 8787
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:14:43 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21978#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/106793855574477549069/">zhang.e...@gmail.com</a
+></span>
+ 
+<pre>
+直接上蓝灯吧,别折腾goagent了,现在讨论的都是如何加速蓝灯和赛风.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:21:14 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21978#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/117076119666858916939/">linhaico...@gmail.com</a
+></span>
+ 
+<pre>
+再给你讲个meow(蓝灯前置，goagent后置)
+打开meow文件夹下的rule.txt文件
+添加以下这句: (其实人家打#号注释那段已经讲得很明白了。。)
+proxy = http://127.0.0.1:8787
+
+然后修改goagent的proxy.ini文件
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 4411
+
+然后依次打开蓝灯、meow、goagent。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:25:00 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21978#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+#3 linhaico...@gmail.com谢谢楼上！我马上试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:27:27 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21978#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+#2 zhang.e...@gmail.com  怎么加速度问题也让我看得一头雾水。。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:36:53 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21978#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+#1 linhaico...@gmail.com 确实这么简单的设置下goagent就可以用了，但如果可以直接使用蓝灯或者赛风的话，为啥还要设置为goagent的前置代理呢？ 另外既然设置如此简单，为什么那么多人都在说用Proxifier来指定，似乎这样更好一些。。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:38:03 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21978#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+#3 linhaico...@gmail.com
+再给你讲个meow(蓝灯前置，goagent后置)
+打开meow文件夹下的rule.txt文件
+添加以下这句: (其实人家打#号注释那段已经讲得很明白了。。)
+proxy = http://127.0.0.1:8787
+
+然后修改goagent的proxy.ini文件
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 4411
+
+然后依次打开蓝灯、meow、goagent。
+
+
+请问，为什么还要用meow？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:54:46 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21978#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/102692193260181847760/">blues.ji...@gmail.com</a
+></span>
+ 
+<pre>
+蓝灯前置goagent，如果蓝灯慢带宽低，则goagent也慢，如果蓝等快，则goagent也快，总结，完全没必要给goagent做前置，直接使用更快的就行了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:55:26 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21978#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/110967493606101411609/">huaiqing...@gmail.com</a
+></span>
+ 
+<pre>
+哎，我等小白有得折腾了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 10:01:58 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21978#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/117076119666858916939/">linhaico...@gmail.com</a
+></span>
+ 
+<pre>
+#6 Proxifier相关的自己搜帖，就是让赛风加速。有好的akamaihd IP，那速度杠杠的。。反正Google IP封得差不多了，大家就转移到akamaihd IP
+
+#7 用meow主要是跟SS搭，我没购买这玩意，所以用蓝灯举例。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 10:03:49 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21978#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/117076119666858916939/">linhaico...@gmail.com</a
+></span>
+ 
+<pre>
+赛风akamaihd cdn加速，用3proxy也可以实现,去搜帖吧，反正我这边确实速度有了明显的飞跃。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 10:09:02 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21978#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+正常情况
+browser &lt;-&gt; youtube
+
+因为gfc导致上述连接无法实现，引入中转
+browser &lt;-&gt; goagent &lt;-&gt; gws/gvs &lt;-&gt; youtube
+
+再因为gfc导致goagent &lt;-&gt; gws/gvs也无法连接，再次引入中转
+browser &lt;-&gt; goagent &lt;-&gt; meow &lt;-&gt; ss server &lt;-&gt; gws/gvs &lt;-&gt; youtube
+
+
+看到这里，显然有个问题：
+既然关键在于没被干扰的中转，为什么要保留已经被干扰的中转，不直接就用
+browser &lt;-&gt; meow &lt;-&gt; ss server &lt;-&gt; youtube
+呢？
+
+答案是，完全可以啊！
+
+
+那goaent + meow有什么好处呢？
+有些人是为了goagent里的autorange功能，更多的似乎只是在“跟着潮流走” XD
+
+autorange有什么用？
+分段下载，从而利用多线程
+单线程就是从头到尾，按部就班；分段启用多线程可以＊同时＊对一个文件的不同部分下载，有个加速的作用（要看具体情况，并不绝对）
+
+结论：
+用了meow又想要autorange，就加上goagent
+不需要，就单用meow（或任何其它的ss客户端）
+
+
+附１：
+meow通过ss翻墙，goagent通过gae，两个是完全不同的独立的软件
+所谓“meow让goagent复活了”之类的说法，偶只能说：我特的法可？！
+
+附２：
+autorange最常见的应用多数就是youtube，firefox里关于视频的设置已经有分段的选项了
+about:config?filter=media.fragmented
+
+附３：
+proxy chain不涉及技术也该能想到一个问题，即速度永远取决于最慢的那一环！
+
+
+最后，这是私货！
+偶还在坚守wallproxy，用gws（64.233.162.81-87），还把autorange关掉了。。。哈哈
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 10:25:22 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21978#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#12 你侧重的是Speed，我们玩的是HighSpeed &amp; HighSecurity。
+这种玩法只能MEOW+Wallproxy/GOA。遇到蜜罐就知道这种方式的好了。
+不过学到一点，可以关闭掉Wallproxy的Autorange，让Browser自己决定，
+这个主意不错，测试发现，这么玩速度还要快点。哈哈。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 10:57:14 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21978#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/104623154141294271502/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+俺蛤蟆大神也有问题请教楼主，最近也莫名其妙的一塌糊涂：
+蛤蟆大神和网吧肥婆寡妇结了婚，洞房时，寡妇穿着死了的前夫买的蕾丝内衣像肉粽子似的走了进来，对蛤蟆吼道：“亲爱的，想要吗？”蛤蟆兴奋地说：“想要！你赶紧脱下来我穿试试！寡妇说：你咋恁抠门哦？死人买的东西也要？蛤蟆笑答：我这畜生没什么不好，就是有点抠门，其它沒啥缺点。”寡妇怒骂“你少废话，你看看网吧女厕所的门被你抠成啥样了！老娘今晚要你那抠门的功力扣俺下面的大嘴巴子”这寡妇已五十八了，她有一个已成年的女儿。这女子在门外听见老娘杀猪般的嚎，忍不住了呀，是啊，谁人又忍得住啊呀。刚好蛤蟆他爹老蛤蟆在外面扒拉阴沟，（他爹爱吃阴沟里的蛤蟆，活了八十八赛王八啦，镇上记者曾采访他，“老人家，你是吃什么东西才能保持长寿的啊？”
+“我们这蛤蟆村只出蛤蟆，俺也好这口。”
+“那你现在最大的愿望是什么呢？”
+“我最想死。”
+“啊！为什么？”
+“吃了八十八年的蛤蟆，你不想死啊）。他爹老蛤蟆在外面扒拉阴沟找蛤蟆吃，刚好找着了一只红蛤蟆，高兴得大叫：老子今晚有的爽，寡妇的女儿听见爽字，刺啦衣服一脱就和老蛤蟆干上了，好上了，结了婚啦。所以蛤蟆爹就成了蛤蟆女婿。这女儿就成了蛤蟆的后娘，蛤蟆爹就得管蛤蟆叫爹，蛤蟆也管他爹叫爹，肥婆的女儿管蛤蟆叫爹，蛤蟆也得管她叫娘。蛤蟆还得管肥婆叫姥姥，因为她是蛤蟆后娘的娘。不久，后娘生了一个儿子，这个儿子是蛤蟆同父异母的弟弟，蛤蟆也得管那小子叫佬爷。后来蛤蟆的老婆，也就是蛤蟆的姥姥，也生了一个儿子，也就是蛤蟆的舅舅，同时也是蛤蟆的弟弟，也是蛤蟆的女儿的弟弟，所以蛤蟆……蛤蟆不知道自己是自己的啥了，就疯了，见谁就喊别人叫他大神神神经病。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 16:26:00 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21978#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#3 贴子里有点错误..
+
+有关meow还是看我这贴吧，包括回贴也看完，redforg大神已经说得很清楚了
+<a href="https://code.google.com/p/goagent/issues/detail?id=21934" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21934</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 17:33:30 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21978#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+#13 redfrog...@gmail.com
+
+我追求什么速度，我现在wallproxy+gws看youtube都不够力，也就看看新闻
+
+你很清楚自己在干什么，架两个还是三个四个都有相应的目的，但我看到很多跟贴的人完全就是从
+
+omg! goagent用不鸟啦！
+到
+omg! 加个meow又活过来啦！
+
+然后就一窝蜂上了。。。
+
+
+弄清楚背后的机制，就知道用一个就行，用不用两个（多个）各人看需要
+
+不弄清楚光埋头折腾，照猫画虎弄通的还好，弄不通的好多连问都问不到点子上
+光靠激情能维持多久？到时不知哪里见个“一键翻墙”人就给勾走了，。。。
+
+
+我追求滴不是速度，是人气！
+想我堂堂wallproxy用户，为毛总跑这儿来？不就是因为那里没人嘛。。。。哈哈
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 18:39:12 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21978#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/104623154141294271502/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+楼上你说的太深奥了，俺蛤蟆这智商还看不太明白，能否用直白的话儿说说？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 18:49:26 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21978#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#16 你和我的想法类似，按需定制，无需胡乱折腾，能出墙就好了么。然后
+再考虑如何高速出墙。
+
+小白其实就是应该先想清楚自己想要什么再来决定怎么走这个通道，最短
+的距离，节约最多的时间。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 18:55:48 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21978#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/104623154141294271502/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+老子正想五毛咋还不来了，这不biu的一下子就从阴沟冒出来了，你们这群垃圾总想着拉一派——————你和我的想法类似，这种下贱统战手法，只能招致我们的耻笑。注定徒劳无功。
+所以啊，我再次重申：你这智商还真只能当看洞狗，跪舔吃狗粮。绝对
+不是打诳语哟。嘿嘿。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 18:58:20 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21978#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/117233530844425301203/">PHILIPS....@gmail.com</a
+></span>
+ 
+<pre>
+你这个抽风的蛤蟆，谁在你眼里都是小白，你他妈的最黑，比你娘种了七十年的黑木耳都黑。你个完蛋鳖犊子臭不要脸的玩意儿。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 21:09:03 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21978#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/117076119666858916939/">linhaico...@gmail.com</a
+></span>
+ 
+<pre>
+#15 楼，我的是没错的，我是按蓝灯举例的，不是按ss来的，异曲同工。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 22:08:14 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21978#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#21 打开meow文件夹下的rule.txt文件 &lt;-- 不是rule.txt，是rc.tx文件
+
+好吧，我比较较真..
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:27:02 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21978#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/103113320735360514563/">herrsche...@gmail.com</a
+></span>
+ 
+<pre>
+gopr78/goa3.1.24/goa3.2.3+meow+lan, youtube720p, wordpress 正常,但*google.com* timeout; 但lan, 全部正常.请问如何设置?谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:32:09 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21978#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/115797144381963246600/">zhangcs....@gmail.com</a
+></span>
+ 
+<pre>
+这几天gvs死了一大片，试用了下蓝灯，但是为啥我每次启动都让我登录google账户，你们的也是不是这样
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:34:13 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21978#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/115797144381963246600/">zhangcs....@gmail.com</a
+></span>
+ 
+<pre>
+既然能登陆google，也就说明本来就是翻过的，也就不需要蓝灯了，这不是自相矛盾吗，还是因为我下载的不是原版
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:42:33 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21978#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#23 一般来说这样的问题都要查看你的SS 节点，或者换个节点试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:14:39 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21978#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/103113320735360514563/">herrsche...@gmail.com</a
+></span>
+ 
+<pre>
+#26 我的是goa+meow+lan, 不是goa+meow(through ss)
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:40:53 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21978#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/103113320735360514563/">herrsche...@gmail.com</a
+></span>
+ 
+<pre>
+#26 goa+meow+lan 只能使用google.co.jp, chained proxy at 45.63.120.99:443.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:44:35 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=21978#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+你可以顺着数据链路来查找，直接用goa+lan呢？我推荐用meow是基于meow对
+ss支持良好，而且可以转换为低加密高穿透性的http/https。剩下的网络问题需要
+自己细心排障了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21978">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21978',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21978,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

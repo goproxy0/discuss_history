@@ -1,0 +1,914 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"token": null, "projectHomeUrl": "/p/goagent", "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "domainName": null, "relativeBaseUrl": "", "loggedInUserEmail": null, "projectName": "goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22267 - 
+ goagent -
+ 
+ 升级成 windows 10 后 GoAgent 就不能用了 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22267&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22267" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22267">22267</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >升级成 windows 10 后 GoAgent 就不能用了</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 2 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22267">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/111891129703746085317/">Marching...@gmail.com</a
+>,
+ <span class="date" title="Mon Aug 10 08:10:58 2015">Aug 10, 2015</span>
+ 
+ </div>
+<pre>
+家里的笔记本升级成 Windows 10 后就不能用了， 公司的 Windows7 上的GoAgent还可以用。
+
+操作系统版本：Windows 10
+<b>浏览器版本：</b>
+GoAgent 版本：v3.2.3
+GoAgent 日志
+
+       INFO - [Aug 10 23:05:15] 127.0.0.1:50192 &quot;STRIP CONNECT mtalk.google.com:5228 HTTP/1.1&quot; - -
+127.0.0.1 - - [10/Aug/2015 23:05:15] code 400, message Bad request syntax (')\x02\x96\x01')
+127.0.0.1 - - [10/Aug/2015 23:05:15] code 400, message Bad Request
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 50192)
+Traceback (most recent call last):
+  File &quot;D:\Program Files (x86)\GoAgent\local\python27.zip\SocketServer.py&quot;, line 595, in process_request_thread
+  File &quot;D:\Program Files (x86)\GoAgent\local\proxylib.py&quot;, line 877, in finish_request
+  File &quot;proxy.py&quot;, line 759, in __init__
+  File &quot;D:\Program Files (x86)\GoAgent\local\python27.zip\SocketServer.py&quot;, line 653, in __init__
+  File &quot;D:\Program Files (x86)\GoAgent\local\proxylib.py&quot;, line 1478, in finish
+  File &quot;D:\Program Files (x86)\GoAgent\local\python27.zip\SocketServer.py&quot;, line 712, in finish
+  File &quot;D:\Program Files (x86)\GoAgent\local\python27.zip\socket.py&quot;, line 282,
+in close
+AttributeError: 'NoneType' object has no attribute 'close'
+----------------------------------------
+INFO - [Aug 10 23:05:48] 127.0.0.1:50196 &quot;STRIP CONNECT www.google.com:443 HTTP/1.1&quot; - -
+INFO - [Aug 10 23:05:48] ssl good_ipaddrs=0, bad_ipaddrs=0, unknown_ipaddrs=18
+WARNING - [Aug 10 23:05:52] create_ssl_connection to 'www.google.com' with [('2a00:1450:4016:800::1010', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4001:c02::63', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4002:801::1011', 443), ('2a00:1450:4013:c01::69', 443),
+('2a00:1450:4005:808::1013', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2404:6800:4005:802::1010', 443), ('2a00:1450:4007:808::1010', 443), ('2a00:1450:4007:807::1014', 443)] return ['timed out'], try again.
+INFO - [Aug 10 23:05:52] ssl good_ipaddrs=0, bad_ipaddrs=14, unknown_ipaddrs=4
+WARNING - [Aug 10 23:05:56] create_ssl_connection to 'www.google.com' with [('2a00:1450:400d:805::1013', 443), ('2a00:1450:4002:803::1013', 443), ('2607:f8b0:400c:c03::68', 443), ('2404:6800:4006:804::1011', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:c02::63', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:4002:801::1011', 443), ('2a00:1450:4007:808::1010', 443), ('2a00:1450:4005:808::1013', 443), ('2a00:1450:400d:805::1013', 443), ('2a00:1450:4002:803::1013', 443), ('2a00:1450:4001:80e::1011', 443), ('2404:6800:4005:802::1010', 443)] return ['timed out'], try again.
+INFO - [Aug 10 23:05:56] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+                                                                                WARNING - [Aug 10 23:06:00] create_ssl_connection to 'www.google.com' with [('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:c02::63', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:400d:805::1013', 443), ('2a00:1450:4002:803::1013', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:4007:807::1014', 443), ('2a00:1450:4002:801::1011', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4005:808::1013', 443), ('2a00:1450:400c:c03::93', 443), ('2404:6800:4006:804::1011', 443), ('2a00:1450:4007:808::1010', 443), ('2a00:1450:4001:c02::63', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:80e::1011', 443), ('2404:6800:4005:802::1010', 443), ('2a00:1450:4013:c01::69', 443)] return ['timed out'], try again.
+INFO - [Aug 10 23:06:00] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+WARNING - [Aug 10 23:06:04] create_ssl_connection to 'www.google.com' with [('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:c02::63', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4002:801::1011', 443), ('2a00:1450:400d:805::1013', 443), ('2a00:1450:4005:808::1013', 443), ('2a00:1450:4007:808::1010', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:4001:c02::63', 443), ('2404:6800:4005:802::1010', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4002:803::1013', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4013:c01::69', 443), ('2a00:1450:4002:801::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2404:6800:4006:804::1011', 443), ('2a00:1450:4007:807::1014', 443), ('2607:f8b0:400c:c03::68', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:80e::1011', 443)] return ['timed out'], try again.
+ERROR - [Aug 10 23:06:14] create_http_request &quot;GET <a href="https://www.google.com/webhp?source=search_app" rel="nofollow">https://www.google.com/webhp?source=search_app</a>&quot; failed:timed out
+Traceback (most recent call last):
+  File &quot;D:\Program Files (x86)\GoAgent\local\proxylib.py&quot;, line 2038, in create_http_request
+  File &quot;D:\Program Files (x86)\GoAgent\local\proxylib.py&quot;, line 2017, in create_ssl_connection
+timeout: timed out
+
+INFO - [Aug 10 23:06:14] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+WARNING - [Aug 10 23:06:18] create_ssl_connection to 'www.google.com' with [('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4002:803::1013', 443), ('2404:6800:4005:802::1010', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4002:801::1011', 443), ('2404:6800:4006:804::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:4007:808::1010', 443), ('2a00:1450:4001:c02::63', 443), ('2a00:1450:4007:807::1014', 443), ('2a00:1450:4005:808::1013', 443), ('2a00:1450:4013:c01::69', 443), ('2a00:1450:4016:800::1010', 443)] return ['timed out'], try again.
+INFO - [Aug 10 23:06:18] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+WARNING - [Aug 10 23:06:22] create_ssl_connection to 'www.google.com' with [('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:c02::63', 443), ('2a00:1450:4013:c00::68', 443), ('2607:f8b0:400c:c03::68', 443), ('2404:6800:4005:802::1010', 443), ('2a00:1450:4002:803::1013', 443), ('2a00:1450:4001:c02::63', 443), ('2404:6800:4006:804::1011', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:400d:805::1013', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:4007:807::1014', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4007:808::1010', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:4013:c01::69', 443)] return ['timed out'], try again.
+INFO - [Aug 10 23:06:53] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+INFO - [Aug 10 23:06:53] 127.0.0.1:50345 &quot;STRIP CONNECT clients4.google.com:443 HTTP/1.1&quot; - -
+INFO - [Aug 10 23:06:53] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+WARNING - [Aug 10 23:06:57] create_ssl_connection to 'www.google.com' with [('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:c02::63', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4007:808::1010', 443), ('2a00:1450:4005:808::1013', 443), ('2404:6800:4006:804::1011', 443), ('2a00:1450:4013:c00::68', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4002:803::1013', 443), ('2607:f8b0:400c:c03::68', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:4001:c02::63', 443), ('2a00:1450:4002:801::1011', 443), ('2404:6800:4005:802::1010', 443), ('2a00:1450:400d:805::1013', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4013:c01::69', 443), ('2a00:1450:4007:807::1014', 443)] return ['timed out'], try again.
+INFO - [Aug 10 23:06:57] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+WARNING - [Aug 10 23:06:57] create_ssl_connection to 'clients4.google.com' with [('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4007:807::1014', 443), ('2a00:1450:4013:c01::69', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4005:808::1013', 443), ('2607:f8b0:400c:c03::68', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:400c:c03::93', 443), ('2a00:1450:4005:809::1014', 443), ('2404:6800:4006:804::1011', 443), ('2a00:1450:4001:c02::63', 443), ('2a00:1450:4013:c00::68', 443)] return ['timed out'], try again.
+INFO - [Aug 10 23:06:57] ssl good_ipaddrs=0, bad_ipaddrs=18, unknown_ipaddrs=0
+WARNING - [Aug 10 23:07:01] create_ssl_connection to 'www.google.com' with [('2a00:1450:400c:c03::93', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4001:c02::63', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4002:801::1011', 443), ('2001:4860:400b:c01::67', 443), ('2a00:1450:4001:c02::63', 443), ('2a00:1450:4007:808::1010', 443), ('2404:6800:4006:804::1011', 443), ('2a00:1450:400c:c04::69', 443), ('2a00:1450:400d:805::1013', 443), ('2a00:1450:4001:80e::1011', 443), ('2a00:1450:4002:803::1013', 443), ('2a00:1450:4005:808::1013', 443), ('2a00:1450:4013:c00::68', 443), ('2a00:1450:4013:c01::69', 443), ('2a00:1450:4016:800::1010', 443), ('2a00:1450:4002:801::1011', 443), ('2a00:1450:4005:809::1014', 443), ('2404:6800:4005:802::1010', 443), ('2a00:1450:4007:807::1014', 443), ('2607:f8b0:400c:c03::68', 443), ('2a00:1450:400c:c03::93', 443)] return ['timed out'], try again.
+ERROR - [Aug 10 23:07:01] create_http_request &quot;GET <a href="https://www.google.com/webhp?source=search_app" rel="nofollow">https://www.google.com/webhp?source=search_app</a>&quot; failed:timed out
+Traceback (most recent call last):
+  File &quot;D:\Program Files (x86)\GoAgent\local\proxylib.py&quot;, line 2038, in create_http_request
+  File &quot;D:\Program Files (x86)\GoAgent\local\proxylib.py&quot;, line 2017, in create_ssl_connection
+timeout: timed out
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 17:28:53 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22267#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/104678207625893535338/">whhxm...@gmail.com</a
+></span>
+ 
+<pre>
+不会吧。我的就是win10.照样用。。首次实施用管理员运行试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 18:40:42 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22267#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+还是觉得win7最好看，8，8.1，10 玩玩就格掉，那看死了，尤其是10那个按钮比安卓系统的还难看。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 18:50:49 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22267#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/115797144381963246600/">zhangcs....@gmail.com</a
+></span>
+ 
+<pre>
+怎么搞的ipv6
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 19:54:34 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22267#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/111891129703746085317/">Marching...@gmail.com</a
+></span>
+ 
+<pre>
+我都用管理员身份运行过好几次了，都不行。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 20:34:59 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22267#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+我的升级win10后，GoAgent 运行没问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 20:36:30 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22267#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+我对winOS不报任何指望了，就到8.1为止不升级了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 23:32:37 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22267#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/111891129703746085317/">Marching...@gmail.com</a
+></span>
+ 
+<pre>
+你们都用的哪个版本的 GoAgent 呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 02:19:47 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22267#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/117293968400450711343/">gudandey...@gmail.com</a
+></span>
+ 
+<pre>
+我的Windows 10 正常啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 10:16:09 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22267#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/111891129703746085317/">Marching...@gmail.com</a
+></span>
+ 
+<pre>
+终于好了， ipv6 的鬼，enable ipv6 在 windows 7 可以，windows 10 不行。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22267">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22267',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22267,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

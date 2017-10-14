@@ -1,0 +1,1047 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"token": null, "projectHomeUrl": "/p/goagent", "domainName": null, "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "loggedInUserEmail": null, "relativeBaseUrl": "", "projectName": "goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21809 - 
+ goagent -
+ 
+ 怎么ping IP证书适用于那些域名 curl命令只能知道IP是什么证书 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21809&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21809" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21809">21809</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >怎么ping IP证书适用于那些域名 curl命令只能知道IP是什么证书</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 3 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21809">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/116982392954749614216/">duanxi...@gmail.com</a
+>,
+ <span class="date" title="Thu Jul  9 22:27:03 2015">Jul 9, 2015</span>
+ 
+ </div>
+<pre>
+curl的这个命令只能知道这个IP是GWS证书的IP
+curl -k -I -x 127.0.0.1:8087 https://216.58.219.46
+HTTP/1.1 200 OK
+
+HTTP/1.1 301 Moved Permanently
+Alternate-Protocol: 443:quic,p=1
+Content-Length: 0
+X-Xss-Protection: 1; mode=block
+Expires: Sun, 09 Aug 2015 04:55:49 GMT
+Server: gws
+Location: <a href="http://www.google.com:443/" rel="nofollow">http://www.google.com:443/</a>
+Cache-Control: public, max-age=2592000
+Date: Fri, 10 Jul 2015 04:55:49 GMT
+X-Frame-Options: SAMEORIGIN
+Content-Type: text/html; charset=UTF-8
+
+不如想知道这个证书包含哪些域名该用什么命令测
+<a href="http://postimg.org/image/kfl1m5uhp/" rel="nofollow">http://postimg.org/image/kfl1m5uhp/</a>
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 10 07:09:34 2015">
+ Jul 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21809#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/116326853761552387466/">scattere...@gmail.com</a
+></span>
+ 
+<pre>
+openssl s_client -connect 216.58.219.46:443 &lt;&lt;&lt;'' |&amp; openssl x509 -text | sed -ne '/^ *DNS:/ {s/ *DNS://g; s/,/\n/gp}'
+
+*.google.com
+*.android.com
+*.appengine.google.com
+*.cloud.google.com
+*.google-analytics.com
+*.google.ca
+*.google.cl
+*.google.co.in
+*.google.co.jp
+*.google.co.uk
+*.google.com.ar
+*.google.com.au
+*.google.com.br
+*.google.com.co
+*.google.com.mx
+*.google.com.tr
+*.google.com.vn
+*.google.de
+*.google.es
+*.google.fr
+*.google.hu
+*.google.it
+*.google.nl
+*.google.pl
+*.google.pt
+*.googleadapis.com
+*.googleapis.cn
+*.googlecommerce.com
+*.googlevideo.com
+*.gstatic.cn
+*.gstatic.com
+*.gvt1.com
+*.gvt2.com
+*.metric.gstatic.com
+*.urchin.com
+*.url.google.com
+*.youtube-nocookie.com
+*.youtube.com
+*.youtubeeducation.com
+*.ytimg.com
+android.com
+g.co
+goo.gl
+google-analytics.com
+google.com
+googlecommerce.com
+urchin.com
+youtu.be
+youtube.com
+youtubeeducation.com
+
+ps: gws不是证书类型，是web服务类型
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 10 23:23:29 2015">
+ Jul 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21809#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/116982392954749614216/">duanxi...@gmail.com</a
+></span>
+ 
+<pre>
+#1 看图，命令显示错误，安装了最新版openssl  环境 win8.1 软件刚装的，还是我弄错命令程序了不是这个软件
+
+<a href="http://postimg.org/image/99zbug8zn/" rel="nofollow">http://postimg.org/image/99zbug8zn/</a>
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 10 23:33:06 2015">
+ Jul 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21809#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/110158684434685666353/">cym.zh...@gmail.com</a
+></span>
+ 
+<pre>
+命令没错
+
+注意ip要可用，即没被墙
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 00:46:29 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21809#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/116982392954749614216/">duanxi...@gmail.com</a
+></span>
+ 
+<pre>
+#3 
+换了很多没有被墙的IP，找了很多可能的问题还是这样的问题
+运行#1提供的代码
+提  示：此时不应有 &lt;&lt;。然后删除掉两个&lt;&lt;
+又提示：此时不应有 &amp;。然后再删除&amp;
+接着还是提示错误：系统找不到指定的文件。
+
+单独运行前半段 openssl s_client -connect 74.125.71.219:443 正常能读出信息，加上后半段就报如上错误。
+
+C:\OpenSSL-Win32\bin&gt;openssl s_client -connect 74.125.71.219:443
+Loading 'screen' into random state - done
+CONNECTED(000000F8)
+depth=2 C = US, O = GeoTrust Inc., CN = GeoTrust Global CA
+verify error:num=20:unable to get local issuer certificate
+verify return:0
+---
+Certificate chain
+ 0 s:/C=US/ST=California/L=Mountain View/O=Google Inc/CN=*.google.com
+   i:/C=US/O=Google Inc/CN=Google Internet Authority G2
+ 1 s:/C=US/O=Google Inc/CN=Google Internet Authority G2
+   i:/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+ 2 s:/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+   i:/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIHgzCCBmugAwIBAgIIbKgXcRtjABcwDQYJKoZIhvcNAQEFBQAwSTELMAkGA1UE
+BhMCVVMxEzARBgNVBAoTCkdvb2dsZSBJbmMxJTAjBgNVBAMTHEdvb2dsZSBJbnRl
+cm5ldCBBdXRob3JpdHkgRzIwHhcNMTUwNzAxMTk1OTIxWhcNMTUwOTI5MDAwMDAw
+WjBmMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwN
+TW91bnRhaW4gVmlldzETMBEGA1UECgwKR29vZ2xlIEluYzEVMBMGA1UEAwwMKi5n
+b29nbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlE5YwbOe
+YCHFpuJrNNOZpqmzGk9oO+lGLVzr9c/jMwvh/TV2n/SMVoKFnscaik0tTbjFlh2q
+5VwQYzWObwI4cyPm44ebTvpXiqyXtJL9lfHp0yy4hTchCdkh7xcURbBLU8Wl6d6c
+zM2yfgFWx2HpENG6rYIiCNN6bc42x/XWF14S1bUZDOl4i/bQb92dn2PChXvG7BMe
+8i5nIrorVo3+MHEpI3w4xb06P+YKK0p10d17nAQLM/eLGukOG/rEq3PS/mMHsqnG
++bisF75lb3wSlNLGB1HrJ4QuRKIDUPtvXndVHWDnG5VwsrAb31ioY84p/yBdEF7Y
+FPIDUMvQ9uvzmwIDAQABo4IEUDCCBEwwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+AQUFBwMCMIIDJgYDVR0RBIIDHTCCAxmCDCouZ29vZ2xlLmNvbYINKi5hbmRyb2lk
+LmNvbYIWKi5hcHBlbmdpbmUuZ29vZ2xlLmNvbYISKi5jbG91ZC5nb29nbGUuY29t
+ghYqLmdvb2dsZS1hbmFseXRpY3MuY29tggsqLmdvb2dsZS5jYYILKi5nb29nbGUu
+Y2yCDiouZ29vZ2xlLmNvLmlugg4qLmdvb2dsZS5jby5qcIIOKi5nb29nbGUuY28u
+dWuCDyouZ29vZ2xlLmNvbS5hcoIPKi5nb29nbGUuY29tLmF1gg8qLmdvb2dsZS5j
+b20uYnKCDyouZ29vZ2xlLmNvbS5jb4IPKi5nb29nbGUuY29tLm14gg8qLmdvb2ds
+ZS5jb20udHKCDyouZ29vZ2xlLmNvbS52boILKi5nb29nbGUuZGWCCyouZ29vZ2xl
+LmVzggsqLmdvb2dsZS5mcoILKi5nb29nbGUuaHWCCyouZ29vZ2xlLml0ggsqLmdv
+b2dsZS5ubIILKi5nb29nbGUucGyCCyouZ29vZ2xlLnB0ghIqLmdvb2dsZWFkYXBp
+cy5jb22CDyouZ29vZ2xlYXBpcy5jboIUKi5nb29nbGVjb21tZXJjZS5jb22CESou
+Z29vZ2xldmlkZW8uY29tggwqLmdzdGF0aWMuY26CDSouZ3N0YXRpYy5jb22CCiou
+Z3Z0MS5jb22CCiouZ3Z0Mi5jb22CFCoubWV0cmljLmdzdGF0aWMuY29tggwqLnVy
+Y2hpbi5jb22CECoudXJsLmdvb2dsZS5jb22CFioueW91dHViZS1ub2Nvb2tpZS5j
+b22CDSoueW91dHViZS5jb22CFioueW91dHViZWVkdWNhdGlvbi5jb22CCyoueXRp
+bWcuY29tggthbmRyb2lkLmNvbYIEZy5jb4IGZ29vLmdsghRnb29nbGUtYW5hbHl0
+aWNzLmNvbYIKZ29vZ2xlLmNvbYISZ29vZ2xlY29tbWVyY2UuY29tggp1cmNoaW4u
+Y29tggh5b3V0dS5iZYILeW91dHViZS5jb22CFHlvdXR1YmVlZHVjYXRpb24uY29t
+MGgGCCsGAQUFBwEBBFwwWjArBggrBgEFBQcwAoYfaHR0cDovL3BraS5nb29nbGUu
+Y29tL0dJQUcyLmNydDArBggrBgEFBQcwAYYfaHR0cDovL2NsaWVudHMxLmdvb2ds
+ZS5jb20vb2NzcDAdBgNVHQ4EFgQUhZK3WWqb1PPZH5YaqE6zhy3GXDgwDAYDVR0T
+AQH/BAIwADAfBgNVHSMEGDAWgBRK3QYWG7z2aLV29YG2u2IaulqBLzAXBgNVHSAE
+EDAOMAwGCisGAQQB1nkCBQEwMAYDVR0fBCkwJzAloCOgIYYfaHR0cDovL3BraS5n
+b29nbGUuY29tL0dJQUcyLmNybDANBgkqhkiG9w0BAQUFAAOCAQEAFHLulBewHTtW
+3kBerbaopdqcVWv0dwOSDRYf3AByOffgA/ezvLkFIwHG8bqGMBmnF1KEd3SICdVd
+74uAznAuPIfECCdxiyRvItQNqFg+MnU+thAYTj2aEdMl/zlCcBh2aAZMYundA9U0
+pjBph2t/KTs9wsQ6VBaNw+0kvHPNaP+Dv62jD0PiXf+doPn5pIU/ri0TNZo/76Gr
+BTygmoK7BvCTfpHPIPpEZUKl5lQG3N6roJC9obUxqhrJualFCoqy3XniakCbipdB
+fcOGgtbqIMHmiDZt/kGoS2n1FtJEGgnghFbyhE3Cb0aPS2VHNGkgP/3wGMTSvWdf
+ZUThq/NO9g==
+-----END CERTIFICATE-----
+subject=/C=US/ST=California/L=Mountain View/O=Google Inc/CN=*.google.com
+issuer=/C=US/O=Google Inc/CN=Google Internet Authority G2
+---
+No client certificate CA names sent
+---
+SSL handshake has read 4500 bytes and written 643 bytes
+---
+New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    Session-ID: 90B80779182303982F90D2D745457D86C88747AFF24640C4DF900264453DD559
+    Session-ID-ctx:
+    Master-Key: 2B6987FF48E13B75FA924F565A09F6BB4BBF3C6AD5614F4A27ED838F703A5D6BBABD6FB48FE3B8098E4DA44C6A9205A1
+    Key-Arg   : None
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 100800 (seconds)
+    TLS session ticket:
+    0000 - 90 4e 60 bd e0 43 68 15-f9 d4 2c 0d ae e0 ae 1d   .N`..Ch...,.....
+    0010 - 3d 6e cc 84 10 92 d9 18-c5 ed c6 b2 01 76 e8 0d   =n...........v..
+    0020 - f1 fa 8a cb bf b2 00 22-fa 7d dc 76 cd 92 2b fc   .......&quot;.}.v..+.
+    0030 - bc 85 e3 78 ba cf 06 51-d5 a0 39 25 36 0c 5b 8e   ...x...Q..9%6.[.
+    0040 - d7 89 02 02 62 a8 15 93-a9 64 4d 14 e1 b1 41 95   ....b....dM...A.
+    0050 - 24 25 8c 82 c4 62 32 28-04 89 50 70 77 67 cf de   $%...b2(..Ppwg..
+    0060 - 0e 57 7f 77 f4 69 92 cd-61 2c 38 3a bd 3a 5d a5   .W.w.i..a,8:.:].
+    0070 - 07 75 98 d7 eb f1 c6 59-17 57 c7 b1 4f b6 ff 14   .u.....Y.W..O...
+    0080 - d2 2f f2 3d f2 80 5d 3a-3d 7a 88 cd 58 cf 7f c8   ./.=..]:=z..X...
+    0090 - 32 96 a1 38 16 bd fa 5c-e9 fe fe 36 cb 5a c5 97   2..8...\...6.Z..
+    00a0 - 1b 38 b2 81                                       .8..
+
+    Start Time: 1436600654
+    Timeout   : 300 (sec)
+    Verify return code: 20 (unable to get local issuer certificate)
+---
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 01:03:21 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21809#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/116982392954749614216/">duanxi...@gmail.com</a
+></span>
+ 
+<pre>
+难道是我安装的软件缺少什么组件
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 01:04:54 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21809#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/116326853761552387466/">scattere...@gmail.com</a
+></span>
+ 
+<pre>
+#4 
+
+那些命令需要在*nix环境下运行
+见你用curl，以为你用的不是windows
+win下可以装个cygwin, <a href="https://www.cygwin.com/" rel="nofollow">https://www.cygwin.com/</a>
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 01:06:34 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21809#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/110158684434685666353/">cym.zh...@gmail.com</a
+></span>
+ 
+<pre>
+噢
+
+难怪
+
+openssl s_client -connect 80.89.192.235:443 &lt;&lt;&lt;'' |&amp; openssl x509 -text | sed -ne '/^ *DNS:/ {s/ *DNS://g; s/,/\n/gp}'
+*.googlevideo.com
+*.c.doc-0-0-sj.sj.googleusercontent.com
+*.gvt1.com
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 01:49:50 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21809#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/116982392954749614216/">duanxi...@gmail.com</a
+></span>
+ 
+<pre>
+#6
+
+感谢
+
+现在可以了，安装cygwin不用再单独安装openssl了
+
+$ openssl s_client -connect 74.125.71.219:443 &lt;&lt;&lt;'' |&amp; openssl x509 -text | sed -ne '/^ *DNS:/ {s/ *DNS://g; s/,/\n/gp}'
+WARNING: can't open config file: C:\OpenSSL-Win32\bin\openssl.cfg
+*.google.com
+*.android.com
+*.appengine.google.com
+*.cloud.google.com
+*.google-analytics.com
+*.google.ca
+*.google.cl
+*.google.co.in
+*.google.co.jp
+*.google.co.uk
+*.google.com.ar
+*.google.com.au
+*.google.com.br
+*.google.com.co
+*.google.com.mx
+*.google.com.tr
+*.google.com.vn
+*.google.de
+*.google.es
+*.google.fr
+*.google.hu
+*.google.it
+*.google.nl
+*.google.pl
+*.google.pt
+*.googleadapis.com
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21809">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21809',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21809,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

@@ -1,0 +1,1810 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "token": null, "projectHomeUrl": "/p/goagent", "loggedInUserEmail": null, "projectName": "goagent", "relativeBaseUrl": "", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "domainName": null, "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21561 - 
+ goagent -
+ 
+ 别扫IP了,torbrowser 4.5.2科学上网利器新鲜出炉 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21561&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21561" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21561">21561</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >别扫IP了,torbrowser 4.5.2科学上网利器新鲜出炉</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 3 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21561">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/114165966397914261106/">wushan...@gmail.com</a
+>,
+ <span class="date" title="Tue Jun 16 22:45:13 2015">Jun 16, 2015</span>
+ 
+ </div>
+<pre>
+装上这个,meek方式先翻出去,再去官网找obfs4的网桥,断开tor,重新用新找的网桥连接
+
+这样的话我感觉速度也不错,也有高匿,还简便,比跟这儿苦苦扫IP强多了吧
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jun 16 22:59:33 2015">
+ Jun 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21561#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/110158684434685666353/">cym.zh...@gmail.com</a
+></span>
+ 
+<pre>
+开玩笑
+
+不关心高匿低匿,只关心速度
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jun 16 23:02:39 2015">
+ Jun 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21561#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+需要匿名再使用tor+蓝灯，不需要匿名就使用goagent，其实也没多少要匿名的，就算看新唐人电视和石涛的节目也不匿名。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 02:19:23 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21561#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/112152341489449332473/">11480704...@gmail.com</a
+></span>
+ 
+<pre>
+石涛？？？那个汉奸嘛？？？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 02:29:27 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21561#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/109415165027505570053/">jfc8...@gmail.com</a
+></span>
+ 
+<pre>
+汉奸有个标准么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 08:45:36 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21561#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/112506558292201449751/">chucai...@gmail.com</a
+></span>
+ 
+<pre>
+石涛是轮子吗？youtube一个劲给我推荐，看了一眼，啥玩意啊，没看出有什么水平。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 09:31:14 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21561#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/104469460684731592841/">chenjb7...@gmail.com</a
+></span>
+ 
+<pre>
+tor好象巨慢吧
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 11:40:44 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21561#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/114165966397914261106/">wushan...@gmail.com</a
+></span>
+ 
+<pre>
+石涛是什么鬼...
+
+另外,为啥用obfs4呢&gt;因为速度还凑合,基本上看y2b在480能凑合
+
+meek就不行,蜗牛速度
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 11:56:34 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21561#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+五毛看见轮子就像公牛看见红布，红着眼睛往前冲，全跳出来了，哈哈～
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 12:35:31 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21561#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/116244585572530425602/">rasygr...@gmail.com</a
+></span>
+ 
+<pre>
+#8
+什么公牛看见红布？分明就是狗看见屎嘛……
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 17:14:10 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21561#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+楼上那比喻不正确，人家石涛小瑕不掩大瑜。楼上的楼上比喻正确，公牛见红布，哈哈！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:00:34 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21561#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#9 狗咬狗, 轮子是克隆共党.
+介绍申请宣誓都一个样.
+
+俗称: 猪八戒照镜
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:12:56 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21561#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+找到高速的obfs4网桥比gvs难多了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:19:21 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21561#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+在我这里meek比obfs4快，特别是亚马逊的，其次是azure的，不过都很慢，谷歌的meek连不上，obfs4我这里也连不上，不过这些我都不用，我只用我找到的网桥，连接速度很快，配合蓝灯，看youtube速度也很快。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 22:50:51 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21561#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/114006793697441960018/">s65d4fs6...@gmail.com</a
+></span>
+ 
+<pre>
+当年我有个东北同学，他有本转法轮我看过，什么几吧玩意儿，这种东西也能骗到人。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:01:26 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21561#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/111930984696868206223/">eastsexy...@gmail.com</a
+></span>
+ 
+<pre>
+汉奸光荣，解放中国。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:13:05 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21561#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#16 既然为无产阶级奋斗终身可以骗到八千万党员+几乎所有中国人，那法轮功骗到几个大学生也没什么稀奇，其实我到现在也没搞明白，为无产阶级奋斗是为了成为有产阶级呢还是继续成为无产阶级?如果只是为了继续成为无产阶级，难道还要奋斗？如果你是有产阶级将，只是放弃财产就成了无产阶级，如果你是无产阶级，那么你只需要继续躺着就还是无产阶级。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:18:37 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21561#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#19 朱乞丐也是无产阶级, 而且比猪毛还根正苗红,比贫下中农还纯洁.
+
+以后中国的游戏规则, 就是谁做了主子, 就把人民搞成乞丐. 天朝的网络最起码几百亿&quot;跪求&quot;.这是人类文明的奇迹.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:24:24 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21561#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+为何共匪猛批轮子？还在于法轮功的组织性。共匪面对任何有组织的华人都是心怀嫉恨和恐惧的。毕竟共匪老想万年执政，但自己这个脓包党正在快速腐烂坏死，离彻底挂掉越来越近了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:30:58 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21561#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+#19  请认真读一本马克思的书再发表议论会靠谱得多。所谓财产是指生产资料，比如土地，工厂之类的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:40:45 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21561#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#22 认真? 马克思拿着资本家赞助学术的钱, 嫖巴黎交际花, 还搞成老婆.&lt;资本论&gt;是嫖得爽的时候瞎凑字数, 罗罗嗦嗦.
+
+这么个流氓落魄学者, 怎么认真?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:46:05 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21561#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#22 我既然能来到这里，就说明我并不是太没文化，从小学到大学，学的最多的还是政治，，小学有思想品德，中学有政治，大学有马列，毛概，邓论，每个阶段都没有落下，所谓大道至简，任何在道理上绕圈子，搞成玄学，让人不明觉厉的都是值得怀疑的，真理往往一两句话就能说明白，数学证明题也一样，正确的证明往往是简单明了的，东拉西扯写一大堆不知所云的东西往往是错误的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 18:59:06 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21561#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#24 一语中的。真从事高深理论科研工作且自身有真本事的，
+
+最喜欢用直白简单的语言来描述其工作和理论，免得你不懂；
+
+半瓶水响叮当的混子，反而最喜云山雾罩，掩饰其本来面目，
+
+目的为何，不问可知。最能证明上述观点的正是共匪自己。呵呵。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 20:16:39 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21561#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+乞丐当了皇帝，然后再想法设法把人民搞成乞丐，尼玛谁当主子都不是一个鸟样？！
+政治都是忽悠人的，需要革命打天下的时候就说的天花乱坠给你画饼子，等革命成功了就一脚把你踢到十八层地狱，人民永远还是人民，地位还是那个地位甚至更糟，只是乞丐尼玛马上翻身做了主子！
+
+我们不能指望都能遇见李世民这样的千古明君，这种事情真的是可遇而不可求，几率太小。
+但是，朝代的更替，历史总是在重演，只是不知道人民的处境会不会有变化
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 22:21:58 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21561#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/104430390526685642958/">TomGreem...@gmail.com</a
+></span>
+ 
+<pre>
+...
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 01:15:28 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21561#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/113325610098240891856/">wjk19951...@gmail.com</a
+></span>
+ 
+<pre>
+问下楼主怎么找obfs4的网桥？找到了怎么用？tor一直作为备胎不太熟悉，，，
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 04:56:57 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21561#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/118189985180795703290/">lovecs1....@gmail.com</a
+></span>
+ 
+<pre>
+我支持民主自由，但不代表我会支持轮子，轮子网颠倒是非，专黑某人，为黑而黑，没有一点技术含量，其中的丑陋现象有目共睹。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 04:58:14 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=21561#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/118189985180795703290/">lovecs1....@gmail.com</a
+></span>
+ 
+<pre>
+11#说出心声
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 05:41:30 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21561#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+#29 赞同。不喜欢轮子，不支持轮子。轮子说得再好，他是是为了报私仇，这是他从来都没有勇气堂堂正正摆到桌面上的。当然，他们的这个诉求有一定的正当性，但是完全不信任他们会敬畏法律，就看他神神鬼鬼的那些个说法，让人很恶心。
+自由门曾经是自己翻墙入门到工具，很乐意为曾经使用过他们的工具支付普通VPN行价年费，也就100到200块钱，这笔债务就结清了。在网络上接触的多数轮子成员完全不能获得我的尊敬。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 12:26:44 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21561#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/112819130562941379416/">solo...@gmail.com</a
+></span>
+ 
+<pre>
+虽然讨厌5毛，但那个石涛我真没看出什么水平。。。曾经看了1期节目，没看完就关了。。。完全一个轮子的5毛，乡村台主持人水准。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 17:24:30 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21561#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#ALL，我也不喜欢轮子，但相比XXX，轮子可爱得象天使。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 18:55:28 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=21561#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+不知道是真傻还是装傻，还什么为黑而黑，你指望我党能采纳轮子有建设性的提议？法轮功起初也是和共党有过一段蜜月期，法轮功在全国有那么大影响共产党也是助过一臂之力的，后来引起了我党最高领导的忌恨而被打压，而且这两个的理念也是南辕北辙，真善忍vs假恶斗，有神论vs无神论，不过最近共产党内信神的好像也越来越多了，所以法轮功和共产党根本就是丘吉尔和希特勒一样的死敌。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21561">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21561',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21561,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

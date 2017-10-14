@@ -1,0 +1,829 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"projectName": "goagent", "loggedInUserEmail": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null, "projectHomeUrl": "/p/goagent", "token": null, "relativeBaseUrl": "", "domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21577 - 
+ goagent -
+ 
+ 访问Twitter，Facebook出现411错误 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21577&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21577" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21577">21577</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >访问Twitter，Facebook出现411错误</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 2 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21577">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/111506476110325646967/">DOUCENTE...@163.com</a
+>,
+ <span class="date" title="Wed Jun 17 22:20:09 2015">Jun 17, 2015</span>
+ 
+ </div>
+<pre>
+操作系统版本：Windows 7
+浏览器版本：chrome 41.0.2272.118 m
+GoAgent 版本：3.2.3
+GoAgent 日志：INFO - [Jun 18 13:13:52] dnslib_resolve_over_tcp remote host='www5.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www5.l.google.com' from ['221.129.243.202']
+failed
+WARNING - [Jun 18 13:13:52] dnslib_resolve_over_tcp 'code.l.google.com' with ['2
+21.129.243.202'] return timeout('timed out',)
+INFO - [Jun 18 13:13:52] dnslib_resolve_over_tcp remote host='code.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'code.l.google.com' from ['221.129.243.202']
+failed
+WARNING - [Jun 18 13:13:52] dnslib_resolve_over_tcp 'mail.l.google.com' with ['2
+21.129.243.198'] return timeout('timed out',)
+INFO - [Jun 18 13:13:52] dnslib_resolve_over_tcp remote host='mail.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'mail.l.google.com' from ['221.129.243.198']
+failed
+WARNING - [Jun 18 13:13:52] dnslib_resolve_over_tcp 'maps.l.google.com' with ['2
+21.129.243.198'] return timeout('timed out',)
+INFO - [Jun 18 13:13:52] dnslib_resolve_over_tcp remote host='maps.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'maps.l.google.com' from ['221.129.243.198']
+failed
+WARNING - [Jun 18 13:13:52] dnslib_resolve_over_tcp 'www.google.com' with ['223.
+5.5.5'] return timeout('timed out',)
+INFO - [Jun 18 13:13:52] dnslib_resolve_over_tcp remote host='www.google.com' fa
+iled: [Errno 11004] getaddrinfo 'www.google.com' from ['223.5.5.5'] failed
+WARNING - [Jun 18 13:13:53] dnslib_resolve_over_tcp 'www2.l.google.com' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:53] dnslib_resolve_over_tcp remote host='www2.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www2.l.google.com' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:53] dnslib_resolve_over_tcp 'www.l.google.com' with ['19
+2.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\xe
+3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\xd
+3\xa1\xa3')
+INFO - [Jun 18 13:13:53] dnslib_resolve_over_tcp remote host='www.l.google.com'
+failed: [Errno 11004] getaddrinfo 'www.l.google.com' from ['192.168.0.1'] failed
+
+WARNING - [Jun 18 13:13:53] dnslib_resolve_over_tcp 'cert-test.sandbox.google.co
+m' with ['192.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xb
+c\xc6\xcb\xe3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc
+1\xac\xbd\xd3\xa1\xa3')
+INFO - [Jun 18 13:13:53] dnslib_resolve_over_tcp remote host='cert-test.sandbox.
+google.com' failed: [Errno 11004] getaddrinfo 'cert-test.sandbox.google.com' fro
+m ['192.168.0.1'] failed
+WARNING - [Jun 18 13:13:53] dnslib_resolve_over_tcp 'www5.l.google.com' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:53] dnslib_resolve_over_tcp remote host='www5.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www5.l.google.com' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:53] dnslib_resolve_over_tcp 'www4.l.google.com' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:53] dnslib_resolve_over_tcp remote host='www4.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www4.l.google.com' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'googleapis.l.google.com' wi
+th ['192.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6
+\xcb\xe3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac
+\xbd\xd3\xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='googleapis.l.googl
+e.com' failed: [Errno 11004] getaddrinfo 'googleapis.l.google.com' from ['192.16
+8.0.1'] failed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'www.google.com' with ['192.
+168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\xe3\
+xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\xd3\
+xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='www.google.com' fa
+iled: [Errno 11004] getaddrinfo 'www.google.com' from ['192.168.0.1'] failed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'www3.l.google.com' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='www3.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www3.l.google.com' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'code.l.google.com' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='code.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'code.l.google.com' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'googlecode.l.googleusercont
+ent.com' with ['192.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\
+xea\xbc\xc6\xcb\xe3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\
+xa8\xc1\xac\xbd\xd3\xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='googlecode.l.googl
+eusercontent.com' failed: [Errno 11004] getaddrinfo 'googlecode.l.googleusercont
+ent.com' from ['192.168.0.1'] failed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'www.google.com.hk' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='www.google.com.hk'
+ failed: [Errno 11004] getaddrinfo 'www.google.com.hk' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'mail.google.com' with ['192
+.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\xe3
+\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\xd3
+\xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='mail.google.com' f
+ailed: [Errno 11004] getaddrinfo 'mail.google.com' from ['192.168.0.1'] failed
+WARNING - [Jun 18 13:13:54] dnslib_resolve_over_tcp 'maps.l.google.com' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:54] dnslib_resolve_over_tcp remote host='maps.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'maps.l.google.com' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:55] dnslib_resolve_over_tcp 'www.google.com.tw' with ['1
+92.168.0.1'] return error(10061, '\xd3\xc9\xd3\xda\xc4\xbf\xb1\xea\xbc\xc6\xcb\x
+e3\xbb\xfa\xbb\xfd\xbc\xab\xbe\xdc\xbe\xf8\xa3\xac\xce\xde\xb7\xa8\xc1\xac\xbd\x
+d3\xa1\xa3')
+INFO - [Jun 18 13:13:55] dnslib_resolve_over_tcp remote host='www.google.com.tw'
+ failed: [Errno 11004] getaddrinfo 'www.google.com.tw' from ['192.168.0.1'] fail
+ed
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'mail.google.com' with ['199
+.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='mail.google.com' f
+ailed: [Errno 11004] getaddrinfo 'mail.google.com' from ['199.91.73.222'] failed
+
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'www5.l.google.com' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='www5.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www5.l.google.com' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'code.l.google.com' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='code.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'code.l.google.com' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'www.google.com' with ['199.
+91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='www.google.com' fa
+iled: [Errno 11004] getaddrinfo 'www.google.com' from ['199.91.73.222'] failed
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'www.l.google.com' with ['19
+9.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='www.l.google.com'
+failed: [Errno 11004] getaddrinfo 'www.l.google.com' from ['199.91.73.222'] fail
+ed
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'www3.l.google.com' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='www3.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www3.l.google.com' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'maps.l.google.com' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='maps.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'maps.l.google.com' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'www.google.com.tw' with ['1
+68.95.1.1'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='www.google.com.tw'
+ failed: [Errno 11004] getaddrinfo 'www.google.com.tw' from ['168.95.1.1'] faile
+d
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'www.google.com.tw' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='www.google.com.tw'
+ failed: [Errno 11004] getaddrinfo 'www.google.com.tw' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:56] dnslib_resolve_over_tcp 'www4.l.google.com' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:56] dnslib_resolve_over_tcp remote host='www4.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www4.l.google.com' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'www.google.com.hk' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='www.google.com.hk'
+ failed: [Errno 11004] getaddrinfo 'www.google.com.hk' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'www2.l.google.com' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='www2.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www2.l.google.com' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'www5.l.google.com' with ['2
+21.129.243.198'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='www5.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'www5.l.google.com' from ['221.129.243.198']
+failed
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'mail.l.google.com' with ['1
+99.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='mail.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'mail.l.google.com' from ['199.91.73.222'] fa
+iled
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'code.l.google.com' with ['2
+21.129.243.198'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='code.l.google.com'
+ failed: [Errno 11004] getaddrinfo 'code.l.google.com' from ['221.129.243.198']
+failed
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'googleapis.l.google.com' wi
+th ['199.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='googleapis.l.googl
+e.com' failed: [Errno 11004] getaddrinfo 'googleapis.l.google.com' from ['199.91
+.73.222'] failed
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'googlecode.l.googleusercont
+ent.com' with ['199.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='googlecode.l.googl
+eusercontent.com' failed: [Errno 11004] getaddrinfo 'googlecode.l.googleusercont
+ent.com' from ['199.91.73.222'] failed
+WARNING - [Jun 18 13:13:57] dnslib_resolve_over_tcp 'cert-test.sandbox.google.co
+m' with ['199.91.73.222'] return timeout('timed out',)
+INFO - [Jun 18 13:13:57] dnslib_resolve_over_tcp remote host='cert-test.sandbox.
+google.com' failed: [Errno 11004] getaddrinfo 'cert-test.sandbox.google.com' fro
+m ['199.91.73.222'] failed
+INFO - [Jun 18 13:14:12] extend_iplist finished, added 150
+INFO - [Jun 18 13:14:12] 127.0.0.1:60191 &quot;MOCK GET <a href="http://www.google.com/search?" rel="nofollow">http://www.google.com/search?</a>
+hl=en&amp;source=hp&amp;q=GoAgent+%E6%97%A5%E5%BF%97 HTTP/1.1&quot; 301 0
+INFO - [Jun 18 13:14:12] ssl good_ipaddrs=62, bad_ipaddrs=105, unknown_ipaddrs=0
+
+INFO - [Jun 18 13:14:13] 127.0.0.1:58414 &quot;DIRECT GET <a href="https://www.google.com/sear" rel="nofollow">https://www.google.com/sear</a>
+ch?hl=en&amp;source=hp&amp;q=GoAgent+%E6%97%A5%E5%BF%97 HTTP/1.1&quot; 200 -
+INFO - [Jun 18 13:14:14] 127.0.0.1:58414 &quot;DIRECT GET <a href="https://www.google.com/gen_" rel="nofollow">https://www.google.com/gen_</a>
+204?v=3&amp;s=web&amp;imc=1&amp;imn=1&amp;imp=0&amp;ei=qVOCVbaNMYXs8AWm1ruoDw&amp;e=18168,3300118,330013
+2,3300137,3300161,3310703,3700062,3700263,3700366,4014789,4017578,4019511,402583
+7,4029815,4030124,4031477,4032229,4032500,4032522,4032524,4032677,4033307,403334
+4,4034271,4034425,4034883,4036005,4036153,4036187,4036363,4036425,4036471,403648
+5,4036896,4037333,4037395,4037457,4037757,4037767,4037960,4037982,4038150,403820
+8,4038223,4038260,4038413,4038417,4038583,4038972,4039279,4039386,8300187,850039
+4,8501247,8501295,8501406,8501489,8501702,10200083,10201227&amp;atyp=csi&amp;adh=&amp;xjs=in
+it.82.10.sb.59.p.19.jsa.2.bbd.1.cr.1&amp;action=&amp;srt=1087&amp;rt=xjsls.506,prt.509,iml.5
+09,ol.559,xjses.707,xjsee.882,xjs.920,wsrt.1080,cst.0,dnst.0,rqst.890,rspt.422,r
+qstt.464,unt.459,cstt.459,dit.1620 HTTP/1.1&quot; 204 0
+INFO - [Jun 18 13:14:19] 127.0.0.1:60207 &quot;STRIP CONNECT plus.google.com:443 HTTP
+/1.1&quot; - -
+INFO - [Jun 18 13:14:19] ssl good_ipaddrs=62, bad_ipaddrs=112, unknown_ipaddrs=0
+
+INFO - [Jun 18 13:14:19] 127.0.0.1:60207 &quot;DIRECT GET <a href="https://plus.google.com/u/0" rel="nofollow">https://plus.google.com/u/0</a>
+/_/notifications/frame?sourceid=1&amp;hl=en&amp;origin=https%3A%2F%2Fwww.google.com&amp;jsh=
+m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.gapi.en.6zwg_pEP_2A.O%2Fm%3D__fe
+atures__%2Fam%3DAAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAItRSTNy-00ELgURzlKy-V-78pEvv5BpHA H
+TTP/1.1&quot; 200 -
+INFO - [Jun 18 13:14:22] 127.0.0.1:58414 &quot;MOCK GET <a href="https://www.google.com/url?sa" rel="nofollow">https://www.google.com/url?sa</a>
+=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;ved=0CCgQFjAB&amp;url=%68%74%74%70%73%3a%2f%2f%63
+%6f%64%65%2e%67%6f%6f%67%6c%65%2e%63%6f%6d%2f%70%2f%67%6f%61%67%65%6e%74%2f%69%7
+3%73%75%65%73%2f%64%65%74%61%69%6c%3f%69%64%3d%31%39%37%33%33&amp;ei=qVOCVbaNMYXs8AW
+m1ruoDw&amp;usg=AFQjCNEIlhEXbXjctb69np3mKUDOiw4aLg&amp;sig2=SYBilQebJG9L42j3V4oCeg&amp;bvm=b
+v.96041959,d.dGc&amp;cad=rjt HTTP/1.1&quot; 302 0
+INFO - [Jun 18 13:14:22] ssl good_ipaddrs=62, bad_ipaddrs=112, unknown_ipaddrs=0
+
+INFO - [Jun 18 13:14:23] 127.0.0.1:59248 &quot;DIRECT GET <a href="https://code.google.com/p/g" rel="nofollow">https://code.google.com/p/g</a>
+oagent/issues/detail?id=19733 HTTP/1.1&quot; 200 -
+INFO - [Jun 18 13:14:24] ssl good_ipaddrs=62, bad_ipaddrs=112, unknown_ipaddrs=0
+
+INFO - [Jun 18 13:14:24] 127.0.0.1:59263 &quot;DIRECT GET https://ssl.google-analytic
+s.com/__utm.gif?utmwv=5.6.4&amp;utms=1&amp;utmn=1690038815&amp;utmhn=code.google.com&amp;utmcs=U
+TF-8&amp;utmsr=1366x768&amp;utmvp=1350x663&amp;utmsc=24-bit&amp;utmul=zh-cn&amp;utmje=1&amp;utmfl=17.0%2
+0r0&amp;utmdt=Issue%2019733%20-%20goagent%20-%20%E5%A6%82%E4%BD%95%E6%8A%8Agoagent%E
+8%BE%93%E5%87%BA%E7%9A%84%E6%97%A5%E5%BF%97%E5%A4%8D%E5%88%B6%E4%B8%8B%E6%9D%A5%
+EF%BC%9F%20-%20https%3A%2F%2Fgithub.com%2Fgoagent%2Fgoagent%20-%20Google%20Proje
+ct%20Hosting&amp;utmhid=1052982391&amp;utmr=https%3A%2F%2Fwww.google.com%2F&amp;utmp=%2Fp%2F
+goagent%2Fissues%2Fdetail%3Fid%3D19733&amp;utmht=1434604464006&amp;utmac=UA-18071-1&amp;utmc
+c=__utma%3D247248150.1193798362.1422868713.1434604235.1434604464.8%3B%2B__utmz%3
+D247248150.1434604464.8.7.utmcsr%3Dgoogle%7Cutmccn%3D(organic)%7Cutmcmd%3Dorgani
+c%7Cutmctr%3D(not%2520provided)%3B&amp;utmjid=&amp;utmu=qAAgAAAAAAAAAAAAAAAAAAQE~ HTTP/1
+.1&quot; 200 35
+INFO - [Jun 18 13:14:24] ssl good_ipaddrs=63, bad_ipaddrs=112, unknown_ipaddrs=0
+
+INFO - [Jun 18 13:14:24] ssl good_ipaddrs=63, bad_ipaddrs=112, unknown_ipaddrs=0
+
+INFO - [Jun 18 13:14:25] 127.0.0.1:59248 &quot;DIRECT POST <a href="https://code.google.com/ho" rel="nofollow">https://code.google.com/ho</a>
+sting/projects HTTP/1.1&quot; 200 -
+INFO - [Jun 18 13:14:25] 127.0.0.1:59248 &quot;DIRECT POST <a href="https://code.google.com/ap" rel="nofollow">https://code.google.com/ap</a>
+is/ajax/playground/get_projects HTTP/1.1&quot; 301 247
+INFO - [Jun 18 13:14:25] ssl good_ipaddrs=63, bad_ipaddrs=119, unknown_ipaddrs=0
+
+INFO - [Jun 18 13:14:25] 127.0.0.1:59295 &quot;DIRECT POST <a href="https://code.google.com/ho" rel="nofollow">https://code.google.com/ho</a>
+sting/multilogin HTTP/1.1&quot; 200 -
+INFO - [Jun 18 13:14:26] 127.0.0.1:59310 &quot;DIRECT GET https://developers.google.c
+om/apis-explorer/?csw=1 HTTP/1.1&quot; 200 -
+INFO - [Jun 18 13:15:18] ssl good_ipaddrs=60, bad_ipaddrs=110, unknown_ipaddrs=3
+7
+INFO - [Jun 18 13:15:18] 127.0.0.1:60289 &quot;STRIP CONNECT plus.google.com:443 HTTP
+/1.1&quot; - -
+INFO - [Jun 18 13:15:18] ssl good_ipaddrs=60, bad_ipaddrs=110, unknown_ipaddrs=3
+7
+INFO - [Jun 18 13:15:19] 127.0.0.1:60207 &quot;DIRECT GET <a href="https://plus.google.com/_/s" rel="nofollow">https://plus.google.com/_/s</a>
+cs/apps-static/_/js/k=oz.sbw.en.R3fN2J9rl5c.O/m=sbw_base,sbw_card,sbw_s/am=yAMBA
+FA/rt=j/d=1/t=zcms/rs=AGLTcCN-34NsjIgszAqiBsrxoLgtDph_0A HTTP/1.1&quot; 200 380112
+INFO - [Jun 18 13:15:19] 127.0.0.1:60289 &quot;DIRECT GET <a href="https://plus.google.com/_/s" rel="nofollow">https://plus.google.com/_/s</a>
+cs/apps-static/_/ss/k=oz.sbw_dss.1crgn76u4hebq.L.W.O/am=yAMBAFA/d=0/rs=AGLTcCNr3
+71a1L5xPh6v1RlZ0RWR2eZMrg HTTP/1.1&quot; 200 61237
+INFO - [Jun 18 13:15:20] ssl good_ipaddrs=60, bad_ipaddrs=108, unknown_ipaddrs=4
+0
+INFO - [Jun 18 13:15:20] 127.0.0.1:60207 &quot;DIRECT POST <a href="https://plus.google.com/u/" rel="nofollow">https://plus.google.com/u/</a>
+0/_/initialdata?orig=https%3A%2F%2Fwww.google.com&amp;soc-app=162&amp;cid=0&amp;soc-platform
+=1&amp;ozv=es_oz_20150616.16_p3&amp;f.sid=1580838641&amp;_reqid=47720&amp;rt=j HTTP/1.1&quot; 200 -
+INFO - [Jun 18 13:15:20] 127.0.0.1:60289 &quot;DIRECT GET <a href="https://plus.google.com/_/s" rel="nofollow">https://plus.google.com/_/s</a>
+cs/apps-static/_/js/k=oz.sbw.en.R3fN2J9rl5c.O/m=sy259,sy265,OBACCf,sy209,sy268,s
+y261,sy266,sy264,ku7NJe,sy267,QjOcqd,sy263,YI5Iae/am=yAMBAFA/rt=j/t=zcms/rs=AGLT
+cCN-34NsjIgszAqiBsrxoLgtDph_0A HTTP/1.1&quot; 200 5541
+INFO - [Jun 18 13:15:21] 127.0.0.1:60289 &quot;DIRECT GET <a href="https://plus.google.com/_/s" rel="nofollow">https://plus.google.com/_/s</a>
+cs/apps-static/_/js/k=oz.sbw.en.R3fN2J9rl5c.O/m=sy65,sy61,sy141,sy142,sy146,sy14
+7,sy214,sy212,sy215,sy13,sy143,sy145,sy205,sy257,sy258,hc/am=yAMBAFA/rt=j/t=zcms
+/rs=AGLTcCN-34NsjIgszAqiBsrxoLgtDph_0A HTTP/1.1&quot; 200 23979
+INFO - [Jun 18 13:15:21] ssl good_ipaddrs=60, bad_ipaddrs=106, unknown_ipaddrs=4
+2
+
+原来用的是3.1.2 刚更新到3.2.3，还不太熟，就是把原来配置文件中的appid复制过去了，没做别的更改，发现Twitter无法访问出现411错误，
+请指教，不胜感激
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 19 04:42:50 2015">
+ Jun 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21577#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/100969792028133114345/">dqf...@gmail.com</a
+></span>
+ 
+<pre>
+重新上传
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21577">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21577',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21577,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

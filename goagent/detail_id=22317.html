@@ -1,0 +1,2497 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ (function(){(function(){function c(a){this.t={};this.tick=function(a,b,c){b=void 0!=c?c:(new Date).getTime();this.t[a]=b;if(void 0==c)try{window.console.timeStamp("CSI/"+a)}catch(d){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var b=a?new c(a.responseStart):new c;window.jstiming={Timer:c,load:b};a&&(b=a.navigationStart,a=a.responseStart,0<b&&a>=b&&(window.jstiming.srt=a-b));try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT)),null==a&&
+window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT),a&&(window.jstiming.pt=a)}catch(d){}})();})();
+
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"assetHostPath": "https://ssl.gstatic.com/codesite/ph", "loggedInUserEmail": null, "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "projectHomeUrl": "/p/goagent", "relativeBaseUrl": "", "token": null, "projectName": "goagent", "domainName": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22317 - 
+ goagent -
+ 
+ 调查上海电信情况 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22317&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22317" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22317">22317</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >调查上海电信情况</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 3 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22317">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/110870187471965512698/">xxnet....@gmail.com</a
+>,
+ <span class="date" title="Fri Aug 14 05:14:10 2015">Aug 14, 2015</span>
+ 
+ </div>
+<pre>
+上海电信，也许就是以后中国的网络，现在只是试点。
+
+现在请上海电信的提供一些信息，看看能否分析出原理。
+1. XX-net 里，把连接的日志贴出来看看
+2. 日志里像 create_ssl update ip:128.0.86.208 time:645  这样的日志，在命令行窗口里ping 128.0.86.208 ，把输出贴出来，包括最后的
+  Windows 下用ping 128.0.86.208 -n 50
+  Linux下用 ping 128.0.86.208 -c 50
+  ip换成你日志中出现的ip
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 05:39:05 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22317#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/113477092822321506017/">hell8...@gmail.com</a
+></span>
+ 
+<pre>
+上海电信2.0.7，一个IP都扫不到，全瘫了。
+2.0.5，虽然有700多个，但最低延迟都有600
+Aug 14 20:32:43 - [DEBUG] get ip:128.0.169.210 t:582
+Aug 14 20:32:43 - [DEBUG] get ip:128.0.169.205 t:696
+Aug 14 20:32:44 - [DEBUG] get ip:128.0.169.220 t:897
+Aug 14 20:32:44 - [DEBUG] get ip:62.8.95.78 t:941
+Aug 14 20:32:45 - [DEBUG] create_ssl update ip:128.0.169.220 time:933
+Aug 14 20:32:46 - [DEBUG] get ip:128.0.169.251 t:1421
+Aug 14 20:32:47 - [DEBUG] create_ssl update ip:128.0.169.210 time:3684
+Aug 14 20:32:48 - [DEBUG] get ip:128.0.86.211 t:1509
+Aug 14 20:32:48 - [DEBUG] create_ssl update ip:128.0.169.205 time:4861
+Aug 14 20:32:48 - [DEBUG] create_ssl update ip:128.0.169.233 time:6795
+Aug 14 20:32:48 - [DEBUG] create_ssl 128.0.169.233 fail: certficate is none cost:7075 h:6795
+Aug 14 20:32:48 - [DEBUG]LOG_EXCEPT: create_ssl 62.8.95.78 fail:timed out cost:4002 h:0, Except:[Errno 9] Bad file descriptor
+Aug 14 20:32:49 - [DEBUG] create_ssl update ip:128.0.169.251 time:1878
+Aug 14 20:32:49 - [DEBUG] create_ssl update ip:128.0.86.211 time:722
+Aug 14 20:32:49 - [DEBUG] get ip:128.0.169.245 t:1541
+Aug 14 20:32:49 - [DEBUG] get ip:128.0.90.104 t:1774
+Aug 14 20:32:50 - [DEBUG] get ip:128.0.169.239 t:2169
+Aug 14 20:32:50 - [DEBUG] get ip:128.0.169.231 t:2169
+Aug 14 20:32:50 - [DEBUG] get ip:128.0.169.196 t:2169
+Aug 14 20:32:51 - [DEBUG] create_ssl update ip:128.0.90.104 time:1125
+Aug 14 20:32:52 - [DEBUG] create_ssl update ip:128.0.169.239 time:1720
+Aug 14 20:32:52 - [DEBUG] get ip:128.0.169.223 t:2169
+Aug 14 20:32:52 - [DEBUG] create_ssl update ip:128.0.169.196 time:1578
+Aug 14 20:32:53 - [DEBUG] create_ssl update ip:128.0.169.231 time:969
+Aug 14 20:32:54 - [DEBUG] create_ssl update ip:128.0.169.245 time:4234
+Aug 14 20:33:00 - [DEBUG] create_ssl update ip:128.0.169.223 time:7201
+Aug 14 20:33:00 - [DEBUG] create_ssl 128.0.169.223 fail: certficate is none cost:7776 h:7201
+
+
+正在 Ping 128.0.86.211 具有 32 字节的数据:
+请求超时。
+来自 128.0.86.211 的回复: 字节=32 时间=354ms TTL=45
+来自 128.0.86.211 的回复: 字节=32 时间=354ms TTL=45
+请求超时。
+
+128.0.86.211 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 2，丢失 = 2 (50% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 354ms，最长 = 354ms，平均 = 354ms
+
+正在 Ping 128.0.169.210 具有 32 字节的数据:
+来自 128.0.169.210 的回复: 字节=32 时间=284ms TTL=46
+来自 128.0.169.210 的回复: 字节=32 时间=283ms TTL=46
+来自 128.0.169.210 的回复: 字节=32 时间=289ms TTL=46
+来自 128.0.169.210 的回复: 字节=32 时间=285ms TTL=46
+
+128.0.169.210 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 283ms，最长 = 289ms，平均 = 285ms
+
+是这样吗？
+哎，可惜小区没联通，否则早换了。也不至于活受罪
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 07:21:55 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22317#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+大局域网正式开启了，我确信匪国进入动荡时代，各位做好准备迎接风暴吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 17:55:45 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22317#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/110870187471965512698/">xxnet....@gmail.com</a
+></span>
+ 
+<pre>
+#1 谢谢，就是这样的，多ping几个ip吧
+  这两个ip看，延迟稳定，丢包高。
+  只剩下一个ip段，看似封漏了。
+
+  你那边访问github/stackoverflow.com/还行吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 20:51:24 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22317#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/110144239007807625250/">jiayim...@gmail.com</a
+></span>
+ 
+<pre>
+github是能上的 但是要看时间的 有时候丢包和断流很严重  一般早上8点以前网络好一些
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 21:13:20 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22317#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/110144239007807625250/">jiayim...@gmail.com</a
+></span>
+ 
+<pre>
+Aug 15 12:09:43 - [DEBUG] get ip:128.0.86.247 t:1134
+Aug 15 12:09:44 - [WARNING] no gws ip
+Aug 15 12:09:44 - [DEBUG] create_ssl update ip:128.0.86.199 time:704
+Aug 15 12:09:45 - [WARNING] no gws ip
+Aug 15 12:09:46 - [DEBUG] get ip:209.85.227.46 t:404
+Aug 15 12:09:46 - [DEBUG] get ip:128.0.86.250 t:1392
+Aug 15 12:09:46 - [DEBUG] sort ip time:8777ms
+Aug 15 12:09:46 - [DEBUG] get ip:128.0.86.242 t:1621
+Aug 15 12:09:46 - [DEBUG] get ip:128.0.86.232 t:1735
+Aug 15 12:09:47 - [WARNING] no gws ip
+Aug 15 12:09:48 - [DEBUG] create_ssl 209.85.227.46 fail:timed out cost:2000 h:0
+Aug 15 12:09:48 - [DEBUG] create_ssl 128.0.86.242 fail:timed out cost:2000 h:0
+Aug 15 12:09:48 - [WARNING] no gws ip
+Aug 15 12:09:48 - [DEBUG] get ip:128.0.86.207 t:1782 
+
+正在 Ping 209.85.227.46 具有 32 字节的数据:
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+
+209.85.227.46 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 0，丢失 = 4 (100% 丢失)，
+
+
+正在 Ping 128.0.86.225 具有 32 字节的数据:
+来自 128.0.86.225 的回复: 字节=32 时间=381ms TTL=45
+请求超时。
+来自 128.0.86.225 的回复: 字节=32 时间=371ms TTL=45
+来自 128.0.86.225 的回复: 字节=32 时间=372ms TTL=45
+
+128.0.86.225 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 3，丢失 = 1 (25% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 371ms，最长 = 381ms，平均 = 374ms
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 22:26:48 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22317#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/102692193260181847760/">blues.ji...@gmail.com</a
+></span>
+ 
+<pre>
+128.0.86.208 的 Ping 统计信息:
+    数据包: 已发送 = 50，已接收 = 35，丢失 = 15 (30% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 350ms，最长 = 2751ms，平均 = 473ms
+
+上海电信测得
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 22:44:36 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22317#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/113477092822321506017/">hell8...@gmail.com</a
+></span>
+ 
+<pre>
+#4
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=73ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+请求超时。
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+请求超时。
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=73ms TTL=50
+请求超时。
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=73ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=76ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=73ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=77ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=74ms TTL=50
+请求超时。
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+请求超时。
+来自 103.7.200.79 的回复: 字节=32 时间=75ms TTL=50
+请求超时。
+
+103.7.200.79 的 Ping 统计信息:
+    数据包: 已发送 = 50，已接收 = 25，丢失 = 25 (50% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 73ms，最长 = 77ms，平均 = 74ms
+
+
+正在 Ping 63.88.73.139 具有 32 字节的数据:
+来自 63.88.73.139 的回复: 字节=32 时间=216ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=221ms TTL=51
+请求超时。
+来自 63.88.73.139 的回复: 字节=32 时间=261ms TTL=51
+请求超时。
+来自 63.88.73.139 的回复: 字节=32 时间=233ms TTL=51
+请求超时。
+来自 63.88.73.139 的回复: 字节=32 时间=239ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=229ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=243ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=233ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=234ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=238ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=232ms TTL=51
+请求超时。
+来自 63.88.73.139 的回复: 字节=32 时间=216ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=218ms TTL=51
+请求超时。
+请求超时。
+来自 63.88.73.139 的回复: 字节=32 时间=312ms TTL=51
+请求超时。
+请求超时。
+来自 63.88.73.139 的回复: 字节=32 时间=420ms TTL=51
+请求超时。
+请求超时。
+请求超时。
+来自 63.88.73.139 的回复: 字节=32 时间=230ms TTL=51
+来自 63.88.73.139 的回复: 字节=32 时间=217ms TTL=51
+请求超时。
+请求超时。
+
+63.88.73.139 的 Ping 统计信息:
+    数据包: 已发送 = 30，已接收 = 17，丢失 = 13 (43% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 216ms，最长 = 420ms，平均 = 246ms
+
+
+正在 Ping 128.0.169.247 具有 32 字节的数据:
+来自 128.0.169.247 的回复: 字节=32 时间=275ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=276ms TTL=47
+请求超时。
+来自 128.0.169.247 的回复: 字节=32 时间=271ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=271ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=274ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=273ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=271ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=274ms TTL=47
+请求超时。
+来自 128.0.169.247 的回复: 字节=32 时间=271ms TTL=47
+请求超时。
+请求超时。
+来自 128.0.169.247 的回复: 字节=32 时间=375ms TTL=47
+请求超时。
+请求超时。
+来自 128.0.169.247 的回复: 字节=32 时间=375ms TTL=47
+请求超时。
+请求超时。
+请求超时。
+来自 128.0.169.247 的回复: 字节=32 时间=376ms TTL=47
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+来自 128.0.169.247 的回复: 字节=32 时间=276ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=275ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=274ms TTL=47
+来自 128.0.169.247 的回复: 字节=32 时间=274ms TTL=47
+
+128.0.169.247 的 Ping 统计信息:
+    数据包: 已发送 = 30，已接收 = 16，丢失 = 14 (46% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 271ms，最长 = 376ms，平均 = 292ms
+
+基本ping 128段都是在50%左右的丢包率
+
+
+正在 Ping 64.15.126.71 具有 32 字节的数据:
+请求超时。
+来自 64.15.126.71 的回复: 字节=32 时间=255ms TTL=51
+来自 64.15.126.71 的回复: 字节=32 时间=255ms TTL=51
+来自 64.15.126.71 的回复: 字节=32 时间=258ms TTL=51
+请求超时。
+请求超时。
+来自 64.15.126.71 的回复: 字节=32 时间=299ms TTL=51
+来自 64.15.126.71 的回复: 字节=32 时间=255ms TTL=51
+请求超时。
+来自 64.15.126.71 的回复: 字节=32 时间=257ms TTL=51
+来自 64.15.126.71 的回复: 字节=32 时间=256ms TTL=51
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+来自 64.15.126.71 的回复: 字节=32 时间=255ms TTL=51
+请求超时。
+请求超时。
+来自 64.15.126.71 的回复: 字节=32 时间=316ms TTL=51
+来自 64.15.126.71 的回复: 字节=32 时间=257ms TTL=51
+请求超时。
+请求超时。
+请求超时。
+来自 64.15.126.71 的回复: 字节=32 时间=259ms TTL=51
+来自 64.15.126.71 的回复: 字节=32 时间=256ms TTL=51
+请求超时。
+来自 64.15.126.71 的回复: 字节=32 时间=256ms TTL=51
+
+4.15.126.71 的 Ping 统计信息:
+   数据包: 已发送 = 30，已接收 = 13，丢失 = 17 (56% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+   最短 = 255ms，最长 = 316ms，平均 = 264ms
+
+
+正在 Ping 209.85.227.57 具有 32 字节的数据:
+来自 209.85.227.57 的回复: 字节=32 时间=289ms TTL=47
+请求超时。
+请求超时。
+来自 209.85.227.57 的回复: 字节=32 时间=287ms TTL=47
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+来自 209.85.227.57 的回复: 字节=32 时间=289ms TTL=47
+请求超时。
+来自 209.85.227.57 的回复: 字节=32 时间=274ms TTL=47
+请求超时。
+来自 209.85.227.57 的回复: 字节=32 时间=189ms TTL=47
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+来自 209.85.227.57 的回复: 字节=32 时间=265ms TTL=47
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+
+209.85.227.57 的 Ping 统计信息:
+    数据包: 已发送 = 30，已接收 = 6，丢失 = 24 (80% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 189ms，最长 = 289ms，平均 = 265ms
+
+
+正在 Ping 89.47.210.117 具有 32 字节的数据:
+请求超时。
+来自 89.47.210.117 的回复: 字节=32 时间=239ms TTL=47
+来自 89.47.210.117 的回复: 字节=32 时间=238ms TTL=47
+请求超时。
+请求超时。
+请求超时。
+请求超时。
+来自 89.47.210.117 的回复: 字节=32 时间=238ms TTL=47
+来自 89.47.210.117 的回复: 字节=32 时间=239ms TTL=47
+请求超时。
+来自 89.47.210.117 的回复: 字节=32 时间=243ms TTL=47
+来自 89.47.210.117 的回复: 字节=32 时间=238ms TTL=47
+来自 89.47.210.117 的回复: 字节=32 时间=238ms TTL=47
+请求超时。
+请求超时。
+来自 89.47.210.117 的回复: 字节=32 时间=239ms TTL=47
+来自 89.47.210.117 的回复: 字节=32 时间=239ms TTL=47
+请求超时。
+来自 89.47.210.117 的回复: 字节=32 时间=239ms TTL=47
+来自 89.47.210.117 的回复: 字节=32 时间=239ms TTL=47
+请求超时。
+请求超时。
+请求超时。
+来自 89.47.210.117 的回复: 字节=32 时间=238ms TTL=47
+来自 89.47.210.117 的回复: 字节=32 时间=241ms TTL=47
+请求超时。
+请求超时。
+来自 89.47.210.117 的回复: 字节=32 时间=238ms TTL=47
+请求超时。
+请求超时。
+
+89.47.210.117 的 Ping 统计信息:
+    数据包: 已发送 = 30，已接收 = 14，丢失 = 16 (53% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 238ms，最长 = 243ms，平均 = 239ms
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 15 02:32:21 2015">
+ Aug 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22317#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/102871165717735944677/">woaiwn...@gmail.com</a
+></span>
+ 
+<pre>
+我是上海电信的，不用XX-net 早上4点起床上外网很流畅，之后渐渐变卡，有可能只是网络拥堵
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 15 09:21:59 2015">
+ Aug 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22317#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/105841419698574077298/">asahich...@gmail.com</a
+></span>
+ 
+<pre>
+上海电信的
+
+Pinging 128.0.86.208 with 32 bytes of data:
+Request timed out.
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=429ms TTL=44
+Request timed out.
+
+Ping statistics for 128.0.86.208:
+    Packets: Sent = 4, Received = 1, Lost = 3 (75% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 429ms, Maximum = 429ms, Average = 429ms
+
+C:\Users\HappyHome&gt;ping 128.0.86.208 -n 50
+
+Pinging 128.0.86.208 with 32 bytes of data:
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=503ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=524ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=518ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=478ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=480ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=538ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=491ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=461ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=485ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=541ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=493ms TTL=44
+Request timed out.
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=441ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=428ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=429ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=442ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=427ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=428ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=429ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=431ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=428ms TTL=44
+Request timed out.
+Request timed out.
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=429ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=428ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=429ms TTL=44
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=428ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=432ms TTL=44
+Reply from 128.0.86.208: bytes=32 time=440ms TTL=44
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=431ms TTL=44
+Request timed out.
+Request timed out.
+Reply from 128.0.86.208: bytes=32 time=433ms TTL=44
+Request timed out.
+
+Ping statistics for 128.0.86.208:
+    Packets: Sent = 50, Received = 28, Lost = 22 (44% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 427ms, Maximum = 541ms, Average = 458ms
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 15 20:35:06 2015">
+ Aug 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22317#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/109355191907916440413/">FlyChina...@gmail.com</a
+></span>
+ 
+<pre>
+C:\Users\zxcv&gt;ping 128.0.86.208 -n 50
+
+正在 Ping 128.0.86.208 具有 32 字节的数据:
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=365ms TTL=43
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=386ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=401ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=369ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=370ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=370ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=367ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=366ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=367ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=367ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=366ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=368ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=368ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=365ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=366ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=365ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=368ms TTL=43
+请求超时。
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=409ms TTL=43
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=368ms TTL=43
+请求超时。
+请求超时。
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=365ms TTL=43
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=369ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=368ms TTL=43
+请求超时。
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=365ms TTL=43
+请求超时。
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=369ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=374ms TTL=43
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=367ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=366ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=369ms TTL=43
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=366ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=369ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=368ms TTL=43
+请求超时。
+来自 128.0.86.208 的回复: 字节=32 时间=376ms TTL=43
+来自 128.0.86.208 的回复: 字节=32 时间=372ms TTL=43
+请求超时。
+
+128.0.86.208 的 Ping 统计信息:
+    数据包: 已发送 = 50，已接收 = 33，丢失 = 17 (34% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 365ms，最长 = 409ms，平均 = 370ms
+
+买一赠一；
+
+C:\Users\zxcv&gt;tracert 128.0.86.208
+
+通过最多 30 个跃点跟踪到 128.0.86.208 的路由
+
+  1    10 ms     2 ms     1 ms  192.168.1.1
+  2     2 ms     2 ms     3 ms  192.168.1.1
+  3     4 ms     5 ms     4 ms  1.76.64.222.broad.xw.sh.dynamic.163data.com.cn [
+222.64.76.1]
+  4    10 ms    21 ms     6 ms  124.74.37.249
+  5    12 ms     7 ms     6 ms  101.95.43.149
+  6     7 ms    10 ms    11 ms  202.101.63.126
+  7     8 ms    11 ms     5 ms  202.97.33.94
+  8     *        *        *     请求超时。
+  9     *        *      281 ms  202.97.52.62
+ 10     *        *      219 ms  ldn-b3-link.telia.net [62.115.42.233]
+ 11   280 ms   282 ms     *     ldn-bb2-link.telia.net [62.115.134.136]
+ 12     *        *        *     请求超时。
+ 13   318 ms     *        *     s-bb4-link.telia.net [213.155.136.149]
+ 14     *        *        *     请求超时。
+ 15     *        *      413 ms  213.248.91.58
+ 16     *        *        *     请求超时。
+ 17     *        *        *     请求超时。
+ 18     *        *        *     请求超时。
+ 19     *        *        *     请求超时。
+ 20     *        *        *     请求超时。
+ 21   409 ms   411 ms   410 ms  85.26.202.2
+ 22     *        *      375 ms  176.96.191.82
+ 23   462 ms   438 ms   439 ms  128.0.86.191
+ 24   367 ms   365 ms     *     128.0.86.208
+ 25   431 ms     *        *     128.0.86.208
+ 26   367 ms     *        *     128.0.86.208
+ 27   435 ms   429 ms   430 ms  128.0.86.208
+
+跟踪完成。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 15 21:10:08 2015">
+ Aug 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22317#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+这儿上海周边情况略好。
+128.0.86.208 的 Ping 统计信息:
+    数据包: 已发送 = 20，已接收 = 19，丢失 = 1 (5% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 359ms，最长 = 386ms，平均 = 365ms
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 19:37:16 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22317#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/110870187471965512698/">xxnet....@gmail.com</a
+></span>
+ 
+<pre>
+感谢#12，发现了一些有趣的信息：
+
+1. 丢包和延迟出现在上海电信和上海骨干之间
+  一般的理解，上海骨干不仅仅是访问国外网络的，而且访问国内也需要经过骨干。
+  请继续tracert QQ/baidu的ip，看是否也经过这个上海骨干
+2. 上海电信和上海骨干之间，应该是GFW之外的新墙
+  之前有分析称GFW部署在国际出口上，这样更容易集中过滤，这次看是试点。
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 19:53:30 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22317#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+#14 根据去年的公民实验室的报告，GFW 已经不是部署在国际出口上了。而是部署在和国际出口比较近的 AS 自治域上面。
+国内有大约 3w 个自治域， 据称 7000 个部署了 GFW。 这个说法很好解释了各地的封锁程度不一致的现状。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 20:13:00 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22317#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/110870187471965512698/">xxnet....@gmail.com</a
+></span>
+ 
+<pre>
+#15
+  感谢这个信息，能否提供相关的报告链接？
+
+  另外“国内有大约 3w 个自治域， 据称 7000 个部署了 GFW”，剩下的部分，没有限制吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 20:41:00 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22317#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+围观两位大神。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 21:57:53 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22317#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+#16 报告我没存,其他剩下的要出国就得走这些 AS 啊, 华容道呵呵.
+推测每个 GFW 策略可以微调.
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 22:28:01 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22317#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+集团内部及各个运营商内部对 GFW 的态度有分歧，GFW 也损害了某些大佬的利益。（这个应该不是阴谋论）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 22:40:11 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22317#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/108762890273863052159/">abillyk...@gmail.com</a
+></span>
+ 
+<pre>
+据说去年这里（某城市）在建数据库，今年寒假，电信goagent完全没有受干扰，神速。今年暑假，（前几天满速），在7月某天电信全面限速，google ip基本封光。目前电信所有代理第一秒速度正常，以后速度维持在500kbps一下，但是打开多个视频缓冲，所有视频缓冲速度都是500kbps。电信赛风香港CDN加速，能达到满速。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 22:47:51 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=22317#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+有一个“路由跟踪.vpe”软件。需要的可以提供国内信箱（qq）。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 17 02:11:22 2015">
+ Aug 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=22317#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+现在长宽[租用电信], 电信都已经限速,不止上海.
+上海已经不是东方巴黎, 破烂面子城市而已.
+
+限速不是手段, 很多国外网站ping值神出鬼没, 本来应该100多ms, 现在270, 350,476, 甚至ping不通.国内已经是局域网, 所谓国外网站, 直连基本只是摆设.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 17 07:40:26 2015">
+ Aug 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22317#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/102871165717735944677/">woaiwn...@gmail.com</a
+></span>
+ 
+<pre>
+Aug 17 22:34:23 - [DEBUG] get ip:202.58.97.70 t:181 
+
+Aug 17 22:34:23 - [DEBUG] create_ssl update ip:202.58.97.70 time:195 
+
+Aug 17 22:34:23 - [DEBUG] get ip:113.171.19.14 t:216 
+
+Aug 17 22:34:23 - [DEBUG] get ip:113.171.19.210 t:297 
+
+Aug 17 22:34:23 - [DEBUG] create_ssl update ip:113.171.19.14 time:216 
+
+Aug 17 22:34:24 - [DEBUG] create_ssl update ip:113.171.19.210 time:240 
+
+Aug 17 22:34:24 - [INFO] scan_ip add ip:151.21.210.43 time:5009 
+
+Aug 17 22:34:24 - [INFO] remove_slowest_ip:151.21.210.43 handshake_time:5009 
+
+Aug 17 22:34:25 - [DEBUG] get ip:113.171.19.164 t:309 
+
+Aug 17 22:34:25 - [DEBUG] get ip:113.171.19.26 t:313 
+
+Aug 17 22:34:25 - [DEBUG] get ip:113.171.19.5 t:335 
+
+Aug 17 22:34:25 - [DEBUG] create_ssl update ip:113.171.19.164 time:279 
+
+Aug 17 22:34:25 - [DEBUG] create_ssl update ip:113.171.19.26 time:312 
+
+Aug 17 22:34:25 - [DEBUG] create_ssl update ip:113.171.19.5 time:304 
+
+Aug 17 22:34:26 - [DEBUG] get ip:203.210.2.25 t:415 
+
+Aug 17 22:34:26 - [DEBUG] create_ssl update ip:203.210.2.25 time:102 
+
+Aug 17 22:34:26 - [DEBUG] get ip:113.171.19.49 t:424 
+
+Aug 17 22:34:27 - [DEBUG] get ip:203.133.8.215 t:424 
+
+Aug 17 22:34:27 - [DEBUG] get ip:113.171.18.249 t:442 
+
+Aug 17 22:34:27 - [DEBUG] create_ssl update ip:113.171.19.49 time:334 
+
+Aug 17 22:34:27 - [DEBUG] create_ssl update ip:203.133.8.215 time:411 
+
+Aug 17 22:34:27 - [INFO] GAE CONNECT clients4.google.com:443 
+
+Aug 17 22:34:27 - [DEBUG] GAE CONNECT POST <a href="https://clients4.google.com/chrome-sync/command/?client=Google+Chrome&amp;client_id=%2BGDRYdjdJ115e87XkqNQ4w%3D%3D" rel="nofollow">https://clients4.google.com/chrome-sync/command/?client=Google+Chrome&amp;client_id=%2BGDRYdjdJ115e87XkqNQ4w%3D%3D</a> 
+
+Aug 17 22:34:27 - [DEBUG] host_conn_pool clients4.google.com get:202.58.97.70 handshake:176 
+
+Aug 17 22:34:28 - [DEBUG] create_ssl update ip:113.171.18.249 time:581 
+
+Aug 17 22:34:28 - [INFO] DIRECT t:836 s:11164 200 clients4.google.com /chrome-sync/command/?client=Google+Chrome&amp;client_id=%2BGDRYdjdJ115e87XkqNQ4w%3D%3D 
+
+Aug 17 22:34:28 - [INFO] GAE CONNECT clients4.google.com:443 
+
+Aug 17 22:34:28 - [DEBUG] GAE CONNECT POST <a href="https://clients4.google.com/chrome-sync/command/?client=Google+Chrome&amp;client_id=%2BGDRYdjdJ115e87XkqNQ4w%3D%3D" rel="nofollow">https://clients4.google.com/chrome-sync/command/?client=Google+Chrome&amp;client_id=%2BGDRYdjdJ115e87XkqNQ4w%3D%3D</a> 
+
+Aug 17 22:34:28 - [DEBUG] host_conn_pool clients4.google.com get:202.58.97.70 handshake:176 
+
+Aug 17 22:34:29 - [INFO] DIRECT t:709 s:376 200 clients4.google.com /chrome-sync/command/?client=Google+Chrome&amp;client_id=%2BGDRYdjdJ115e87XkqNQ4w%3D%3D 
+
+Aug 17 22:34:38 - [INFO] scan_ip add ip:193.192.226.142 time:986 
+
+Aug 17 22:34:38 - [INFO] remove_slowest_ip:173.194.0.245 handshake_time:1210 
+
+Aug 17 22:34:42 - [WARNING] CONNECT mtalk.google.com port:5228 not support 
+
+Aug 17 22:34:42 - [INFO] GAE CONNECT www.google.com:443 
+
+Aug 17 22:34:42 - [DEBUG] GAE CONNECT GET <a href="https://www.google.com/searchdomaincheck?format=domain&amp;type=chrome" rel="nofollow">https://www.google.com/searchdomaincheck?format=domain&amp;type=chrome</a> 
+
+Aug 17 22:34:42 - [DEBUG] host_conn_pool www.google.com get:202.58.97.70 handshake:180 
+
+Aug 17 22:34:43 - [INFO] scan_ip add ip:113.171.243.206 time:722 
+
+Aug 17 22:34:43 - [INFO] remove_slowest_ip:61.41.59.46 handshake_time:1210 
+
+Aug 17 22:34:45 - [INFO] GAE CONNECT mtalk.google.com:443 
+
+Aug 17 22:34:45 - [INFO] GAE CONNECT www.google.com:443 
+
+Aug 17 22:34:45 - [DEBUG] GAE CONNECT GET <a href="https://www.google.com/searchdomaincheck?format=domain&amp;type=chrome" rel="nofollow">https://www.google.com/searchdomaincheck?format=domain&amp;type=chrome</a> 
+
+Aug 17 22:34:45 - [DEBUG] get ip:203.210.2.25 t:102 
+
+Aug 17 22:34:45 - [DEBUG] create_ssl update ip:203.210.2.25 time:173 
+
+Aug 17 22:34:47 - [INFO] GAE CONNECT www.google.com.hk:443 
+
+Aug 17 22:34:48 - [WARNING] CONNECT mtalk.google.com port:5228 not support 
+
+Aug 17 22:34:48 - [INFO] GAE CONNECT www.google.com:443 
+
+Aug 17 22:34:48 - [DEBUG] GAE CONNECT GET <a href="https://www.google.com/searchdomaincheck?format=domain&amp;type=chrome" rel="nofollow">https://www.google.com/searchdomaincheck?format=domain&amp;type=chrome</a> 
+
+Aug 17 22:34:48 - [INFO] DIRECT t:143 s:441 302 www.google.com /searchdomaincheck?format=domain&amp;type=chrome 
+
+Aug 17 22:34:48 - [DEBUG] GAE CONNECT GET <a href="https://www.google.com.hk/url?sa=p&amp;hl=zh-CN&amp;pref=hkredirect&amp;pval=yes&amp;q=http://www.google.com.hk/searchdomaincheck%3Fformat%3Ddomain%26type%3Dchrome%26gws_rd%3Dcr&amp;ust=1439822119937629&amp;usg=AFQjCNHBUggdotz6TtapfhUpjqzADt-2Ng" rel="nofollow">https://www.google.com.hk/url?sa=p&amp;hl=zh-CN&amp;pref=hkredirect&amp;pval=yes&amp;q=http://www.google.com.hk/searchdomaincheck%3Fformat%3Ddomain%26type%3Dchrome%26gws_rd%3Dcr&amp;ust=1439822119937629&amp;usg=AFQjCNHBUggdotz6TtapfhUpjqzADt-2Ng</a> 
+
+Aug 17 22:34:48 - [DEBUG] get ip:202.58.97.70 t:195 
+
+Aug 17 22:34:48 - [DEBUG] create_ssl update ip:202.58.97.70 time:194 
+
+Aug 17 22:34:48 - [INFO]LOG_EXCEPT: DIRECT t:523 s:283 302 www.google.com.hk /url?sa=p&amp;hl=zh-CN&amp;pref=hkredirect&amp;pval=yes&amp;q=<a href="http://www.google.com.hk/searchdomaincheck%3Fformat%3Ddomain%26type%3Dchrome%26gws_rd%3Dcr&amp;ust=1439822119937629&amp;usg=AFQjCNHBUggdotz6TtapfhUpjqzADt-2Ng" rel="nofollow">http://www.google.com.hk/searchdomaincheck%3Fformat%3Ddomain%26type%3Dchrome%26gws_rd%3Dcr&amp;ust=1439822119937629&amp;usg=AFQjCNHBUggdotz6TtapfhUpjqzADt-2Ng</a>, Except:[Errno 9] Bad file descriptor
+
+
+Aug 17 22:34:48 - [INFO] GAE CONNECT www.google.com.hk:443 
+
+Aug 17 22:34:48 - [DEBUG] GAE CONNECT GET <a href="https://www.google.com.hk/searchdomaincheck?format=domain&amp;type=chrome&amp;gws_rd=cr" rel="nofollow">https://www.google.com.hk/searchdomaincheck?format=domain&amp;type=chrome&amp;gws_rd=cr</a> 
+
+Aug 17 22:34:48 - [DEBUG] host_conn_pool www.google.com.hk get:202.58.97.70 handshake:194 
+
+Aug 17 22:34:49 - [DEBUG] get ip:113.171.19.14 t:216 
+
+Aug 17 22:34:49 - [INFO] DIRECT chucked t:220 s:40 200 www.google.com.hk /searchdomaincheck?format=domain&amp;type=chrome&amp;gws_rd=cr 
+
+Aug 17 22:34:49 - [DEBUG] get ip:113.171.19.210 t:240 
+
+Aug 17 22:34:49 - [DEBUG] create_ssl update ip:113.171.19.14 time:223 
+
+Aug 17 22:34:49 - [DEBUG] create_ssl update ip:113.171.19.210 time:261 
+
+Aug 17 22:35:08 - [INFO] GAE CONNECT www.google.com.hk:443 
+
+Aug 17 22:35:09 - [DEBUG] head request fail:SysCallError(10054, 'Connection reset by peer') 
+
+Aug 17 22:35:09 - [DEBUG] head request fail:SysCallError(10054, 'Connection reset by peer') 
+
+Aug 17 22:35:10 - [DEBUG] head request fail:SysCallError(10054, 'Connection reset by peer') 
+
+Aug 17 22:35:10 - [DEBUG] head request fail:SysCallError(10054, 'Connection reset by peer') 
+
+Aug 17 22:35:16 - [DEBUG] get ip:203.210.2.25 t:173 
+
+Aug 17 22:35:16 - [DEBUG] create_ssl update ip:203.210.2.25 time:174 
+
+Aug 17 22:35:16 - [DEBUG] get ip:202.58.97.70 t:194 
+
+Aug 17 22:35:17 - [DEBUG] create_ssl update ip:202.58.97.70 time:180 
+
+Aug 17 22:35:18 - [DEBUG] get ip:113.171.19.14 t:223 
+
+Aug 17 22:35:18 - [DEBUG] get ip:113.171.19.210 t:261 
+
+Aug 17 22:35:18 - [DEBUG] create_ssl update ip:113.171.19.14 time:252 
+
+Aug 17 22:35:18 - [DEBUG] get ip:113.171.19.164 t:279 
+
+Aug 17 22:35:19 - [DEBUG] create_ssl update ip:113.171.19.210 time:336 
+
+Aug 17 22:35:19 - [DEBUG] get ip:113.171.19.5 t:304 
+
+Aug 17 22:35:19 - [DEBUG] create_ssl update ip:113.171.19.164 time:222 
+
+Aug 17 22:35:19 - [DEBUG] create_ssl update ip:113.171.19.5 time:219 
+
+Aug 17 22:35:19 - [INFO] scan_ip add ip:113.171.243.187 time:989 
+
+Aug 17 22:35:19 - [INFO] remove_slowest_ip:27.90.189.220 handshake_time:1210 
+
+Aug 17 22:35:20 - [DEBUG] get ip:113.171.19.26 t:312 
+
+Aug 17 22:35:20 - [DEBUG] get ip:113.171.19.49 t:334 
+
+Aug 17 22:35:20 - [DEBUG] get ip:203.133.8.215 t:411 
+
+Aug 17 22:35:20 - [DEBUG] create_ssl update ip:113.171.19.26 time:313 
+
+Aug 17 22:35:21 - [DEBUG] create_ssl update ip:113.171.19.49 time:424 
+
+Aug 17 22:35:21 - [DEBUG] create_ssl update ip:203.133.8.215 time:428 
+
+Aug 17 22:35:23 - [INFO] GAE CONNECT www.google.com.hk:443 
+
+Aug 17 22:35:24 - [INFO] scan_ip add ip:151.21.210.43 time:6096 
+
+Aug 17 22:35:24 - [INFO] remove_slowest_ip:151.21.210.43 handshake_time:6096 
+
+Aug 17 22:35:29 - [INFO] scan_ip add ip:113.171.19.118 time:377 
+
+Aug 17 22:35:29 - [INFO] remove_slowest_ip:173.194.135.240 handshake_time:1210 
+
+Aug 17 22:35:31 - [INFO] scan_ip add ip:113.171.245.244 time:687 
+
+Aug 17 22:35:31 - [INFO] remove_slowest_ip:173.194.139.232 handshake_time:1210 
+
+Aug 17 22:35:34 - [INFO] GAE CONNECT www.google.com.hk:443 
+
+Aug 17 22:35:37 - [DEBUG] GAE CONNECT GET <a href="https://www.google.com.hk/complete/search?client=chrome-omni&amp;gs_ri=chrome-ext&amp;xssi=t&amp;q=&amp;oit=0&amp;url=http%3A%2F%2F127.0.0.1%3A8085%2F%3Fmodule%3Dgae_proxy%26menu%3Dlogging&amp;sugkey=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw" rel="nofollow">https://www.google.com.hk/complete/search?client=chrome-omni&amp;gs_ri=chrome-ext&amp;xssi=t&amp;q=&amp;oit=0&amp;url=http%3A%2F%2F127.0.0.1%3A8085%2F%3Fmodule%3Dgae_proxy%26menu%3Dlogging&amp;sugkey=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw</a> 
+
+Aug 17 22:35:37 - [WARNING] direct_handler.handler send response fail. t:0 e:error(10053, '') www.google.com.hk/complete/search?client=chrome-omni&amp;gs_ri=chrome-ext&amp;xssi=t&amp;q=&amp;oit=0&amp;url=http%3A%2F%2F127.0.0.1%3A8085%2F%3Fmodule%3Dgae_proxy%26menu%3Dlogging&amp;sugkey=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw 
+
+Aug 17 22:35:37 - [INFO] DIRECT chucked t:141 s:0 200 www.google.com.hk /complete/search?client=chrome-omni&amp;gs_ri=chrome-ext&amp;xssi=t&amp;q=&amp;oit=0&amp;url=http%3A%2F%2F127.0.0.1%3A8085%2F%3Fmodule%3Dgae_proxy%26menu%3Dlogging&amp;sugkey=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw 
+
+Aug 17 22:35:42 - [DEBUG] get ip:203.210.2.25 t:174 
+
+Aug 17 22:35:42 - [DEBUG] create_ssl update ip:203.210.2.25 time:97 
+
+Aug 17 22:35:42 - [DEBUG] get ip:202.58.97.70 t:180 
+
+Aug 17 22:35:42 - [INFO] GAE CONNECT www.google.com.hk:443 
+
+Aug 17 22:35:42 - [DEBUG] get ip:113.171.19.5 t:219 
+
+Aug 17 22:35:42 - [DEBUG] create_ssl update ip:202.58.97.70 time:212 
+
+Aug 17 22:35:43 - [DEBUG]LOG_EXCEPT: create_ssl update ip:113.171.19.5 time:266, Except:[Errno 9] Bad file descriptor
+
+
+Aug 17 22:36:07 - [INFO] scan_ip add ip:113.171.247.219 time:684 
+
+Aug 17 22:36:07 - [INFO] remove_slowest_ip:173.194.137.208 handshake_time:1210 
+
+Aug 17 22:36:10 - [DEBUG] get ip:203.210.2.25 t:97 
+
+Aug 17 22:36:11 - [DEBUG] create_ssl update ip:203.210.2.25 time:88 
+
+Aug 17 22:36:12 - [DEBUG] get ip:202.58.97.70 t:212 
+
+Aug 17 22:36:12 - [DEBUG] create_ssl update ip:202.58.97.70 time:190 
+
+Aug 17 22:36:12 - [DEBUG] get ip:113.171.19.164 t:222 
+
+Aug 17 22:36:12 - [DEBUG] get ip:113.171.19.14 t:252 
+
+Aug 17 22:36:13 - [DEBUG] create_ssl update ip:113.171.19.164 time:321 
+
+Aug 17 22:36:13 - [DEBUG] get ip:113.171.19.5 t:266 
+
+Aug 17 22:36:13 - [DEBUG] create_ssl update ip:113.171.19.14 time:292 
+
+Aug 17 22:36:13 - [DEBUG] create_ssl update ip:113.171.19.5 time:382 
+
+Aug 17 22:36:14 - [DEBUG] get ip:113.171.19.26 t:313 
+
+Aug 17 22:36:14 - [INFO] scan_ip add ip:113.171.251.221 time:1768 
+
+Aug 17 22:36:14 - [INFO] remove_slowest_ip:113.171.251.221 handshake_time:1768 
+
+Aug 17 22:36:14 - [DEBUG] get ip:113.171.19.118 t:377 
+
+Aug 17 22:36:14 - [DEBUG] get ip:113.171.19.49 t:424 
+
+Aug 17 22:36:15 - [DEBUG] get ip:203.133.8.215 t:428 
+
+Aug 17 22:36:15 - [DEBUG] create_ssl update ip:113.171.19.118 time:344 
+
+Aug 17 22:36:15 - [DEBUG] create_ssl update ip:113.171.19.26 time:559 
+
+Aug 17 22:36:15 - [DEBUG] create_ssl update ip:113.171.19.49 time:412 
+
+Aug 17 22:36:15 - [DEBUG] create_ssl update ip:203.133.8.215 time:429 
+
+Aug 17 22:36:19 - [INFO] scan_ip add ip:27.90.142.104 time:1477 
+
+Aug 17 22:36:19 - [INFO] remove_slowest_ip:27.90.142.104 handshake_time:1477 
+
+Aug 17 22:36:35 - [DEBUG] get ip:203.210.2.25 t:88 
+
+Aug 17 22:36:35 - [DEBUG] create_ssl update ip:203.210.2.25 time:128 
+
+Aug 17 22:36:38 - [INFO] scan_ip add ip:195.50.84.244 time:1753 
+
+Aug 17 22:36:38 - [INFO] remove_slowest_ip:195.50.84.244 handshake_time:1753 
+
+Aug 17 22:36:40 - [INFO] scan_ip add ip:128.0.169.228 time:3356 
+
+Aug 17 22:36:40 - [INFO] remove_slowest_ip:128.0.169.228 handshake_time:3356 
+
+Aug 17 22:36:57 - [INFO] scan_ip add ip:128.0.86.199 time:2811 
+
+Aug 17 22:36:57 - [INFO] remove_slowest_ip:128.0.86.199 handshake_time:2811 
+
+Aug 17 22:37:03 - [INFO] scan_ip add ip:113.171.243.28 time:851 
+
+Aug 17 22:37:03 - [INFO] remove_slowest_ip:74.125.71.91 handshake_time:1210 
+
+Aug 17 22:37:03 - [DEBUG] get ip:203.210.2.25 t:128 
+
+Aug 17 22:37:03 - [DEBUG] get ip:202.58.97.70 t:190 
+
+Aug 17 22:37:04 - [DEBUG] create_ssl update ip:203.210.2.25 time:167 
+
+Aug 17 22:37:04 - [DEBUG] create_ssl update ip:202.58.97.70 time:194 
+
+Aug 17 22:37:05 - [DEBUG] get ip:113.171.19.14 t:292 
+
+Aug 17 22:37:05 - [DEBUG] get ip:113.171.19.164 t:321 
+
+Aug 17 22:37:05 - [DEBUG] create_ssl update ip:113.171.19.14 time:267 
+
+Aug 17 22:37:06 - [DEBUG] create_ssl update ip:113.171.19.164 time:363 
+
+Aug 17 22:37:06 - [DEBUG] get ip:113.171.19.210 t:336 
+
+Aug 17 22:37:07 - [DEBUG] get ip:113.171.19.118 t:344 
+
+Aug 17 22:37:07 - [DEBUG] get ip:113.171.19.5 t:382 
+
+Aug 17 22:37:07 - [DEBUG] create_ssl update ip:113.171.19.210 time:266 
+
+Aug 17 22:37:07 - [DEBUG] create_ssl update ip:113.171.19.5 time:217 
+
+Aug 17 22:37:07 - [DEBUG] create_ssl update ip:113.171.19.118 time:454 
+
+Aug 17 22:37:08 - [DEBUG] get ip:113.171.19.49 t:412 
+
+Aug 17 22:37:08 - [DEBUG] get ip:203.133.8.215 t:429 
+
+Aug 17 22:37:08 - [DEBUG] get ip:182.50.94.32 t:462 
+
+Aug 17 22:37:08 - [DEBUG] get ip:216.239.38.125 t:473 
+
+Aug 17 22:37:08 - [DEBUG] create_ssl update ip:113.171.19.49 time:370 
+
+Aug 17 22:37:09 - [DEBUG] get ip:113.171.18.233 t:482 
+
+Aug 17 22:37:09 - [DEBUG] create_ssl update ip:203.133.8.215 time:404 
+
+Aug 17 22:37:09 - [DEBUG] create_ssl update ip:216.239.38.125 time:473 
+
+Aug 17 22:37:09 - [DEBUG] create_ssl update ip:182.50.94.32 time:575 
+
+Aug 17 22:37:09 - [DEBUG] create_ssl update ip:113.171.18.233 time:549 
+
+|                       Host              -   %  | Sent | Recv | Best | Avrg | Wrst | Last |
+|------------------------------------------------|------|------|------|------|------|------|
+|                            192.168.11.1 -    0 |   96 |   96 |    0 |    0 |    0 |    0 |
+|                             192.168.0.1 -    0 |   96 |   96 |    0 |    0 |    2 |    0 |
+|                             192.168.1.1 -    0 |   96 |   96 |    0 |    0 |    2 |    0 |
+|1.156.81.218.broad.xw.sh.dynamic.163data.com.cn -    0 |   96 |   96 |    2 |    8 |  107 |
+|                           124.74.59.157 -    0 |   96 |   96 |    2 |    4 |   16 |    6 |
+|                          124.74.215.229 -    0 |   96 |   96 |    2 |    4 |   18 |    6 |
+|                          202.101.63.130 -    0 |   96 |   96 |    3 |    5 |   17 |    3 |
+|                           202.97.33.162 -   49 |   31 |   16 |    3 |    4 |    6 |    4 |
+|                            202.97.35.90 -   47 |   32 |   17 |    0 |   12 |   17 |   14 |
+|                           202.97.51.206 -   38 |   37 |   23 |  142 |  144 |  147 |  147 |
+|                            202.97.50.70 -   39 |   36 |   22 |  172 |  212 |  282 |  184 |
+|      xe-7-3-3.edge2.SanJose3.Level3.net -   49 |   31 |   16 |    0 |  248 |  310 |  240 |
+|    ae-4-90.edge3.LosAngeles1.Level3.net -   56 |   29 |   13 |    0 |  230 |  252 |  252 |
+|    ae-4-90.edge3.LosAngeles1.Level3.net -   58 |   28 |   12 |    0 |  229 |  253 |  250 |
+|CHINA-TELEC.edge3.LosAngeles1.Level3.net -    2 |   92 |   91 |  244 |  276 |  323 |  317 |
+|                   No response from host -  100 |   19 |    0 |    0 |    0 |    0 |    0 |
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 17 18:07:44 2015">
+ Aug 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=22317#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/110870187471965512698/">xxnet....@gmail.com</a
+></span>
+ 
+<pre>
+#23 你确定是上海电信吗？怎么你可以使用的ip 和延迟跟别人不一样？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 17 19:35:30 2015">
+ Aug 17 (6 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22317#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/102871165717735944677/">woaiwn...@gmail.com</a
+></span>
+ 
+<pre>
+#24 我之前用全局VPN翻了一会，回到墙内走代理看了一会youtube，但IP却留了下来
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 17 20:05:35 2015">
+ Aug 17 (6 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=22317#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/110870187471965512698/">xxnet....@gmail.com</a
+></span>
+ 
+<pre>
+#25 
+  你另外下载一个XX-net，看看扫出来的ip和目前用的有没有什么差别。
+  怀疑目前扫ip的行为被检测到了，然后进行封锁。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 17 22:10:42 2015">
+ Aug 17 (6 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=22317#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/102871165717735944677/">woaiwn...@gmail.com</a
+></span>
+ 
+<pre>
+#26 扫了一个小时 Google IP num 36
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 18 00:01:08 2015">
+ Aug 18 (6 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22317#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+Aug 18 14:59:15 - [DEBUG] create_ssl update ip:203.133.8.215 time:406
+Aug 18 14:59:15 - [DEBUG] create_ssl update ip:111.168.255.180 time:1066
+Aug 18 14:59:15 - [DEBUG] create_ssl update ip:203.133.8.36 time:427
+Aug 18 14:59:21 - [DEBUG] get ip:203.133.8.204 t:407
+Aug 18 14:59:21 - [DEBUG] get ip:203.133.8.245 t:411
+Aug 18 14:59:22 - [DEBUG] create_ssl update ip:203.133.8.204 time:390
+Aug 18 14:59:22 - [DEBUG] create_ssl update ip:203.133.8.245 time:421
+Aug 18 14:59:25 - [INFO] GAE CONNECT clients4.google.com:443
+Aug 18 14:59:25 - [DEBUG] GAE CONNECT POST <a href="https://clients4.google.com/chrome-sync/command/?client=Google+Chrome&amp;client_id=Xe2%2Bj14lsbb3bDXqoT9IdA%3D%3D" rel="nofollow">https://clients4.google.com/chrome-sync/command/?client=Google+Chrome&amp;client_id=Xe2%2Bj14lsbb3bDXqoT9IdA%3D%3D</a>
+Aug 18 14:59:25 - [DEBUG] host_conn_pool clients4.google.com get:182.79.253.186 handshake:784
+Aug 18 14:59:26 - [INFO] DIRECT chucked t:1134 s:19120 200 clients4.google.com /chrome-sync/command/?client=Google+Chrome&amp;client_id=Xe2%2Bj14lsbb3bDXqoT9IdA%3D%3D
+Aug 18 14:59:55 - [DEBUG] get ip:202.169.173.225 t:327
+Aug 18 14:59:56 - [DEBUG] get ip:203.133.8.204 t:390
+Aug 18 14:59:56 - [DEBUG] get ip:203.133.8.215 t:406
+Aug 18 14:59:56 - [DEBUG] create_ssl update ip:202.169.173.225 time:485
+Aug 18 14:59:56 - [DEBUG] get ip:203.133.8.245 t:421
+Aug 18 14:59:56 - [DEBUG] create_ssl update ip:203.133.8.204 time:427
+Aug 18 14:59:56 - [DEBUG] create_ssl update ip:203.133.8.215 time:382
+Aug 18 14:59:57 - [DEBUG] create_ssl update ip:203.133.8.245 time:411
+
+
+-----------------------------------------------------
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\Kevin&gt;ping 203.133.8.245 -n 50
+
+Pinging 203.133.8.245 with 32 bytes of data:
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=205ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=203ms TTL=49
+Reply from 203.133.8.245: bytes=32 time=204ms TTL=49
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22317">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22317',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22317,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ 
+ <script type="text/javascript">_CS_reportToCsi();</script>
+ 
+ </body>
+</html>
+

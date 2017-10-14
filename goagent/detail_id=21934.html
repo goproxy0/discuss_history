@@ -1,0 +1,2275 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"loggedInUserEmail": null, "relativeBaseUrl": "", "projectHomeUrl": "/p/goagent", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "domainName": null, "projectName": "goagent", "token": null, "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21934 - 
+ goagent -
+ 
+ 简明 Shadowsocks + meow + goagent 设置教程 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21934&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21934" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21934">21934</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >简明 Shadowsocks + meow + goagent 设置教程</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 10 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21934">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+>,
+ <span class="date" title="Fri Jul 17 02:56:18 2015">Jul 17, 2015</span>
+ 
+ </div>
+<pre>
+用SS做meow的前置代理，简单写下
+
+下载meow
+<a href="https://github.com/renzhn/MEOW" rel="nofollow">https://github.com/renzhn/MEOW</a>
+
+修改 rc.txt 文件，加一行
+
+proxy = ss://encrypt_method:password@x.x.x.x:xxxx
+
+具体的加密方式、服务器地址、密码、端口根据你实际内容来改
+
+修改 goagent 的设置文件  proxy.ini 或 proxy.user.ini
+
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 4411
+
+然后开着meow和goagent，浏览器里的代理设置方法还是用goagent的
+
+完事
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:07:55 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21934#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/103688435054503515360/">ren...@gmail.com</a
+></span>
+ 
+<pre>
+有了ss和MEOW直接把浏览器器代理设为127.0.0.1:4411不就行了么？
+是因为加了goa更快吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:11:21 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21934#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/112819032537250247862/">finer...@gmail.com</a
+></span>
+ 
+<pre>
+还是看不懂，能举例说明不？谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:12:42 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21934#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/112819032537250247862/">finer...@gmail.com</a
+></span>
+ 
+<pre>
+具体的加密方式、服务器地址、密码、端口根据你实际内容来改
+这些参数哪里得来？
+我一直用的是GOAGENT，好像没有这些参数啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:15:01 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21934#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#1 那你还不如用专门的SS客户端，可以方便的切换服务器
+这个方法是为了让goagent不用找IP也能用，SS是会受到干扰的，而goa排除IP的问题后，看youtube视频之类就比SS好用了
+
+#2 照做就是，有啥看不懂的..
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:16:11 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21934#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/116770532081293800841/">lin95645...@gmail.com</a
+></span>
+ 
+<pre>
+SS速度不给力，弄meow也没辙，SS有速度，那干嘛还用meow？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:16:21 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21934#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#3 你首先要有个能用的SS服务
+没SS服务的话这贴是没啥用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:19:48 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21934#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+这样设置就是想利用goa的autorange，如果你没这个需求，完全可以只用ss。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:47:24 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21934#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/113984721138789488972/">zlt...@gmail.com</a
+></span>
+ 
+<pre>
+其实不用meow都可以把SS作goa的前置代理，直接修改
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 1080
+
+我用的版本是goagent-goagent-985cbd5
+
+#5 meow 可以设置多个SS或者其它代理智能切换，流量均衡等的作用,加上goa看视频比较好
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:49:21 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21934#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/107248954698832681738/">joeson...@gmail.com</a
+></span>
+ 
+<pre>
+多谢lz，期待赛风+Proxifier的教程！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:09:50 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21934#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#9 我一直以为goagent的前置代理得是http的，没想到socks5的也行
+不过用meow可以配置多个二级代理，有这需求的话是得用它
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:13:56 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21934#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#11 goa用socks5做前置有缺陷，有些版本的ss就不能做前置代理，比如我用的
+Shadowsocks-qt版就不行，python版可以。所以我觉得还是http代理靠谱，没遇到过不能
+走前置代理的。何况还能配置无数个二级代理。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:14:24 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21934#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/106627272184230748248/">showby...@gmail.com</a
+></span>
+ 
+<pre>
+不知道这样走的是那些流量。是goagent和ss走一样的流量还是只是用来找ip的？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:15:09 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21934#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/117728682280967799759/">fid...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢，学习了。
+
+请问，这个和CDN是什么关系? 今天我搜gvs搜出一大推akamai,能不能把akamai揉进去？小白提问，请谅解。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:46:44 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21934#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/100683076744145166361/">coldlaun...@gmail.com</a
+></span>
+ 
+<pre>
+#9 #11 #12
+MEOW除了socks5转http之外还可以把国内的网站直接连接，国外的用代理。这样直接把浏览器代理设置为MEOW就很省事，监听0.0.0.0后把手机平板这些也可以设置为MEOW，很方便。MEOW也可以在VPS或者树莓派上跑
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:07:17 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21934#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#15 MEOW的设计初衷就是做全局代理么，从cow Fork来的，窗口要显示信息很好，cow不显示，都不知道有没有问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:07:05 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21934#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+感谢楼主，成功了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:24:41 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21934#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/100683076744145166361/">coldlaun...@gmail.com</a
+></span>
+ 
+<pre>
+#16 是的，另外MEOW/COW还有一个shadowsocks做不到的功能，可以通过meow://用作代理链
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:25:57 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21934#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/100683076744145166361/">coldlaun...@gmail.com</a
+></span>
+ 
+<pre>
+#16 而且用MEOW还不存在GOA的证书问题
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:29:31 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21934#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/116770532081293800841/">lin95645...@gmail.com</a
+></span>
+ 
+<pre>
+设置完后 游览器显示 
+'ProxyNet2' object has no attribute 'connect_timeout'
+'ProxyNet2' object has no attribute 'connect_timeout'
+怎么回事？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:54:08 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21934#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+楼上的Shadowsocks服务是试过可用的么，rc.txt文件内容贴下看看，服务器相关重要信息请自行改掉
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:57:12 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21934#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/116238885012903002396/">huanlo...@gmail.com</a
+></span>
+ 
+<pre>
+#18 请教这个怎么玩？需要自己搭建meow sever么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 08:24:01 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21934#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/116770532081293800841/">lin95645...@gmail.com</a
+></span>
+ 
+<pre>
+#21
+ss试过可用，rc原文件内容一点没动，只在底部增加一行
+proxy = ss://rc4-md5:4XXX@198.XX.XX.XXX:52XXX
+goagent文件已修改
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 11:53:42 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21934#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+一打开meow就显示：config snytax error on line 12
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 16:13:07 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21934#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/106777799782363489314/">MentalOm...@gmail.com</a
+></span>
+ 
+<pre>
+#20 同，不知道怎么搞的'ProxyNet2' object has no attribute 'connect_timeout'
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 16:25:53 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21934#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#23 #24 #25
+
+试一下这个方法
+
+排除干扰：将原 rc.txt 文件里的内容全部删除，再只加两行（第二行后再留一个空行）
+
+listen = http://127.0.0.1:4411
+proxy = ss://encrypt_method:password@x.x.x.x:xxxx
+
+看是否解决问题
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 16:31:57 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21934#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/114450596637896535771/">CASTLEKA...@gmail.com</a
+></span>
+ 
+<pre>
+我昨天也遇到'ProxyNet2' object has no attribute 'connect_timeout'的问题，后来放弃goagent3.2.3，改用这一版的3.2.0就成功了：
+
+<a href="https://github.com/goagent/goagent/tree/9d8b1f7c023c17de26e0006663ddf92832239956" rel="nofollow">https://github.com/goagent/goagent/tree/9d8b1f7c023c17de26e0006663ddf92832239956</a>
+
+点击右边的Download ZIP下载。
+不要点“goagent 3.2.0 正式版下载 <a href="http://git.io/goa”。" rel="nofollow">http://git.io/goa”。</a>
+Proxy.ini和app.yaml里面还是要换成自己的id。
+
+感谢redfrog...@gmail.com在另一个贴子里对我的帮助。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 16:34:31 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21934#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+刚发现一个可能的原因，rc.txt这个文件的编码格式应该是：UTF-8
+作者提供的文件就是这个编码，如果在编辑文件时改成了其它格式如Unicode，就会报错 config snytax error 了
+
+另，meow的配置文件和goagent类似，等号左右都要有空格
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 16:34:49 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21934#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/114450596637896535771/">CASTLEKA...@gmail.com</a
+></span>
+ 
+<pre>
+也感谢楼主的简易教程：）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 16:53:34 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21934#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#27 我一开始用的 goagent 3.2.3，也没这问题，不清楚原因了
+
+另，得某论坛高人指点，如果你用的是这个Shadowsocks客户端或基于它的修改版本
+<a href="https://github.com/shadowsocks/shadowsocks-csharp" rel="nofollow">https://github.com/shadowsocks/shadowsocks-csharp</a>
+
+并且只有一个SS服务，不需要用多个二级代理
+
+那不需要meow就能让goagent使用http前置代理
+
+修改 goagent 的设置文件  proxy.ini 或 proxy.user.ini
+
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 8123
+
+然后运行Shadowsocks客户端和goagent就行了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 17:32:19 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21934#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#31 这个好奇特，难道这个ss客户端自己启用了一个http端口？
+不过我还是建议你用meow，因为meow把socks5转成https，这
+在一定程度上降低了你被“认证”的几率。socks5协议特征太明显。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 17:52:27 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21934#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#32 这个http端口是ss客户端带的polipo开的
+我是在用meow，多个SS服务，用它可以负载均衡
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 18:05:10 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=21934#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/101994464459370655569/">Kishen...@gmail.com</a
+></span>
+ 
+<pre>
+我觉得完全是脱裤放屁。。我用SS比挂goagent+ss快，多绕了一个软件还是有些影响的，SS也是加密访问
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 18:30:49 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=21934#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/117347848207208895832/">u78...@gmail.com</a
+></span>
+ 
+<pre>
+#33请问多个ss服务怎么用meow负载均衡？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 18:51:28 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=21934#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#35 看meow带的rc-full.txt
+
+先把多个ss服务都列进去
+
+proxy = ss://encrypt_method:password@x.x.x.x:xxxx
+proxy = ss://encrypt_method:password@x.x.x.x:xxxx
+......
+
+再指定负载均衡策略，我是用的
+
+loadBalance = backup
+
+#34 这么做的用处 #7 已经说明，不再重复
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 18:51:35 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=21934#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#35 默认就是balance了，开启了，你写入多个ss节点，就可以实现了。配置文件
+都写得很清楚的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 18:59:13 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=21934#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#37 均衡负载能把多个SS的流量叠加起来用吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 19:07:40 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=21934#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+有兴趣还可以玩玩赛风+MEOW+Akamai CDN加速，速度就是无线连接都能稳定跑到1.8-2.2m，赛风
+选美国最好，我这边不这么玩，单独赛风和单独ss的断联/速度剧烈波动非常频繁。
+现在就这么连接的，很爽。
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/18 10:00:30 PROXY 127.0.0.1:61933 CONNECT 173.230.147.54:22
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/18 10:00:30 PROXY 127.0.0.1:61927 POST 45.55.4.72:80/
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/18 10:00:30 PROXY 127.0.0.1:61945 CONNECT 141.101.127.122:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/18 10:00:30 PROXY 127.0.0.1:61954 CONNECT 104.16.0.36:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/18 10:00:30 PROXY 127.0.0.1:61964 CONNECT 45.79.207.127:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/18 10:00:30 PROXY 127.0.0.1:61972 CONNECT yryirjrhqffsxwpg-a.aka
+maihd.net:443
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 19:09:35 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=21934#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#37 不行的，它的策略是用完流量自带切换，或者latency，先到先连，不要指望
+太高，这么小的软件无法实现复杂的负载均衡功能。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 19:59:55 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=21934#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/117347848207208895832/">u78...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢#36 #37网友的回复 原来是用完流量后自动切换到下一个ss账号。我还以为像wallproxy那样随机使用appid的流量。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 02:27:53 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=21934#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/100620485974197151058/">lawsher...@gmail.com</a
+></span>
+ 
+<pre>
+我知道赛风+Meow怎么连
+
+但是Meow+AkamaiCDN怎么连的？
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21934">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21934',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21934,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

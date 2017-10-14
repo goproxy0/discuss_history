@@ -1,0 +1,2332 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"relativeBaseUrl": "", "projectName": "goagent", "loggedInUserEmail": null, "domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null, "projectHomeUrl": "/p/goagent", "token": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21988 - 
+ goagent -
+ 
+ 抗战就是一部国军的血泪史！到了必须正视历史的时候了！ - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21988&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21988" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21988">21988</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >抗战就是一部国军的血泪史！到了必须正视历史的时候了！</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 4 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21988">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+>,
+ <span class="date" title="Sun Jul 19 00:17:03 2015">Jul 19, 2015</span>
+ 
+ </div>
+<pre>
+
+抗战就是一部国军的血泪史！到了必须正视历史的时候了！
+
+不知道现在到处泛滥的抗日神剧如此无耻侮辱历史，天上的抗战英灵会作何感想？老天一定会对共匪篡改历史篡权夺位做出一个公平的审判吧。
+
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTAxOTIxOA==&amp;mid=203263214&amp;idx=5&amp;sn=9d032c0492b306b2f44976890ab33e5e&amp;scene=2&amp;from=timeline&amp;isappinstalled=0" rel="nofollow">http://mp.weixin.qq.com/s?__biz=MzAxNTAxOTIxOA==&amp;mid=203263214&amp;idx=5&amp;sn=9d032c0492b306b2f44976890ab33e5e&amp;scene=2&amp;from=timeline&amp;isappinstalled=0</a>
+
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 00:25:39 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21988#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+
+七十年过去了，有谁知道八路军的狼牙山五壮士和国民党军中条山八百壮士相比太微不足道了。
+ 忻口会战失败后，日军进攻中条山，国军以伤亡27000人的代价阻隔十万日军于西北之外，战役中，由于弹尽粮绝，八百衣衫褴褛的十七八岁陕西籍国军士兵被逼到悬崖边，他们砸毁枪支，面朝陕西方向，跪天、跪地、跪父母，高唱秦腔、宁死不降，全体跳入滚滚黄河。何等的惊天地泣鬼神？就连身后追杀的日军都为之震撼，纷纷放下枪支，列队敬礼。
+ 七十年过去了，有几个中国人知道八路军平型关大捷，其实只是平型关战役的一部分，而平型关战役又是整个第二战区太原会战的一部分，没有阎锡山第二战区的配合，哪来的所谓“大捷”？
+
+国军美式部队
+
+七十年过去了，有几个中国人知道抗战中第一次全歼日本重装师团的战役是万家岭大捷？有谁知道国民党中央军第五军曾在昆龙关全歼日军精锐第五师团？有几个中国人知道总计歼敌13万人，给日军沉重打击的三次长沙会战是国军几大战区统一指挥下协调完成的？
+
+壮怀激烈
+
+七十年过去了，有几个中国人知道徐州会战中，国军士兵在缺乏反坦克武器的情况下，不得已一次次的以自己的血肉之躯成建制的向敌人坦克发起冲锋？在与敌坦克肉搏中，官兵只能攀爬坦克，用集束手榴弹和炸药包向车里投掷，或同归于尽，作战之勇敢与牺牲之惨烈，笔难尽述，以至于会战结束后，身经百战的第五战区司令长官李宗仁在视察战场时，面对铺天盖地的阵亡将士尸体，竟至情绪崩溃，跪倒在地，失声痛哭！
+
+
+
+日本投降仪式现场
+
+七十年过去了，有几个中国人知道抗战期间战线最长的会战是武汉会战？有几个中国人知道在武汉曾经上演了一场规模仅次于英德伦敦空战的武汉大空战？有几个中国人知道宋美玲为鼓舞官兵士气，五次赶赴武汉前线，差点被日本人炸死？
+七十年过去了，有几个人中国人知道在当年的武汉大空战中，国民党军队击落日军飞机78架，击沉日军舰艇23艘？
+那个时候，每当防空警报想起，武汉市民不是躲进防空洞，而是争相爬上屋顶，想看看日本飞机是如何被一架架击落的……
+
+
+
+整装待发、即将开赴前线的国军部队
+
+七十年过去了，在大陆的主流媒体和教科书上，没有把抗日战争的所有战役完整的介绍过一次，甚至连起码的大事记也没有。只是反复推崇一些地雷战，地道战，麻雀战，这游击队，那武工队的。
+有谁知道在电影《南征北战》中，被描述成恶贯满盈的张灵普实际上是国军著名抗日英雄？他曾在长沙会战中，夜夺张古峰，身先士卒，血战三天三夜，被炸掉一条腿，后来被人称为独腿将军，他所指挥的美械74师被称为王牌军。
+
+整装待发的国军德式部队
+
+七十年过去了，有谁知道，在上海，动员了全国70万军队，发动了著名的淞沪会战，持续了三个多月。
+有谁知道在会战中，国军空军炸毁日本海军陆战队司令部，炸沉日本海军第3舰队旗舰，国军超过半数的团职以上军官以身殉国，国民政府为补充战损而五次发布全国动员令。
+由于国民党军队的战术思想以及装备水平的落后，虽然付出了巨大的牺牲也未能阻止日军占领上海，淞沪会战最终以失败告终。但这场会战也极大的消耗了日军的战争能力，改变了日军在中国战场的战略部署，打击了日军的嚣张气焰，粉碎了日本三个月灭亡中国的神话，也为上海的工厂设备和资本向西转移赢得宝贵的三个月时间。
+
+出征誓师
+
+七十年过去了，有几个中国人知道最让外国人刮目相看的不是叶挺的新四军，而是孙立人的新一军。新一军曾经远征缅甸，以伤亡1.7万人的代价击毙击伤日军10余万人。
+在新一军攻占缅甸重镇于邦的时候，下属向孙立人询问如何处理日军战俘，孙将军的回答是：你去问问那些狗杂种，谁到过中国？到过中国的就地活埋，以后都这样办。
+
+
+前线的国军女兵风采
+
+七十年过去了，有几个中国人知道真正让日军闻风丧胆的军队是国军的委员长卫队。这支军队使用德军的装备，有德军教官指导。
+在南京雨花台，委员长卫队的两个营独自阻击日军一个甲种师团（在第二次世界大战中，日军一共只有六个甲种师团），平均每个士兵要坚守25米长的阵地，要面对50名日军精锐部队的士兵，但最后的胜利者依然是中国人。
+
+抗战老兵崔金品在家人陪同下参观卢沟桥
+
+七十年过去了，有几个中国人知道在常德保卫战中，国军74军57师的8000名官兵，在阻击10万日军15天之久后，最后只有200人能够战斗。
+师长发出了74军57师最后一封电报：&quot;弹尽，援绝，人无，城已破。卑职率副师长、政治部主任、参谋部主任死守中央银行，各团长划分区域，扼守一屋，作最后抵抗，誓死为止，并祝胜利。74军万岁！&quot;这份珍贵的电报原稿现在保存于台湾。
+
+
+
+妇女代表慰问前方将士
+
+七十年过去了，有几个中国人知道在重庆有17家军工厂在敌机轰炸下坚持24小时不间断生产。以金陵军工厂为例，抗战期间共生产迫击炮7000门、重机枪1.8万挺、步枪28万支、手榴弹30万枚、炸药包20万个。
+七十多年过去了，有几个中国人知道8.15日本投降日对于我们这个百年来饱受屈辱的国家意味着什么？有几个中国人知道日军投降书是什么样子？
+
+上海学生游行 声援前线将士
+
+七十年过去了，有几个中国人知道伟大的中国卫国战争是世界四大反法西斯战争之一，它不是靠小米加步枪，用游击战、麻雀战、地道战、地雷战就能打的赢的。它是动用重兵集团与敌人浴血奋战、在付出了巨大的代价和牺牲后才最终打赢的。
+整个战争期间，国民党陆军有三百二十多万官兵壮烈牺牲，其中包括8名上将，41名中将，71名少将。国民党空军有6164名飞行员血洒长空，2468架飞机被击落。国民党海军全军覆没，所有舰艇全部打光。
+以至于后来在重庆庆祝抗战胜利的游行中，组织者竟然找不到一个完整的成建制海军单位，最后只找到几十名散落各地的原海军人员和一些退役的海军老兵。就这样，这些七拼八凑起来的、历经九死一生的海军人员满含热泪，举着一块“中国海军”的条幅，代表着已经打没了的中国海军，参加了这场举世瞩目的庆祝胜利大游行。
+
+即将开赴前线的国军女兵
+
+七十年过去了, 还有几个中国人知道胜者王侯败者寇的道理？抗日战争不只有八路军在敌后的夜袭阳明堡机场、平型关大捷、百团大战。更多的是国民党军队在正面战场上的长城抗战、淞沪会战 、绥远抗战、平津作战、太原保卫战、台儿庄战役、忻口战役、武汉会战、三次长沙会战、南京战役、娘子关战役、徐州会战、南昌会战、随枣会战、枣宜会战、晋南战役、上高会战、昆仑关战役、桂南会战、常德会战、滇湎战役、豫湘桂战役、密支那战役、强渡怒江战役、桂林反击战、柳州反攻战役、湘西会战等等。
+历史绝对不是任人打扮的小姑娘，能打扮的也只能是有数的年月。历史一定会以它本来的面目流传于世！假如我们中国人自己都搞不懂抗日战争历史的主流与重心，日本人当然也就乐得敷衍蒙混了。
+
+
+
+
+流落缅甸的远征军老兵回国探亲，过海关时，武警战士向他们庄严敬礼！
+
+
+
+主流媒体登载的关于港澳人大代表向民政部提交优抚国民党抗战老兵议案的报道
+
+七十年过去了，假如中国只有靠麻雀战，地道战、地雷战等手段来对抗日本装备精良、训练有素的野战师团的话，那么中国哪里会有出席开罗会议、和美、英、苏平起平坐、共同确立战后世界秩序，共同发表《波茨坦宣言》的资格？那里会有成为联合国创始国以及安理会常任理事国的大国地位？（中国现在的安理会常任理事国席位是1972年从台湾手里夺过来的，实际上也是美国为了达到和中国建交、拉拢中国共同对抗前苏联的一种策略和馈赠，此前的常任理事国席位一直是属于台湾国民党的中华民国）
+
+风烛残年的大陆抗战老兵
+
+七十年过去了，我想问一句：难道抗日战争的历史真相就真的那么可怕吗？真的会威胁到我们的政局稳定吗？我们过去的宣传真的没问题吗？究竟是什么使我们一次次把阶级矛盾凌驾于民族矛盾之上？难道所谓的意思形态真的能把中国人的心理扭曲到如此地步？
+
+风烛残年的大陆抗战老兵
+
+往者虽已逝，来者犹可追。那些还健在的，已经风烛残年的国民党抗日老兵应该得到尊重，哪怕是迟到的尊重也好。这份记忆和荣誉属于他们，也属于这个国家，属于这个民族，属于我们的子孙后代。
+七十年过去了，我们真的应该扪心自问一下！我们真的已经到了必须尊重历史的时候了，我们已经错过太多，千万不要错过了最后弥补遗憾的机会。我们也应该给我们下一代一个合理的交代。 
+前事不忘后事之师，对于那场给中华民族带来了深重灾难的战争，我们千万不要遗忘，更不能有组织的，有选择性的集体遗忘。
+
+
+
+
+1952年，国民党军弃守浙江外海的大陈岛撤往台湾，图为全体官兵列队面朝祖国大陆方向敬礼诀别。从此，无数亲人天各一方，从此，浅浅的一道海峡，成了两岸中国人心头永远抚不平的伤痛……
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 01:03:21 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21988#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+强烈建议把“国民党军队”全部替换为“国军”，他们真的是国民革命军，也就是当时的中华民国国防军。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 01:03:58 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21988#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+成王败寇，历史是胜利者的历史，胜利者重复百万遍，那就是真理，到现在，抗日神剧，还在不断洗
+
+脑，说抗日主力是共军。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 02:37:12 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21988#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/116556303675081253708/">ls1...@gmail.com</a
+></span>
+ 
+<pre>
+#3 高级黑
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:33:24 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21988#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+支持Kingtope1870珍贵的基础普及。这些翔实的细节非常令人感动。
+
+如果有人觉得这类公益行为把社区的整体素质拉低了，可以正式提出异议。有异议声音的社区是健康的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:20:50 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21988#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/104502772223713371233/">raremonk...@gmail.com</a
+></span>
+ 
+<pre>
+推荐大家看一下《一寸河山一寸血》
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 09:03:53 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21988#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/104143686415401696591/">11y...@gmail.com</a
+></span>
+ 
+<pre>
+楼主还不知道狼牙山五壮士的事是假的吗？哪几个人只是做了逃兵，后来被人揪出来了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 09:22:58 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21988#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/107999255835010059948/">fhzyf...@gmail.com</a
+></span>
+ 
+<pre>
+这里是讨论翻墙！！！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 17:39:31 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21988#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+支持讨论历史
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:19:50 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21988#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+独裁国家教育出有独裁思维的民众，这里本来就被封了，还这里只讨论翻墙，这是被独裁国家教育出的
+
+惯性奴性思想吗？什么叫自由？任何人都有说话的权利，这就叫自由。某人自己向往自由，却不让别人
+
+有说话的自由，看来独裁国家不断洗脑，还是有成果的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:25:04 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21988#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#13 说的好！ 有些人尼玛都不知道自己翻墙出来应该干什么，为什么要翻墙？翻墙的意义何在？
+
+ 这些东西你都不明白，你翻JB墙啊？难道真的只是为了看XXVideo ?!
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:41:34 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21988#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/102036774538481625145/">kshiena...@gmail.com</a
+></span>
+ 
+<pre>
+一般来说，技术论坛上的讨论确实不应该离题太远，但是翻墙论坛应该是个特殊的地方，那些认为这里只能讨论“翻墙”的技术问题的人，套句共匪的术语，是“别有用心”吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:46:51 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21988#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+坚决反对任何审查和自我审查，不了解真实的历史，罪恶就会重来。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 00:59:24 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21988#c17">#17</a>
+ 
+
+ 
+ <span class="userlink">vicwangt...@gmail.com</span></span>
+ 
+<pre>
+我就想知道为何这么牛逼的国军被土共打跑了？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 01:01:50 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21988#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+管理员出来把五毛踢走！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 20:36:42 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21988#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/100465358101677371807/">iloveyu...@gmail.com</a
+></span>
+ 
+<pre>
+哎，成王败寇。历史都是强势人群写的，当然都是为了维护自己利益。老百姓看着笑笑就可以了，千万不要太当真。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 22:20:03 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21988#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+你个傻逼五毛给你主子舔菊舔的真欢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 22:26:33 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21988#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+原来重大历史事实是一堆破事儿，难怪天朝人轮回几十个王朝也是这个鸟样。
+
+以前修长城求不被外族入侵，现在翻墙求当党奴到高潮，还自以为有能聪明。
+
+啧啧。觉得不爽不看就行了，自我阉割我真的不介意哦。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 22:41:30 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21988#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+五毛听人话都听不懂，，就你这智商怎么给你主子效力
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 22:47:19 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21988#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#26 重大历史能干嘛？从实用主义，这个是共匪最喜欢高调宣传的来说，
+
+不能当吃，不能当喝，就是能避免你当傻逼。
+
+当然你硬要当我也不会阻止你，但你凭什么阻止别人谈论这些历史事实？
+
+都跟你讲了，你要自己阉割自己我一点意见没有，但是，你要阻止别人谈论，
+
+那就当成五毛狗逼来打，就这么回事。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 22:49:25 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21988#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#26 是的，我上厕所的排泄物都成了你这等垃圾的粮食了，主要是怕饿死你这些五毛党，好让你们找你主子领工资
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 22:51:08 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21988#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+ #22 hoxton0...@gmail.com
+
+另外，我五毛赌楼主是大圈仔，天天嘶吼着一堆破事，掩盖自己生活的很无能。
+
+你这话像是合则谈的样子？你能说别人尊重的历史是破事，那我说你是傻逼也没什么过分。
+
+#26 hoxton0...@gmail.com
+
+套用你的话来说，祖先就那鸟样，你又能鸟什么样来？
+
+像台湾那个样子就行了，公民权益和个人利益得到切实保障，不用担心上网会被喝茶，
+就这鸟样。
+
+你这只鸟应该不需要这样的生活，所以，跪舔就好，姿势还要摆对。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 23:26:06 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=21988#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#33 你主子把你洗脑都洗傻了，别人是拿鸟打个比喻，听不懂啊？你这弱智的办事，怎么能让你主子满意啊？现在发现拿五毛的工资也不容易了吧。
+
+说活在共匪的社会，笑话！我们现在都翻墙出来了，共匪能把我怎样，它管得着吗？
+也许共匪能暂时鱼肉百姓，但是永远无法禁锢有良知人民的思想，现在你主子内斗的都要冒烟了，共匪也知道朝不保夕，只争朝夕了，你主子没跟你说吗？说你这当奴才的真是不够称职的，
+
+说你的智商不行，你的奴性还真不是盖的，就你主子那点狗粮就能把你哄得团团转？我们为什么要向你们这些垃圾五毛看齐。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 23:27:55 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=21988#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#33 恰恰相反，楼主提出了不同于共匪的历史叙述，五毛狗逼忙不迭跳出来
+
+否认，连上网被喝茶也要否认，好了，你的五毛狗逼身份确认了，不想跟
+
+你讲什么，自己滚蛋。
+
+想强迫我们认可共匪的谎言？自己留着换狗粮。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 23:37:01 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=21988#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#38 别人是说“祖先就那鸟样”， 是形容词，不是名词，你都没听懂，结果你听成了你祖宗是只鸟。 你这么弱智，你家主子是怎么把你招进来的
+
+既然共匪不管我，为什么要筑墙？你这五毛的也太直接了吧。
+ 做五毛专业点，虽然工资只有五毛，也不要让人一眼就看出你是五毛，丢你主子的脸
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 23:37:51 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=21988#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#39 我已经回答且清楚阐述了我的观点主张，看不明白就去看眼科医生。
+我没任何义务教育傻逼。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 23:42:10 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=21988#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#42 哦，原来你是要言论自由，共匪不给你吗？根据对等原则，共匪
+
+能给所有中国公民言论自由，你就享有了，既然共匪不给你，那么你
+
+怎么好意思腆着脸来这里问我们要呢？我们对所有人都是开放的，自由的，
+
+唯独对五毛狗除外，这个回答你满意吗？不满意，就滚蛋去找你的主子要好了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 23:47:58 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=21988#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/102036774538481625145/">kshiena...@gmail.com</a
+></span>
+ 
+<pre>
+奴才真可以，翻墙出来替共匪说话，为什么不找方菊给你防火墙上留一个洞？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 23:48:19 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=21988#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#43 
+啊。原来又是一只自认为才高八斗，学富五车，吃便八筐，文化鞋底高的五毛，
+
+你这么大才，怎么习大麻不招你入宫当个带鱼作协，花芳军师的马仔，到这里
+
+来胡乱喷呢，原来你还是不得你主子赏识啊。你的强大逻辑居然只能换5毛钱。
+
+等会儿冒充我的癞蛤蟆都会来为你叫屈，同行生嫉妒嘛，哈哈哈哈！！！！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 01:21:13 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=21988#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/107533720636950923840/">yuwei123...@gmail.com</a
+></span>
+ 
+<pre>
+匪毛，你别鸡巴瞎掰了！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc50">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 07:37:44 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c50" href="/p/goagent/issues/detail?id=21988#c50">#50</a>
+ 
+
+ <a class="userlink"
+ href="/u/105176833129394100372/">shimi...@gmail.com</a
+></span>
+ 
+<pre>
+千古罪人张学良。祸害整个民族。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc51">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 03:10:39 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c51" href="/p/goagent/issues/detail?id=21988#c51">#51</a>
+ 
+
+ <a class="userlink"
+ href="/u/114857105673156517877/">Nycomput...@gmail.com</a
+></span>
+ 
+<pre>
+ #32  這位 hoxton0...@gmail.com的話如果你仔細聽，你能從和對手過招的過程中提升自己的境界和層次。
+
+“另外，我五毛赌楼主是大圈仔，天天嘶吼着一堆破事，掩盖自己生活的很无能。”
+
+其實我也可以賭樓主是沒有買房子的人。買了自己的房子的人不會有這麼大的怒氣。樓主也沒有購房的計劃。我賭中了嗎？：）
+
+商人在商言商，堅持自己的信仰，但是和氣生財。萬事以公平交易爲準則。這正是我爲什麼不願公布Plusburg制作程序的原因。我知道這東西對於自己而言只是一個類似遊戲性的項目，就算是賺錢也只是風險遠遠跟收益無法相比的事情，可是我知道一旦公布了對於這個以撿便宜爲樂事的社區沒有任何改變和影響。請原諒這麼直白，我無意冒犯任何人。
+
+退一步說，各位希望如何實現自己的財富增長呢，難道是來新一輪的打土豪分田地嗎？如果不是走老路，你用什麼跟別人公平交易？
+
+這世界，男人拋頭顱撒熱血爲的就是錢和女人，對不起，揭了男人的老底了。誰都想家財萬貫妻妾盈門，請問錢從哪來？
+
+閣下是律師，對於這一點難道沒有思考過嗎？
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc52">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 03:15:57 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c52" href="/p/goagent/issues/detail?id=21988#c52">#52</a>
+ 
+
+ <a class="userlink"
+ href="/u/114857105673156517877/">Nycomput...@gmail.com</a
+></span>
+ 
+<pre>
+爲什麼沒有人去琢磨如何增長營收，大家個個能跟五毛比財產。誰愛做五毛愛做匪兵他愛做不做，但是大家夥在財富增長這個單項競技中把五毛全給蓋帽了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc53">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 03:23:35 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c53" href="/p/goagent/issues/detail?id=21988#c53">#53</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+公布历史事实，五毛狗就出来说我有怒气了，你们这些五毛狗为了讨点狗粮，真是可以不要脸到极点了。现在发现五毛钱的工资不好领了，就跑到我们社区来混，你们这些废物能不能有点志气，为了五毛钱的工资至于吗？还跪舔你们主子这么欢？真是天生的贱骨头。不多说了，就算说了，以你们这些五毛狗的智商也听不懂
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc54">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 08:34:25 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c54" href="/p/goagent/issues/detail?id=21988#c54">#54</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+自己人掐起来了：），不过，nycomput问题很奇异，也有点道理。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc55">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 20:39:35 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c55" href="/p/goagent/issues/detail?id=21988#c55">#55</a>
+ 
+
+ <a class="userlink"
+ href="/u/100778817377615037223/">wcg...@gmail.com</a
+></span>
+ 
+<pre>
+5毛狗也要翻墙才能出来吗?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc56">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 23:08:25 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c56" href="/p/goagent/issues/detail?id=21988#c56">#56</a>
+ 
+
+ <a class="userlink"
+ href="/u/117424045914332418167/">derekso...@gmail.com</a
+></span>
+ 
+<pre>
+what? 这里为什么会有五毛
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 23:30:32 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=21988#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#51 你该打pat,LOL
+没错, 皇帝的新衣游戏,在中国的确很多人玩,不过现实也是几代书生缺乏公平奋斗的机遇,
+不平则鸣.
+
+天下熙熙，皆為利來；天下攘攘，皆為利往. 这是生活常识.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 18:55:26 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=21988#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+这句话很久以前听一位同事说过，当时的感觉是觉得这些个世俗之人好无聊，一天到晚就钻到钱眼里去了。今天我才发现，公平交易是一切道德的基础，做到这一点的人的公德是及格的，甚至可以说这是世俗社会最高的道德境界。
+一个人于他人的财产秋毫无犯，那么他就敢于自己的合法财产誓死捍卫。这就说活泼洒脱的自由人。
+如果是一个混混侵犯自己的财产权，一个人就能把它收拾了。如果是一群土匪来犯，自由人那就集结将其肉体消灭。在公平交易的背后屹立着使用终极武力的巍巍如泰山的道义依据。
+
+--------------&gt;more
+
+每个人有前世，在前世里欠一些人的， 也曾经做过不少好事施惠于人。一个人的前世今生和公司合并重组完全类似，重组后的新公司自然继承前身的资产和负债。
+
+既然有负债欠人钱那怎么办？聪明的人主动清偿债务不用别人催，明白事理的人在遭遇债主催逼讨债的时候没有怨言，他默默地平静地偿还。欠债还钱嘛，天经地义。
+
+主动清理债务就能让自己的资产负债表上的负债一项为零而留下净资产。我谁都不欠，不欠人钱也不欠人情：）。这种时候谁要是动自己的财产分毫，直接就是黑洞洞的枪口来招呼他。
+
+这么结论想来是极其稳妥的。不然把过去世的债主给毙了，这下好吗，以前钱人钱，现在又欠人一条命，那就大件事了：）。
+
+这个基础框架似乎可以用来和王朝的历届政府、官员和公务员群体建立对话的基础和共识：
+
+在我以前笨得像猪羊牛马的时候，我拼命干活我傻乐纳税你说怎么着就怎么着，给你做牛做马我认了，我没有怨言。怎么说呢，过去的生生世世的事情虽然多得很但谁也看不到说不清，就当是我欠你可以吧。这么说大家都没意见吧。
+
+我们两三代人做牛做几十年了，可如今我已经醒来，从牛马变成了人，终于明白了人权是什么。如果我这时候宣布从此时此刻起我们过去世的债务已经清偿完毕，你能同意吗？从今以后我们是互不相欠的独立平等民事主体，一切都以公平交易为依据可以吗？
+
+如果你不同意我的立场，那么你需要出示我对你所有负债的凭证才行，是不是？
+
+这份和解方案首先就送达GFW机构。我正式建议你们自此以后停止干扰我的网络使用权。
+
+新框架。
+
+
+
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21988">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21988',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21988,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+
+<body>
+<script>"use strict";
+	const goagent_h1 = document.createElement("h1");
+	goagent_h1.textContent = "GoAgent Issues";
+	document.body.appendChild(goagent_h1);
+	Array(22477).fill().forEach((_, i) => {
+		i += 1;
+		const link = document.createElement("a");
+		link.href = "./goagent/detail_id=" + i + ".html";
+		link.textContent = i;
+		document.body.appendChild(link);
+		document.body.appendChild(document.createElement("br"));
+	});
+	const goproxy_h1 = document.createElement("h1");
+	goproxy_h1.textContent = "GoProxy Issues";
+	document.body.appendChild(goproxy_h1);
+	Array(2012).fill().forEach((_, i) => {
+		i += 1;
+		const link = document.createElement("a");
+		link.href = "./goproxy/" + i + ".html";
+		link.textContent = i;
+		document.body.appendChild(link);
+		document.body.appendChild(document.createElement("br"));
+	});
+</script>
+</body>
+
+</html>

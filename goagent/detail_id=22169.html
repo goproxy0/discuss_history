@@ -1,0 +1,1998 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "projectHomeUrl": "/p/goagent", "relativeBaseUrl": "", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "loggedInUserEmail": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "token": null, "projectName": "goagent", "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22169 - 
+ goagent -
+ 
+ 【来比较一下：“XX-Net&quot; 是否不给力！】 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22169&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22169" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22169">22169</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >【来比较一下：“XX-Net&quot; 是否不给力！】</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 4 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22169">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+>,
+ <span class="date" title="Sat Aug  1 19:21:37 2015">Aug 1, 2015</span>
+ 
+ </div>
+<pre>
+
+运行状态：IP 一周没有增加一个！
+Google IP num	           1514
+100th IP handshake(ms)     1787
+connected link(帮助)	   14,6
+
+IP 延时：像蜗牛！
+最低：
+128.0.169.212 *.googlevideo.com gws 608
+128.0.169.232 *.googlevideo.com gws 609
+128.0.169.233 *.googlevideo.com gws 625
+最高：
+182.79.251.245*.googlevideo.com gws   6430
+151.21.210.75*.googlevideo.com gws    6860
+193.192.250.169 *.googlevideo.com gws 7171
+
+这表现真不好见人！
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 19:33:21 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22169#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+Google IP num	3000
+100th IP handshake(ms)	360
+connected link(帮助)	10,3
+scaning ip thread num	50
+block stat(帮助)	OK
+xxx.238.203.7 *.googlevideo.com gws 64
+xxx.90.117.203 *.googlevideo.com gws 174
+xxx.238.203.90 *.googlevideo.com gws 207
+xxx.189.25.158 *.googlevideo.com gws 252
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 19:34:57 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22169#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+good_ip.txt更新太快了，几乎一秒一次，在我这里貌似好IP是无限的一样。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 19:40:33 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22169#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+我老是感觉哪里有问题
+昨天,我这里100th IP handshake(ms)能到176
+今天,我改了一下DNS就几乎全部无效了,再搜,就一两个IP段能用
+以前也这样,我用的无线路由器,一般不断开连接,但是一旦断开重连,以前的IP就有差不多全失效了...
+如果不断开连接,就可以一直使用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 20:35:22 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22169#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+请问诸位 XX-Net 的版本是 2.0.5 还是 2.0.6？用2.0.6是否不稳定？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 20:40:01 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22169#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/110642520286801552994/">open0...@gmail.com</a
+></span>
+ 
+<pre>
+是不给力
+电信线路全面封锁谷歌相关ip
+xx-net、goagent现在看个网页都累
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 20:54:49 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22169#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/104651317305939684141/">yintam...@gmail.com</a
+></span>
+ 
+<pre>
+苏州电信 均速1600MS
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 21:10:08 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22169#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#7 2.0.5和2.0.6都很快，主要还是看线路，我现在用2.0.5.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  2 17:57:48 2015">
+ Aug 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22169#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+XX-Net 运行一天只多了3个IP！到3000还有很长的路。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  2 19:13:49 2015">
+ Aug 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22169#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/114984780492130171058/">syhtfb...@gmail.com</a
+></span>
+ 
+<pre>
+Google IP num	3000
+100th IP handshake(ms)	318
+connected link(帮助)	11,1
+scaning ip thread num	100
+
+100线程自动扫，每天10几个小时，扫了10几天终于满3000了，目前720p无压力。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  2 19:21:55 2015">
+ Aug 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22169#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+上周
+Google IP num	875
+100th IP handshake(ms)	1437
+connected link(帮助)	10,2
+scaning ip thread num	50
+
+这周
+Google IP num	1063
+100th IP handshake(ms)	2246
+connected link(帮助)	10,1
+scaning ip thread num	50
+
+气死人了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 01:06:52 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22169#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+XX-NET 2.05 运行3x24小时后的状态---不争气！
+
+Google IP num	966
+100th IP handshake(ms)	789
+connected link(帮助)	9,4
+scaning ip thread num	50
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 01:09:06 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22169#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+我的，我的
+
+Google IP num 	3000
+100th IP handshake(ms) 	1052
+connected link(帮助) 	20,0
+scaning ip thread num 	30
+
+跑满带宽毫无压力。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 01:43:18 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22169#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/108762890273863052159/">abillyk...@gmail.com</a
+></span>
+ 
+<pre>
+我又用回XX-Net-1.15.2了。2.05貌似沒有剔除無效ip功能，用一段時間還要手動把goodip清空。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 02:43:32 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22169#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+求XX-Net历史版本下载地址，官网上好像只有源代码下载
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 02:52:41 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22169#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+<a href="https://github.com/XX-net/XX-Net/releases" rel="nofollow">https://github.com/XX-net/XX-Net/releases</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 03:14:43 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22169#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+ Source code (zip)
+ Source code (tar.gz)
+这两项都是木有编译的源代码吧？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 03:20:38 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22169#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢#18 Kisesy兄
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug  5 20:08:55 2015">
+ Aug 5, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22169#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/102106608336571773012/">nancheng...@gmail.com</a
+></span>
+ 
+<pre>
+#14 #24  你们用的都是电信网络还是其他的 我用电信搜到269个就不会动了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug  5 20:12:06 2015">
+ Aug 5, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=22169#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#25 电信用蓝灯和赛风，或者加前置跑GOA/GOP；我是联通，随便跑跑有几大千，暂时很顺畅。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug  5 21:20:02 2015">
+ Aug 5, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=22169#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+复#25 我用的电信，ip增加有时多有时少，不正常。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 02:33:02 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22169#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/117982045146397977427/">lazure...@gmail.com</a
+></span>
+ 
+<pre>
+这些都是在哪里看的?
+Google IP num	           
+100th IP handshake(ms)     
+connected link(帮助)	  
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 03:19:20 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=22169#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+#28  点击任务栏XX图标，在“GAEProxy状态信息”的最下面。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 03:55:40 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=22169#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/117982045146397977427/">lazure...@gmail.com</a
+></span>
+ 
+<pre>
+#29 谢谢
+不过我的太弱就不比了..
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 18:50:53 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=22169#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/116118803305749731469/">winesun...@gmail.com</a
+></span>
+ 
+<pre>
+Google IP num	149
+100th IP handshake(ms)	1838
+connected link(帮助)	13,1
+scaning ip thread num	300
+block stat(帮助)	OK
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 18:52:01 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=22169#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/116118803305749731469/">winesun...@gmail.com</a
+></span>
+ 
+<pre>
+更换版本之前扫的IP怎么处理，我每次更换版本都是重新扫的，不过也挺快，一般半个小时左右就可以看youtube了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 18:53:49 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=22169#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/116118803305749731469/">winesun...@gmail.com</a
+></span>
+ 
+<pre>
+1楼的数据让人艳羡~
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 21:12:01 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=22169#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+Google IP num	200
+100th IP handshake(ms)	156
+connected link(帮助)	10,0
+scaning ip thread num	50
+用了我的方法
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 03:21:59 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=22169#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+#38 24小时运行几天，会有收获。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 03:33:09 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=22169#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+并不是,我的最大IP数量就是200,我想说的是IP虽少但都是好IP,全部都是低延迟
+但是宽带高不高就不太好说了,呵呵
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 23:35:43 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=22169#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/105724805268215631170/">uuu...@gmail.com</a
+></span>
+ 
+<pre>
+我这边ip很少，只有30几个，不过至少还能用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 01:48:03 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=22169#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+电脑开着就运行XX，时间长了IP就增加的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 21:35:13 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=22169#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/114984780492130171058/">syhtfb...@gmail.com</a
+></span>
+ 
+<pre>
+2.0.7 开了三四天的结果
+
+Google IP num	379
+100th IP handshake(ms)	2317
+connected link(帮助)	13,6
+scaning ip thread num	100
+
+目前速度很不稳定，好像很少超过200k，y2b 卡卡卡的，还好有神灯护体
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 22:24:16 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=22169#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/104189499024585998899/">qiangliu...@gmail.com</a
+></span>
+ 
+<pre>
+速度快寿命长的ip还是要挂vpn自己找，工具只能起辅助作用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 01:53:06 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=22169#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+我的good_ip最多到2600，最少只有80多，不知是何原因波动这么大？下面是现在的情况：
+
+Google IP num	190
+100th IP handshake(ms)	832
+connected link(帮助)	10,3
+scaning ip thread num	50
+
+要看握手延时。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22169">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22169',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22169,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

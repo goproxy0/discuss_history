@@ -1,0 +1,1088 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"relativeBaseUrl": "", "projectName": "goagent", "loggedInUserEmail": null, "domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null, "projectHomeUrl": "/p/goagent", "token": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22272 - 
+ goagent -
+ 
+ shadowsocks-qt5无法做为goagent前置代理啊？大婶进来看看 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22272&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22272" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22272">22272</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >shadowsocks-qt5无法做为goagent前置代理啊？大婶进来看看</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 2 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22272">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/100245260433440453213/">lsnmx1...@gmail.com</a
+>,
+ <span class="date" title="Mon Aug 10 21:07:57 2015">Aug 10, 2015</span>
+ 
+ </div>
+<pre>
+<b>发issue前先在All issues中搜索是否已经有你要提交的问题。</b>
+GoAgent Version    : 3.2.3 (python/2.7.8 gevent/1.0.1 pyopenssl/0.13.1)
+Uvent Version      : 0.3.0 (pyuv/0.10.11 libuv/0.10.26)
+Listen Address     : 127.0.0.1:8087
+Local Proxy        : 127.0.0.1:1080
+GAE Mode           : https (TLSv1)
+
+------------------------------------------------------
+WARNING - [Aug 11 12:01:58] install root certificate failed, Please run as administrator/root/sudo
+INFO - [Aug 11 12:02:46] 127.0.0.1:53266 &quot;STRIP CONNECT autoproxy-gfwlist.googlecode.com:443 HTTP/1.1&quot; - -
+INFO - [Aug 11 12:03:29] 127.0.0.1:53283 &quot;STRIP CONNECT connect.facebook.net:443 HTTP/1.1&quot; - -
+INFO - [Aug 11 12:03:47] 127.0.0.1:53284 &quot;STRIP CONNECT connect.facebook.net:443 HTTP/1.1&quot; - -
+INFO - [Aug 11 12:03:47] 127.0.0.1:53285 &quot;STRIP CONNECT connect.facebook.net:443 HTTP/1.1&quot; - -
+
+shadowsocks-qt5的日志显示（<a href="https://github.com/librehat/shadowsocks-qt5）" rel="nofollow">https://github.com/librehat/shadowsocks-qt5）</a>
+An invalid socket connection was rejected. Please make sure the connection type is SOCKS5.
+An invalid socket connection was rejected. Please make sure the connection type is SOCKS5.
+
+shadowsocks-CSHARP（<a href="https://github.com/shadowsocks/shadowsocks-windows）是可以做为GAE的前置代理的，也成功了可是shadowsocks-CSHARP的性能实在是太差了，吐槽一下，shadowsocks-qt5强很多想做GAE的前置代理使用不成功，怎么办大婶们！" rel="nofollow">https://github.com/shadowsocks/shadowsocks-windows）是可以做为GAE的前置代理的，也成功了可是shadowsocks-CSHARP的性能实在是太差了，吐槽一下，shadowsocks-qt5强很多想做GAE的前置代理使用不成功，怎么办大婶们！</a>
+
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 1080
+
+已经设置好了，要是shadowsocks-CSHARP没问题
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 23:11:23 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22272#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+楼上，多换几家SS试试，外面好多免费账号的可用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 23:12:18 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22272#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+还有，如果你是小白，估计可能没有运行SS，光在设置里填这些数据是没用的，还得运行SS客户端
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 23:21:18 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22272#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/100245260433440453213/">lsnmx1...@gmail.com</a
+></span>
+ 
+<pre>
+#1，2 已经搞定了完美，直接meow + goagent
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 23:25:49 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22272#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+听说3.2.3版本前置代理不够完善
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 23:54:40 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22272#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/100245260433440453213/">lsnmx1...@gmail.com</a
+></span>
+ 
+<pre>
+#4 goagent不支持SOCKS5，要是shadowsocks客户端不会把SOCKS5转换成httpg，goagent肯定是不行的3.2.3版本目前是这样，所以要用到meow
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 00:20:09 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22272#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#5 goa不支持socks前置这种说法是不成立的，你看这个窗口信息
+
+------------------------------------------------------
+GoAgent Version    : 3.2.3_93-PHPGo (python/2.7.8 gevent/1.0.1 pyopenssl/0.13.1)
+
+Listen Address     : 127.0.0.1:8080
+Local Proxy        : 127.0.0.1:1088
+GAE Mode           : https (TLSv1)
+GAE APPID         : xxxxxxxxxxxxx
+PHP Listen         : 127.0.0.1:8081
+PHP FetchServer    : <a href="https://woodenphpgo-redfrog999kogfw.rhcloud.com/" rel="nofollow">https://woodenphpgo-redfrog999kogfw.rhcloud.com/</a>
+------------------------------------------------------
+WARNING - [Aug 11 15:15:27] install root certificate failed, Please run as admin
+istrator/root/sudo
+INFO - [Aug 11 15:15:46] 127.0.0.1:62305 &quot;STRIP CONNECT code.google.com:443 HTTP
+/1.1&quot; - -
+INFO - [Aug 11 15:15:51] 127.0.0.1:62305 &quot;GAE GET <a href="https://code.google.com/p/goag" rel="nofollow">https://code.google.com/p/goag</a>
+ent/issues/list HTTP/1.1&quot; 200 20163
+INFO - [Aug 11 15:15:55] 127.0.0.1:62333 &quot;STRIP CONNECT code.google.com:443 HTTP
+/1.1&quot; - -
+INFO - [Aug 11 15:15:59] 127.0.0.1:62305 &quot;GAE POST <a href="https://code.google.com/hosti" rel="nofollow">https://code.google.com/hosti</a>
+ng/projects HTTP/1.1&quot; 200 170
+INFO - [Aug 11 15:16:00] 127.0.0.1:62333 &quot;GAE POST <a href="https://code.google.com/hosti" rel="nofollow">https://code.google.com/hosti</a>
+ng/multilogin HTTP/1.1&quot; 200 101
+INFO - [Aug 11 15:16:04] 127.0.0.1:62305 &quot;GAE POST <a href="https://code.google.com/apis/" rel="nofollow">https://code.google.com/apis/</a>
+ajax/playground/get_projects HTTP/1.1&quot; 301 247
+INFO - [Aug 11 15:16:04] 127.0.0.1:62372 &quot;STRIP CONNECT developers.google.com:44
+3 HTTP/1.1&quot; - -
+INFO - [Aug 11 15:16:21] 127.0.0.1:62372 &quot;GAE GET <a href="https://developers.google.com/" rel="nofollow">https://developers.google.com/</a>
+apis-explorer/?csw=1 HTTP/1.1&quot; 200 605
+
+我根据自己需要把ss的1080端口改成1088了，但是我没有用qt5版本，用的是c# 2.5.2版，
+没有任何问题，完美支持。以前我一直以为最新版的前置功能有问题，实际不是，phus.lu
+应该改进了。所以，你换个ss客户端试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 00:28:04 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22272#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/105195860803703482123/">jiangxin...@gmail.com</a
+></span>
+ 
+<pre>
+Proxifier 试一下，看看行不行。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 00:47:50 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22272#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/100245260433440453213/">lsnmx1...@gmail.com</a
+></span>
+ 
+<pre>
+#6 你说的是shadowsocks-CSHARP吧这玩意会转换的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 01:06:40 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22272#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#8 试了下qt5版的ss客户端，还真不能做前置代理，但是做rss版的ss客户端的前置代理完全没有问题
+神奇的ss。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 01:17:59 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22272#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/116864184869288464416/">hjq...@gmail.com</a
+></span>
+ 
+<pre>
+我试过用shadowsocks前置代理goagent，但速度根本没有提升，受限于shadowsocks的速度，当shadowsocks看YouTube很快的时候，做前置代理也很快，当看YouTube慢的时候，做前置代理也是很慢，根本没有他们说的什么做前置之后有goagent分段下载带来的好处！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 01:27:00 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22272#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/100245260433440453213/">lsnmx1...@gmail.com</a
+></span>
+ 
+<pre>
+#10 大哥啊，shadowsocks前置代理goagent不是用来加速的，shadowsocks 多打开几个<a href="https://play.google.com/store" rel="nofollow">https://play.google.com/store</a> 多图片的网页包你卡，hadowsocks前置代理goagen就不会
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 02:34:26 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22272#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#10 速度当然是有提升的，不过你要自己调试一下，新的环境，goa要从参数到ip
+都需要重新摸索设置，才能同时发挥ss+goa的最佳功效。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 03:06:13 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22272#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/100245260433440453213/">lsnmx1...@gmail.com</a
+></span>
+ 
+<pre>
+#12 NO,NO带宽由SS来决定
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22272">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22272',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22272,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

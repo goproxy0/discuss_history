@@ -1,0 +1,912 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "projectName": "goagent", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "relativeBaseUrl": "", "token": null, "domainName": null, "profileUrl": null, "projectHomeUrl": "/p/goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22115 - 
+ goagent -
+ 
+ 纸飞机 Shadowsocks 2.5.1 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22115&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22115" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22115">22115</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >纸飞机 Shadowsocks 2.5.1</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 3 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22115">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+>,
+ <span class="date" title="Sun Jul 26 08:50:26 2015">Jul 26, 2015</span>
+ 
+ </div>
+<pre>
+纸飞机 Shadowsocks 2.5.1
+
+    Prevent HA from switching servers too frequently
+    Fix server settings can not be updated when using HA
+    Fix server port can't be 8123
+    Other minor fixes
+
+下载
+<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" rel="nofollow">https://github.com/shadowsocks/shadowsocks-windows/releases</a>
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 08:55:04 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22115#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+好久沒用紙飛機了，這東西還好嗎？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 08:56:37 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22115#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#1 现在干扰不多, 但是免费帐号明显过载.
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 09:08:30 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22115#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/105195860803703482123/">jiangxin...@gmail.com</a
+></span>
+ 
+<pre>
+<a href="https://github.com/breakwa11/shadowsocks-rss" rel="nofollow">https://github.com/breakwa11/shadowsocks-rss</a>
+这个修改版本的不错，可以自动随机选择服务器。Good！！！
+ShadowsocksR CSharp 版本3.2.0
+最新版下载链接：<a href="http://www.mediafire.com/download/5zafndd591o294s" rel="nofollow">http://www.mediafire.com/download/5zafndd591o294s</a>
+官方链接：<a href="https://github.com/breakwa11/shadowsocks-rss" rel="nofollow">https://github.com/breakwa11/shadowsocks-rss</a>
+服务端配置教程：Wiki （含单用户和多用户）
+
+本版本支持设置中间Socks5代理，即连接到目标服务器时所使用的代理。 启用此功能时，不论TCP或UDP均通过指定的Socks5代理来发送。注意如发送UDP包需要一个支持UDP的Socks5代理。
+这意味着什么？这意味着可以通过多开本客户端，产生任意级代理（3级或以上理论上可以用于匿名），且可以指定出口节点（出口节点必须为可信任节点），配合tor使用威力无穷。如果目的不是匿名，而是想使用中转加速，比如想使用国内中转，那么只需要在国内服务器上建立一个ss服务端，然后由客户端配置即可，服务端配置复杂度大大降低，且多重代理方式自由度非常高。
+但是需要注意的是这个时候，通过Socks5代理的客户端统计列表中延迟的数值为两个客户端之间的通讯时间，并非目标网站来回数据的时间，实际时间应为两客户端的延迟值相加。将来此延迟统计方式可能会修改。
+
+简要多重代理配置说明
+
+假设你有两台服务器s1,s2，你需要先通过s1，连接到s2，再连接到目标网站，那么先开启一个客户端A，配置直接连接到s1，再开启一个客户端B，设置Socks5代理为客户端A的本地地址和端口连接到s2，最后设置需要进行代理的应用连接客户端B的端口即可。注意客户端A不应该开启系统代理，B的话随意。
+
+关于代理UDP（以TCP转发或UDP转发均可）
+
+此版本支持配合使用SocksCap64/SocksCap/ProxyCap等工具把需要TCP和UDP代理的程序通过本版本程序转发。
+即不需要折腾OpenWrt或路由器即可在PC上获得UDP转发的能力，配置容易了很多，是游戏玩家的福音
+如果你是个人用户，可自行更新服务端或向你的ss站长提议更新后端。
+如果你是站长，可从<a href="https://github.com/breakwa11/shadowsocks/tree/manyuser获取最新的多用户分支代码，与原版本兼容。" rel="nofollow">https://github.com/breakwa11/shadowsocks/tree/manyuser获取最新的多用户分支代码，与原版本兼容。</a>
+具体配置方法可参阅服务端配置教程
+如有任何问题可发issue到github。
+
+配置术语说明：
+
+UDP over TCP
+不打钩即以UDP方式发送UDP包，打钩则把UDP包在TCP里发送。以TCP方式发送UDP包在封锁UDP的网络环境下特别有用，如无此需求就不必打钩。
+如果在发送UDP数据失败，可能是服务器不支持。此选项不会影响浏览网页（TCP）
+混淆UDP协议
+用于随机化包长度，但目前UDP未发现明显特征，如无必要可不打钩。
+重连次数
+目标服务器连接失败时选择其它服务器再次尝试连接，仅当没有发送接收任何数据时进行（即出现密码错误或加密方式错误时不能重连，因为已有数据发送）
+超时秒数（TTL）
+TTL为Time to Live的缩写，表示连接超过多久没有再发送或接收数据时断开（服务端默认值为300），时间单位是秒，较小的值可减少浏览器出现卡顿时的时间，但同时在网络连接不佳时可能会导致部分页面元素或整个页面随机性下载失败。一般网页浏览建议设置为30~120，下载或看视频时建议直接设置为0。设置为0表示不使用TTL设置（实际TTL值由服务端及客户端较小的一方控制）。
+快捷操作提示：
+
+双击任务栏图标弹出服务器配置窗口，而右键图标弹出菜单
+中键点击任务栏图标弹出服务器连接统计窗口
+连接统计窗口点击服务器会切换当前服务器
+连接统计窗口双击服务器会打开服务器配置窗口
+点击连接统计窗口列标题可排序（部分列不允许排序）
+连接统计窗口，在连接状态的错误记录列，双击则重置错误数，双击百分比列则重置本服务器的所有信息
+连接统计窗口，在连接状态的“开”一列，鼠标点击切换开关状态（随机时有效），红色为关闭
+连接统计窗口，右键弹出清空所有的菜单
+连接统计窗口，双击连接数，断开该节点现有的连接（不一定立即清零，双击过就行了）
+其它提示：
+
+随机选择服务器功能，适用于网页浏览，不适用于看视频或下载等需要大流量的环境。如需下载请在连接统计窗口通过下载测速测试速度最快的服务器然后单独连接之。
+连接统计窗口“连错”是指最近连接连续出错次数，包含发送了数据但无返回数据，或连接超时，或连接失败，或连接被重置等，可能为ss密码错误，也可能是实际访问的结果，有返回数据包时即会归0，连错50次会自动禁用本节点，若服务器连接失败则3次便禁用
+ChnIPList 使用这个PAC，让国内的站直连，国外的走代理，不过不一定准确，如果DNS被污染为国内地址段时则会有问题，但大部分都能正常工作。此PAC对firefox可能不太友好。
+更新记录：
+
+版本3.2.0
+1.修正部分TCP连接失败的问题
+2.增加Socks5代理设置
+
+版本3.1.4
+1.调整TCP发包方式，把首协议包与第一个数据包连接发送
+2.移除混淆TCP选项
+3.服务端统计三列错误统计列改用“连错”列代替
+4.不要把版本号看成圆周率（明明差一个小数点）
+
+版本3.1.3
+1.本地连接的TTL支持，默认TTL=0（0表示不启用）
+2.重连次数的保存修正
+
+版本3.1.2
+1.连接统计窗口排序修正
+2.重连次数配置（默认值3）
+3.UDP over UDP选项更换为UDP over TCP，即高级选项全不打钩为通用设置，通用于所有服务端
+4.log文件和polipo放于temp子目录
+5.统计窗口数值格式化调整
+6.解决config问题，移除config文件
+7.允许密码显示
+
+版本3.1.1
+1.合并主干部分代码
+2.增加混淆UDP选项
+3.支持接收混淆UDP包
+4.连接数统计修正
+5.鼠标中键点击任务栏图标弹出服务器连接统计窗口
+6.修正配置界面部分环境下按钮不显示
+7.附加config文件避免部分系统运行异常
+8.改用7zip压缩，减少一半体积
+
+版本3.0.1
+1.配置保存bug修正
+2.右键菜单整理
+3.配置界面调整
+4.修正UDP握手协议实现与ProxyCap兼容
+5.加入源md格式说明文档
+
+版本3.0
+1.软件更名
+2.修正 UDP over UDP 的加解密错误
+
+版本2.3.2
+1.修正ipv4连接的问题
+其它：目前已知使用pc版微信发图发文件会导致polipo崩溃，建议改用Provixy，具体使用方法可以参考网上教程
+
+版本2.3.1.9
+1.修正http连接会出现连接失败的问题（同时修正了自动更新和pac更新）
+2.增加连接管理，双击连接数即可断开该节点现有连接
+3.增强UDP连接兼容性
+4.更新地址可以配置窗口点击
+
+版本2.3.1.8
+1.支持TCP协议头混淆（需服务端更新支持）
+2.UDP包混淆（需服务端更新支持）
+3.支持UDP包通过 UDP Relay 转发（需服务端更新支持）
+4.支持Socks4/Socks4a协议
+5.局域网共享时支持同时监听IPv4/IPv6
+6.配置添加UDP包通过方式
+7.配置添加TCP协议头混淆
+
+版本2.3.1.7
+1.IPv6连接修正
+2.随机时“按次序”方式的bug修正
+3.IPv6地址显示方式调整
+4.空连统计包含连接重置等错误
+5.服务器连接统计列排序功能
+6.取消自动关闭无效服务器，防误判
+7.手工检查更新
+
+版本2.3.1.6
+1.增加随机选择服务器的方式
+2.连接数统计修正
+3.支持代理UDP（以TCP转发），需要服务端更新
+
+版本2.3.1.5
+1.调整配置窗口的设置体验
+2.软件自动更新支持
+
+版本2.3.1.4R2
+1.修正polipo某些情况下运行异常
+2.修正连接统计窗口一些错误
+3.修正部分dns错误未处理的问题
+4.三次错误后自动关闭无效服务器
+5.增加ChnIPList的pac，国内不代理，国外全走代理
+6.调整连接统计窗口列顺序
+7.节点自动重连尝试（开启随机选择服务器时，第一次重连相同节点，第二次、第三次选择其它节点）
+8.从剪贴板复制多行文本地址功能修正
+9.服务器配置显示二维码，增加列表高度
+
+版本2.3.1.4
+1.polipo配置修正
+2.使用当前目录运行polipo，完美支持多开（端口同时支持socks5和http协议）
+3.增加当前下载速度统计，以及最大下载速度记录
+4.连接统计窗口优化显示效率
+5.服务器配置显示ss链接，以便快速复制
+6.连接统计窗口支持手工调整列宽
+
+版本2.3.1.3
+1.服务器的DNS缓冲（TTL=600），让直接填写域名与写IP一样稳定
+2.服务器连接状态记录，含上传下载流量，连接延迟统计，连接错误统计
+3.服务器独立开关，在连接状态的“开”一列，鼠标点击之，红色为关闭
+4.连接记录清除，在连接状态的错误记录三列，双击则重置错误数，双击百分比列则重置本服务器的所有信息
+5.统计列表标题显示监听方式及端口（方便多开的时候对应上）
+6.从剪贴板复制地址，方便从ss://xxxx这种格式快速输入
+
+版本2.3.1.2
+1.允许程序多开
+2.延迟统计，自动在低延迟服务器之中选择（高延迟的也会有低概率选取到）
+3.二维码菜单位置变动
+4.偶然会程序崩溃的问题不确定解决了没有，如还有发生请联系作者
+
+版本2.3.1.1
+1.随机选择服务器
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 09:27:57 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22115#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+c#版本又升级了，太快了吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 21:35:10 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22115#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/109415165027505570053/">jfc8...@gmail.com</a
+></span>
+ 
+<pre>
+这个版本支持前置代理了 但是好像只能sk5
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 06:09:00 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22115#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#6 clowwindy 发飙了，目测近些日子会疯狂更新 shadowsocks-windows。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22115">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22115',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22115,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

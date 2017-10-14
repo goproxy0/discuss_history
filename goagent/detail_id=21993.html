@@ -1,0 +1,5819 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "projectName": "goagent", "relativeBaseUrl": "", "loggedInUserEmail": null, "projectHomeUrl": "/p/goagent", "token": null, "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21993 - 
+ goagent -
+ 
+ [整理]用 Akamai CDN 服务给 Psiphon (赛风) 加速获得更加畅快的浏览体验 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21993&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21993" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21993">21993</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >[整理]用 Akamai CDN 服务给 Psiphon (赛风) 加速获得更加畅快的浏览体验</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 33 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21993">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+>,
+ <span class="date" title="Sun Jul 19 03:33:28 2015">Jul 19, 2015</span>
+ 
+ </div>
+<pre>
+本文大部分内容取自 warmingf...@gmail.com 的原创贴：
+<a href="https://code.google.com/p/goagent/issues/detail?id=21844" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844</a>
+
+因 goagent 论坛不能编辑贴子内容，作者在该贴的回复中又补充了很多内容，爬楼比较辛苦..
+
+抽空重新整理，将该贴正文及回复中的重要内容提取略做文字加工及一些补充，以成本文
+
+
+Psiphon (赛风) 是老牌代理软件，免费且不限流量，也许你会觉得它速度比较慢，但难得的是一直可用，不管墙筑得有多高..
+
+赛风自带多台服务器，每次运行随机选择，所以速度就...也许这次觉得很快，下次就慢如蜗牛了...
+
+
+Akamai CDN 服务遍布全球，很多大公司都在用，赛风也可以用它，只是不会经常去用它，否则可能会支付使用费之类的（猜的..）
+
+这个方法的目的是让赛风只能使用 Akamai CDN 服务，并且找到与你本地连接速度快的服务器，这样通过赛风上网，浏览网页、看视频、下载文件等，达到最高网速也不是什么不可能的事情了
+
+
+（上面比较罗嗦，没啥干货，下面才是有用的来了，咳..）
+
+
+要达到这个目的，有两个方法，一个比较复杂，一个比较简单，先从复杂的说起。
+
+----------------------------------------------------------------------
+
+除了赛风这个必备软件之外，还需要 Proxifier 这个软件来达到目的，这是商业软件，不过破解版在网上也是比较容易找到的。3.28 版本在 Windows 8/8.1 下可能有问题，锁不住赛风的进程之类的，推荐使用 3.21 版本。
+安装并输入注册码激活后，建议重启下操作系统，否则后面的步骤可能不成功。还有，在 Proxifier 中订制规则强制赛风使用 Akamai CDN 服务前，请先运行下赛风，保证它是可以连接上服务器的。我曾经碰到过在 Proxifier 中订制规则前没有运行过赛风，结果赛风根本连不上服务器的情况..
+
+我在MEGA网盘上传了附带注册机的版本
+
+3.21
+
+<a href="https://mega.co.nz/#!x4AHBSDT!FxxNVrdjU9TNDu2G65f-pfLPLgfaHchdrYZBdsZ2VX0" rel="nofollow">https://mega.co.nz/#!x4AHBSDT!FxxNVrdjU9TNDu2G65f-pfLPLgfaHchdrYZBdsZ2VX0</a>
+
+3.28
+
+<a href="https://mega.co.nz/#!R95EhTxb!RIKkg-AV3oR7ROEkrz9RS-RWFQxWtNWCxUZdH5Xlhy0" rel="nofollow">https://mega.co.nz/#!R95EhTxb!RIKkg-AV3oR7ROEkrz9RS-RWFQxWtNWCxUZdH5Xlhy0</a>
+
+第一步、订制规则（这里就直接借用 warmingf...@gmail.com 的截图了）
+
+规则1使 *.akmaihd.net 直连
+<a href="https://i.imgur.com/IUvNSgl.jpg" rel="nofollow">https://i.imgur.com/IUvNSgl.jpg</a>
+
+注意如果使用的是 Proxifier 3.28 版本，这里的 Applications 里要填写：psiphon3.exe;psiphon-tunnel-core.exe，否则可能在软件里看不到赛风的进程
+
+规则2使赛风访问其他服务器IP被屏蔽
+<a href="https://i.imgur.com/K3m3HCa.jpg" rel="nofollow">https://i.imgur.com/K3m3HCa.jpg</a>
+
+要确保规则1在规则2上面，否则就失效了
+<a href="https://i.imgur.com/gfnYeKz.jpg" rel="nofollow">https://i.imgur.com/gfnYeKz.jpg</a>
+
+并让 Proxifier 处理直连的程序，这样做使网络情况更直观
+<a href="https://i.imgur.com/nfXu2ab.jpg" rel="nofollow">https://i.imgur.com/nfXu2ab.jpg</a>
+
+小Tips：
+1.在 Applications 框里填写时，不需要点 Browse... 按钮找，直接复制粘贴：psiphon3.exe;psiphon-tunnel-core.exe 及 psiphon-tunnel-core.exe 进去就行了
+2.订制好规则后，可以保存，并导出为配置文件，卸载重装等情况下再导入即可
+
+保存：File -&gt; Save Profile As...
+导出：File -&gt; Export Profile...
+导入：File -&gt; Import Profile...
+
+第二步、修改本机 hosts 文件，加一行
+
+210.0.156.15    yryirjrhqffsxwpg-a.akamaihd.net
+
+注意 210.0.156.15 这个IP地址是 warmingf...@gmail.com 给出的，他用这个IP速度很快，你就不一定了，还需要更换IP地址，方法后文会讲。
+
+小Tips：修改 hosts 文件后，是不会立即生效的。想生效，方法有二
+1、重启计算机（这...改次 hosts 文件就要重启一次，SSD硬盘还好，要用的机械硬盘，那重启一次得等好长时间啊，所以还有方法2）
+2、按 Win + R 键调出“运行”对话框，输入：cmd，回车，在弹出的命令行窗口中，输入：ipconfig /flushdns，回车
+
+对了，在用上述方法2之前，请关闭浏览器，做完再打开，再试通过赛风上网速度是否变快了
+
+
+这个方法的关键在于 Proxifier 这个软件，这个软件很强大，可以让不自带代理服务器设置的软件通过代理服务器连网，可以让软件只能连接某地址，等等。
+说这个方法比较复杂，问题也出在 Proxifier 这个软件上，比如在进程里找不到赛风的 psiphon-tunnel-core.exe，比如造成系统网络问题。我已经碰到过几次因为 Proxifier 这个软件造成无法上网只能重启系统了，所以在用第2种方法成功后就卸载了这个软件。
+
+----------------------------------------------------------------------
+
+再来说方法2，这次要用到 3proxy 这个俄罗斯人写的软件。说到这个软件，我以前在用地下铁路时用过它（不知道现在还有多少人记得“地下铁路”了，曾经广发邀请码搞得象传销一样...）
+
+1、下载 warmingf...@gmail.com 已经做好基本设置的 3proxy 软件
+<a href="https://copy.com/pU0aZGd0oBsAigwS/3proxy.7z" rel="nofollow">https://copy.com/pU0aZGd0oBsAigwS/3proxy.7z</a>
+（注意压缩包加密了，否则copy.com会报有病毒不让分享，解压密码：goagent）
+
+我在MEGA网盘上也传了一份，压缩包未加密：
+<a href="https://mega.co.nz/#!QloC1LLL!8RAcPdwMOGH0SfpBW_De2yoXVYn8-FVE98OIDb5VctE" rel="nofollow">https://mega.co.nz/#!QloC1LLL!8RAcPdwMOGH0SfpBW_De2yoXVYn8-FVE98OIDb5VctE</a>
+
+2. 解压，编辑 config.txt 这个文件以修改其中的 Akamai IP 地址为在你的网络环境下表现好的 IP 地址，不修改默认是 210.0.156.15
+3. 打开 3proxyLauncher.exe （修改自 Phus Lu 的开源 goagent.exe ）
+4. 打开赛风，做如下操作 <a href="https://i.imgur.com/lNo4bnu.jpg" rel="nofollow">https://i.imgur.com/lNo4bnu.jpg</a>
+5. 关闭赛风，重新打开赛风
+
+最后，如果你选用的香港服务器IP，建议在赛风里将服务器改成：Singapore（新加坡），速度会更快点
+
+这个方法简单不少吧，不用改 hosts，系统也不会出现奇怪的网络问题，推荐使用。
+
+那为啥还要方法一呢。方法还是多点比较好吧，而且你喜欢研究的话，Proxifier 还是蛮有用的。
+
+----------------------------------------------------------------------
+
+好了，现在还有一个问题，前面说过要找更适合自己的IP地址，怎么找呢，可以用 checkgoogleip 或 gogotester，虽然看软件名字都是找 Google 可用IP的，但也能用来找其它的IP
+
+我用的是 checkgoogleip，说下方法
+
+用记事本打开 checkip.py 这个文件，找到这些内容：（注意*号是为了显示更醒目些，原文件里是没有的）
+*********************************************************************************
+ip_str_list为需要查找的IP地址，第一组的格式：
+1.xxx.xxx.xxx.xxx-xx.xxx.xxx.xxx
+2.xxx.xxx.xxx.xxx/xx
+3.xxx.xxx.xxx.
+4 xxx.xxx.xxx.xxx
+5 xxx.xxx.xxx.xxx-xxx
+
+组与组之间可以用换行相隔开,第一行中IP段可以用'|'或','
+获取随机IP是每组依次获取随机个数量的，因此一组的IP数越少，越有机会会检查，当然获取随机IP会先排除上次查询失败的IP
+&quot;&quot;&quot;
+ip_str_list = '''
+*********************************************************************************
+然后接着就是很多IP了，把这些IP都删了，然后把待测试的 Akamai CDN 服务器IP粘贴进去（当然要先改成软件允许的格式），完成后这个样子的
+
+ip_str_list = '''
+（这里是你粘贴进来的 Akamai CDN 服务器IP地址）
+'''
+
+
+
+最后，给出一些 Akamai CDN 服务器IP地址，有空慢慢扫吧 :)
+
+香港
+203.78.32.0-255
+203.186.47.0-255
+203.78.36.0-255
+210.0.146.0-255
+110.4.12.0-255
+203.78.42.0-255
+175.45.42.0-255
+210.0.156.0-255
+202.40.221.0-255
+110.4.24.0-255
+180.150.145.0-255
+
+澳门
+202.175.16.21|45.64.21.19|45.64.21.10|45.64.21.11|45.64.21.4|45.64.21.16|45.64.21.25|45.64.21.6|45.64.21.28|45.64.21.12|45.64.21.14|45.64.21.41|45.64.21.24|45.64.21.32|45.64.21.7|45.64.21.17|45.64.21.34|45.64.21.33|45.64.21.9|45.64.21.29|45.64.21.35|45.64.21.26|45.64.21.27|45.64.21.15|45.64.21.21|45.64.21.18|202.175.5.101|45.64.21.8|45.64.21.36|45.64.21.37|45.64.21.40|202.175.5.105|202.175.5.114|202.175.5.122|202.175.5.173|202.86.161.15|202.175.5.117|202.175.5.118|202.175.5.154|202.175.5.148|202.175.5.98|202.175.5.178|202.175.5.150|202.175.5.106|202.175.5.94|202.175.5.95|202.175.30.162|202.175.5.93|202.175.5.99|202.175.5.175|202.175.5.104|202.175.5.107|202.175.5.96|202.175.5.100|202.175.5.102|202.175.5.120|202.175.5.174|202.175.5.121|202.175.5.176|202.175.5.110|202.175.5.97|202.175.5.152|202.175.5.153|202.175.5.167|202.175.5.112|202.175.5.113|202.175.5.115|202.175.5.171|202.175.5.172|202.175.5.177|202.175.5.179|202.175.5.92|202.175.5.184
+
+<a href="http://ipblock.chacuo.net/view/c_MO" rel="nofollow">http://ipblock.chacuo.net/view/c_MO</a>
+
+马来西亚
+203.82.75.100|203.82.75.103|203.82.75.110|203.82.75.102|203.82.75.104|203.82.75.118|203.82.75.122|203.82.75.114|203.82.75.115|203.82.75.120|203.82.75.109|203.82.75.108|203.82.75.116|203.82.75.117|203.82.75.101|203.82.75.121|203.82.75.105|203.82.75.107|203.82.75.106|203.82.75.111|203.82.75.113|203.82.75.199|203.82.75.196|203.82.75.205|203.82.75.208|203.82.75.213|203.82.75.198|203.82.75.214|203.82.75.204|203.82.75.201|203.82.75.206|203.82.75.222|203.82.75.211|203.82.75.226|203.82.75.229|203.82.75.197|203.82.75.223|203.82.75.207|203.82.75.215|203.82.75.225|203.82.75.224|203.82.75.220|203.82.75.228|203.82.75.221|203.82.75.202|203.82.75.200|203.82.75.230|203.82.75.203|203.82.75.234|203.82.75.233|203.82.75.216|203.82.75.209|203.82.75.212|203.82.75.217|203.82.75.232|203.82.75.210|203.82.75.218|203.82.77.41|203.82.77.53|203.82.77.39|203.82.77.42|203.82.77.46|203.82.77.49|203.82.77.44|203.82.77.37|203.82.77.57|203.82.77.43|203.82.77.52|203.82.77.55|203.82.77.47|203.82.77.40|203.82.77.36|203.82.77.45|203.82.77.54|203.82.77.56|203.82.77.58|203.82.77.50|203.82.77.59|203.82.77.51|203.82.77.38|203.82.77.132|203.82.77.142|203.82.77.145|203.82.77.144|203.82.77.139|203.82.77.149|203.82.77.154|203.82.77.133|203.82.77.140|203.82.77.141|203.82.77.143|203.82.77.134|203.82.77.148|203.82.77.137|203.82.77.151|203.82.77.138|203.82.77.156|203.82.77.161|203.82.77.153|203.82.77.155|203.82.77.150|203.82.77.160|203.82.77.152|203.82.77.136|203.82.77.135|203.82.77.157|203.82.77.147
+
+印尼
+202.152.192.201|202.152.192.200|202.152.192.199|202.152.192.198|202.152.192.197|202.152.192.196|202.152.192.203|202.152.192.202|202.152.192.208|202.152.192.204
+
+
+
+注意找到的IP可能延迟低，但不稳定，用来看 youtube 视频就不会很流畅，需要用这个视频 <a href="https://savedeo.com/download?url=https://vimeo.com/126255791" rel="nofollow">https://savedeo.com/download?url=https://vimeo.com/126255791</a> 中的 akamai 地址测速
+
+1. 修改系统 hosts 指定 210.0.156.15 pdlvimeocdn-a.akamaihd.net 。前面的就是要测的 IP ，我这里测试电信用它很快。
+
+2. 浏览器直连（别使用代理）播放（有的浏览器不播放，会直接下载）这个视频，就能看到速度。
+
+----------------------------------------------------------------------
+
+赛风默认运行后会打开浏览器并设置为系统代理，如果你用 Chrome、Firefox 等浏览器，用扩展实现代理上网的话，建议关掉，需要修改注册表
+
+HKEY_CURRENT_USER\Software\Psiphon3
+
+SkipProxySettings 值改为 1
+SkipBrowser 值改为 1
+
+也可以下载  warmingf...@gmail.com 写的注册表文件，导入即可
+<a href="https://copy.com/kYXodB6tIQiyUQJU/Psiphon3.reg" rel="nofollow">https://copy.com/kYXodB6tIQiyUQJU/Psiphon3.reg</a>
+
+赛风默认是自动指定本地代理端口的，建议改成固定的，方便在浏览器中设置
+<a href="https://i.imgur.com/ahh23kY.jpg" rel="nofollow">https://i.imgur.com/ahh23kY.jpg</a>
+
+----------------------------------------------------------------------
+
+本文版权没有，盗版不纠......不过转载的话最好注明下出处，虽然是二次加工，此文我也是改了好几次的了..
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 03:34:18 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21993#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/113384776842209274765/">jsnjyc...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:00:38 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21993#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+泪奔啊，终于能把所有问题集中在一起了。此前有一个失败的案例： <a href="https://code.google.com/p/goagent/issues/detail?id=21866" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21866</a> 。
+
+补充 Proxifier 占用资源高的解决方案： <a href="https://code.google.com/p/goagent/issues/detail?id=21994" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21994</a>
+还有一些注意事项： <a href="https://code.google.com/p/goagent/issues/detail?id=21866#c20" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21866#c20</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:03:06 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21993#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/109634477404077969179/">wikiuncl...@gmail.com</a
+></span>
+ 
+<pre>
+图文并茂，有声有色，感情极致，大道至简
+赞！！！好人平安。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:15:23 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21993#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/108573445135250363590/">yimin...@gmail.com</a
+></span>
+ 
+<pre>
+留爪慢慢看，谢谢楼主费心的整理，为小白们少绕了很多弯路。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:18:26 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21993#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/111864287748272523454/">akb48acc...@gmail.com</a
+></span>
+ 
+<pre>
+这个看起来就容易多了，不必翻楼去了，谢谢整理
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:23:47 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21993#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+必须赞，费心了
+也要感谢warmingf...@gmail.com兄，他是主要发起人
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:26:50 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21993#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/100760226287978423299/">jnc412...@gmail.com</a
+></span>
+ 
+<pre>
+楼主好人呀！图文并茂，这才是真正的教程，让我们这些小民能够轻松领会出真正的原理，领会出真正的原理这才是最重要的。
+感激，希望大家向楼主学习
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:31:44 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21993#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/100760226287978423299/">jnc412...@gmail.com</a
+></span>
+ 
+<pre>
+接#10，同时还要感激 warmingf...@gmail.com大大 以及redfrog...@gmail.com红蛙兄这两位大神所付出的心血及汗水，感激ing
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:42:11 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21993#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/112816986141695676270/">0649...@gmail.com</a
+></span>
+ 
+<pre>
+3proxy和赛风能设置开机启动和隐藏窗口吗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 04:46:40 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21993#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+这样集中起来好多了，楼主辛苦啦。承蒙各位谬赞，让我们在追寻自由的路上狂奔吧！！！！！！！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:23:46 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21993#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/100032225467687852820/">whoin...@gmail.com</a
+></span>
+ 
+<pre>
+不错，楼主辛苦了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:25:43 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21993#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/110642520286801552994/">open0...@gmail.com</a
+></span>
+ 
+<pre>
+支持
+测试用Proxifier+赛风3，看u2视频360P没问题
+比最新版的xx-net+gws ip、SS都快很多
+上海电信
+
+这个方法的关键是找到适合自己的Akamai ip
+顶楼的视频测速不成功，只能一个个ip试
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:28:24 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21993#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#12 开机启动，你把它们的快捷方式放到 开始菜单 -&gt; 所有程序 -&gt; 启动 文件夹里就行了；
+
+隐藏窗口可参考：  <a href="https://code.google.com/p/goagent/issues/detail?id=21998" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21998</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 05:49:50 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21993#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/110967493606101411609/">huaiqing...@gmail.com</a
+></span>
+ 
+<pre>
+太谢谢了
+顺便问一下
+chrome插件怎么设置赛风啊？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:01:43 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21993#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/110642520286801552994/">open0...@gmail.com</a
+></span>
+ 
+<pre>
+#17
+赛风可以固定端口
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:07:30 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21993#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/104056905831852342231/">cqcnc...@gmail.com</a
+></span>
+ 
+<pre>
+学到了不同的方法，真是常备无患！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:25:25 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21993#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/102554310454320279463/">jsh...@gmail.com</a
+></span>
+ 
+<pre>
+#4 我就是按照你说的那个例子做好的了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:31:12 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21993#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+如果你有好的SS节点，我还是强烈推荐&lt;&lt;赛风+MEOW+Akamai CDN加速&gt;&gt;的方式，
+
+现在高峰期，我的这种组合方式稳定到1.6m，最高2.2m。我是20m带宽，1080p很轻松。
+
+赛风设置成http模式，和MEOW的配合天衣无缝。保证不断流，我单独走SS就会冲很高，
+
+然后暴跌下来。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:42:19 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21993#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+赛风+MEOW+Akamai CDN加速,这个还要ss配合？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:44:11 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21993#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#15 那个视频测速我也不成功，只能看到一张图
+#21 这种方式，能否说下具体如何实现，我有好的SS节点，想试下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:44:23 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21993#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#22 看油管保证不受GFW干扰，稳定不断流啊。爽得很。没有高速SS节点就没法子了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:53:40 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21993#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#23 来吧，先找到距离你最快的cdn ip，比如李家坡，HK也凑合，具体自己测试。
+
+这么写配置文件：
+0. 设置 judgeByIP = false 降低MEOW自己判断带来的延迟
+
+1. proxy = ss://你懂的
+
+2. proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+最好有个6-8个，要保证极速哦，自己去ping吧。
+
+3.赛风代理填入什么你懂的。选李家坡是个好主意，美帝也不错。荷兰大带宽延迟高了点。
+
+4.浏览器的代理插件赛风设置成http模式，自己固定一个端口，最好5位数的。4位数的容易被干扰。
+
+5.验证：看窗口出现这样就成功了。
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:36:25 PROXY 127.0.0.1:51157 CONNECT prfzquobemaspprl-a.aka
+maihd.net:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:36:25 PROXY 127.0.0.1:51158 CONNECT yryirjrhqffsxwpg-a.aka
+maihd.net:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:43:20 PROXY 127.0.0.1:51352 CONNECT www.google.com:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:43:31 PROXY 127.0.0.1:51356 CONNECT www.google.com.hk:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:43:53 PROXY 127.0.0.1:51361 CONNECT www.google.com:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:43:55 PROXY 127.0.0.1:51381 CONNECT www.google.com:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:43:55 PROXY 127.0.0.1:51382 CONNECT www.google.com:443
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/13 01:43:55 PROXY 127.0.0.1:51383 CONNECT www.google.com:443
+
+6.Enjoy@_@
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:56:07 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21993#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+# 22 这个方法和 Shadowsocks 没有关系。Shadowsocks 不是必需的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 06:56:14 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21993#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/117171000659132456522/">zhu...@gmail.com</a
+></span>
+ 
+<pre>
+那个测试IP的真的有用？我按照设置后一直无法打开那个网站，一直在转圈，速度最高20KB然后一直0KB.但是同个IP 赛风+proxifier看油管峰值可以1MB，我才6M的宽带。测试了很多IP那个网站都是打不开的，不知道是什么原因，不知道你们情况如何？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:12:16 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21993#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#25 你这个配置文件貌似有问题，你试着把
+
+2. proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+
+这些都去掉，只保留 &quot;1. proxy = ss://**** &quot; 也是可以的；相反把 1. proxy = ss://**** 去掉赛风用 MEOW 就连不上了。
+
+因为
+
+2. proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+
+这些是无效的代理。赛风连接 *.akamaihd.net 走它们的话会失败，最后只有走 &quot;proxy = ss://你懂的&quot; 能成功。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:19:40 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=21993#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#25 这个没看懂
+
+1. proxy = ss://你懂的
+
+2. proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+
+meow 默认负载均衡策略就是先用第一条，不能用了再往下找
+那下面几行 http 的就没啥用了
+
+那是还要改 loadBalance = latency 么，不过又有 #28 所说的问题了么
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:21:24 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21993#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#27 你是说测试 IP 速度和稳定性 ( <a href="https://code.google.com/p/goagent/issues/detail?id=21844#c47" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844#c47</a> ) 吗？如果是的，这个现象倒是很奇怪。你要先确定你的浏览器没有使用任何代理，而是直连那个视频。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:51:01 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21993#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#30 meow的负载平衡对cdn根本没用，2.这个是写给赛风调用的cdn ip。
+
+meow负载的仅仅是ss的均衡，如果你要meow做前置，就不要改变负载策略，容易出错的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:57:02 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21993#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/117728682280967799759/">fid...@gmail.com</a
+></span>
+ 
+<pre>
+谢楼主及各位。
+
+楼主很体贴，很详细，多谢多谢。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 07:57:34 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=21993#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#28 你难道没明白？这些cdn ip不是给赛风代理用的，是给赛风加速调用的。
+你没有ss，直接用cdn ip肯定不能连接的，那是3proxy干的活。所以，ss一定要排在cdn ip的前边。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 08:01:14 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=21993#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#34 我是说
+
+2. proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+    proxy = http://xx.xx.xx.xx(cdn ip):443
+
+这些是多余的，没有任何作用。不会有“这些cdn ip不是给赛风代理用的，是给赛风加速调用的。”的效果。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 08:05:27 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=21993#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#35 我这里有用的，单用ss，非常不稳定，最多跑到9xxkb，而且经常断流。
+加了这些ip，稳定跑到1.6m，就是不断流。各自网络环境不同，肯定效果有差异了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 08:07:42 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=21993#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+单用赛风，或者赛风+CDN也是时灵时不灵的，加速效果远没有我的那个方案好。单用赛风最高
+6xxkb，不能再高了。有可能会有1秒冲高到1.1xm，然后就没有然后了。几十kb是新常态来的。：）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 08:23:25 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=21993#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#36 不是很明白其中的道理，感觉很神奇，俺也去加个 SS 服务器试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 08:29:57 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=21993#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+不知道是一下子人太多还是其他原因，赛风的速度一天不如一天，日本节点索性根本上不去了ORZ
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 09:04:05 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=21993#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/110642520286801552994/">open0...@gmail.com</a
+></span>
+ 
+<pre>
+赛风+cdn ip（Proxifier），不用ss
+速度超越ss，超越xx-net（gws ip）
+
+但cdn ip会失效，再换一个就是了
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 09:09:37 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=21993#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#39 香港澳门 Akamai IP 用慢了试试其他国家和地区的，赛风服务器也可以试试欧美的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 11:08:52 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=21993#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+#41 我再试试吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 11:28:01 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=21993#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+恩找到原因了，是Akamai ip质量不高导致的。感觉日本的Akamai ip速度不错但是质量好像不是很高，很容易失效。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 14:54:54 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=21993#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+你干嘛做人这么好，你不知道好人有好报吗！！！！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 14:59:06 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=21993#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+问一下，gfw连谷歌的gvs都能封掉，那这个会不会不也是一样的结局！无言的结局
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 16:44:03 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=21993#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/112816986141695676270/">0649...@gmail.com</a
+></span>
+ 
+<pre>
+#16 谢谢，每次开机都要隐藏窗口有点麻烦哈，如果能开机自动隐藏就更好了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc48">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 17:18:08 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c48" href="/p/goagent/issues/detail?id=21993#c48">#48</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#47 两点步骤
+
+1. 在 TrayIt 中配置好 TrayIt! 打开时自动隐藏赛风的规则
+
+2. 办法让 TrayIt! 在 Psiphon 之后运行
+
+关于步骤 2 的实现，可以选择写一个 startup.bat 文件，内容是
+
+start &quot;&quot; &quot;E:\***\Psiphon3.exe&quot;
+:check_if_Psiphon3_launched
+choice /t 3 /d y /n &gt;nul
+tasklist|FINDSTR /I &quot;Psiphon3.exe&quot;||GOTO check_if_Psiphon3_launched
+start &quot;&quot; &quot;C:\****\TrayIt!\TrayIt!.exe&quot;
+
+保存后把它放到 开始菜单 -&gt; 所有程序 -&gt; 启动 文件夹里以实现开机是自动打开 startup.bat , 此后 startup.bat 会依次打开 Psiphon3 和 TrayIt!.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 18:26:46 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=21993#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/112816986141695676270/">0649...@gmail.com</a
+></span>
+ 
+<pre>
+#48 感谢解答
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc50">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 18:41:35 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c50" href="/p/goagent/issues/detail?id=21993#c50">#50</a>
+ 
+
+ <a class="userlink"
+ href="/u/117171000659132456522/">zhu...@gmail.com</a
+></span>
+ 
+<pre>
+#31 对的就是测试 IP 速度和稳定性这个，确定没有开任何代理，hosts每次换IP后都用ipconfig /flushdns 重置过，浏览器IE每次也是重新打开的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc51">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:15:58 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c51" href="/p/goagent/issues/detail?id=21993#c51">#51</a>
+ 
+
+ <a class="userlink"
+ href="/u/117347848207208895832/">u78...@gmail.com</a
+></span>
+ 
+<pre>
+flush这个英语单词以前没有学过 又学到一个重要的单词。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc52">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:38:55 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c52" href="/p/goagent/issues/detail?id=21993#c52">#52</a>
+ 
+
+ <a class="userlink"
+ href="/u/110330972716879447422/">bob.yang...@gmail.com</a
+></span>
+ 
+<pre>
+大道至简.谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc53">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 21:07:21 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c53" href="/p/goagent/issues/detail?id=21993#c53">#53</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+照着方法2设置的
+用不了 什么原理
+<a href="http://imgur.com/G7sYMGo" rel="nofollow">http://imgur.com/G7sYMGo</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc56">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 21:19:16 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c56" href="/p/goagent/issues/detail?id=21993#c56">#56</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#53 这个原因不清楚，看截图发现你用的赛风版本和我的不一样。
+
+这是我在用的赛风 95 版： <a href="https://copy.com/JXtalbONg0NnbVKG/Psiphon3.7z" rel="nofollow">https://copy.com/JXtalbONg0NnbVKG/Psiphon3.7z</a> , 在我这随意选择日本、新加坡和欧美的服务器，并用默认的香港 Akamai CDN 加速，都能成功。
+
+如果你愿意下载我用的赛风试试，先别用方案一和方案二，打开赛风，让它自动连到服务器。然后再使用方案一或方案二。
+
+另外猜测还可能和 Akamai CDN 的 IP 有关系，你换几个 IP 试试。
+
+另外，你是否检查过这些：
+
+<a href="https://code.google.com/p/goagent/issues/detail?id=21866#c20" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21866#c20</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 01:12:04 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=21993#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+#56
+你的赛风我下了,正常是可以使用的
+看了20楼的帖子
+由于我并没有使用Proxifier, 所以需要检查的只有ip吧
+config.txt里面自带的ip和推荐的2个ip
+还有我自己扫的2个ip
+我都试过了
+都是可以ping的通,但是赛风一旦把UPSTREAM PROXY打开就开始抽风打不开网页
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 01:14:08 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=21993#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+#56 
+刚刚突然又好了
+之前3proxy都是疯狂的跳
+我放了一会回来看赛风居然显示连接上了
+不知道什么原因
+泪流满面
+接下来找几个好用的IP
+感谢各位帮助
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc59">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 01:25:17 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c59" href="/p/goagent/issues/detail?id=21993#c59">#59</a>
+ 
+
+ <a class="userlink"
+ href="/u/113996936661098035094/">czc95...@gmail.com</a
+></span>
+ 
+<pre>
+成功用上了方法2 然后也找到好用的ip 香港的的确ping低速度快 谢谢啦
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc60">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 01:47:04 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c60" href="/p/goagent/issues/detail?id=21993#c60">#60</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+用了一会赛风又报错
+502bad gateway
+403 forbidden
+是IP的问题么?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc61">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 02:04:49 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c61" href="/p/goagent/issues/detail?id=21993#c61">#61</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+加拿大节点
+
+24.200.246.20|24.200.246.7|24.200.246.21|24.200.246.17|24.200.246.15|24.200.246.23|24.200.246.19|24.200.246.13|24.200.246.27|24.200.246.29|24.200.246.16|24.200.246.28|24.200.246.26|24.200.246.39|24.200.246.35|24.200.246.30|24.200.246.46|24.200.246.18|24.200.246.41|24.200.246.49|24.200.246.55|24.200.246.37|24.200.246.58|24.200.246.34|24.200.246.54|24.200.246.56|24.200.246.61|24.200.246.42|24.200.246.68|24.200.246.64|24.200.246.67|24.200.246.24|24.200.246.14|24.200.246.65|24.200.246.48|24.200.246.70|24.200.246.82|24.200.246.76|24.200.246.87|24.200.246.77|24.200.246.74|24.200.246.91|24.200.246.83|24.200.246.36|24.200.246.43|24.200.246.59|24.200.246.45|24.200.246.47|24.200.246.97|24.200.246.96|24.200.246.98|24.200.246.60|24.200.246.38|24.200.246.5|24.200.246.44|24.200.246.33|24.200.246.57|24.200.246.75|24.200.246.51|24.200.246.40|24.200.246.73|24.200.246.32|24.200.246.80|24.200.246.69|24.200.246.6|24.200.246.94|24.200.246.53|24.200.246.90|24.200.246.92|24.200.246.86|24.200.246.52|24.200.246.50|24.200.246.99|24.200.246.95|24.200.246.31|24.200.246.8|24.200.246.66|24.200.246.72|24.200.246.4|24.200.246.12|24.200.246.88|24.200.246.85|24.200.246.78|24.200.246.79|24.200.246.1|24.200.246.89|24.200.246.81|24.200.246.22|24.200.246.71|24.200.246.9|24.200.246.84|24.200.246.93|24.200.246.10|24.200.246.25|24.200.246.63|24.200.246.11|24.200.246.62
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc62">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 02:26:41 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c62" href="/p/goagent/issues/detail?id=21993#c62">#62</a>
+ 
+
+ <a class="userlink"
+ href="/u/108041489709004599889/">Wei....@gmail.com</a
+></span>
+ 
+<pre>
+403 Forbidden
+502 Bad Gateway
+......
+不知何故？？？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc63">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 02:30:16 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c63" href="/p/goagent/issues/detail?id=21993#c63">#63</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#60 #62
+
+我碰到过多次了，IP问题，想解决的话，换IP
+
+不过目前稳定速度快的还得数Shadowsocks，我首选还是它..
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc64">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 02:38:22 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c64" href="/p/goagent/issues/detail?id=21993#c64">#64</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+#62
+请看60楼 跟你一样的问题
+不过其实即使报错 有时候也还是一样可以用的
+如果影响使用  就换IP吧
+
+#63
+同意
+不过我版瓦工的速度最近十分感人
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc65">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 02:43:14 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c65" href="/p/goagent/issues/detail?id=21993#c65">#65</a>
+ 
+
+ <a class="userlink"
+ href="/u/110956828763893621309/">zerocky1...@gmail.com</a
+></span>
+ 
+<pre>
+使用方案2，启动3Proxy后开启赛风，按截图设置赛风，重启后赛风日志里显示403 Forbidden 502 Bad Gateway等错误信息，但是赛风本身连接状态为对号。到此该怎么设置浏览器里的proxy呢，端口号设成3Proxy的8287呢，还是设成赛风此时的端口号呢，有点混乱，请懂的朋友赐教。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc66">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 02:49:42 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c66" href="/p/goagent/issues/detail?id=21993#c66">#66</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+#65
+如果是默认设置的话
+浏览器使用系统代理就可以了
+或者你可以设置赛风里的local proxy ports
+然后在浏览器里使用相应的端口
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc67">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 02:52:08 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c67" href="/p/goagent/issues/detail?id=21993#c67">#67</a>
+ 
+
+ <a class="userlink"
+ href="/u/110956828763893621309/">zerocky1...@gmail.com</a
+></span>
+ 
+<pre>
+#66
+你的意思是3Proxy开启后默认全局代理吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc68">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 03:41:05 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c68" href="/p/goagent/issues/detail?id=21993#c68">#68</a>
+ 
+
+ <a class="userlink"
+ href="/u/102991694492972113204/">88s...@gmail.com</a
+></span>
+ 
+<pre>
+已经在Windows上psiphon+akamai搞成功了，按此思路，android上应如何加速？还请各位高人，不吝赐教！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc69">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 03:48:24 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c69" href="/p/goagent/issues/detail?id=21993#c69">#69</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#65
+
+<a href="https://code.google.com/p/goagent/issues/detail?id=21866#c20" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21866#c20</a>
+<a href="https://code.google.com/p/goagent/issues/detail?id=21844#c201" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844#c201</a>
+<a href="https://code.google.com/p/goagent/issues/detail?id=21866#c39" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21866#c39</a>
+<a href="https://code.google.com/p/goagent/issues/detail?id=21844#c293" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844#c293</a>
+<a href="https://code.google.com/p/goagent/issues/detail?id=21844#c381" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844#c381</a>
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc70">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 04:42:37 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c70" href="/p/goagent/issues/detail?id=21993#c70">#70</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+连不上服务器或无法选择服务器可能是因为赛风分支不一样导致的
+-----------------------------------------------------------------------------
+
+这是我在用的赛风： <a href="https://copy.com/JXtalbONg0NnbVKG/Psiphon3.7z" rel="nofollow">https://copy.com/JXtalbONg0NnbVKG/Psiphon3.7z</a> , 在我这随意选择日本、新加坡和欧美的服务器，并用默认的香港 Akamai CDN 加速，都能成功。连不上的朋友可以尝试一个这个赛风。
+
+另外猜测连不上服务器还可能和 Akamai CDN 的 IP 有关系，多换几个 IP 试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc71">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 05:31:36 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c71" href="/p/goagent/issues/detail?id=21993#c71">#71</a>
+ 
+
+ <a class="userlink"
+ href="/u/117187711818492893344/">dh8...@gmail.com</a
+></span>
+ 
+<pre>
+3proxyLauncher.exe这个无法打开.显示执行命令失效.与有病毒提示.求解？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc72">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 06:12:18 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c72" href="/p/goagent/issues/detail?id=21993#c72">#72</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+2015/07/20 09:09:41 main.go:58: listen tcp :8080: bind: address already in use
+云平台的提示，这个是什么意思？重新用gost不成功
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc73">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 07:12:39 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c73" href="/p/goagent/issues/detail?id=21993#c73">#73</a>
+ 
+
+ <a class="userlink"
+ href="/u/111944855780994697826/">realnab...@gmail.com</a
+></span>
+ 
+<pre>
+我用的 Proxifier + 赛风3，扫得的IP基本都可以连，但是我试了几十个，全部都是断断续续的，一会儿好使一会儿断，这是为什么呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc74">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 08:40:48 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c74" href="/p/goagent/issues/detail?id=21993#c74">#74</a>
+ 
+
+ <a class="userlink"
+ href="/u/110967493606101411609/">huaiqing...@gmail.com</a
+></span>
+ 
+<pre>
+上午把3proxy搞定了，确实快啊，一个字 灰常爽 啊，但是刚才打开电脑，慢如蜗牛，不知道怎么了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc76">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 08:56:30 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c76" href="/p/goagent/issues/detail?id=21993#c76">#76</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#73 速度慢、不稳定，测试 IP 速度和稳定性试试找到快的 IP <a href="https://code.google.com/p/goagent/issues/detail?id=21844#c47" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844#c47</a> 
+
+#74 你用的应该是电信吧，晚上电信拥堵，所以慢，你试试 110.4.12.112 这个 IP ，晚上表现好些。
+
+你如果有耐心，用上面的链接上介绍的方式找找晚上在你那也能快的 Akaimai IP 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc77">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 10:04:50 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c77" href="/p/goagent/issues/detail?id=21993#c77">#77</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+大大们你们还是忽略了一个非常重要的小白问题，让我折腾了半天。那就是禁用赛风启动时修改系统设置之后，如何给赛风指定端口，或者说如何在比如chrome中设置switchysharp。。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc78">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 10:33:55 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c78" href="/p/goagent/issues/detail?id=21993#c78">#78</a>
+ 
+
+ <a class="userlink"
+ href="/u/107140692625081235189/">qq242886...@gmail.com</a
+></span>
+ 
+<pre>
+可是貌似我按你操作的那样改hosts后下载地址里的视频，貌似个个ip都是速度开始快然后慢，这样一个个改着试效率也太慢了吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc79">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 10:47:45 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c79" href="/p/goagent/issues/detail?id=21993#c79">#79</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+#77 <a href="https://code.google.com/p/goagent/issues/detail?id=21866#c35这里是解决办法" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21866#c35这里是解决办法</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc80">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 13:29:16 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c80" href="/p/goagent/issues/detail?id=21993#c80">#80</a>
+ 
+
+ <a class="userlink"
+ href="/u/100719465149927630895/">spo...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢楼主分享，很有帮助啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc81">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 14:46:30 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c81" href="/p/goagent/issues/detail?id=21993#c81">#81</a>
+ 
+
+ <a class="userlink"
+ href="/u/100719465149927630895/">spo...@gmail.com</a
+></span>
+ 
+<pre>
+额，我弄完以后还是出问题了：选新加坡死活都连不上，只能改成“最佳性能”这一项才能连上，但是这样连上的速度很垃圾。5555555555
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc82">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 17:19:28 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c82" href="/p/goagent/issues/detail?id=21993#c82">#82</a>
+ 
+
+ <a class="userlink"
+ href="/u/109655535371495831790/">emu.sir...@gmail.com</a
+></span>
+ 
+<pre>
+方案一我的WIN7 64位死活也看不到Psiphon的进程（psiphon3.exe;psiphon-tunnel-core.exe）；方案二开启3ProxyLauncher后再开Psiphon后看到有一行提示：
+Upstream Proxy Error: psiphon.HttpProxyConnect#196: 403 Forbidden
+然后也能连接上赛风，但是貌似没有任何加速效果啊，怎么弄？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc83">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 18:48:41 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c83" href="/p/goagent/issues/detail?id=21993#c83">#83</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+经过几天使用，觉得还有必要补充说明下：
+
+1、这个方法的关键还是IP，所以，和用goagent类似，没事扫扫，找快速的IP吧
+IP不要局限在香港，其它地区、国家的都找找换上试试
+2、服务器选择先用：Best Performance，觉得速度不够快再选单个国家
+3、赛风的本地端口设置，不要留空即让软件自动选择，HTTP和SOCKS的端口都写上，HTTP端口推荐用5位数的，1xxxx或2xxxx这样的
+3、浏览器设置，推荐使用赛风的HTTP端口连接，感觉比SOCKS的要稳定
+4、赛风的502和403错误信息是正常现象，不用管
+
+最后，关于扫IP，可以试下 PingInfoView 这个软件，它可以不停的ping，直到你手动停止，重复几十次，然后找没出过错而且延迟低的IP，拿来用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc84">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 18:53:19 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c84" href="/p/goagent/issues/detail?id=21993#c84">#84</a>
+ 
+
+ <a class="userlink"
+ href="/u/101330889067436602988/">xtl...@gmail.com</a
+></span>
+ 
+<pre>
+3Proxy方法实测有效，Youtube 4-5M是常态，高的时候可以飙到20M以上，关键是找到好的CDN IP，Psiphon3启动时报“Upstream Proxy Error: ……403 Forbidden”不影响使用。Win8.1 64位，Psiphon3 V95
+BTW：其实新版（V2.0 Beta8）的蓝灯速度已经很快了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc85">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 19:01:44 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c85" href="/p/goagent/issues/detail?id=21993#c85">#85</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#83 经测试默认的 IP 210.0.156.15 确实被用多了，变慢了，没有以前快了。大家如果追求更快的速度，换个 IP 吧， IP 测速方法不再赘述；
+
+&quot;403 Forbidden&quot; 要的就是这个效果，出现这个说明 Psiphon 成功地被屏蔽了非 *.akamaihd.net 的连接请求，而这正是目的。
+
+遇到困难朋友们，你们遇到的问题都很常见，在本帖和
+
+<a href="https://code.google.com/p/goagent/issues/detail?id=21844" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844</a>
+<a href="https://code.google.com/p/goagent/issues/detail?id=21866" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21866</a>
+
+都能找到答案。
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc86">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 19:15:39 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c86" href="/p/goagent/issues/detail?id=21993#c86">#86</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+210.0.156.15 的兄弟姐妹们确实比 210.0.156.15 快， 210.0.156.15 太惨了，恳求大家换 IP :
+
+210.0.156.9|210.0.156.25|210.0.156.26|210.0.156.5|210.0.156.20|210.0.156.6|210.0.156.7|210.0.156.13|210.0.156.11|210.0.156.12|210.0.156.19|210.0.156.15|210.0.156.21|210.0.156.23|210.0.156.4|210.0.156.24|210.0.156.10|210.0.156.14|210.0.156.22|210.0.156.27|210.0.156.17|210.0.156.16|210.0.156.18|210.0.156.8
+
+更多 IP 在 #85 的三个地址上都能找到，此外还可以用 checkgoogleip 寻找更多未被公开的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc87">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 19:17:19 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c87" href="/p/goagent/issues/detail?id=21993#c87">#87</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+测试 IP 延迟和是否可用建议大家用 GoGoTester <a href="https://code.google.com/p/gogo-tester/" rel="nofollow">https://code.google.com/p/gogo-tester/</a> 这一点在 #85 的三个地址中有提及。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc88">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 19:39:08 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c88" href="/p/goagent/issues/detail?id=21993#c88">#88</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+不要局限于赛风的新加坡服务器，日本和欧美的都试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc89">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 21:34:04 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c89" href="/p/goagent/issues/detail?id=21993#c89">#89</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+换了ip，速度太快了，1080高清流畅
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc90">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 21:54:56 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c90" href="/p/goagent/issues/detail?id=21993#c90">#90</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#86 加拿大的相当不错, 不过你奶爸难当. :)
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc91">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 20 22:49:56 2015">
+ Jul 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c91" href="/p/goagent/issues/detail?id=21993#c91">#91</a>
+ 
+
+ <a class="userlink"
+ href="/u/100904778561500038886/">888li...@gmail.com</a
+></span>
+ 
+<pre>
+好文章！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc92">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 06:24:11 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c92" href="/p/goagent/issues/detail?id=21993#c92">#92</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+日本 akamai
+
+210.143.147.145|210.143.147.146|210.143.147.138|210.143.147.155|210.143.147.149|210.143.147.147|210.143.147.158|210.143.147.156|210.143.147.162|210.143.147.151|210.143.147.159|210.143.147.160|210.143.147.134|210.143.147.163|210.143.147.136|210.143.147.161|210.143.147.153|210.143.147.137|210.143.147.148|210.143.147.154|210.143.147.143|210.143.147.133|210.143.147.135|210.143.147.141|210.143.147.157|210.143.147.150|210.143.147.139|210.143.147.152|210.143.147.144|210.143.147.132|210.143.147.140|210.143.147.142
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc93">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 09:11:53 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c93" href="/p/goagent/issues/detail?id=21993#c93">#93</a>
+ 
+
+ <a class="userlink"
+ href="/u/105103954198592007698/">ddddabo...@gmail.com</a
+></span>
+ 
+<pre>
+请问，假如说部署成功的话方案一得proxifier的界面里会不会出现那些连接情况，我这里是一片空白，什么进程都没有 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc94">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 09:24:17 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c94" href="/p/goagent/issues/detail?id=21993#c94">#94</a>
+ 
+
+ <a class="userlink"
+ href="/u/105103954198592007698/">ddddabo...@gmail.com</a
+></span>
+ 
+<pre>
+请问，方案二我在设置好之后启动赛风，一直不能正常工作，界面里一直显示 upstream proxy error pasiphon httpproxyconnect#196:403  forbidden和upstream proxy error pasiphon httpproxyconnect#196:502 badgateway 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc95">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:04:51 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c95" href="/p/goagent/issues/detail?id=21993#c95">#95</a>
+ 
+
+ <a class="userlink"
+ href="/u/110592975275915527835/">Yxx02.20...@gmail.com</a
+></span>
+ 
+<pre>
+COMODO + dnsforwarder 成功的路过，没有用proxifier或者3Proxy
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc96">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:05:51 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c96" href="/p/goagent/issues/detail?id=21993#c96">#96</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#95 Yxx02.20...@gmail.com
+
+还有这样搞的，求分享
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc97">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:15:56 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c97" href="/p/goagent/issues/detail?id=21993#c97">#97</a>
+ 
+
+ <a class="userlink"
+ href="/u/110592975275915527835/">Yxx02.20...@gmail.com</a
+></span>
+ 
+<pre>
+#96 这是看到这里有位老兄说COMODO可以才试验的，结果真的可以
+思路就自己在防火墙哪里建赛风哪项建两条规则 1、强制赛风连接Akamai IP 2、拒绝赛风连接其它 
+1记住要放在2的前面，另外 dnsforwarder  有个好处是 可以定义 xxx.xxx.xxx.xxx *.akamaihd.net
+这样就不用修改HOST并里面写多条规则了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc98">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:21:50 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c98" href="/p/goagent/issues/detail?id=21993#c98">#98</a>
+ 
+
+ <a class="userlink"
+ href="/u/107396670065599074249/">wubianji...@gmail.com</a
+></span>
+ 
+<pre>
+这方法 厉害顶lz
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc99">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:23:48 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c99" href="/p/goagent/issues/detail?id=21993#c99">#99</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#97 Yxx02.20...@gmail.com
+
+谢谢老兄，有空我也这样折腾一下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc100">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:24:53 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c100" href="/p/goagent/issues/detail?id=21993#c100">#100</a>
+ 
+
+ <a class="userlink"
+ href="/u/107396670065599074249/">wubianji...@gmail.com</a
+></span>
+ 
+<pre>
+问一下，如果我换了ip地址是日本的，是不是赛风服务器也选日本的会快些？还是根本不用换 ，照样用新加坡服务器？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc101">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:28:24 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c101" href="/p/goagent/issues/detail?id=21993#c101">#101</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+自己多试吧，师傅领进门，修行靠各人。再说讨论深入了，啥都唾手可得，也没意思。再加上五毛也多，新方法太透明，封杀就随之而来。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc103">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 09:36:46 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c103" href="/p/goagent/issues/detail?id=21993#c103">#103</a>
+ 
+
+ <a class="userlink"
+ href="/u/104171871206886725452/">lifl...@gmail.com</a
+></span>
+ 
+<pre>
+搞了半天都 是403 和 502...
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc104">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 11:31:54 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c104" href="/p/goagent/issues/detail?id=21993#c104">#104</a>
+ 
+
+ <a class="userlink"
+ href="/u/117076119666858916939/">linhaico...@gmail.com</a
+></span>
+ 
+<pre>
+#95  谢谢提醒，只需comodo建立防火墙绑定远程主机名就行，哈哈。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc105">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 21:08:47 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c105" href="/p/goagent/issues/detail?id=21993#c105">#105</a>
+ 
+
+ <a class="userlink"
+ href="/u/105045589081840527592/">free...@gmail.com</a
+></span>
+ 
+<pre>
+非常棒，很详细，有个问题想问一下，这个方法的安全性怎样？是加密连接么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc106">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 25 23:55:06 2015">
+ Jul 25, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c106" href="/p/goagent/issues/detail?id=21993#c106">#106</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+这个论坛让我太受益了，感谢朋友们的贡献！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc107">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 02:14:51 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c107" href="/p/goagent/issues/detail?id=21993#c107">#107</a>
+ 
+
+ <a class="userlink"
+ href="/u/111944855780994697826/">realnab...@gmail.com</a
+></span>
+ 
+<pre>
+是这样，我把顶楼贴的香港澳门印尼的IP贴进了 checkip.py，然后用 checkip.bat 扫，但是得到的都是 a248.e.akamai.net，没有 hd 的，这是为什么啊？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc108">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 18:31:45 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c108" href="/p/goagent/issues/detail?id=21993#c108">#108</a>
+ 
+
+ <a class="userlink"
+ href="/u/117171000659132456522/">zhu...@gmail.com</a
+></span>
+ 
+<pre>
+#107 扫出来的就是这样的 a248.e.akamai.net   可以用的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc109">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 20:01:03 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c109" href="/p/goagent/issues/detail?id=21993#c109">#109</a>
+ 
+
+ <a class="userlink"
+ href="/u/101331373691394923732/">shau...@gmail.com</a
+></span>
+ 
+<pre>
+感谢分享。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc110">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 02:35:05 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c110" href="/p/goagent/issues/detail?id=21993#c110">#110</a>
+ 
+
+ <a class="userlink"
+ href="/u/107120889272154239493/">jordyc...@gmail.com</a
+></span>
+ 
+<pre>
+感谢，油管居然可以1080p不卡，下载速度1mb/s
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc111">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 02:46:48 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c111" href="/p/goagent/issues/detail?id=21993#c111">#111</a>
+ 
+
+ <a class="userlink"
+ href="/u/117558357784708603491/">angle1...@gmail.com</a
+></span>
+ 
+<pre>
+还能用吗？广东电信只能龟速了
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc112">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 03:04:03 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c112" href="/p/goagent/issues/detail?id=21993#c112">#112</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+金山卫士似乎干扰3proxy+赛风
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc113">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 03:06:10 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c113" href="/p/goagent/issues/detail?id=21993#c113">#113</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+我这边跑1080油管还非常轻松
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc114">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 08:59:01 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c114" href="/p/goagent/issues/detail?id=21993#c114">#114</a>
+ 
+
+ <a class="userlink"
+ href="/u/116830967189984890790/">rpzrpz...@gmail.com</a
+></span>
+ 
+<pre>
+#48
+能做到启动过程中不出现终端运行，并且最后trayit自己也最小化到托盘吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc115">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 09:30:36 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c115" href="/p/goagent/issues/detail?id=21993#c115">#115</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+不想出现命令行窗口可用 Quick Batch File Compiler 把 .bat 里的内容做成一个“鬼程序”；
+
+TrayIt! 自身提供启动后“隐身”运行的选项。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc116">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 05:35:27 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c116" href="/p/goagent/issues/detail?id=21993#c116">#116</a>
+ 
+
+ <a class="userlink"
+ href="/u/116830967189984890790/">rpzrpz...@gmail.com</a
+></span>
+ 
+<pre>
+#115
+TrayIt! 的中文翻译几个明显错误我修正了发给作者了，不知是否会在下一个版本加入。
+不过我试了很久，还是无法做到 TrayIt！ 自动隐身。
+<a href="https://lh3.googleusercontent.com/gExp9kV-EnlbaB8UKn0DPgco11G15NT3woxDywirVzXj=w0" rel="nofollow">https://lh3.googleusercontent.com/gExp9kV-EnlbaB8UKn0DPgco11G15NT3woxDywirVzXj=w0</a>
+哪里出错了？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc117">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 06:04:24 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c117" href="/p/goagent/issues/detail?id=21993#c117">#117</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#116 你设置了 TrayIt! 开机自启，这样的 TrayIt! 可能会优先于赛风启动，这么也许无法自动最小化赛风到托盘；
+
+我没有勾选“建立 TrayIt! 托盘图标”，我这 TrayIt! 启动后就是一个“鬼程序”。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc120">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 07:49:15 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c120" href="/p/goagent/issues/detail?id=21993#c120">#120</a>
+ 
+
+ <a class="userlink"
+ href="/u/111755455821357833595/">yirended...@gmail.com</a
+></span>
+ 
+<pre>
+真的谢谢分享，而且图文并茂，用了楼主的方法比我买的ss更快。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc121">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 07:52:02 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c121" href="/p/goagent/issues/detail?id=21993#c121">#121</a>
+ 
+
+ <a class="userlink"
+ href="/u/111755455821357833595/">yirended...@gmail.com</a
+></span>
+ 
+<pre>
+移动20m测速下行17m，上行15m
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc122">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 06:20:06 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c122" href="/p/goagent/issues/detail?id=21993#c122">#122</a>
+ 
+
+ <a class="userlink"
+ href="/u/102906233103933765693/">chengson...@gmail.com</a
+></span>
+ 
+<pre>
+其实用windows防火墙也可以的 阻止应用psiphon-tunnel-core.exe规则远程ip写为
+0.0.0.0-210.0.156.14
+210.0.156.164—— 255.255.255
+
+再在hosts中添加 210.0.156.15 pdlvimeocdn-a.akamaihd.net
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc123">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 08:24:51 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c123" href="/p/goagent/issues/detail?id=21993#c123">#123</a>
+ 
+
+ <a class="userlink"
+ href="/u/105045589081840527592/">free...@gmail.com</a
+></span>
+ 
+<pre>
+ 十分感谢，有个问题，我是用3proxy+赛风的，ip我也找了不少，但不管换了多少个ip，都有个共同的问题，就是断流，不管是看网页直播的电视 还是youtube 总是过一段时间就断了，而赛风则仍显示连接着，需要手动断开重新连接赛风，不知道有人也像我这样么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc124">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 08:31:27 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c124" href="/p/goagent/issues/detail?id=21993#c124">#124</a>
+ 
+
+ <a class="userlink"
+ href="/u/116830967189984890790/">rpzrpz...@gmail.com</a
+></span>
+ 
+<pre>
+#122
+能否稍稍详细些？我大致摸索了出来，但似乎没什么明显提速。
+防火墙的教程太少了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc125">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 11:27:04 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c125" href="/p/goagent/issues/detail?id=21993#c125">#125</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+#123 可能是你的Akamai ip质量不高。用pinginfoview批量测试选失败率低的试试看。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc126">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 17:48:02 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c126" href="/p/goagent/issues/detail?id=21993#c126">#126</a>
+ 
+
+ <a class="userlink"
+ href="/u/110642520286801552994/">open0...@gmail.com</a
+></span>
+ 
+<pre>
+#123
+一样，而且速度没有保证，慢的时候看不了youtube
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc128">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 19:59:48 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c128" href="/p/goagent/issues/detail?id=21993#c128">#128</a>
+ 
+
+ <a class="userlink"
+ href="/u/102906233103933765693/">chengson...@gmail.com</a
+></span>
+ 
+<pre>
+#124
+<a href="http://i.imgur.com/XGV6kTA.jpg" rel="nofollow">http://i.imgur.com/XGV6kTA.jpg</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc129">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 01:00:50 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c129" href="/p/goagent/issues/detail?id=21993#c129">#129</a>
+ 
+
+ <a class="userlink"
+ href="/u/116830967189984890790/">rpzrpz...@gmail.com</a
+></span>
+ 
+<pre>
+多谢。
+赛风的注册表里
+SplitTunnel
+SSHParentProxyHostname
+SSHParentProxyPort
+SSHParentProxyPort
+是什么意思？
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21993">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21993',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21993,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

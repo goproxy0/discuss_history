@@ -1,0 +1,1352 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"relativeBaseUrl": "", "loggedInUserEmail": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "projectHomeUrl": "/p/goagent", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "domainName": null, "profileUrl": null, "token": null, "projectName": "goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22269 - 
+ goagent -
+ 
+ [疑问]我这样理解gwsIP 和gvsIP，对吗？ - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22269&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22269" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22269">22269</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >[疑问]我这样理解gwsIP 和gvsIP，对吗？</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 6 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22269">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/109946205768852738157/">lionnoil...@gmail.com</a
+>,
+ <span class="date" title="Mon Aug 10 20:38:41 2015">Aug 10, 2015</span>
+ 
+ </div>
+<pre>
+简单来说gvsIP比gwsIP更加优质，翻墙速度更加快。
+gvsIP有极其稀缺的特性，所以很少人能扫到，能扫到的都是日夜开着机房那些神机的大神。
+
+
+
+另请问，有没有适合我等屌丝的扫gvsIP的方法？！！！！
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 20:58:55 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22269#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+理论上gvs比gws多得多，不过大概是因为前段时间太火被盯上了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 21:01:21 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22269#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+方法这里讲了这么多自己去找。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 21:05:09 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22269#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/109946205768852738157/">lionnoil...@gmail.com</a
+></span>
+ 
+<pre>
+#2 yuanqiy...@gmail.com
+大神~~~~请指路
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 00:05:23 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22269#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+#3 本人也是小白……这么多issue自己去找嘛很多的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 00:11:42 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22269#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/115544407951689275697/">softlyg...@gmail.com</a
+></span>
+ 
+<pre>
+请问哪有gvs比gws多的理论？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 01:30:39 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22269#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+简单来说gvsIP比gwsIP更加优质，翻墙速度更加快
+－－－－－－－－－－－－－－－－－－－－－－－
+某个（些）gvs比某个（些）gws快很正常，但不足以得出gvs比gws快的结论
+
+
+gvsIP有极其稀缺的特性，所以很少人能扫到，能扫到的都是日夜开着机房那些神机的大神
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+就我所见通常gvs都是gws的三、四倍以上，相比之下gws才成了稀缺货
+<a href="http://picload.org/image/ipwwdrd/abduction.png" rel="nofollow">http://picload.org/image/ipwwdrd/abduction.png</a>
+
+至于能不能扫到，和机房、神机乃至白天黑夜都无关，只取决于GFC
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 06:20:25 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22269#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/115118970161832151512/">wwbf...@gmail.com</a
+></span>
+ 
+<pre>
+不对.一定要说的话,GVS实际上是远多于GWS的.而在速度和延迟上关键看服务器的地理位置和线路,和究竟是GVS还是GWS一点关系都没有.
+Google在各ISP机房建立缓存服务器,以期为用户提供更快的服务.由于Youtube是流量大户,所以这一系列缓存服务器(GGC)最主要的目的就是提供更快的视频服务.GVS指的就是提供Youtube视频服务的服务器,这种服务器在正常情况下是不能够提供Google的其他服务的.
+而要想使用GAE,则需要GWS的服务器.早前我们并不知道GVS在https的环境下采取一些特殊的手段也能够提供GWS服务.在被发现并被公开之前,如果你扫描一个GGC IP段可以发现数百个GVS可用,而以20 24 84等结尾的GWS则被挑出来封锁.而在方法公布一个月之后,由于那时官方已经基本上扫描出了所有GGC IP段,所以GVS瞬间被几乎完全封锁.
+可以说,Google被完全封锁和Goagent有直接的关系.因为你只要找到了一个Google的IP,你就拥有了整个自由的互联网,更关键的是,这是完全免费,高速,且毫无难度的.官方的意愿是限制住80%的人的自由访问互联网的权利,而Goagent的存在很明显与他们的意愿相悖.实际上VPN封锁起来要比Goagent容易的多,但它有着资金壁垒,因为想要使用稳定的VPN势必要在境外租用服务器,而大多数人并不愿意在这上面花费.这也是VPN一直没有被封锁的一个原因.Goagent从广为流传,到Google被完全封锁之间大约有一年的时间.这一年的时间里他们不可能不在思考如何封锁Goagent,但实际上由于https的存在要想完全封锁Goagent就意味着也肯定意味着完全封锁Google.官方似乎也不太愿意这么做,因为完全将Google拒之门外还是有一定的代价的,但在Goagent广泛化之后他们仍做出了这样的选择.
+现在要想稳定的访问自由的互联网,还是选择别的方式比较好,Goagent和其衍生软件已经被不计代价地重点关照了.虽然以前就有这样的猜测,但GVS的封锁使我们能够100%确定这一点了.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 08:00:30 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22269#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+#7 好专业的分析
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 08:08:12 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22269#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+这里就是这么令人怀念
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 08:31:52 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22269#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+补充点我的使用体验：
+
+扫IP功能被归并入XX-NET后，我就把xxnet当作不需要前置的主力翻墙工具。我一直使用
+1.14.10和2.0.5这两个版本，不同在于，1.14.10是纯粹的gws版，2.0.7是gws+gvs的混合版，
+从实际使用来看，2.0.x主要是扫描gvs的。
+
+转入正题，这两个版本在我这里都是完全可以找到我想要找到的数量的ip，
+扫描一周之后，现在任何网页都是秒开同时看油管多数时候可以满速的。
+经过长期观察，发现决定xxnet使用体验的就是两条：
+1 线路，电信肯定不行了；2 你收集到的ip段，越多，越好翻。
+
+因此，你可以选择适当工具来改善自己的翻墙体验。同时你也就成为了
+共匪除掉拔网线，即使花费200%的资源都无法封杀的那个“干翻我”达人。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 19:01:50 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22269#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/115544407951689275697/">softlyg...@gmail.com</a
+></span>
+ 
+<pre>
+要想完全封锁Goagent就意味着也肯定意味着完全封锁Google.官方似乎也不太愿意这么做,因为完全将Google拒之门外还是有一定的代价的,但在Goagent广泛化之后他们仍做出了这样的选择.
+
+现在这样尽管和完全封锁有“质”的区别，但真是代价的区别吗？ip一直封的代价比间隔封要大？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug 11 20:48:21 2015">
+ Aug 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22269#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/107906733333603938591/">tankbust...@gmail.com</a
+></span>
+ 
+<pre>
+要知道GFW宁可误杀一万，不可放过一个。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 02:23:04 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22269#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+#7 7楼说的很好
+不过我也想问
+从成本上来说  既然这些IP段已经被找到了 那么直接封锁就好了
+滚动封锁,从降低成本上来说有什么意义吗
+另外同意#11楼 现在从本质上来说google已经完全被封锁了  任何服务都不能使用的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 03:18:42 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22269#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+从来没有“完全封锁”过，像gmail的pop/smtp我就一直在用（imap应该也一样）
+
+比如说smtp.gmail.com解出74.125.68.108
+telnet 74.125.68.108 25连不上
+但
+telnet 74.125.69.108 25
+telnet 74.125.70.108 25
+都可以连上，在host里指定就完了
+
+而且这和通过sniproxy访问web gmail不一样，连的就是google，不是代理
+
+
+墙的存在从来不是为了“完全封锁“，只是在性价比合适的情况下最大程度制造障碍，而后者只有闭关锁国才能实现
+
+所以当多数人“适应”了墙的存在，少数人沉浸在翻墙成功的喜悦中时，墙的目的就已经达到了
+因为最根本的一点已经被遗忘了：只有被推倒的墙，才是好墙。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 12 08:54:30 2015">
+ Aug 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22269#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/115118970161832151512/">wwbf...@gmail.com</a
+></span>
+ 
+<pre>
+#7 滚动封锁的情况从我这里并没有观察到,当然这和运营商也有关系.电信出国只有几条线路稍微好些,例如pccw,kddi,但这些线路上的GGC已经路由黑洞了.地理位置越远,速度延迟越差的封锁会松些,但亚太区几乎已经全部被路由黑洞了.
+#15 不能够使用GAE的服务器很多都没有被封锁,gmail是其中之一.在GVS没有被发现能够使用GAE的时候GVS也没被封锁,利用这一点甚至可以做到Youtube的直连.我所说的完全封锁Google是指其最重要的搜索服务.但最关键的是能够使用搜索服务和能够使用GAE是等价的.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 01:26:10 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22269#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/109946205768852738157/">lionnoil...@gmail.com</a
+></span>
+ 
+<pre>
+太专业了~~~我正在消化，可能需要一天时间消化上面大神说的话
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 06:22:28 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22269#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/109674729313516384163/">mark.hua...@gmail.com</a
+></span>
+ 
+<pre>
+gvs ip到底怎么找？？？？？？用checkgoogleip吗？还是gogo tester？请问具体怎么操作？
+
+还有，我用checkgoogleip找出来的东西是这样的：
+202.69.26.87 2355 *.pingan.com 
+202.69.26.57 156 *.pingan.com 
+146.148.24.146 2255 *.stream.me 
+66.102.255.40 1198 *.alicdn.com 
+74.125.21.188 8905 *.google.com 
+202.69.26.32 537 *.pingan.com.cn 
+202.69.26.30 185 *.wanlitong.com 
+202.69.26.81 173 *.pingan.com 
+173.194.214.188 6433 *.google.com 
+66.102.133.70 3764 secure.cbloans.com 
+202.69.26.86 191 *.pingan.com 
+130.211.76.125 4291 jamgle.com 
+74.125.193.125 6218 *.google.com 
+202.69.26.7 152 *.pingan.com 
+202.69.26.88 186 *.pa18.com 
+...
+
+后面的pingan.com之类的是什么意思？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 14 06:43:21 2015">
+ Aug 14, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22269#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+这么奇葩的结果也是少见，吼吼
+
+先是一堆国内的，不管其中有没有gws/gvs都没用
+inetnum:        202.69.16.0 - 202.69.31.255
+netname:        PAIG
+descr:          Ping An Technology(Shenzhen) Co., LTD.
+descr:          Ping An Building ,No.3 Ba Gua Road
+descr:          Ba Gua Ling, Shenzhen, China
+country:        CN
+
+然后剩下的一个都不是。。。你的checkgoogleip莫不是周带鱼版？哈哈
+
+
+我没用过“专用软件”，就是直接问server：你装的啥？
+
+[~]$ curl -Ik https://128.0.90.117
+HTTP/1.1 301 Moved Permanently
+Location: <a href="http://www.google.com:443/" rel="nofollow">http://www.google.com:443/</a>
+Content-Type: text/html; charset=UTF-8
+Date: Fri, 14 Aug 2015 13:39:58 GMT
+Expires: Sun, 13 Sep 2015 13:39:58 GMT
+Cache-Control: public, max-age=2592000
+－－－－－－－－－－－－－－－－－－－－－－－－
+Server: gws
+－－－－－－－－－－－－－－－－－－－－－－－－
+Content-Length: 223
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+
+[~]$ curl -Ik https://128.0.90.118
+HTTP/1.1 404 Not Found
+Date: Fri, 14 Aug 2015 13:40:05 GMT
+Content-Type: text/html; charset=UTF-8
+－－－－－－－－－－－－－－－－－－－－－－－－
+Server: gvs 1.0
+－－－－－－－－－－－－－－－－－－－－－－－－
+Content-Length: 1425
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22269">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22269',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22269,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

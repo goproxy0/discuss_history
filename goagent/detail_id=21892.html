@@ -1,0 +1,7974 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "projectName": "goagent", "token": null, "projectHomeUrl": "/p/goagent", "relativeBaseUrl": "", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21892 - 
+ goagent -
+ 
+ gvs/gws 濒临灭绝，cow/meow模式正式开启 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21892&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21892" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21892">21892</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >gvs/gws 濒临灭绝，cow/meow模式正式开启</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 20 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21892">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+>,
+ <span class="date" title="Wed Jul 15 21:55:43 2015">Jul 15, 2015</span>
+ 
+ </div>
+<pre>
+各位友友都感知到了现况，但是你手头辛苦扫来的优质gws/gvs ip千万不要丢弃，利用
+cow/meow 同样可以几乎无痛看油管。具体内容你可以看这个老帖：
+
+<a title="庆祝GoAgent在强力打压下坚挺一周年 特发 慢速IP无痛观赏油管1080p教程（ss,GoAgent,自购vps适用）…"  href="/p/goagent/issues/detail?id=20882">issue 20882</a>  感谢这位友友的探索和力荐。
+
+我这里只是提醒你，cow/meow可以帮助你把ss转换成https前置代理，让你的wallproxy和goagent用起来更方便，更容易突破GFW，自由上网。
+
+自由万岁！！！！！！！！！！！！！！！
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 15 22:15:00 2015">
+ Jul 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21892#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+cow 在这里 <a href="https://github.com/cyfdecyf/cow" rel="nofollow">https://github.com/cyfdecyf/cow</a>
+
+meow 在这里 <a href="https://github.com/renzhn/MEOW" rel="nofollow">https://github.com/renzhn/MEOW</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 15 22:45:06 2015">
+ Jul 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21892#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/108024936762757639905/">g324...@yahoo.com.cn</a
+></span>
+ 
+<pre>
+自由万岁！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 15 23:13:00 2015">
+ Jul 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21892#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/105103954198592007698/">ddddabo...@gmail.com</a
+></span>
+ 
+<pre>
+请问meow如何设置。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 15 23:26:06 2015">
+ Jul 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21892#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+用 Proxifier 也能做到——给 python27.exe 和 goproxy.exe 定规则让他们的流量通过 Shadowsocks 的 127.0.0.1:1080.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 00:12:56 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21892#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#8 就是这样，灵活运用各种软件的搭配，飞速出墙。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 00:42:15 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21892#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+#8 具体怎么设置？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:16:30 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21892#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#11 关于给 python27.exe 和 goproxy.exe 定规则让他们的流量通过 Shadowsocks 的 127.0.0.1:1080 的方法。要安装 Proxifier 安装版后看 <a href="https://code.google.com/p/goagent/issues/detail?id=21844#c43" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21844#c43</a> （43 楼），有图文哦！
+
+要坚信 Proxifier 一定能给 python27.exe 和 goproxy.exe 定规则让他们的流量通过 Shadowsocks 的 127.0.0.1:1080 ，我试过好多次了，这是事实！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:19:01 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21892#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+#13 会了，谢谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:26:04 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21892#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+♫♫♫♫♫   proxifier荣登翻墙辅助工具排行榜首，#14 warmingf...@gmail.com兄功不可没。  ♫♫♫♫♫
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:27:17 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21892#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#6 设置非常简单，只要有ss账号，按照我给的网址的说明，一分钟搞定。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:35:40 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21892#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#16 这款软件集各种功能于一身，能处理所有程序的 TCP 连接，比只能全局使用的 VPN 更自由。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:47:07 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21892#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#18 你用proxifier给其他软件作为前置代理，速度如何。我这里速度不太好，
+只有纯粹ss的一半，想看看有没有改善空间呢。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:50:44 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21892#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#19 看不出来差异。不过发现用它处理 python27.exe 的直连 ( 即handle direct connections 开启 ) ，比不 handle python27.exe 的直连看视频缓冲快一些。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 01:57:54 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21892#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#20 win8.1下还是3.21版好用，不过要像win7下那么好用，就要开启管理员模式，
+看来win8.1在安防上又比win7进了一步。
+
+你有没有试过给蓝灯加个前置的？不知道效果会不会很好。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 02:01:13 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21892#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#21 没有给蓝灯加过，我这里蓝灯直接就能满速。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 02:08:06 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21892#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#22 差距这么大的？我这里只有几十kb。有时候又会冲到2.2m，不过那会儿不会用
+proxifier，可惜了。再想想办法。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 02:08:12 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21892#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/102900251891292754159/">vck...@gmail.com</a
+></span>
+ 
+<pre>
+问题是哪里找ss
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 02:33:11 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21892#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#23 如果蓝灯也能用 Akamai 的 CDN 就爽了，墙民很需要。 <a href="https://groups.google.com/forum/#!forum/lantern-devel" rel="nofollow">https://groups.google.com/forum/#!forum/lantern-devel</a> 
+
+不过蓝灯的初衷是做 P2P 翻墙。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 03:10:30 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21892#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+试了下，用MEOW成功了，SS是早就在用的，这回goagent不用改iplist都速度很快了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 03:29:08 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21892#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+加了meow，goa又还魂了。
+蓝灯恐怕不会付费给Akamai的，没那么多sponsor。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:02:54 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21892#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/115369799491787332200/">gzcl...@gmail.com</a
+></span>
+ 
+<pre>
+设置有点复杂，有歧义
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:07:03 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21892#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#23 你那里用蓝灯给 GoAgent 作前置代理速度怎么样？ GoAgent 的 autorange 非常霸气。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:11:30 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=21892#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#29 不行啊，我这里蓝灯速度几乎为0，用蓝灯给goa做前置就是白瞎了，我还是用
+meow给goa做前置来的爽快，轻松1m走起，如果是赛风+meow+ss，2.2m不是梦。
+很满意了，蓝灯就随他去吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:16:02 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21892#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/115533597761491607220/">jusiwang...@gmail.com</a
+></span>
+ 
+<pre>
+编辑 ~/.meow/rc (OS X, Linux) 或 rc.txt (Windows)，例子：
+
+# 监听地址，设为0.0.0.0可以监听所有端口，共享给局域网使用
+listen = http://127.0.0.1:4411
+# 至少指定一个上级代理
+# SOCKS5 二级代理
+proxy = socks5://127.0.0.1:1080
+# HTTP 二级代理
+proxy = http://127.0.0.1:8087
+# shadowsocks 二级代理
+proxy = ss://aes-128-cfb:password@example.server.com:25
+
+
+这些参数怎么修改
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:18:23 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21892#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#31 你找到ss账号后，用这个格式：
+
+proxy = ss://aes-128-cfb:password@example.server.com:25
+
+对应填上加密方式:密码@服务器地址/IP:端口号就行了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:28:25 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21892#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/115533597761491607220/">jusiwang...@gmail.com</a
+></span>
+ 
+<pre>
+#32   我按照你的说的修改了同时开启了ss   goagent  MEOW 试了下里面还全是badip啊
+
+是不是还有其他地方要设置
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:29:50 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=21892#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/115533597761491607220/">jusiwang...@gmail.com</a
+></span>
+ 
+<pre>
+ proxy = http://user:password@127.0.0.1:8080
+这一句也要改吗  这里是填goagent的账号吗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:43:11 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=21892#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#33 当然要设置了，你要在goa的proxy.ini/proxy.user.ini 里边的[proxy]这栏填入
+[proxy]
+enable = 1
+autodetect = 0
+host = 127.0.0.1
+port = 4411
+才行啊。你的ss要先测试一下看能不能用的，否则肯定也是没戏。
+ 
+#34 不用填，那里是设置http代理的。不管。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:45:12 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=21892#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+还有，开启meow就不用shadowsocks这个软件了。meow接管ss服务器通道了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:51:22 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=21892#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/115533597761491607220/">jusiwang...@gmail.com</a
+></span>
+ 
+<pre>
+打开谷歌提示这个是为什么
+
+Local URLFetch '<a href="https://www.google.com/'" rel="nofollow">https://www.google.com/'</a> failed
+
+'ProxyNet2' object has no attribute 'connect_timeout'
+'ProxyNet2' object has no attribute 'connect_timeout'
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 04:55:53 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=21892#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#37 你要一步一步排查：
+1.ss服务器一定要保证能在当前网络下正常使用，速度最好比goa快，慢了体验糟糕；
+
+2.goa的proxy.ini里边一定要设置好proxy；
+
+3.有些ss服务器不支持这种玩法，那就没辙了，只有换ss的server才行。
+
+你最好贴出goa的窗口信息，你发这个信息，很有可能你的ss server没有工作。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 05:06:56 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=21892#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/115533597761491607220/">jusiwang...@gmail.com</a
+></span>
+ 
+<pre>
+请问是修改rc.txt  还是rc-full.txt这个文件  我修改的的是rc.txt  刚才用的ss是搬瓦工的    ，这又换了一个ss还是那个情况  
+那个窗口信息复制不了 啊   在其他地方可以看吗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 05:10:30 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=21892#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+goa的前置太坑爹了，非要用老版的。
+而proxifier强制127.0.0.1:1080的我没搞成功，direct和block都设置了（goagent.exe和Python27.exe）,结果goa报错一大堆，把block解除了，goa不报错了，但是前置也没有了。proxifier搞前置真不是坦途啊。goa3.2.3又不争气，还是用shadowsocks粗暴加速大法算了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 05:12:46 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=21892#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/110807761722570332450/">xsl0...@gmail.com</a
+></span>
+ 
+<pre>
+proxifier强制goproxy没问题，就是强制goagent3.2.3有问题，看视频ip就全挂光了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 05:28:58 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=21892#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+楼主推荐一下SS帐号吧，搬瓦工如何？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 05:38:46 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=21892#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#40 用rc-full.txt 这个文档，让后把rc.txt改名或者删掉，再把rc-full.txt 改成rc.txt，也怪我没给你们说清楚，作者预留的rc.txt 就是个坑爹货。然后按照我的范本来修改这几处吧：
+
+1.这里这么改，要去掉前面的#号，下边都一样
+#############################
+# 通过IP判断是否直连
+#############################
+judgeByIP = false
+
+2.这里这么改
+# 指定多个二级代理时使用的负载均衡策略，可选策略如下
+#
+#   backup:  默认策略，优先使用第一个指定的二级代理，其他仅作备份使用
+#   hash:    根据请求的 host name，优先使用 hash 到的某一个二级代理
+#   latency: 优先选择连接延迟最低的二级代理
+#
+# 一个二级代理连接失败后会依次尝试其他二级代理
+# 失败的二级代理会以一定的概率再次尝试使用，因此恢复后会重新启用
+loadBalance = backup
+
+其他配置都不要动，尤其是loadBalance千万别动，动了就报错。
+
+#41 强烈推荐goa 3.2.0-42这个版本，前置http代理完美，或者用wallproxy，也是完美。
+
+#43 板瓦工可以的，不过好像跟电信有仇，据说和联通/移动合拍，你问问#41，他在用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 05:43:25 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=21892#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+用 Proxifier 强制 python27.exe 和 goproxy.exe 使用 Shadowsocks 作前置代理的图文演示来啦！
+
+第一步：在 Proxifier 中添加一个代理服务器。这里以 Shadowsocks 举例，监听地址 127.0.0.1:1080 , 类型为 SOCKS5 。（类似的，蓝灯 https, 127.0.0.1:8787)  <a href="https://i.imgur.com/K7Q9Xg6.jpg" rel="nofollow">https://i.imgur.com/K7Q9Xg6.jpg</a>
+
+第二步：创建规则强制 python27.exe 和 goproxy.exe 使用 Shadowsocks 作前置代理。（类似的，你还可以用蓝灯，赛风作 GoAgent 的前置代理） <a href="https://i.imgur.com/O2GM1uC.jpg" rel="nofollow">https://i.imgur.com/O2GM1uC.jpg</a>
+
+最终成果如图：<a href="https://i.imgur.com/gNrhJNL.jpg" rel="nofollow">https://i.imgur.com/gNrhJNL.jpg</a> 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 05:47:47 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=21892#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+Proxifier玩法很多，很有意思，随意组合各类翻墙工具。只是win8.1 下要用3.21且用管理员模式开启。
+否则抓不到赛风的进程。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc50">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:20:14 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c50" href="/p/goagent/issues/detail?id=21892#c50">#50</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#45 我就是这样操作的，结果goagent3.2.3的黑色窗口什么都不输出了，我真的很怀疑proxifier前置代理能力真的有那么好吗，单独给某个程序设置前置代理真的好难啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc51">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:27:32 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c51" href="/p/goagent/issues/detail?id=21892#c51">#51</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#49 这么玩，每个节点都要保证高速，还真是个挑战呢。我试了SS为蓝灯的代理，还是爆慢，
+没救了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc52">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:27:35 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c52" href="/p/goagent/issues/detail?id=21892#c52">#52</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#49 这么玩，每个节点都要保证高速，还真是个挑战呢。我试了SS为蓝灯的代理，还是爆慢，
+没救了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc53">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:42:26 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c53" href="/p/goagent/issues/detail?id=21892#c53">#53</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#50 俺用 Proxifier GoAgent_3.23 使用 Psiphon, Lantern, Shadowsocks 作前置代理统统没问题。
+
+猜测你会出错的原因： 
+
+1. proxy.ini 和 proxy.user.ini 中 [proxy] 没有关闭，要关闭才行，操作如下：
+
+[proxy]
+enable = 0
+autodetect = 1
+host = 10.64.1.63
+port = 8080
+username =
+password =
+
+2. proxy.ini 和 proxy.user.ini 中你自定义的 IP 不太好用，我的自动义的 IP 
+
+google_cn = 139.175.107.216|139.175.107.217|139.175.107.221|139.175.107.227|139.175.107.232|139.175.107.237|139.175.107.242|139.175.107.247
+google_hk = 139.175.107.216|139.175.107.217|139.175.107.221|139.175.107.227|139.175.107.232|139.175.107.237|139.175.107.242|139.175.107.247
+
+在 Psiphon, Lantern, Shadowsocks 作前置代理时跑得很顺，要不你试下它们
+
+3. 你没让浏览使用 127.0.0.1:8087 这个 GoAgent 的代理，检查你的浏览器的代理扩展里是否使用了 127.0.0.1:8087
+
+4. 你使用的 Proxifier 不是安装版，或你的 Proxifier 是安装版，但失效了，需重装
+
+5. 或许你的 Shadowsocks 账号有问题，换个账号或换用赛风 / 蓝灯作 GoAgent 的前置代理
+
+6. 其他，待补充……
+
+使用 Proxifier 强制 GoAgent 前置代理的成功标志： 看 YouTube 时出现 <a href="https://i.imgur.com/UYb6Ksg.jpg" rel="nofollow">https://i.imgur.com/UYb6Ksg.jpg</a> ，说明 GoAgent 在使用 Shadowsocks 中转。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc54">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:47:26 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c54" href="/p/goagent/issues/detail?id=21892#c54">#54</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+7. 你写规则时把 python27.exe 拼错了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc55">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:52:06 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c55" href="/p/goagent/issues/detail?id=21892#c55">#55</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+我测试wallproxy和goa 3.2.0版本，proxifier都能轻松锁住啊，#50 你的设置可能有问题，或者就是拼写错误。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:57:31 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=21892#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#54 你说的问题我都没有，写规则时python27.exe是通过路径选择的，并非我手写。
+
+唯一一点，我换下你的IP试试看，但是感觉应该跟这没有关系
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 06:59:51 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=21892#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#53 你推荐的这几个IP速度很不错，和meow/cow配合proxifier跑出满速啦，还有没有啊，
+再推荐几个呗，thx。☺
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc59">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 07:01:12 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c59" href="/p/goagent/issues/detail?id=21892#c59">#59</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#55 我是goa3.2.3啊，不想在goa的几个版本中切换，太麻烦了，wallproxy我试试看，或者甚至snova也试试看，看看到底是不是goa3.2.3自身的问题
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc60">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 07:03:22 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c60" href="/p/goagent/issues/detail?id=21892#c60">#60</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#59 snova应该不错哦，也是go写的，不过是1.3.x的版本了，效率未知。wallproxy肯定没问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc61">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 07:23:18 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c61" href="/p/goagent/issues/detail?id=21892#c61">#61</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#58 没有啦，就用它们啦！反正使用前置代理，再过个 100 年 GFW 也不一定能墙到它们。（注：它们是台湾 IP ……）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc62">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 07:28:23 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c62" href="/p/goagent/issues/detail?id=21892#c62">#62</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#61 proxifier真好用，现在goa，gop，wallproxy，psiphon3都走这个了，转发效率很不错，
+前边说它转发效率不行看来是ip拖了后腿。现在就蓝灯没实现cloudflare加速了。你怎么找到
+高速cloudflare ip的捏？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc63">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 07:36:43 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c63" href="/p/goagent/issues/detail?id=21892#c63">#63</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#62 我的蓝灯没用 CDN, 直连服务器能满速。 CloudFlare IP 被墙得惨，找可用的估计要花不少功夫。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc64">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 07:41:03 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c64" href="/p/goagent/issues/detail?id=21892#c64">#64</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#63 算了，现在用起来很爽了，有proxifier这个总调度器统管一切，大大降低了切换频率。
+强烈推荐和meow/cow/ss配合，速度同样跑满带宽，还简单易用。估计和tor也能合作良好。
+等下试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc65">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 08:10:44 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c65" href="/p/goagent/issues/detail?id=21892#c65">#65</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#59 kingtope...@gmail.com
+
+兄好，我和你碰到一样的问题，后来我发现要恢复默认localhost为直连，GAE里
+[proxy]
+enable = 1
+autodetect = 0
+host = 127.0.0.1
+port = 1080
+username =
+password =
+其它按warmingf兄的方法来，就OK了，不妨一试
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc66">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 08:53:35 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c66" href="/p/goagent/issues/detail?id=21892#c66">#66</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+经过仔细比较， wallproxy建议用自带的前置，占用cpu低，速度和稳定性比proxifier要好得多。
+
+goa就用proxifier好了，比自带的强点，就是cpu占用高些。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc67">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 08:59:05 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c67" href="/p/goagent/issues/detail?id=21892#c67">#67</a>
+ 
+
+ <a class="userlink"
+ href="/u/108899987160392339532/">kizuki...@gmail.com</a
+></span>
+ 
+<pre>
+goa+meow到底怎么设置，没用ss
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc68">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 09:15:28 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c68" href="/p/goagent/issues/detail?id=21892#c68">#68</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+goa+meow到底怎么设置，没用ss 同问大神
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc69">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 10:29:21 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c69" href="/p/goagent/issues/detail?id=21892#c69">#69</a>
+ 
+
+ <a class="userlink"
+ href="/u/112406445247355006343/">luoke90...@gmail.com</a
+></span>
+ 
+<pre>
+#53 你的那些ip我根本ping不动。。。但用meow+goa就畅通无阻，这什么原理，好神奇。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc70">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 10:33:44 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c70" href="/p/goagent/issues/detail?id=21892#c70">#70</a>
+ 
+
+ <a class="userlink"
+ href="/u/112406445247355006343/">luoke90...@gmail.com</a
+></span>
+ 
+<pre>
+好吧，原来goa根本不需要ip也能畅通无阻。。。这meow什么原理，好强大的东西
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc71">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 13:07:30 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c71" href="/p/goagent/issues/detail?id=21892#c71">#71</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+看了半天，都是会设置的人在那唧唧歪歪半天，不会设置的还是一直都看不懂。都没人出个简易的设置教程。比如meow+goa到底该怎么设置。。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc72">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 14:32:43 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c72" href="/p/goagent/issues/detail?id=21892#c72">#72</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+试了一下，下载后找了个免费ss帐号，默认在4411监听，browser里指定后就直接能出去了
+<a href="http://img2.picload.org/image/iilwlwl/abduction.png" rel="nofollow">http://img2.picload.org/image/iilwlwl/abduction.png</a>
+
+那么meow就相当于另一个ss的客户端？相比其它的ss客户端有什么优势？
+把它作为goagent的上一级代理，比直接这样用又有什么优势？
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc73">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:12:15 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c73" href="/p/goagent/issues/detail?id=21892#c73">#73</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#50 kingtope...@gmail.com
+
+    理论上，禁用GAE自己的前置代理，然后在proxifier规则里又强制GAE走SS的前置代理，这本身规则就是矛盾的，所以GAE弹出黑色框无法正常工作。但每个人的网络环境又千差万别，warmingf兄在他的那个环境下这样设置又是可以的，但我们这样设置就不行，于是，我就如65楼那样操作，就成功了，kingtope兄的问题和我的一模一样，希望我的这个小经验能对你有帮助。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc74">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:36:43 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c74" href="/p/goagent/issues/detail?id=21892#c74">#74</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#72 meow的优势：1.go语言的高效率；2.ss是socks5，meow转换成https，更容易充当wallproxy/goa/赛风的前置代理，socks5直接做前置代理非常不方便的，设置繁琐，对赛风来说，是除proxifier/3proxy外的唯一高速选择。
+
+
+#73  gae自身代理+meow是一种实现方式，简单高效，cpu占用低；
+      proxifier强制走ss的1080端口又是一种实现方式，而且proxifer的cpu占用要高得多，所以二者根本就不矛 盾啊，是你的理解有误。
+      说白了就是要灵活运用手头工具的组合来达到快速出墙的目的。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc75">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:37:59 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c75" href="/p/goagent/issues/detail?id=21892#c75">#75</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#73 莫非又是权限的问题？所有相关程序以管理员运行试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc76">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:40:13 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c76" href="/p/goagent/issues/detail?id=21892#c76">#76</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+#50 我是proxifier软件最后打开解决了这个问题。当然其他配置同楼上的教程
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc77">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:42:53 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c77" href="/p/goagent/issues/detail?id=21892#c77">#77</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+应该不是权限问题，本次操作我搞了个免费SS帐号，并前置代理GAE弄成功了。如果把proxifier以管理员运行，其它程序正常运行，反而任何程序都监控不到。因为我成功了，所以不想继续把所有的都管理员运行了，就不想折腾了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc78">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:43:26 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c78" href="/p/goagent/issues/detail?id=21892#c78">#78</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+配合proxifier软件翻墙效果并不怎么好，速度本来很快的一个ss被这么一前置，黄狗活是活了，速度却慢的一比。可能还有一个原因是ip不怎么好。这么想想，还不如直接用ss来的爽快！但ss又很容易被ddos攻击，哎，永无宁日了！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc80">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:48:17 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c80" href="/p/goagent/issues/detail?id=21892#c80">#80</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#78 根据经验你要去找适合你的ss节点的ip才能满速度跑，proxifier速度还是很好的
+不过cpu占用有点高，所以我又用回goa自带前置+meow了，
+goa自带前置就是要挑版本比较烦而已。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc81">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:49:21 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c81" href="/p/goagent/issues/detail?id=21892#c81">#81</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+红蛙兄，你顶楼的链接好象是错的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc82">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:50:31 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c82" href="/p/goagent/issues/detail?id=21892#c82">#82</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+#80 这么说如果ss是新加坡的是不是就要去找新加坡的gvs呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc83">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:51:21 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c83" href="/p/goagent/issues/detail?id=21892#c83">#83</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#78 赛风和蓝灯也可以作为 GoAgent 的前置代理，GAE 的优势是相比直接用赛风 / 蓝灯 / Shadowsocks 访问网站快，看小黄视频也有无与伦比的速度。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc84">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:51:27 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c84" href="/p/goagent/issues/detail?id=21892#c84">#84</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#81 哪个链接错了？我试了下全部都是ok的啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc85">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:52:55 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c85" href="/p/goagent/issues/detail?id=21892#c85">#85</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+#83 gae如果有前置代理是不是ip可以不用填了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc86">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 17:54:42 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c86" href="/p/goagent/issues/detail?id=21892#c86">#86</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#85 可以不填，用默认的就行。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc87">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 18:02:27 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c87" href="/p/goagent/issues/detail?id=21892#c87">#87</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#82不一定非得李家坡的，你可以测试下看看，哪个国家好用用哪个，3-5个足够，反正不担心封锁。
+
+有前置了你怎么玩都行，随便哪个国家的ip都能用上，想选什么速度就什么速度。杠杠的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc88">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 18:11:14 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c88" href="/p/goagent/issues/detail?id=21892#c88">#88</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#83 我怎么用goa看不了thisav捏，wallproxy/赛风/蓝灯都没问题，奇怪。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc89">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 18:22:30 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c89" href="/p/goagent/issues/detail?id=21892#c89">#89</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+#74 谢谢回复
+
+关于“socks5直接做前置代理非常不方便的，设置繁琐”这个，我倒是留意到这个不同
+但我是在browser里试的，设置http proxy和sock并没什么分别
+
+这也刚好涉及我问的第二点，既然它直接能用，为什么要用组合方式？优势是什么呢？
+
+我试了下在wallproxy里设置meow为上级代理，带来第三个问题：
+访问www.mozilla.org这种没被墙的网站，似乎wallproxy也交给了上级代理meow？这是wallproxy的问题还是goagent+meow也这样？
+
+（另插一句，我倒是喜欢命令行方式的，但图形界面的ss-qt5有个功能很有意思，scan qr code on scree，这个贼方便）
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc90">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 18:57:18 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c90" href="/p/goagent/issues/detail?id=21892#c90">#90</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+3.2.3是不是不能设置代理的?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc91">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 19:09:32 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c91" href="/p/goagent/issues/detail?id=21892#c91">#91</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#74 如果你是用ie就是系统代理，你需要到ie里边设置，然后由goa来调用，如果有其他翻墙软件修改了，你又要改回去，比较繁琐，你设置在goa内部，那么你就不用担心系统代理发生变动这样的情形了。
+如果你使用FF/chrom为browser当然可以直接到浏览器内部设置，但是有多个翻墙软件你怎么切换？
+
+不知道你用什么浏览器，wallproxy我是直接交给autoproxy来决定怎么走代理的，所以我在meow里边关闭了
+meow自己的pac，也不存在www.mozilla.org走代理这种事情了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc92">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 19:25:48 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c92" href="/p/goagent/issues/detail?id=21892#c92">#92</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+ #73 agrochem...@gmail.com 和 #91 redfrog...@gmail.com
+
+我自己瞎JB搞，结果把GOA3.2.3的前置搞成功了啊！
+
+按照#73的说法，我试着把[proxy] enable = 1，但是GOA还是黑屏无输出。
+然后一怒之下把proxifier的GOA的规则删掉！这样就好了！
+然后proxifier的handle direct里面可以看到python27.exe的进程，就是这样搞好的，不可理解啊！
+
+总得感觉proxifier的前置代理能力还是不咋地。
+
+虽然现在GOA的可以用了（随便丢一下垃圾IP都可以），但是速度完全取决于前置SS的速度。
+
+SS不行，GOA就傻逼了。
+测试了一下，用SS做GOA的前置，最后显示的还是googel cloud的IP!
+
+GOA前置代理的真不容易啊，现在再去乱搞snova和wallproxy
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc93">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 19:37:53 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c93" href="/p/goagent/issues/detail?id=21892#c93">#93</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#92 折腾这么久，原来是规则问题，笑尿了。搞定就好，选个好点的ss节点就飞起来了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc94">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 19:39:45 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c94" href="/p/goagent/issues/detail?id=21892#c94">#94</a>
+ 
+
+ <a class="userlink"
+ href="/u/108899987160392339532/">kizuki...@gmail.com</a
+></span>
+ 
+<pre>
+goa+meow到底怎么设置？goa用什么版本？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc95">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 19:49:16 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c95" href="/p/goagent/issues/detail?id=21892#c95">#95</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+试了半天还是不能用
+哪位大神能帮我看一下
+meow里面编辑rc.txt
+
+proxy = http://127.0.0.1:8087
+proxy = ss://encrypt_method:password@1.2.3.4:8388  放入我ss的加密方式,密码,IP和端口
+
+打开goagent的proxy.ini设置
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 1080  (SS监听端口)
+username =
+password =
+
+打开chrome,SwitchyOmega设置代理
+协议http 服务器127.0.0.1 端口4411
+
+打开meow和goagent后goagent一直跳红字
+什么target machine actively refuse it
+是什么原因
+设置有错吗?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc96">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 19:51:21 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c96" href="/p/goagent/issues/detail?id=21892#c96">#96</a>
+ 
+
+ <a class="userlink"
+ href="/u/111445401667509811800/">wsq.wea...@gmail.com</a
+></span>
+ 
+<pre>
+个人感觉 cow 更好用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc98">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:06:18 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c98" href="/p/goagent/issues/detail?id=21892#c98">#98</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+wallproxy前置代理搞成功了（用wallproxy自带代理配置），snova的还是不行，proxifier不好用啊。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc99">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:08:08 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c99" href="/p/goagent/issues/detail?id=21892#c99">#99</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#95 你设置错了
+
+
+打开goagent的proxy.ini设置
+[proxy]
+enable = 1
+autodetect = 1
+host = 127.0.0.1
+port = 4411  
+username =
+password =
+
+浏览器应该使用goagent的8087代理而不是4411的代理。
+
+还有你如果在MEWO填了SS的配置信息，那么本地SS的客户端就不要运行了。
+
+这里的代理关系是这样的（从末级开始）：浏览器=&gt;GOA=&gt;MEOW=&gt;SS=&gt;VPS=&gt;目标网站
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc100">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:11:50 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c100" href="/p/goagent/issues/detail?id=21892#c100">#100</a>
+ 
+
+ <a class="userlink"
+ href="/u/101994464459370655569/">Kishen...@gmail.com</a
+></span>
+ 
+<pre>
+虽然现在GOA的可以用了（随便丢一下垃圾IP都可以），但是速度完全取决于前置SS的速度。
+
+这一句我就懂了，那还不如直接用SS，哎，天草
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc101">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:17:55 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c101" href="/p/goagent/issues/detail?id=21892#c101">#101</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#100 你直接用ss容易被定点清除，而且没有强大的autorange，看视频好受伤，没事就断流。
+看顶楼的那个issue啊，那位仁兄说的很有参考价值。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc102">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:19:42 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c102" href="/p/goagent/issues/detail?id=21892#c102">#102</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#92 kingtope...@gmail.com
+#93 redfrog...@gmail.com
+
+以我的设置经验，在GAE里直接走前置代理是最方便的。如果GAE里禁用前置代理，然后用proxifier强制走SS的话，GAE在我和kingtope这里都会黑框不工作，貌似规则发生矛盾。如果在GAE里启用前置代理，proxifier里是否强制走SS都不影响GAE的正常工作。这里和红蛙兄与warmingf稍有不同，可能是版本和环境都不一样所致。而我和kingtope兄都是一样的问题，也是用差不多的方法解决的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc103">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:20:35 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c103" href="/p/goagent/issues/detail?id=21892#c103">#103</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+红蛙兄，你顶楼的链接与meow无关，所以我以为是弄错了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc104">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:22:16 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c104" href="/p/goagent/issues/detail?id=21892#c104">#104</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#100 一种被楼主欺骗的感觉。
+
+GAE 的优势是相比直接用赛风 / 蓝灯 / Shadowsocks 访问网站快，看小黄视频也有无与伦比的速度。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc105">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:34:27 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c105" href="/p/goagent/issues/detail?id=21892#c105">#105</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#104 哈哈，是不是欺骗自己试试就知道了嘛。
+
+另外，为嘛我一直不能用goa看thisav捏？wallproxy和赛风/蓝灯都ok啊，xxnet也不行，百思不得其解。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc106">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:41:01 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c106" href="/p/goagent/issues/detail?id=21892#c106">#106</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+正如 #101 所述，
+
+1. GoAgent 的 autorange 就是多线程下载，单纯用 Shadowsocks 看视频是单线程下载。Shadowsocks 速度不理想时用多线程下载比较爽
+
+2. GoAgent 的流量是加密的，就算不幸使用了中共设置的蜜罐 Shadowsocks 服务，也能保证数据安全。因为 GAE 流量全程加密，它们难以解密 GAE 的 HTTPS 加密流量（除非实施中间人攻击，不过 GoAgent 能防御中间人攻击），就算解密了（当然，这是不可能的）还会发现用户还使用了 RC4 加密
+
+3. GoAgent 拥趸，在这里 ( <a href="https://tools.keycdn.com/geo?ip=" rel="nofollow">https://tools.keycdn.com/geo?ip=</a> ) 看不到 *.gae.googleusercontent.com 就睡不好觉
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc107">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:51:35 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c107" href="/p/goagent/issues/detail?id=21892#c107">#107</a>
+ 
+
+ <a class="userlink"
+ href="/u/114450596637896535771/">CASTLEKA...@gmail.com</a
+></span>
+ 
+<pre>
+下了meow，按#32，#35，#44的指导设置，还是不行，得到的结果是处处502，网页显示：
+
+AttributeError(&quot;'ProxyNet2' object has no attribute 'connect_timeout'&quot;,)
+AttributeError(&quot;'ProxyNet2' object has no attribute 'connect_timeout'&quot;,)
+
+跟#37的结果一样。Goagent版本是3.2.3
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc108">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:56:19 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c108" href="/p/goagent/issues/detail?id=21892#c108">#108</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#107 你把你的设置屏蔽掉ss节点信息后贴出来才好分析，只给错误信息难以判断，另外，3.2.3的前置proxy有bug，你可以下载这个版本来试试看。
+
+<a href="https://github.com/goagent/goagent/tree/9d8b1f7c023c17de26e0006663ddf92832239956" rel="nofollow">https://github.com/goagent/goagent/tree/9d8b1f7c023c17de26e0006663ddf92832239956</a> 
+
+切记点击右边的 DownloadZIP 下载
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc109">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 20:57:56 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c109" href="/p/goagent/issues/detail?id=21892#c109">#109</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#107 还有哦，你可不能proxifier指定端口代理和goa自带前置proxy 共存哦，
+肯定会出错的。只能选一个来用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc110">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 21:04:44 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c110" href="/p/goagent/issues/detail?id=21892#c110">#110</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+#99
+goagent 代理端口改为4411
+浏览器用8087 这么设置还是用不了
+<a href="http://imgur.com/2O8BkP9" rel="nofollow">http://imgur.com/2O8BkP9</a>
+折腾了好久也不知道为什么
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc111">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 21:09:35 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c111" href="/p/goagent/issues/detail?id=21892#c111">#111</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#110 看了图片，出现ssl错误，很大可能是你的ss server没有设置好，或者
+根本就不能这么玩。没辙了，排查你自己的vps错误或换节点吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc112">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 21:10:58 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c112" href="/p/goagent/issues/detail?id=21892#c112">#112</a>
+ 
+
+ <a class="userlink"
+ href="/u/115520986531002196674/">yumeng...@gmail.com</a
+></span>
+ 
+<pre>
+#111 如果直接开shadowsocks代理是可以连上的
+只是速度太慢..所以想试试配合meow一起用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc114">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 21:14:38 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c114" href="/p/goagent/issues/detail?id=21892#c114">#114</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#110 用这个未支持 gvs 的版本就行了，此外 iplist 里要填非 gvs IP 地址或域名。 <a href="https://github.com/goagent/goagent/archive/98eca96b72bad5bc130c52aa8ef360651b429221.zip" rel="nofollow">https://github.com/goagent/goagent/archive/98eca96b72bad5bc130c52aa8ef360651b429221.zip</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc115">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 21:19:58 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c115" href="/p/goagent/issues/detail?id=21892#c115">#115</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+如果ss的速度比较惨，叠加起来用体验也比较糟糕，不过你可以试试#114的玩法，
+加入一些高速的gws ip看看有没有改善。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc117">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 01:55:30 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c117" href="/p/goagent/issues/detail?id=21892#c117">#117</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#116 当然是8087啦！！！！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc118">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 01:58:06 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c118" href="/p/goagent/issues/detail?id=21892#c118">#118</a>
+ 
+
+ <a class="userlink"
+ href="/u/103315497935674340274/">q2865139...@gmail.com</a
+></span>
+ 
+<pre>
+唉 昨天突发奇想用hosts的IP上的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc120">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 02:02:25 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c120" href="/p/goagent/issues/detail?id=21892#c120">#120</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#119 都要开.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc123">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:06:44 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c123" href="/p/goagent/issues/detail?id=21892#c123">#123</a>
+ 
+
+ <a class="userlink"
+ href="/u/108749956574029962325/">finlan...@gmail.com</a
+></span>
+ 
+<pre>
+还是不会，谁可以远程控制，帮我一下？我的qq    992411106
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc124">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:23:58 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c124" href="/p/goagent/issues/detail?id=21892#c124">#124</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+#91 redfrog...@gmail.com 
+
+wallproxy里我就改了这几条指定上级代理，它自动识别哪些被墙要走gae的设置都是默认的
+[proxy]
+enable = 1
+host = 127.0.0.1
+port = 4411
+
+见图，访问www.mozilla.org两个代理都有记录
+<a href="http://img4.picload.org/image/iicrogi/abduction.png" rel="nofollow">http://img4.picload.org/image/iicrogi/abduction.png</a>
+也就是说无论wallproxy判断是否要走gae都会把所有请求提交给上级代理？
+
+我的browser是seamonkey/firefox，主要就是用wallproxy，别的偶尔试下当备份，基本上用不着切换
+不过相关的addons也有，我装的是MM3-ProxySwitch（右下角的图标）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc125">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:32:08 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c125" href="/p/goagent/issues/detail?id=21892#c125">#125</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+另，看了以上回复，似乎和browser --&gt; meow相比
+browser --&gt; goagent --&gt; meow仅仅是为了autorange这个功能？
+
+如果以浏览网页为主，是不是就没必要了＊组合＊，把meow当成一个ss的客户端就完了？
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc126">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:39:02 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c126" href="/p/goagent/issues/detail?id=21892#c126">#126</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#124 还是你的设置问题，我做了个实验，
+A.我先访问 www.mozilla.org，我的meow和wallproxy都没有任何记录，说明是直连不走代理。
+
+B.我访问duckduckgo.com，已经设定为走代理，就会在两个软件的信息窗口显示如下：
+1. wallproxy     
+ 127.0.0.1 - [2015-07-17 18:32:57] GAE &quot;GET <a href="https://duckduckgo.com/" rel="nofollow">https://duckduckgo.com/</a> HTTP/1.1&quot; 200
+ 2216
+2. MEOW
+[&gt;&gt;&gt;&gt;&gt;] 2015/07/17 18:32:55 PROXY 127.0.0.1:49716 CONNECT 208.117.236.115:443
+
+这就走了代理，所以如果你用的是FF，那么我的设置是把Wallproxy和MEOW的PAC全部关闭，
+然后交给FF的Autoproxy插件来判断走不走代理就完了。这样就能保证访问的精准。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc128">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:41:25 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c128" href="/p/goagent/issues/detail?id=21892#c128">#128</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+就是为了autorange，如果无此需求，直接meow，浏览网页反应更快。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc129">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:44:20 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c129" href="/p/goagent/issues/detail?id=21892#c129">#129</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+再一个，我对两个代理同时用的理解是
+browser &lt;-&gt; goagent &lt;-&gt; meow &lt;-&gt; ss server &lt;-&gt; gws/gvs ip &lt;-&gt; youtube
+
+所谓优质ip，是当时的检测方和gvs/gws ip的连接效果好
+但现在都不能直接连了，meow &lt;-&gt; ss server之间和ss server &lt;-&gt; gws/gvs ip之间的连接是否＊优质＊只能撞大运，用哪些ip还有分别吗？
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc130">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:57:15 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c130" href="/p/goagent/issues/detail?id=21892#c130">#130</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#129 有区别，我也有你类似的顾虑，所以决定选择和ss节点相同地域的ip来跑，发现
+效果不错，反应速度要快些，关键是看视频不容易断流，因为我经常要在本上用无线连接路由，
+ip反应慢容易断流的，你不妨试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc131">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 03:59:29 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c131" href="/p/goagent/issues/detail?id=21892#c131">#131</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+sudo ./start.sh要运行多久才可用啊？看着找IP的log在终端滚动，要滚动多久才会滚完？这条命令会自动退出吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc132">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:01:26 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c132" href="/p/goagent/issues/detail?id=21892#c132">#132</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#131 你说的是哪个软件？xxnet？貌似开着就要一直找ip啊。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc133">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:06:05 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c133" href="/p/goagent/issues/detail?id=21892#c133">#133</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+是的，xxnet，要找完退出才可以翻墙吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc134">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:10:55 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c134" href="/p/goagent/issues/detail?id=21892#c134">#134</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+根据作者的说法，你得要等1个小时左右才能用吧，linux下能不能看到gui界面的？
+有个connected ip数量达到10个就可以跑了，当然现在形势恶劣，10个会很快跌到0，
+又重找回反应迟缓，所以我建议你改成20或30个，这样要流畅些。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc135">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:21:00 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c135" href="/p/goagent/issues/detail?id=21892#c135">#135</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+这样搞地址栏出来的锁有红叉，虽不影响翻墙，但难免有点顾虑，这是怎么回事呢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc136">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:24:30 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c136" href="/p/goagent/issues/detail?id=21892#c136">#136</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+可以了，前面没连上估计是goagent把端口占了，很不错，只是刚打开的前几分钟，像六脉神剑，时灵时不灵，后面就好了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc137">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:27:38 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c137" href="/p/goagent/issues/detail?id=21892#c137">#137</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#135 我用FF，这么设置从来没见过你说的那种情况。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc138">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:33:11 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c138" href="/p/goagent/issues/detail?id=21892#c138">#138</a>
+ 
+
+ <a class="userlink"
+ href="/u/104287371644234080521/">wafqmich...@gmail.com</a
+></span>
+ 
+<pre>
+#137 最后发现是证书的问题，改一下证书就好了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc139">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:35:56 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c139" href="/p/goagent/issues/detail?id=21892#c139">#139</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#129 正解啊！感谢，我发现 <a href="https://code.google.com/p/goagent/issues/detail?id=21892#c49" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21892#c49</a> 的描述存在错误！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc140">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 04:56:22 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c140" href="/p/goagent/issues/detail?id=21892#c140">#140</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+红蛙兄，我用GAE3.2.0配合meow使用，可以使用，但总还是有问题，主要表现在，突然gae偶尔会发出大量连接请求，然后我那个ss免费帐号就会暂时中断和我的联接，我现在的首要任务是不要是去找一个好的SS付费帐号？或者有没有技术手段避免GAE这种发出大量连接请求的方法？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc141">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:00:17 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c141" href="/p/goagent/issues/detail?id=21892#c141">#141</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+我当前可以接受比较慢速的连接，只要能翻得出去，因为我很少外网看视频，主要是查文献和技术资料。当然，以后也许会想要快速连接我再升级
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc142">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:02:28 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c142" href="/p/goagent/issues/detail?id=21892#c142">#142</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#140 能贴出出错信息吗？gae的连接请求不算大啊，我一直都用的是免费的SS，还没遇到代理GAE而被断掉连接的问题。另外，你最好选择和你的ss节点地理位置接近的gws/gvs ip来跑，要不你随便选的可能会造成过高的延迟而不得不发出大量连接请求。
+
+比如我就选的是日本的，我这里通过proxifier代理gogotester去检测一个日本ip段，虽然会显示无法确认证书，但是你选择那些低延迟的ip，多半都能代理的。选择日本的后，就是无线连接，都可以跑满带宽，如果是随便找的ip会看视频的时候上上下下波动。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc143">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:04:41 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c143" href="/p/goagent/issues/detail?id=21892#c143">#143</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+就是你不看视频，低延迟的ip也能带来更加流畅的网络体验，查资料当然越快越好，写论文什么的，资料一大堆，早点查到省时间嘛。要是看到浏览器老转圈不显示，着急死了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc144">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:10:34 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c144" href="/p/goagent/issues/detail?id=21892#c144">#144</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+还有，我的rc.txt里面设置是这样的三条：
+
+proxy = socks5://127.0.0.1:1080
+proxy = http://127.0.0.1:8087
+proxy = ss://我的免费SS信息
+
+是不是这样就够了？还有，如果我想用meow\CDN加速赛风应该怎么样设置？原理是怎么样的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc145">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:27:20 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c145" href="/p/goagent/issues/detail?id=21892#c145">#145</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#144 你设置这么多干嘛，就需要最后一个就可以了，其他统统去掉，难怪慢哦。
+
+使用meow+cdn加速，那就更够你折腾了，你需要找到适合当前网络的akamaihd.net的ip。然后设置成
+proxy = <a href="http://xx.xx.xx.xx:443" rel="nofollow">http://xx.xx.xx.xx:443</a> 有些ip没加速效果，要慢慢测试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc148">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:50:54 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c148" href="/p/goagent/issues/detail?id=21892#c148">#148</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+好了，按你说的，我去掉那两个了，一切OK了，我就不折腾了哈哈！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc149">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 05:51:34 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c149" href="/p/goagent/issues/detail?id=21892#c149">#149</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+非常感谢红蛙兄！我是一个IT小白，现在居然也玩会了，感谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc151">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:13:00 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c151" href="/p/goagent/issues/detail?id=21892#c151">#151</a>
+ 
+
+ <a class="userlink"
+ href="/u/116238885012903002396/">huanlo...@gmail.com</a
+></span>
+ 
+<pre>
+#150 我一直用的是Tete009Firefox 31.0.7，等下一个长期支持版完善了再升级。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc152">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:18:24 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c152" href="/p/goagent/issues/detail?id=21892#c152">#152</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#150 我用过 pcxFirefox 和 Cyberfox.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc153">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:19:45 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c153" href="/p/goagent/issues/detail?id=21892#c153">#153</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+匿名扩展保护隐私： <a href="https://code.google.com/p/goagent/issues/detail?id=21851" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=21851</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc154">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:21:37 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c154" href="/p/goagent/issues/detail?id=21892#c154">#154</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+ #126 redfrog...@gmail.com
+
+我没理解错的话，你和我不一样的地方是你在browser里就做了预判
+所以你访问www.mozilla.org，它根本就不提交给代理
+
+我是因为wallproxy本身会判断有没被墙，干脆把所有请求都交给wallproxy
+
+
+我上面的问题是关于wallproxy设置了上级代理以后的流程
+
+１）只用wallproxy
+访问www.mozilla.org
+我向browser发出请求，browser提交给wallproxy，wallproxy判断没被墙，wallproxy连www.mozilla.org
+
+访问www.youtube.com
+我向browser发出请求，browser提交给wallproxy，wallproxy判断被墙，wallproxy走gae
+
+
+２）wallproxy+上级代理
+访问www.mozilla.org
+我向browser发出请求，browser提交给wallproxy，wallproxy判断没被墙，交给上级
+
+访问www.youtube.com
+我向browser发出请求，browser提交给wallproxy，wallproxy判断被墙，还是交给上级
+区别在于这里交给上级的请求是指向gae而不是youtube
+
+既然所有请求都是交给上级，wallproxy做这个判断就没什么意义了
+
+而我希望的结果是，判断没被墙wallproxy就直联，只有判断被墙要走gae才交给上级代理
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc156">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:30:48 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c156" href="/p/goagent/issues/detail?id=21892#c156">#156</a>
+ 
+
+ <a class="userlink"
+ href="/u/116238885012903002396/">huanlo...@gmail.com</a
+></span>
+ 
+<pre>
+#154 我的思路趋向于极简：既然我根本就不依赖wallproxy和meow判断是否走代理，我就把二者的pac全部关掉，只需要通过浏览器的pac和我定制的pac来判断是否代理，这样的好处是代理的数据全部经过wallproxy------》MEOW-------》目标网站，不需要代理的由Browser自行走内网。
+
+缺点就是，不再具有全局代理的功能，全局代理我交给Proxifier打理了，所以，也没什么损失。
+
+你是需要在IE实现代理？所以会有这样的二次判断而误判的情况，如果用IE直接调用MEOW的PAC效率还好点，自己可以定制。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc157">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:45:36 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c157" href="/p/goagent/issues/detail?id=21892#c157">#157</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#155 和 Fox 浏览器没有关系， <a href="http://sourceforge.net/projects/cyberfox/files/" rel="nofollow">http://sourceforge.net/projects/cyberfox/files/</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc158">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:53:30 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c158" href="/p/goagent/issues/detail?id=21892#c158">#158</a>
+ 
+
+ <a class="userlink"
+ href="/u/116238885012903002396/">huanlo...@gmail.com</a
+></span>
+ 
+<pre>
+#157 蓝灯有没有办法让它启动后不要修改ie的代理设置呢？每次关闭之后它又不会自动退出，挺烦的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc159">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 06:58:07 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c159" href="/p/goagent/issues/detail?id=21892#c159">#159</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+你要自己定制和维护pac，我把所有任务都交给wallproxy，你简还是我简？
+
+不懂什么是全局代理，也没用过Proxifier。。。
+啥都不知道，才是极简！哈哈
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc160">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 08:46:18 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c160" href="/p/goagent/issues/detail?id=21892#c160">#160</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+又去翻了下proxy.ini，居然找到了我要的功能
+不动[proxy]设置，只给gae指定上级代理
+[gae]
+proxy = http://127.0.0.1:4411
+
+遗憾的是找来的免费ss帐号看网页挺快，看youtube也不给力。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc162">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 09:10:34 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c162" href="/p/goagent/issues/detail?id=21892#c162">#162</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#160 这样也可以用蓝灯,
+proxy = http://127.0.0.1:8787
+
+实际上并没有用上前置代理
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc163">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 09:11:48 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c163" href="/p/goagent/issues/detail?id=21892#c163">#163</a>
+ 
+
+ <a class="userlink"
+ href="/u/110807761722570332450/">xsl0...@gmail.com</a
+></span>
+ 
+<pre>
+#159
+用的是wallproxy的智能代理？那个感觉太慢，不管上什么网站都给你检测一下有没有被墙，无形中打开网页就慢了不少，用pac处理就快多了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc164">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 09:36:40 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c164" href="/p/goagent/issues/detail?id=21892#c164">#164</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#163 所以我把wallproxy/meow的pac全部关闭。速度大为提升，最好连wallproxy的远程dns解析都关掉，自己用dnsproxy软件解析，速度杠杠的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc165">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 09:52:00 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c165" href="/p/goagent/issues/detail?id=21892#c165">#165</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+完全插不上话，囧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc166">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 10:06:23 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c166" href="/p/goagent/issues/detail?id=21892#c166">#166</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+ #162 jasonli...@gmail.com
+
+我这里用上了啊，现在访问www.mozilla.org时wallproxy自己连，只有需要通过gae访问的才交给上级代理
+
+
+BTW，现在firefox有了一堆media.fragmented-mp4.blahblah，访问youtube时显示它已经是在分段了。。。那还有必要纠结于autorange了吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc167">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 10:12:50 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c167" href="/p/goagent/issues/detail?id=21892#c167">#167</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#160 goa的前置代理绝不可能这么设置的。用proxifier一看就明白了。每个软件的TCP端口都会显示出来。
+
+#165 快回来用win啊，哈哈。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc168">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 10:36:34 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c168" href="/p/goagent/issues/detail?id=21892#c168">#168</a>
+ 
+
+ <a class="userlink"
+ href="/u/101358961334913346604/">zj4114...@gmail.com</a
+></span>
+ 
+<pre>
+能配合xx-net用吗?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc169">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 14:40:38 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c169" href="/p/goagent/issues/detail?id=21892#c169">#169</a>
+ 
+
+ <a class="userlink"
+ href="/u/108618211518576206623/">mmqmd...@gmail.com</a
+></span>
+ 
+<pre>
+#45 warmingf...@gmail.com
+
+关键问题是 在goagent里面又怎么设置？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc170">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 15:24:29 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c170" href="/p/goagent/issues/detail?id=21892#c170">#170</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+遇上个挺有意思的问题
+
+我在meow里用的免费ss帐号经常换密码，ss-qt5里有一个相对稳定的，所以打算换那个用
+但是。。。当时是用ss-qt5里的“扫描屏幕上的二维码”识别的！
+
+<a href="http://img1.picload.org/image/iicolwl/abduction.png" rel="nofollow">http://img1.picload.org/image/iicolwl/abduction.png</a>
+
+怎么破？lol
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc171">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 19:09:07 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c171" href="/p/goagent/issues/detail?id=21892#c171">#171</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+ #169 mmqmd...@gmail.com 如果是 #45 的方法的话， GoAgent 什么都不用设置，你之前怎么用的，现在就怎么用，不用动它。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc173">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 19:45:31 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c173" href="/p/goagent/issues/detail?id=21892#c173">#173</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#170 你有两种选择，任选其一：
+
+方案一： 同时开启 ss-qt5 和 meow. 在 meow 里写规则 proxy = socks5://127.0.0.1:1080 , 然后想办法让 GoAgent 使用 meow 的 http 代理 127.0.0.1:4411
+
+方案二： 只开启 ss-qt5 （meow 开不开无所谓，因为用不到她），然后想办法让 GoAgent 使用 ss-qt5 的 socks5 代理 127.0.0.1:1080
+
+“想办法让 GoAgent 使用”前置代理的方法有两类（这些方法近期讨论的帖子里有一大推，聪明的俺一定能找到），任选其一：
+
+二选一之方案一： 在 GoAgent proxy.ini 中指定 GoAgent 使用前置代理（如果使用上面所说的方案一 （用了 meow ）就填 meow 的 127.0.0.1:441, 类型 http; 如果使用上面方案二就填 ss-qt5 的 127.0.0.1:1080, 类型 socks5)
+
+二选一之方案二： 用 Proxifier 定义规则使 GoAgent 使用前置代理（如果使用上面所说的方案一 （用了 meow ）就填 meow 的 127.0.0.1:441, 类型 http; 如果使用上面方案二就填 ss-qt5 的 127.0.0.1:1080, 类型 socks5)
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc174">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 19:47:12 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c174" href="/p/goagent/issues/detail?id=21892#c174">#174</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+上贴中“二选一之方案一”我并没有实际使用过，描述可能有误。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc175">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 17 19:51:39 2015">
+ Jul 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c175" href="/p/goagent/issues/detail?id=21892#c175">#175</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+上贴中“二选一之方案二”中 meow 的前置代理地址的类型要选 https （ Proxifier 默认），而不是 http （不用担心选错， Proxifier 默认没有 http 选项）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc177">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 02:30:37 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c177" href="/p/goagent/issues/detail?id=21892#c177">#177</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+ #175 warmingf...@gmail.com
+
+我用的是wallproxy，把ss-qt5设为上级代理试过了，能用
+但这么用我不如直接browser -&gt; ss-qt5了，只是我不太喜欢qt的界面，特别是ss-qt5的log界面
+
+想我才不久前还还赞过这个scan qr code on scree贼方便，还是见识少哇，这就被它难住鸟。。。
+
+我想的方案也是两个：
+一是从它的配置文件入手，看有没办法把那些0x32什么的“翻译”成明文
+二是找外援，应该有把二维码识别成文本的工具吧
+
+有体力时慢慢搜吧。。。各路大虾有什么想法还请不吝指教
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc178">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 03:34:49 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c178" href="/p/goagent/issues/detail?id=21892#c178">#178</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+半解决了
+
+试了一个扫图的软件，读出来了但也不是明文，用base64试了下结果撞中了
+<a href="http://img3.picload.org/image/iiccpao/abduction.png" rel="nofollow">http://img3.picload.org/image/iiccpao/abduction.png</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc180">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 03:46:45 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c180" href="/p/goagent/issues/detail?id=21892#c180">#180</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#178 看了你的截图，怀念去年开始接触翻墙时对 Phus Lu 狂热的痴迷的时光。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc181">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 03:53:46 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c181" href="/p/goagent/issues/detail?id=21892#c181">#181</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#178 ss-qt5的config.ini是base64编码的？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc182">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 06:30:59 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c182" href="/p/goagent/issues/detail?id=21892#c182">#182</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+#181 redfrog...@gmail.com
+
+不是，我怀疑那个难度更大。。。
+
+这是方案二，不管ss-qt5鸟，从原图着手
+zbarimg 是扫图软件
+Japan_993.jpg 是这个ss帐号的二维码图
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc183">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 06:35:14 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c183" href="/p/goagent/issues/detail?id=21892#c183">#183</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+顺便问下，“rc-full.txt 这个文档”在meow网站上我没找到，有链接吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc184">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 06:40:57 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c184" href="/p/goagent/issues/detail?id=21892#c184">#184</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+#180 warmingf...@gmail.com
+
+你也喜欢看何清涟的文章？她和秦晖的文章，我基本上是每篇必读
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc185">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 06:52:46 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c185" href="/p/goagent/issues/detail?id=21892#c185">#185</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#183  你下载的meow压缩包就带了啊。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc186">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 07:29:32 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c186" href="/p/goagent/issues/detail?id=21892#c186">#186</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+#185 redfrog...@gmail.com
+
+原来如彼，哈哈
+
+除了看header，很少用curl，当时执行
+curl -L git.io/meowproxy | bash
+看着它不知道在干啥，啾见个gz文件的链接就干脆中断了，换wget弄了下来
+
+解开后加-h看了看就这么用着了。。。汗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc187">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 07:34:15 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c187" href="/p/goagent/issues/detail?id=21892#c187">#187</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+这次让它执行完了，但也是只有一个执行文件。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc188">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 07:50:13 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c188" href="/p/goagent/issues/detail?id=21892#c188">#188</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+先不管它了，新问题：
+弄了三个帐号，设置loadBalance = latency
+<a href="http://img1.picload.org/image/iicpaga/abduction.png" rel="nofollow">http://img1.picload.org/image/iicpaga/abduction.png</a>
+
+看不出选择的过程和结果？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc189">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:16:19 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c189" href="/p/goagent/issues/detail?id=21892#c189">#189</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#188 前面讲过了吧，不要对负载平衡期望太高，latency就是内部判断谁低谁先连上，
+我觉得误判的可能性蛮高的，还不如你自己测试好哪个节点速度快放到第一个，依次
+排列还要好得多。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc190">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 09:26:50 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c190" href="/p/goagent/issues/detail?id=21892#c190">#190</a>
+ 
+
+ <a class="userlink"
+ href="/u/114451153583965782755/">minchy....@gmail.com</a
+></span>
+ 
+<pre>
+meow刚用一会就挂了，我是网通的，不知道是不是设置问题，现在用蓝灯上来的，唉。。。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc191">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 10:15:56 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c191" href="/p/goagent/issues/detail?id=21892#c191">#191</a>
+ 
+
+ <a class="userlink"
+ href="/u/113994707636225795495/">fswl1...@gmail.com</a
+></span>
+ 
+<pre>
+#189 redfrog...@gmail.com
+
+又-h了一下，找到鸟
+-debug=true
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc192">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 19:37:53 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c192" href="/p/goagent/issues/detail?id=21892#c192">#192</a>
+ 
+
+ <a class="userlink"
+ href="/u/114309236212049163103/">yuanqiy...@gmail.com</a
+></span>
+ 
+<pre>
+我用楼主的方法看YouTube时goagent总是间隔性的报错：
+ERROR - [Jul 19 10:27:21] create_http_request &quot;POST https://********.appspot
+.com/_gh/&quot; failed:[Errno 8] _ssl.c:510: EOF occurred in violation of protocol
+Traceback (most recent call last):
+  File &quot;C:\Users\********\*********\goagent-3.2.3\local\proxylib.py&quot;, line 2041,
+in create_http_request
+  File &quot;C:\Users\********\********\goagent-3.2.3\local\proxylib.py&quot;, line 2200,
+in create_ssl_connection
+  File &quot;C:\Users\********\********\goagent-3.2.3\local\packages.egg\win32\gevent
+\ssl.py&quot;, line 383, in wrap_socket
+  File &quot;C:\Users\********\********\goagent-3.2.3\local\packages.egg\win32\gevent
+\ssl.py&quot;, line 94, in __init__
+  File &quot;C:\Users\********\********\goagent-3.2.3\local\packages.egg\win32\gevent
+\ssl.py&quot;, line 305, in do_handshake
+SSLError: [Errno 8] _ssl.c:510: EOF occurred in violation of protocol
+
+INFO - [Jul 19 10:27:21] &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; [thread 42906528] 524288 bytes 10297155
+0-103495837/291633417
+WARNING - [Jul 19 10:27:21] RangeFetch &quot;GET https://<a href="/p/goagent/source/detail?r=4">r4</a>---sn-p5qlsu7r.googlevideo
+.com/videoplayback?fexp=3300013%2C3300115%2C3300132%2C3300137%2C3300161%2C331070
+5%2C3312381%2C3312543%2C901816%2C9405989%2C9406192%2C9407610%2C9408142%2C9408420
+%2C9408710%2C9412837%2C9414805%2C9415430%2C9415871%2C9415878%2C9416126%2C9416729
+%2C9416899%2C9417056%2C9417193%2C9417327%2C967000&amp;itag=18&amp;signature=84C3921F609D
+47CB8D269044955A58B8A723928E.<a href="/p/goagent/source/detail?r=68459B5F863B7A4F7BC70956E8E6DCD516C24970">68459B5F863B7A4F7BC70956E8E6DCD516C24970</a>&amp;key=cms1&amp;s
+ource=youtube&amp;mime=video%2Fmp4&amp;ip=107.178.195.161&amp;requiressl=yes&amp;dur=4478.130&amp;id
+=o-ADVfq2ZExLLRCOjWLg-IUkeGHXgc5R16QhzNOaexsS8j&amp;pl=26&amp;expire=1437294402&amp;ipbits=0
+&amp;ratebypass=yes&amp;sparams=dur,expire,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,rat
+ebypass,requiressl,source,upn&amp;upn=cHsl6ilaRYU&amp;sver=3&amp;lmt=1435727187410448&amp;cpn=9W
+UxKdZQT1AWa5rS&amp;ptk=QuizGroupAggregator&amp;oid=sUPfbjWTmnZUv6H4l3y99Q&amp;ptchn=fGKMfRsJ
+EUU2U9gklcogPQ&amp;pltype=content&amp;c=WEB&amp;cver=html5&amp;req_id=3d7df9937019f9a3&amp;redirect_
+counter=4&amp;cms_redirect=yes&amp;mm=26&amp;mn=sn-p5qlsu7r&amp;ms=tsu&amp;mt=1437272792&amp;mv=m&quot; retry
+ 101071006-101398685
+
+一开始速度正常，然后报以上错，然后又正常这样。请问是什么原因？应该怎么解决？
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc193">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 18 19:44:19 2015">
+ Jul 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c193" href="/p/goagent/issues/detail?id=21892#c193">#193</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#192 看出错信息，是你的SS节点和GOA的数据链路有ssl错误，多半是你的ss节点
+有点问题，换个节点试试。另外，你最好调整下autorange的数值，我的是这样：
+threads = 8
+maxsize = 262144
+waitsize = 524288
+bufsize = 32768
+
+你可以试试看。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc194">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 09:17:46 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c194" href="/p/goagent/issues/detail?id=21892#c194">#194</a>
+ 
+
+ <a class="userlink"
+ href="/u/100826743782593289854/">maple5...@gmail.com</a
+></span>
+ 
+<pre>
+请问没有教程吗？
+12.13楼好像不见了，小白请教一下，谢谢。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc195">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 25 01:55:19 2015">
+ Jul 25, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c195" href="/p/goagent/issues/detail?id=21892#c195">#195</a>
+ 
+
+ <a class="userlink"
+ href="/u/106978428753818967452/">leexl...@gmail.com</a
+></span>
+ 
+<pre>
+好乱啊 就每一个图文教程一步一步来的吗 全是你说一句我回一句 真服了
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21892">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21892',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21892,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

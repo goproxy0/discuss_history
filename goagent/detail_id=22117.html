@@ -1,0 +1,2210 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "projectName": "goagent", "token": null, "projectHomeUrl": "/p/goagent", "relativeBaseUrl": "", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22117 - 
+ goagent -
+ 
+ 突然想学一门编程语言。 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22117&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22117" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22117">22117</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >突然想学一门编程语言。</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 3 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22117">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/105195860803703482123/">jiangxin...@gmail.com</a
+>,
+ <span class="date" title="Sun Jul 26 20:08:43 2015">Jul 26, 2015</span>
+ 
+ </div>
+<pre>
+求教：各位大神 or phus.lu，
+个人自从使用wallproxy到goagent，shadowsocks,tor,psiphon,freegate,vpn &amp; etc..
+只是一个会使用者。
+由于本人是学通信的，突然想学一门编程语言。不知道如何下手，要看哪些相关协议的教材。
+真心想自己做出点东西了，希望各位前辈指教！
+ps.大学学习的C语言，已经都还给老师了^_^
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 20:56:50 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22117#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+IT大白同问，如何能愉快轻松地学习，并且能学以致用？轻松愉快学以致用这两点可能不太容易吧！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 21:10:32 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22117#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/113141619637763537201/">df936...@gmail.com</a
+></span>
+ 
+<pre>
+轻松一点的，windows下用C#，linux下用Java。不怕麻烦的话，直接C++吧
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 00:17:30 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22117#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/100620622555111370753/">haiwensu...@gmail.com</a
+></span>
+ 
+<pre>
+goagent是用Python写的，shadowsocks也有Python版本，你可以学一学Python这门编程语言，初学者最容易入门的，而且你还有C语言的基础。《A Byte of Python》和《笨办法学Python》这两本书很适合入门，深入的话，个人觉得《Python核心编程这本书》。看完以后你就可以上goagent或者shadowosocks的源码，有问题就Google。个人一点拙见还望issue里面的大神指点批评。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 00:37:49 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22117#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+我也想通过学习编程改变命运。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 00:39:06 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22117#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#4 学编程，改命运，这个很像北大青鸡的广告啊。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:06:29 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22117#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#5 但确实说得很实在。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:09:49 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22117#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+说老实话，光靠这个还是不成吧，混个饱饭没问题，要想发财不太可能。不是大家自嘲为码农、IT民工嘛！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:12:11 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22117#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+要是在美国，还有可能实现这种梦想。在中国，出身就注定你很难吧，不是没有草根成功，但那个机率太TMD低了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:16:14 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22117#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+我估计真想挣点钱，早期写手机APP还有可能，现在全是公司化操作，求发财比较难了。
+要不也不会那么多人明知道股市是赌场也要往里边冲了。
+就是美国也不容易啊，市场经济高度成熟国家，除非开了一个新天地，否则顶天混个中产。
+不过那边的好处就是，有想法就有机会成功，你的想法有法律保护。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:17:18 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22117#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/105195860803703482123/">jiangxin...@gmail.com</a
+></span>
+ 
+<pre>
+#3 4 5 6 7 8
+感谢大家对此贴的支持。再次感谢goagent作者phus.lu及issues区，看到了太多技术贴。让我收获颇丰。我会努力学的，那我就先从Python开始吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:24:22 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22117#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+不建议一开始就学java，建议第一门学python或者ruby。我个人最喜欢python和perl，但perl也不适合新手学，我相信大部分programmer都会建议先学python的。c语言算是所有语言中比较难的了，而且编程范式跟python也不太一样，都还给老师了也好，否则你总会惦记着指针那些东西，对学python有一定的干扰。学python你首先要记住一件事，everything is object。如果你想写出个像goagent这样的软件只会基本的python是远远不够的，还要学会tcp/ip和http以及https，ssl/tsl，要熟悉这些在python library的用法。也不要稍微一不懂就google，最好先查python ducumentation，试着自己去理解，遇到疑难杂症了再Google，这样对你塑造编程思想有益。说实话我接触python也有快两年了，但想写出goagent这样的软件关键要保证这样的健壮性，很难。goagent是开源社区的杰作，个人想做出它需要智慧和耐心。最后一句忠告，如果你不是心血来潮，或者你想以后靠编程吃饭，just do it。否则还是再考虑考虑，坚持不下去就是在浪费时间。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:27:51 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22117#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我不是程序猿，但是我感觉只是学编程恐怕只能混口饭吃，一定要能够把软件和硬件结合起来的人，这样才能有竞争力。你别看phulu只是写了个goagent，我估计他对硬件肯定很了解，包括硬件的架构，CPU的指令，网络协议，加密算法等等都很了解。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:43:59 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22117#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+#12, 这个也不一定。很多大牛程序员对底层的硬件也不是很精通，这要看个人的兴趣，如果他们想去学硬件，他们当然会很精通。不过我相信像phus lu这种有情怀的programmer，会不会什么已经不重要了，重要的是他用他会的东西做出了对人类有益的事，跟那姓方的傻逼什么都会但不干人事相比，phus lu不知要好上多少倍。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:46:17 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22117#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/111792219014310235880/">sz.b...@gmail.com</a
+></span>
+ 
+<pre>
+话说没有任何编程基础的人，如果想在最短时间内学习一门编程语言混口饭吃（最好偏向移动互联网的），是应该学习Python？Java？PHP？还是Android？哪个最快上手？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:50:12 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22117#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+看来这个issue关门之前，会成为小白进入programmer行列的职场现场秀。
+Phus.lu干脆抽空给各位追随者开个问答讲坛？哈哈哈。
+我推荐想入门的不妨去编程随想的博客看看，里边有不少和IT职场相关的咨询。
+我也不是程序员，不过那边的资料倒是值得推荐一下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:50:40 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22117#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+#14， 先学python，再学一个python web framework，比如django或者flask，这是网站后端。要是能学点javascript和html搞搞前段就更好了。不过对于一个没有任何编程基础的人，还是要找人带着你学，否则很难走下去。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:52:56 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22117#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+求phus lu大神现身，给俺们讲讲编程心得。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 02:02:13 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22117#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/111792219014310235880/">sz.b...@gmail.com</a
+></span>
+ 
+<pre>
+#15 #16 谢谢两位大侠的指点！曾经自学过C，看和练习里面的习题，有时觉得很枯燥很绕脑子啊。实在有点难坚持下去。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 02:25:49 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22117#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/qq767026763/">qq767026763</a
+></span>
+ 
+<pre>
+稳住基础的话,最好学c语言.速成的话,推荐python,目前也在学
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 01:16:57 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22117#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/110202981784339756737/">chum...@gmail.com</a
+></span>
+ 
+<pre>
+没那耐心去学这个~
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 04:13:41 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=22117#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#9 redfrog...@gmail.com
+
+有想法就容易开创新天地
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 28 14:28:30 2015">
+ Jul 28, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=22117#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/103676222846329120261/">mdr...@gmail.com</a
+></span>
+ 
+<pre>
+混口饭吃
+
+随便学什么
+
+要成功
+
+就得剥削人
+
+就得零和游戏
+
+有慈悲心的话
+
+只能心情愉悦的埋葬在人海
+
+楼主路怎么走
+
+别问那些自己都闭着眼的
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 00:58:45 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22117#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/117989645496477130396/">Ford911F...@gmail.com</a
+></span>
+ 
+<pre>
+我现在自学JavaScript，之前没有语言基础，没人带，学了两个月，感觉真的很枯燥，而且不会的东西真的太多，现在真的是感觉坚持不下去了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 01:20:08 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=22117#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+#22, 你的意思是大家都去做农民？自己种粮食自己吃？那社会怎么进步？没有歧视农民的意识，我爸爸就是农民。靠知识改变命运不算剥削人，就怕你在剥削人的同时还告诉他们你是为他们好。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 01:23:11 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22117#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+#23 ，确实是这样，没有计算机科学的背景，没有对编程的热情，想要学好编程几乎是不可能的，这两样缺一不可。建议还是不要从javascript开始，js的编程范式对于那些习惯于c语言的人不太好接受。还是学python吧，然后再学学lisp，学完lisp之后你就会发现什么语言都是一样的了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 01:50:17 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=22117#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#22 被共匪洗脑整坏了。以为所有发展都是建立在剥削上，这世界不是零和游戏，同样有双赢和多赢的游戏规则。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 01:57:05 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=22117#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#26 redfrog...@gmail.com
+#22 被共匪洗脑整坏了。以为所有发展都是建立在剥削上，这世界不是零和游戏，同样有双赢和多赢的游戏规则。
+
+我很赞同，不过探索双赢和多赢的路子，在中国没有或者很少有传统经验可以借鉴！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 02:19:27 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22117#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#27 民主制度本来就是一种多赢游戏，通过协商，让步，妥协来达成共识和形成规范。
+共匪国是赢家通吃规则，高度垄断，你死我活的斗争取代了优雅有序的竞争。
+说到底这就是民主和专制的争斗。
+未来中国如何走，你我都有责任。像#22那种就是华为/中兴的玩法，窝里斗，出外也是和人恶斗，
+结果就是几乎所有大国都对你说No。这下就把自己玩死了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 22:07:58 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=22117#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+难得#22楼这样的人物说话洒脱不羁。
+大家看问题的角度不同意见和观点不一致是再正常不过的事情。至于被政府洗脑这事，试问谁不是从那个阶段走出来的？每个人如何反洗脑是个人的事情，一个人只能对自己的健康负责任，对他人的状况妄作评价已经不合外交礼仪的，更何况做那种非常武断的缺少可靠依据的盖棺定论式的人格评价。
+当然，对于十足的破坏型的五毛进行反击甚至主动打击是必须的，人人应挺身而出。
+其实，就个人经历而言，五毛比民斗更值得尊敬。做五毛只是走错了一步路，这个群体里的多数人是有廉耻之心的，懂得人伦大义，言语依然保持常人的本色。而民斗因为自觉手握道义从对任何持有与自己不一致的言论和观点的人丧心病狂的人身攻击。我曾经专门为了去荷兰割一个民斗的舌头而决定办护照。
+这个社区渐渐成了一个初具包容性和原创性思维的场所，之所以特意在这个问题上发声也正是为了共同利益的最大化。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 22:24:20 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=22117#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+“其实，就个人经历而言，五毛比民斗更值得尊敬。”----------噗，笑抽了。
+
+你去割你定义的所谓“民斗”人士的舌头，难道就合乎你叽歪的“礼仪”咯？口头上装扮自己的“文明”“正经”，手底下就是要用暴力方式阻止他人说出不符合自己心意的言论，倒是跟两个组织很相似呢：
+一个是ISIS，一个是列宁式匪党----中共。恭喜你掌握了共匪欺瞒天下的精髓。
+
+“而民斗因为自觉手握道义从对任何持有与自己不一致的言论和观点的人丧心病狂的人身攻击。”
+
+--------------------嘿嘿，你说的民斗，如果不是指中共，那就不知道你意指何人了。共匪夺权之前，那可是超级民斗，号称要建立民有民治民享的民主新中国。还认了提出三民主义统一中国的孙逸仙为国父。夺权后自称掌握的是宇宙真理，所以会永远伟光正，你认同不认同？反正不认同的都在坟墓里了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 00:51:13 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=22117#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/105195860803703482123/">jiangxin...@gmail.com</a
+></span>
+ 
+<pre>
+#25
+感谢你的建议，目前已经开始看python的书籍了，突然感谢大学少学了好多东西，从TCP/IP，到计算机原理，OSI模型，光纤通信，数字信号处理，IPv6，物联网，现在正在一步步的实现。恶补吧，谢谢你们！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 05:25:08 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=22117#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+呵呵，本来我的意思已经表达出来别人无论怎么看都不必回复，……但是话题似乎变得得很有趣。
+
+当时我跟那位说，如果你要观点要表达请你好好说，如果你真的想证明我错了那也行，请你好好说，不要污言秽语，结果是反复的语言制止无效。结果是只有约他见面谈。本来这类语言类攻击和伤害是可以走诉讼路径的，我告他，后来是为里提高处理问题的效率才想到率先使用武力，然后坐等他告我，或者我提着他和他的舌头一起去法官哪里。
+
+毫不含糊地说，中共窃国之前就是超级民斗啊，今天的民斗都没有达到中共的技艺水平，《历史的先声》放在那里有证可考的，看看他们当年高唱民主这首歌唱得那么好，实在是令人触目惊心。对于今天的民斗我没有敬意，因为二者是乌鸦与猪的差别。
+
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 05:46:47 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=22117#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+在这一帖的帮助下，昨天专门去了解了一把Ruby，那种感觉是被震到了，它号称是一种新的表达方式，而且对于它在技术人员社区里的美誉也早有耳闻。很有兴趣继续了解尝试。
+
+对了，国与国之间之所以有尊敬，国界之所以不是儿戏，说到根本的一条，那是因为大家都有武力，那是一种简单的典型的恶与恶的制衡。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 07:23:28 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=22117#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+#33, 你若想寻寻那新的表达方式的根，建议去学学common lisp，真正的黑客语言。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 07:44:01 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=22117#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#32 在没有提供可靠证据的前提下，这些都是你的自说自话，什么都不能证明。我只是
+提醒你，Netherlands是一个法治国家，你使用或者威胁使用暴力的时候，就已经处在检察官
+的刑事雷达上了。如果你有能力和财力登陆那个国家，做了你想做的事情，
+你很有可能就回不来而且再也去不了了。这个时候可不要指望共匪国的大使馆能帮你。到了
+这个时候，事情就一点都不有趣了。会让你非常后悔自己的鲁莽和愚蠢。
+
+“对于今天的民斗我没有敬意，因为二者是乌鸦与猪的差别。”这也不过是你自己无法证明的意淫。
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 18:24:30 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=22117#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+多谢#34楼的朋友指路，去到common lisp网站看了，非常喜欢，它的标志竟然是池塘里的莲花，这让人非常惊喜，如果第一站接触Ruby顺利的话，或者明年就可以品尝common lisp了。昨天第一次在ubuntu上从源码编译安装了软件，它就是Ruby。好开心。
+
+#35和您的言语的撞击照亮了自己心灵很偏僻的一个角落：）
+
+人的内心深处聚集着很多恶习，懒惰，贪吃，好色，还有残暴恶毒，我躬身自问，自己是不是迷恋武力？
+
+
+呵呵，在武力基本均衡的社会环境里，这个问题基本上不是很大。以前似乎看过这样一段话，大意是美国人个个都是冷血的杀手。仔细审核之后我可以很肯定地结论，这是与环境的和平协议的文本的一部分，是可执行的指令，是用于界定个人权利边界的明确界线，不是迷恋暴力。我的信仰之一是，举头三尺有神明。
+
+使用武力的基本立场是为了制止野蛮行为。污言秽语基本上在心灵内外都绝迹了，不是装扮，是自己喜欢干净的环境和感觉。
+
+这是一个很有活力很友好的一个社区，很乐于做一位这个地方的荣誉市民。
+
+对了，关于意淫，哈哈，胆大妄为的我什么事都干过，无需意淫。
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 20:29:41 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=22117#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/103711672347065611558/">zuo...@gmail.com</a
+></span>
+ 
+<pre>
+只是想尝鲜，学习的话，python 或者 js。肯定没错的。
+花的时间少，见效快。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 03:41:30 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=22117#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/107298019060664539601/">lordji...@gmail.com</a
+></span>
+ 
+<pre>
+数学不好，是不是就不能搞编程？
+学过c，c++，但是到了编程这步就完全没想法了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 04:22:28 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=22117#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+#38, 如果你编程不是为了科学研究，数学和编程的关系不大。
+另外，我觉得数学好不好这件事不是那么好判断的，至少我现在也不知道自己到底擅长不擅长数学。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22117">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22117',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22117,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

@@ -1,0 +1,4812 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"projectName": "goagent", "loggedInUserEmail": null, "relativeBaseUrl": "", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "domainName": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "token": null, "profileUrl": null, "projectHomeUrl": "/p/goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22361 - 
+ goagent -
+ 
+ vps 第一版征集测试 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22361&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22361" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22361">22361</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >vps 第一版征集测试</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 17 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22361">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+>,
+ <span class="date" title="Wed Aug 19 01:33:28 2015">Aug 19 (5 days ago)</span>
+ 
+ </div>
+<pre>
+vps 第一版在此. <a href="https://github.com/phuslu/goproxy/releases/download/goproxy/vps_linux_amd64.tar.bz2" rel="nofollow">https://github.com/phuslu/goproxy/releases/download/goproxy/vps_linux_amd64.tar.bz2</a>
+(须翻墙下载)
+
+1. 使用的是 http2 模式, <a href="https://github.com/phuslu/http2" rel="nofollow">https://github.com/phuslu/http2</a>
+2. 并且用了打过补丁的 go, <a href="https://github.com/phuslu/go" rel="nofollow">https://github.com/phuslu/go</a>
+
+目前这个只是服务端, 客户端还未实现. 所以他目前只是一个普通的 https 代理, 只有 chrome 能用.
+现在发出来征集测试.
+
+使用方法:
+1. 把压缩包解压到 vps 目录, sudo ./vps, 目前只在 443 端口监听.
+2. chrome 启动参数加上 --ignore-certificate-errors, 然后使用 switchomega 插件添加一个 HTTPS 代理, 就可以了.
+
+说明:
+1. --ignore-certificate-errors 这个必须，还要等 letencrypt 出来才可能去掉。
+2. vps.go 是原代码， 可以自己修改， 编译请务必使用 <a href="https://github.com/phuslu/go" rel="nofollow">https://github.com/phuslu/go</a> 编译，否则性能会大有折扣。
+3. 如有问题， 请反馈
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 01:37:02 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22361#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/100696583658116264435/">l857405...@gmail.com</a
+></span>
+ 
+<pre>
+这个要顶一下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 01:40:40 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22361#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+本质上这个东东和 nghttpx 是一样的，但是现在用 golang 重新实现了一下， 以期带来更多潜在的好处：性能，反探测，抗干扰等等。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 01:52:04 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22361#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+终于来了，看看测试结果如何。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 01:58:00 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22361#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+本地代理设定的目标ip是vpsIP? 代理端口也是443？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 01:59:41 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c5" href="/p/goagent/issues/detail?id=22361#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#4 是的。红杏和以前的地下铁路的核心原理就是这个，只不过他们用的是 switchysharp修改版 + nghttpx
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 02:04:07 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c6" href="/p/goagent/issues/detail?id=22361#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+附上原理解说， 理论上这种方式是目前诸多手段中最先进的之一。
+<a href="https://wzyboy.im/post/1052.html" rel="nofollow">https://wzyboy.im/post/1052.html</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 02:10:55 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22361#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+好的，我先在我的破搬瓦工上试试，就算泄露了IP也不怕。我的vultr就不敢试了，免得泄露IP了，嘿嘿。话说回来，有了证书的话，是不是就不用担心认证的事情了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 02:13:34 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c8" href="/p/goagent/issues/detail?id=22361#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#7 泄露的可能不大，毕竟是 https 代理。启动时候会随即声称一个证书，目前测试阶段是尽量搞定性能问题，保密性呆会再搞。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 02:22:30 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22361#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+好顶赞，又有新东西了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 02:31:15 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22361#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/109474245040765929427/">yun36041...@gmail.com</a
+></span>
+ 
+<pre>
+大神努力,俺们菜鸟都得靠你哇..没vps,没法参与测试了..
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 02:37:35 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22361#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+ #8 没vps没法测试，不过想反映一下goproxy的index.php是不是有问题，上传了没有用，goagent的同名文件就可以
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 03:01:22 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22361#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+没有 vps 的基友不用怕，可免费用 Koding 部署 GoProxy 的服务端。
+-----------------------------------------------------------------------------------
+
+Koding ( <a href="https://koding.com" rel="nofollow">https://koding.com</a> ) 可以和 vps 一样使用，独立 IP ，没有 vps 的基友可用它做 vps 。
+Koding 的独立 IP 相较 Cloud9 IDE 能干更多事，如在上面可部署 Shadowsocks, gost 的 tls 隧道，当然也能部署 GoProxy 的 vps 服务端。
+
+另对此事： <a href="https://code.google.com/p/goagent/issues/detail?id=22357" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=22357</a> 向作者表示道歉。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 03:04:19 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22361#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/103267060417376647895/">i.me0...@gmail.com</a
+></span>
+ 
+<pre>
+搬瓦工亲测成功，就是chrome加参数后，每次打开提示不安全
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 03:04:21 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22361#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+Koding 的使用方法（如查看分配的独立 IP ）可参考这篇在上面部署 Shadowsocks 服务端的教程： <a href="http://www.138vps.com/freeot/161.html" rel="nofollow">http://www.138vps.com/freeot/161.html</a> 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 03:20:27 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22361#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+Koding 上部署的简单步骤：
+
+1. 进入 IDE 环境
+2. 依次输入如下命令
+
+wget <a href="https://github.com/phuslu/goproxy/releases/download/goproxy/vps_linux_amd64.tar.bz2" rel="nofollow">https://github.com/phuslu/goproxy/releases/download/goproxy/vps_linux_amd64.tar.bz2</a>
+tar -xjvf vps_linux_amd64.tar.bz2
+sudo ./vps
+
+美化版：
+
+$ wget <a href="https://github.com/phuslu/goproxy/releases/download/goproxy/vps_linux_amd64.tar.bz2" rel="nofollow">https://github.com/phuslu/goproxy/releases/download/goproxy/vps_linux_amd64.tar.bz2</a>
+$ tar -xjvf vps_linux_amd64.tar.bz2
+$ sudo ./vps
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 03:53:50 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22361#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+汇报一下测试结果：可能是因为普通https的原因，速度上没有优势，基本跟SS的速度持平。
+
+但是有个严重的bug,就是会突然卡死，浏览器无法跟服务端连接了，VPS的putty窗口也会死掉，无法退出，只能关掉putty，重新登录VPS,再运行vps服务端才能恢复正常, 貌似TLS连接不是太稳定。 
+
+重新运行vps服务端的命令如下：
+
+ps -aux|grep vps.
+kill vps的pid.
+./vps
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 03:55:04 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22361#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我感觉目前的vps go还没有达到可用的程度。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 04:01:13 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c19" href="/p/goagent/issues/detail?id=22361#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#17 速度上可以继续优化。
+这个 bug 看起来不是 vps go 的本身的问题， 貌似是墙在有意干扰 https 的出境连接。
+我在墙外测试一切正常。我继续看下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 04:02:59 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22361#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#18 我在 Koding 上部署的 vps 服务端未卡死过，不知是不是 vps 性能不同的问题。在客户端看视频和浏览网页也未发现问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 04:07:52 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c21" href="/p/goagent/issues/detail?id=22361#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#20 是因为墙对某些 ip 端比较感兴趣，会短时间黑洞。导致ssh的连接也会受影响。
+Anyway, 这就是我要重新实现一个 http2 proxy 的意义所在，有了这一出版，我们接下来看看如何来规避探测。
+一个想法是在 80 端口使用 h2c 协议
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 04:09:38 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c22" href="/p/goagent/issues/detail?id=22361#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#20 http2 这类协议对视频没啥优势，真正能提高视频的还得靠客户端自己实现 autorange.
+不过 http2 对于网页这种频繁打开和关闭的场景，非常适合。胜过 socks 类应用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 04:39:27 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22361#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#22 茅塞顿开！刚刚还在惊奇为啥用 vps go 打开 <a href="http://zhibo8.cc" rel="nofollow">http://zhibo8.cc</a> 实现了秒开，在这以前是难以想象的——在亚马逊的服务器 ( Koding, OpenShift, Heroku ) 部署 gost, GoProxy php 代理后，访问 zhibo8.cc 这个大陆的网站要等很久才能加载出来。正想找原因，就看到您的话，非常感谢！
+
+为了证实 http2 的这种优势，于是同时在 Koding 部署了 gost 和 goproxy vps go ， 对比发现确实加载时间差异确实特别大。强烈建议 php go 和 gost 也能加持 http2 。
+
+虽然对 h2c 协议不明觉厉，但是对“不过 http2 对于网页这种频繁打开和关闭的场景，非常适合。”这句话深有体会。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 04:44:18 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c24" href="/p/goagent/issues/detail?id=22361#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+在 heroku/openshift 的确可以实现各种 http/socks/http2 代理，比如 gsnova/socksocks-heroku， 但是在我看来有点越界，我再权衡一下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 04:55:05 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22361#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+PaaS平台毕竟是中看不中用，花拳绣腿的，没有太大意义，毕竟不是翻墙的主流，只是看网页的话，甚至赛风，自由门，无界都可以。 我们的目的是希望能提高连接的抗扰度和速度，流畅看视频，建议phuslu不要在这花费太多精力。
+
+对于VPS，才是你应该投入的主力，免探测或增强抗扰能力是核心，希望能比SS做的更好。
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 05:00:37 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c26" href="/p/goagent/issues/detail?id=22361#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#25 优化视频的确很重要，但是平常人上网更多的是看网页，目前针对网页类场景 http2 算是做到了极致。这也是我为什么花了相当一部分精力去完善 golang 的 http2 库
+<a href="https://github.com/phuslu/http2/commits/master" rel="nofollow">https://github.com/phuslu/http2/commits/master</a>
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 05:04:07 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c27" href="/p/goagent/issues/detail?id=22361#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+接下来优化视频，规避探测等等，是我比较有经验的部分，这块应该比较容易做稳定，测试工作量不大。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 05:38:35 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22361#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+太好了！又有新玩具了…
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 06:19:06 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=22361#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/118197154100814779632/">SelenaRi...@gmail.com</a
+></span>
+ 
+<pre>
+PaaS中看不中用？！哥表示1080p完全無壓力！！！
+<a href="http://i.imgur.com/HG65FYI.png" rel="nofollow">http://i.imgur.com/HG65FYI.png</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 06:25:30 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=22361#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+别告诉我，你用C9。用C9看高清视频，让人鄙视
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 06:27:00 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=22361#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+如果你能用CDN，那还能证明你有两把刷子
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 06:31:00 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=22361#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/118197154100814779632/">SelenaRi...@gmail.com</a
+></span>
+ 
+<pre>
+shadowsocks-heroku
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 06:39:55 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=22361#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+PaaS 如 Heroku, OpenShift, Bluemix 中国移动宽带用户确实 1080P 无压力 <a href="https://github.com/phuslu/fetchserver/tree/golang" rel="nofollow">https://github.com/phuslu/fetchserver/tree/golang</a> 。不过俺不好意思，所以只用它们看网页，看视频用的是赛风。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 06:45:01 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=22361#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/105724805268215631170/">uuu...@gmail.com</a
+></span>
+ 
+<pre>
+这个很给力，先顶再试
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 06:59:40 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=22361#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#33 电信用户看网页还可以，视频是完全没法看，100k都没有
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 07:26:13 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=22361#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/100507216751314567611/">qiaogao...@gmail.com</a
+></span>
+ 
+<pre>
+日本东京Linode
+nico、youtube正常加载、播放，nico生放送明显比SS顺畅。
+打开网页的速度与SS基本不相上下，网页加载似乎goproxy更快。
+
+很期待接下来的发展。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 16:57:01 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=22361#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/100672624351919188730/">nihilit...@gmail.com</a
+></span>
+ 
+<pre>
+#16
+
+koding搭的连不上
+
+: ~ $ sudo ./vps
+I0819 23:44:50.602525    1383 vps.go:82] Generating RootCA for www.ibtkrgurh.com
+I0819 23:44:50.653205    1383 vps.go:263] ListenAndServe on [::]:443
+2015/08/19 23:46:16 http: TLS handshake error from 125.39.***.***:11303: EOF
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 17:39:11 2015">
+ Aug 19 (5 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=22361#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#37 我这使用最新版的 Chrome （我的是 GoogleChrome 44.0.2403.155 ），使用 --ignore-certificate-errors 参数启动。安装 SwitchyOmega 扩展，设置所有代理为 https 代理 IP 地址:443 ，然后保存 SwitchyOmega 设置，能成功。提示 TLS handshake error 有可能是 Chrome 版本问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 18:48:56 2015">
+ Aug 19 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=22361#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/100672624351919188730/">nihilit...@gmail.com</a
+></span>
+ 
+<pre>
+#38
+
+thx.使用 --ignore-certificate-errors 参数启动解决。
+
+感觉速度还是不如goagent,而且不稳定，不知道是koding的问题还是什么问题
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 19:04:04 2015">
+ Aug 19 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=22361#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+#38 看下是不是丢包导致的。 win m t r
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 19:52:13 2015">
+ Aug 19 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=22361#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/118289642934399167425/">lg560...@gmail.com</a
+></span>
+ 
+<pre>
+然而首先，你得有台VPS。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 20:03:14 2015">
+ Aug 19 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=22361#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#40 移动用户用 WinMTR ( <a href="http://winmtr.net/download-winmtr" rel="nofollow">http://winmtr.net/download-winmtr</a> )测 Koding 的 IP 全程无丢包，网络顺畅不拥塞，因此 1080P 无压力。 WinMTR 测试结果如图： <a href="https://i.imgur.com/cWcVjoD.jpg" rel="nofollow">https://i.imgur.com/cWcVjoD.jpg</a>
+以以往的电信使用经验猜测，中国电信用户那丢包应该很严重。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug 19 20:08:23 2015">
+ Aug 19 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=22361#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#41 没有 vps 的朋友可用 Koding 玩玩。 #c13
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 00:21:45 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=22361#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/108573445135250363590/">yimin...@gmail.com</a
+></span>
+ 
+<pre>
+太好了，又有新工具能玩了。小白等候佳音
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 01:00:43 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=22361#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/101994464459370655569/">Kishen...@gmail.com</a
+></span>
+ 
+<pre>
+帮主威武！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 03:56:08 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=22361#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/104702885071851647509/">alex...@gmail.com</a
+></span>
+ 
+<pre>
+sudo ./vps 提示 sudo: unable to execute ./vps: No such file or directory
+
+vps新手求助
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc48">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 04:54:37 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c48" href="/p/goagent/issues/detail?id=22361#c48">#48</a>
+ 
+
+ <a class="userlink"
+ href="/u/103267060417376647895/">i.me0...@gmail.com</a
+></span>
+ 
+<pre>
+希望能够自定义端口，443已经别别的服务占用了，
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 05:11:03 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=22361#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#48 &quot;vps.go 是原代码， 可以自己修改， 编译请务必使用 <a href="https://github.com/phuslu/go" rel="nofollow">https://github.com/phuslu/go</a> 编译，否则性能会大有折扣。&quot;，所以可修改源码里的端口，然后再重新编译。你如果不想亲自动手，想要什么端口的，我可以代劳。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc50">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 05:48:32 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c50" href="/p/goagent/issues/detail?id=22361#c50">#50</a>
+ 
+
+ <a class="userlink"
+ href="/u/104702885071851647509/">alex...@gmail.com</a
+></span>
+ 
+<pre>
+ #47 www.leno...@gmail.com 
+sudo chmod 755 vps
+sudo ./vps
+依然  No such file or directory
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc51">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 06:01:45 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c51" href="/p/goagent/issues/detail?id=22361#c51">#51</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+#50 这个是 64bit 的，可能不适合你的 linux.
+
+ldd vps 看看？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc52">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 07:24:36 2015">
+ Aug 20 (4 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c52" href="/p/goagent/issues/detail?id=22361#c52">#52</a>
+ 
+
+ <a class="userlink"
+ href="/u/115369799491787332200/">gzcl...@gmail.com</a
+></span>
+ 
+<pre>
+支持pluslu 大神新作
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc53">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 20:04:41 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c53" href="/p/goagent/issues/detail?id=22361#c53">#53</a>
+ 
+
+ <a class="userlink"
+ href="/u/108573445135250363590/">yimin...@gmail.com</a
+></span>
+ 
+<pre>
+小白只有等待不停的完善，出最终版本。然后希望能有个作业指导详细。
+不会玩linux，更不会什么编译环境之类的。
+在此谢谢你们这些勇者一直在不停的奋斗，才有更多的自由让我等小白享受。真心感谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc54">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 21:30:26 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c54" href="/p/goagent/issues/detail?id=22361#c54">#54</a>
+ 
+
+ <a class="userlink"
+ href="/u/118289642934399167425/">lg560...@gmail.com</a
+></span>
+ 
+<pre>
+速度相当牛叉，油管能到13000Kbit，不过有点问题，360极速浏览器，关闭不了那个提示：您使用的是不受支持的命令行标记
+chrome可以在chrome://flags/里关闭“chrome:// 网址下的扩展程序”
+360极速不行
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc55">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 21:32:28 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c55" href="/p/goagent/issues/detail?id=22361#c55">#55</a>
+ 
+
+ <a class="userlink"
+ href="/u/104702885071851647509/">alex...@gmail.com</a
+></span>
+ 
+<pre>
+ #51 phu...@hotmail.com 
+原来要64bit，重装系统好了，可以运行了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc56">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 22:39:20 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c56" href="/p/goagent/issues/detail?id=22361#c56">#56</a>
+ 
+
+ <a class="userlink"
+ href="/u/118289642934399167425/">lg560...@gmail.com</a
+></span>
+ 
+<pre>
+跟C9一样，koding一段时间（15分钟？）不在终端动作就会关机，可否搞个脚本，让两个终端互相访问造成一直在线的假象？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 20 23:08:11 2015">
+ Aug 20 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=22361#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#56 随便玩玩就行了，不能指望这些小型云平台像谷歌那么大方慷慨的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 00:14:51 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=22361#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/102342050360409963503/">minir...@gmail.com</a
+></span>
+ 
+<pre>
+<a href="https://github.com/tatsuhiro-t/spdylay" rel="nofollow">https://github.com/tatsuhiro-t/spdylay</a> 的再造轮子版？
+最近几个月墙明显干扰 已经放弃这货了 希望能改进加密 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc59">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 00:20:38 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c59" href="/p/goagent/issues/detail?id=22361#c59">#59</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#54 目前还是 spdylay/nghttpx 的复刻。
+但是好处就是现在代码比较精简，可以作一些有趣的改动。
+比如 h2c+AES 这种，比起 socks 类的应用，还是很有优势的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc60">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 00:24:18 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c60" href="/p/goagent/issues/detail?id=22361#c60">#60</a>
+ 
+
+ <a class="userlink"
+ href="/u/112790729047204665384/">wujianpi...@gmail.com</a
+></span>
+ 
+<pre>
+什么都看不懂，默默退出。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc61">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 00:36:51 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c61" href="/p/goagent/issues/detail?id=22361#c61">#61</a>
+ 
+
+ <a class="userlink"
+ href="/u/103210947066284392192/">tianlich...@gmail.com</a
+></span>
+ 
+<pre>
+出一个完整的教程吧！否则还是搞不定呀！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc62">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 01:59:36 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c62" href="/p/goagent/issues/detail?id=22361#c62">#62</a>
+ 
+
+ <a class="userlink"
+ href="/u/114059124472322700490/">shaozhen...@gmail.com</a
+></span>
+ 
+<pre>
+我一直在用 楼主 GoAgent2.x.x 的python 版本 在vps 当服务端用, 一年多了一直很稳定, 谢谢作者!
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc63">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 02:27:52 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c63" href="/p/goagent/issues/detail?id=22361#c63">#63</a>
+ 
+
+ <a class="userlink"
+ href="/u/103210947066284392192/">tianlich...@gmail.com</a
+></span>
+ 
+<pre>
+搬瓦工，运行sudo ./vps, 运行不了。反馈&quot;sudo: unable to execute ./vps: No such file or directory&quot;,我已经解压在根目录，能看到根目录下有7.5M的VPS文件。系统是deiban。请问是什么原因？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc64">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 02:51:36 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c64" href="/p/goagent/issues/detail?id=22361#c64">#64</a>
+ 
+
+ <a class="userlink"
+ href="/u/103210947066284392192/">tianlich...@gmail.com</a
+></span>
+ 
+<pre>
+能否提供一个32位OS的版本？谢谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc65">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 05:44:00 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c65" href="/p/goagent/issues/detail?id=22361#c65">#65</a>
+ 
+
+ <a class="userlink"
+ href="/u/115258252736347078870/">jiangzha...@gmail.com</a
+></span>
+ 
+<pre>
+linode 日本结点服务器 centos 7测试正常，比ss明显稳定。期待后续完善。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc68">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:24:46 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c68" href="/p/goagent/issues/detail?id=22361#c68">#68</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+这种方式，IP地址不断变化，谷歌学术就误认为我在滥用谷歌服务？求各位老大给一个好办法！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc69">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:28:50 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c69" href="/p/goagent/issues/detail?id=22361#c69">#69</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#68 这好办啊，你在chrome插件里边指定一个规则，让访问学术谷歌只用ss就行了呗。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc70">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:41:59 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c70" href="/p/goagent/issues/detail?id=22361#c70">#70</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+这个方法不行的。红蛙兄，我上网的方法是用你以前教的办法弄的。meow统一管理了，所以没办法指定用SS
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc71">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:45:39 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c71" href="/p/goagent/issues/detail?id=22361#c71">#71</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+那你切换翻墙模式呢，比如访问学术谷歌时切换为meow的4411端口，应该没有问题的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc72">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:51:23 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c72" href="/p/goagent/issues/detail?id=22361#c72">#72</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+试了一下，还是一样的，每次上学术，都是一样的出错信息，只是每一次显示的谷歌云IP地址都变换一次。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc73">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 07:52:56 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c73" href="/p/goagent/issues/detail?id=22361#c73">#73</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+还有时间也变换成刷学术网址的时间
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc74">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 08:03:49 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c74" href="/p/goagent/issues/detail?id=22361#c74">#74</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+你用赛风+meow+cdn的方式呢，这个是固定ip的，速度也有保证，实在不行换浏览器吧，FF我用着无比顺手，chrome么，实在有时候难以忍受其某些特性。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc75">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 08:04:27 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c75" href="/p/goagent/issues/detail?id=22361#c75">#75</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+但是单独使用纸飞机，可以正常上谷歌学术。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc76">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 08:08:16 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c76" href="/p/goagent/issues/detail?id=22361#c76">#76</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+好的，必竟现在几种方法，可以替换，也算是一种幸福的烦恼吧！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc77">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 08:34:53 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c77" href="/p/goagent/issues/detail?id=22361#c77">#77</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#71 redfrog...@gmail.com
+
+用4411端口成功了，开始不成功，可能是某个地方没设置好。这样非常不错！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc78">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 09:01:31 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c78" href="/p/goagent/issues/detail?id=22361#c78">#78</a>
+ 
+
+ <a class="userlink"
+ href="/u/108924167935012383098/">braveguy...@gmail.com</a
+></span>
+ 
+<pre>
+Phus Lu,我目前是采用在路由器上部署ss的方式，家里全部设备无缝翻墙，请问您这个项目和技术，以后有可能可以一样部署到路由器上吗？即客户端是否有支持openwrt的版本推出？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc79">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 09:17:53 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c79" href="/p/goagent/issues/detail?id=22361#c79">#79</a>
+ 
+
+ <a class="userlink"
+ href="/u/116905736849718610156/">lixingco...@gmail.com</a
+></span>
+ 
+<pre>
+使用443，中国移动网络下访问google老是RESET，防火墙已经检测到了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc80">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 11:20:59 2015">
+ Aug 21 (3 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c80" href="/p/goagent/issues/detail?id=22361#c80">#80</a>
+ 
+
+ <a class="userlink"
+ href="/u/105373611361596176007/">ssthpt...@gmail.com</a
+></span>
+ 
+<pre>
+搬瓦工可以用。但是好像看了一小会Y2B后，就跳内存错误的提示了。然后就不能上了。必须重新启动sudo ./vps
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc81">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 22:18:59 2015">
+ Aug 21 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c81" href="/p/goagent/issues/detail?id=22361#c81">#81</a>
+ 
+
+ <a class="userlink"
+ href="/u/118289642934399167425/">lg560...@gmail.com</a
+></span>
+ 
+<pre>
+#57
+已测试，用chrome浏览器，一直开着IDE那个终端网页，然后加一个自动刷新页面的插件（我用的auto refresh），几分钟刷新一次即可使koding持续开机。。。
+坐等哪位写个更方便的办法
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc82">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug 21 23:57:46 2015">
+ Aug 21 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c82" href="/p/goagent/issues/detail?id=22361#c82">#82</a>
+ 
+
+ <a class="userlink"
+ href="/u/xwj1003@gmail.com/">xwj1003@gmail.com</a
+></span>
+ 
+<pre>
+提示文件不存在。。 怎么回事？？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc83">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 02:17:02 2015">
+ Aug 22 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c83" href="/p/goagent/issues/detail?id=22361#c83">#83</a>
+ 
+
+ <a class="userlink"
+ href="/u/114501291498837480485/">shne...@gmail.com</a
+></span>
+ 
+<pre>
+chromium 44.0.2403.155 (64-bit), koding, 不验证证书启动,但提示oversiezd records received.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc84">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 02:57:07 2015">
+ Aug 22 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c84" href="/p/goagent/issues/detail?id=22361#c84">#84</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+用顶楼的源码和 phuslu/go 编译了一个 32 位的，不知能不能运行。 <a href="https://copy.com/EpH0G2GSWVZbJKGq/vps_linux_386.tar.gz" rel="nofollow">https://copy.com/EpH0G2GSWVZbJKGq/vps_linux_386.tar.gz</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc85">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 04:36:33 2015">
+ Aug 22 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c85" href="/p/goagent/issues/detail?id=22361#c85">#85</a>
+ 
+
+ <a class="userlink"
+ href="/u/117431137935809253567/">ablmdr...@gmail.com</a
+></span>
+ 
+<pre>
+请问一下可以部署在openwrt吗？不需要爬墙，直接用路由器当服务器，用破处某些地方的网络限制
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc86">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 18:47:49 2015">
+ Aug 22 (47 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c86" href="/p/goagent/issues/detail?id=22361#c86">#86</a>
+ 
+
+ <a class="userlink"
+ href="/u/108281241220294160411/">oshirisu...@gmail.com</a
+></span>
+ 
+<pre>
+我很早以前注意过Wa11会主动探测可疑的已知连接（比如SPDY）：
+
+<a href="https://plus.google.com/+%E9%99%88%E5%B0%91%E4%B8%BEelf/posts/jaoJpdLkXCg" rel="nofollow">https://plus.google.com/+%E9%99%88%E5%B0%91%E4%B8%BEelf/posts/jaoJpdLkXCg</a>
+
+我怀疑，这种HTTP2的Bypass Wa11可能很快会被刺探出来然后被屏蔽。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc87">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 19:34:35 2015">
+ Aug 22 (46 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c87" href="/p/goagent/issues/detail?id=22361#c87">#87</a>
+ 
+
+ <a class="userlink"
+ href="/u/102457838100670363084/">wangyong...@gmail.com</a
+></span>
+ 
+<pre>
+在搬瓦工上部署成功，速度看油管基本满速！非常满意，只是不知道安全性如何。只有这一个VPS，现在上面部署着SS。怕被探测，IP被封！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc88">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 19:35:42 2015">
+ Aug 22 (46 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c88" href="/p/goagent/issues/detail?id=22361#c88">#88</a>
+ 
+
+ <a class="userlink"
+ href="/u/112544956721188270410/">hcxs...@gmail.com</a
+></span>
+ 
+<pre>
+在搬瓦工上试了 看网页速度很快 感谢作者 请多保重
+本人文科生 命令直接用的16楼大大的 感谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc89">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 19:45:34 2015">
+ Aug 22 (46 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c89" href="/p/goagent/issues/detail?id=22361#c89">#89</a>
+ 
+
+ <a class="userlink"
+ href="/u/102457838100670363084/">wangyong...@gmail.com</a
+></span>
+ 
+<pre>
+用了一会以后，代理就失败了。感觉被探测到了，VPS必须重新启动sudo ./vps才行！不知道是什么原因？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc90">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 20:33:27 2015">
+ Aug 22 (45 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c90" href="/p/goagent/issues/detail?id=22361#c90">#90</a>
+ 
+
+ <a class="userlink"
+ href="/u/112544956721188270410/">hcxs...@gmail.com</a
+></span>
+ 
+<pre>
+刚才连不上了 重新 sudo ./vps了一下 可以了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc91">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 01:16:49 2015">
+ Aug 23 (41 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c91" href="/p/goagent/issues/detail?id=22361#c91">#91</a>
+ 
+
+ <a class="userlink"
+ href="/u/109582891785413261222/">czx886...@gmail.com</a
+></span>
+ 
+<pre>
+有VPS的小白不知道怎么玩
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc92">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 03:13:59 2015">
+ Yesterday (39 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c92" href="/p/goagent/issues/detail?id=22361#c92">#92</a>
+ 
+
+ <a class="userlink"
+ href="/u/103267060417376647895/">i.me0...@gmail.com</a
+></span>
+ 
+<pre>
+#84 大神们出个自己编译改端口的教程吧，不会设置go1.5，
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc93">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 05:03:06 2015">
+ Yesterday (37 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c93" href="/p/goagent/issues/detail?id=22361#c93">#93</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#92 基于源码安装 phuslu/go （官方教程： <a href="https://golang.org/doc/install/source" rel="nofollow">https://golang.org/doc/install/source</a> ） 后修改 vps.go 改掉里面的 443 ，然后编译。也可以直接复制 <a href="https://github.com/phuslu/goproxy/blob/master/fetchserver/vps/vps.go" rel="nofollow">https://github.com/phuslu/goproxy/blob/master/fetchserver/vps/vps.go</a> 的相关代码把顶楼的源码修改下，实现使用 -addr 参数自定义端口。
+
+修改后编译完成。
+
+下载地址：
+
+Linux 32 位版： <a href="https://copy.com/W2hqAEVVxKw8bU9H/vps_3rdparty_linux_386.tar.bz2" rel="nofollow">https://copy.com/W2hqAEVVxKw8bU9H/vps_3rdparty_linux_386.tar.bz2</a>
+Linux 64 位版： <a href="https://copy.com/p8trtO1EhAgtlwV1/vps_3rdparty_linux_amd64.tar.bz2" rel="nofollow">https://copy.com/p8trtO1EhAgtlwV1/vps_3rdparty_linux_amd64.tar.bz2</a>
+Windows 32 位版： <a href="https://copy.com/VyNvuJKXziPAHYoK/vps_3rdparty_windows_386.7z" rel="nofollow">https://copy.com/VyNvuJKXziPAHYoK/vps_3rdparty_windows_386.7z</a>
+Windows 64 位版： <a href="https://copy.com/i4UWQTRS4SBwu7Q2/vps_3rdparty_windows_amd64.7z" rel="nofollow">https://copy.com/i4UWQTRS4SBwu7Q2/vps_3rdparty_windows_amd64.7z</a>
+
+自定义端口的方法：
+
+使用 -addr 参数，以使用 1234 端口为例：
+
+$ sudo ./vps -addr :1234
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc94">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 05:15:25 2015">
+ Yesterday (37 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c94" href="/p/goagent/issues/detail?id=22361#c94">#94</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+如果没有 VPS ，也不想使用 Koding ，可将 goproxy vps 部署在自己的电脑玩玩。
+
+下载 windows 版本，(以管理员)? 运行命令行 vps.exe -addr :443 或直接 vps.exe ，然后将 Chrome 加 --ignore-certificate-errors 参数启动，设置它的代理服务器为 127.0.0.1:443 。
+
+此时能浏览器网站，但可能无法翻墙。用 Proxifier 将 vps.exe 强制使用 GoProxy 或蓝灯、赛风、 Shadowsocks 的代理后就能翻墙了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc95">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 05:18:33 2015">
+ Yesterday (37 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c95" href="/p/goagent/issues/detail?id=22361#c95">#95</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+还有 XX-Net , GoAgent 。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc96">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 05:22:55 2015">
+ Yesterday (37 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c96" href="/p/goagent/issues/detail?id=22361#c96">#96</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+像我们这类FF死硬粉丝就无福消受了。等正式版出来再慢慢玩。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc97">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 05:29:53 2015">
+ Yesterday (36 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c97" href="/p/goagent/issues/detail?id=22361#c97">#97</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#96 同火狐痴汉路过。 这个 Google Chrome 第三方修改版的便携版很好用： <a href="http://superbird-browser.com/" rel="nofollow">http://superbird-browser.com/</a> ，不会显得那么“流氓”。
+
+#94 Windows 下载下来解压后直接双击 vps.exe 就能运行了，不必调命令行。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc98">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 05:41:56 2015">
+ Yesterday (36 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c98" href="/p/goagent/issues/detail?id=22361#c98">#98</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+<a href="http://superbird-browser.com/这个链接被谷歌浏览器报毒，不是被杀软报毒" rel="nofollow">http://superbird-browser.com/这个链接被谷歌浏览器报毒，不是被杀软报毒</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc99">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 06:08:33 2015">
+ Yesterday (36 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c99" href="/p/goagent/issues/detail?id=22361#c99">#99</a>
+ 
+
+ <a class="userlink"
+ href="/u/103267060417376647895/">i.me0...@gmail.com</a
+></span>
+ 
+<pre>
+#93 感谢大神的指导，用你编译的版本现在可以自定义端口使用了，，
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc100">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 06:22:41 2015">
+ Yesterday (36 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c100" href="/p/goagent/issues/detail?id=22361#c100">#100</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#97 多谢推荐，不过对chrom实在是无爱了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc101">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 07:48:44 2015">
+ Yesterday (34 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c101" href="/p/goagent/issues/detail?id=22361#c101">#101</a>
+ 
+
+ <a class="userlink"
+ href="/u/102342050360409963503/">minir...@gmail.com</a
+></span>
+ 
+<pre>
+用ff的有vps 自己去弄nghttpx 完好支持http2打洞 chrome还得等46 改最高加密大部分时间能骗过墙
+<a href="https://github.com/tatsuhiro-t/nghttp2" rel="nofollow">https://github.com/tatsuhiro-t/nghttp2</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc102">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 09:00:54 2015">
+ Yesterday (33 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c102" href="/p/goagent/issues/detail?id=22361#c102">#102</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+#97，superbird-browser也是安装版啦
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc103">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 24 05:00:49 2015">
+ Today (13 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c103" href="/p/goagent/issues/detail?id=22361#c103">#103</a>
+ 
+
+ <a class="userlink"
+ href="/u/102457838100670363084/">wangyong...@gmail.com</a
+></span>
+ 
+<pre>
+昨天能正常使用的，今天已经彻底不能用了。VPS重启，sudo ./vps 也没有用！墙的反应好快啊！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc104">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 24 05:26:43 2015">
+ Today (12 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c104" href="/p/goagent/issues/detail?id=22361#c104">#104</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#104 谢谢反馈，我会继续看下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22361">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22361',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22361,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

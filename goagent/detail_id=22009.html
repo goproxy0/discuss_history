@@ -1,0 +1,1415 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"token": null, "domainName": null, "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null, "projectHomeUrl": "/p/goagent", "projectName": "goagent", "relativeBaseUrl": ""};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22009 - 
+ goagent -
+ 
+ goproxy R104已更新，重复要求选择证书的问题已经修复。 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22009&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22009" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22009">22009</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >goproxy R104已更新，重复要求选择证书的问题已经修复。</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 2 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22009">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+>,
+ <span class="date" title="Sun Jul 19 19:21:33 2015">Jul 19, 2015</span>
+ 
+ </div>
+<pre>
+goproxy <a href="/p/goagent/source/detail?r=104">R104</a>已更新，重复要求选择证书的问题已经修复。（如果本机已经安装有个人证书，访问https网站时，老版的goproxy会不停要求选择个人证书，这个bug一直没有得到修复，现在搞定了）
+  
+ 
+现在的问题是手上要有GWS、GVS的弹药才能玩，我的做法是把XXNET找到的good IP导进去就可以搞了.话说goproxy浏览网页的速度确实快，其他还有待测试。
+
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:24:54 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22009#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/101994464459370655569/">Kishen...@gmail.com</a
+></span>
+ 
+<pre>
+顶，支持
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:31:09 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22009#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+我的做法是，把XX-Net的网段复制出来，扫，比用XX-Net本身扫出来的IP多。BTW：104 XVIDEOS还是看不了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:32:25 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22009#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#2 对，我也是把XXnet的IP段拿出来用gogotester重新扫一遍
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:48:03 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22009#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#2 我试了下还是不行啊，xxnet的ip经常在gop里边无法全部加载网页。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:52:07 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22009#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/114915444214887162058/">wengpeng...@gmail.com</a
+></span>
+ 
+<pre>
+在那里下啊？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 19:57:20 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22009#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#4 应该不存在这个问题，只要是gogotester能扫出来的GWS,GVS在goproxy应该是可以用的，这个跟XXnet没有关系的，XXnet只是提供了一个IP段。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:00:48 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22009#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+#4 点击延迟，从快到慢排列，203.208开头的IP会全部排列在前面，删掉即可，因为这个网段是Google China IP
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:11:30 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22009#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+重新生成了证书，访问Google和鸭子搜索就会这么样报错。
+
+------------------------------------------------------
+GoProxy Version    : <a href="/p/goagent/source/detail?r=104">r104</a> (go/go1.4.2 windows/386)
+Listen Address     : 127.0.0.1:8000
+RoundTrip Filters  : autoproxy,auth,gae,php,direct
+Pac Server         : http://127.0.0.1:8000/proxy.pac
+------------------------------------------------------
+I0720 11:08:14.266113    2708 autoproxy.go:127] start updater for &amp;autoproxy.GFW
+List{URL:(*url.URL)(0x2023c000), Filename:&quot;gfwlist.txt&quot;, Encoding:&quot;base64&quot;, Dura
+tion:86400000000000}
+I0720 11:08:14.388188    2708 main.go:178] ListenAndServe on 127.0.0.1:8000
+I0720 11:08:16.604069    2708 stripssl.go:126] 127.0.0.1:53105 &quot;STRIP CONNECT du
+ckduckgo.com:443 HTTP/1.1&quot; - -
+I0720 11:08:16.605045    2708 stripssl.go:170] generate certificate for duckduck
+go.com...
+I0720 11:08:17.999614    2708 stripssl.go:137] 127.0.0.1:53105 *tls.Conn.Handsha
+ke() error: &amp;net.OpError{Op:&quot;WSARecv&quot;, Net:&quot;tcp&quot;, Addr:(*net.TCPAddr)(0x204b2180
+), Err:0x2745}
+E0720 11:08:18.000592    2708 handler.go:56] 127.0.0.1:53105 Filter Request *str
+ipssl.Filter(&amp;{0x2023c2c0 8760h0m0s 0x20227490 map[] [*]}) error: WSARecv tcp 12
+7.0.0.1:8000: An established connection was aborted by the software in your host
+ machine.
+I0720 11:08:21.410841    2708 stripssl.go:126] 127.0.0.1:53213 &quot;STRIP CONNECT ww
+w.google.com.hk:443 HTTP/1.1&quot; - -
+I0720 11:08:21.411817    2708 stripssl.go:170] generate certificate for *.google
+.com.hk...
+I0720 11:08:30.161079    2708 stripssl.go:137] 127.0.0.1:53213 *tls.Conn.Handsha
+ke() error: &amp;net.OpError{Op:&quot;WSARecv&quot;, Net:&quot;tcp&quot;, Addr:(*net.TCPAddr)(0x2021e2a0
+), Err:0x2745}
+E0720 11:08:30.167915    2708 handler.go:56] 127.0.0.1:53213 Filter Request *str
+ipssl.Filter(&amp;{0x2023c2c0 8760h0m0s 0x20227490 map[] [*]}) error: WSARecv tcp 12
+7.0.0.1:8000: An established connection was aborted by the software in your host
+ machine.
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:14:26 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22009#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+同样的FF，使用<a href="/p/goagent/source/detail?r=96">R96</a>就正常，看来还有点问题等待老大修复。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:17:01 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22009#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+你说的这个问题，我是没有碰到，兼容性这个东西是众口难调。
+目前感觉<a href="/p/goagent/source/detail?r=104">R104</a>已经比较稳定了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:20:23 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22009#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#10 <a href="/p/goagent/source/detail?r=104">R104</a> 油管和voa缓冲正常不？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:45:44 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22009#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#11 油管缓冲确实有卡顿的现象，不能正常播放，你说的VOA是哪个网址？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 20:50:06 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22009#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+iplist的json格式确实对用户不够友好，错一个标点符号都不行，否则goproxy无法启动，这个够新手折腾的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 21:13:51 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22009#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#12 VOA就是美国之音，我这里不能加载完全，<a href="/p/goagent/source/detail?r=96">R96</a>还是这样。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 21:14:54 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22009#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/100760226287978423299/">jnc412...@gmail.com</a
+></span>
+ 
+<pre>
+大神们帮我看看，<a href="/p/goagent/source/detail?r=104">R104</a>证书问题解决了，可是为什么还是不行呀！
+------------------------------------------------------
+GoProxy Version    : <a href="/p/goagent/source/detail?r=104">r104</a> (go/go1.4.2 windows/amd64)
+Listen Address     : 127.0.0.1:8000
+RoundTrip Filters  : autoproxy,auth,gae,php,direct
+Pac Server         : http://127.0.0.1:8000/proxy.pac
+------------------------------------------------------
+I0720 12:11:28.598468   12616 autoproxy.go:127] start updater for &amp;autoproxy.GFW
+List{URL:(*url.URL)(0xc0820100e0), Filename:&quot;gfwlist.txt&quot;, Encoding:&quot;base64&quot;, Du
+ration:86400000000000}
+I0720 12:11:28.626468   12616 main.go:178] ListenAndServe on 127.0.0.1:8000
+I0720 12:11:33.886468   12616 stripssl.go:126] 127.0.0.1:55985 &quot;STRIP CONNECT ww
+w.google.com:443 HTTP/1.1&quot; - -
+I0720 12:11:33.887468   12616 stripssl.go:170] generate certificate for *.google
+.com...
+Exception 0xc000001d 0x0 0x0 0x661f4e
+PC=0x661f4e
+
+crypto/elliptic.p256MovCond(0xc0841dc2a0, 0xc, 0xc, 0xc0841dc2a0, 0xc, 0xc, 0xc0
+841dc1e0, 0xc, 0xc, 0x1, ...)
+        /go/src/crypto/elliptic/p256_asm_amd64.s:82 +0x1e
+crypto/elliptic.p256ScalarMult(0xc0841dc1e0, 0xc0841dc1e0, 0xc083fc70f0, 0x4, 0x
+4)
+        /go/src/crypto/elliptic/p256_amd64.go:461 +0x10c9
+crypto/elliptic.p256Curve.ScalarMult(0xc0841487e0, 0xc0841e3260, 0xc0841e3280, 0
+xc08414c340, 0x20, 0x20, 0xc0841e3280, 0x1e)
+        /go/src/crypto/elliptic/p256_amd64.go:228 +0x376
+crypto/tls.(*ecdheKeyAgreement).processClientKeyExchange(0xc084146c80, 0xc0840e7
+9e0, 0xc0841429b0, 0xc0841df200, 0x303, 0x0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/crypto/tls/key_agreement.go:298 +0x264
+crypto/tls.(*serverHandshakeState).doFullHandshake(0xc084115ef0, 0x0, 0x0)
+        /go/src/crypto/tls/handshake_server.go:467 +0x135e
+crypto/tls.(*Conn).serverHandshake(0xc08209c580, 0x0, 0x0)
+        /go/src/crypto/tls/handshake_server.go:70 +0x336
+crypto/tls.(*Conn).Handshake(0xc08209c580, 0x0, 0x0)
+        /go/src/crypto/tls/conn.go:979 +0x16e
+github.com/phuslu/goproxy/httpproxy/filters/stripssl.(*Filter).Request(0xc0820ea
+000, 0xc0820b6000, 0xc0820c0270, 0xc0820b6000, 0xc0820c0270, 0x0, 0x0)
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/filters/stri
+pssl/stripssl.go:136 +0x83f
+github.com/phuslu/goproxy/httpproxy.Handler.ServeHTTP(0x0, 0x0, 0x2a20e8, 0xc082
+0cc280, 0xc0820e41c0, 0x2, 0x2, 0xc0820b4000, 0x5, 0x8, ...)
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/handler.go:4
+9 +0x1e7
+github.com/phuslu/goproxy/httpproxy.(*Handler).ServeHTTP(0xc082010620, 0x2a2318,
+ 0xc0820e8280, 0xc0820c0270)
+        &lt;autogenerated&gt;:7 +0xda
+net/http.serverHandler.ServeHTTP(0xc08202a420, 0x2a2318, 0xc0820e8280, 0xc0820c0
+270)
+        /go/src/net/http/server.go:1703 +0x1a1
+net/http.(*conn).serve(0xc0820e80a0)
+        /go/src/net/http/server.go:1204 +0xb5e
+created by net/http.(*Server).Serve
+        /go/src/net/http/server.go:1751 +0x365
+
+goroutine 1 [chan receive]:
+main.main()
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/goproxy/main.go:185 +0
+x1a81
+
+goroutine 5 [chan receive]:
+github.com/golang/glog.(*loggingT).flushDaemon(0xb596c0)
+        /home/phuslu/GOPATH/src/github.com/golang/glog/glog.go:879 +0x7f
+created by github.com/golang/glog.init路1
+        /home/phuslu/GOPATH/src/github.com/golang/glog/glog.go:410 +0x2ae
+
+goroutine 7 [syscall]:
+os/signal.loop()
+        /go/src/os/signal/signal_unix.go:21 +0x26
+created by os/signal.init路1
+        /go/src/os/signal/signal_unix.go:27 +0x3c
+
+goroutine 8 [sleep]:
+github.com/phuslu/goproxy/httpproxy/filters/autoproxy.(*Filter).updater(0xc0820e
+a180)
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/filters/auto
+proxy/autoproxy.go:130 +0x123
+github.com/phuslu/goproxy/httpproxy/filters/autoproxy.*Filter.(github.com/phuslu
+/goproxy/httpproxy/filters/autoproxy.updater)路fm()
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/filters/auto
+proxy/autoproxy.go:117 +0x2e
+sync.(*Once).Do(0xb66c30, 0xc0820e6220)
+        /go/src/sync/once.go:44 +0xdb
+created by github.com/phuslu/goproxy/httpproxy/filters/autoproxy.NewFilter
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/filters/auto
+proxy/autoproxy.go:117 +0x851
+
+goroutine 9 [IO wait]:
+net.(*pollDesc).Wait(0xc082610170, 0x72, 0x0, 0x0)
+        /go/src/net/fd_poll_runtime.go:84 +0x4e
+net.(*ioSrv).ExecIO(0xc082042090, 0xc082610060, 0x9004d0, 0x8, 0xc0820d0340, 0xc
+082610180, 0x0, 0x0)
+        /go/src/net/fd_windows.go:188 +0x305
+net.(*netFD).acceptOne(0xc082610000, 0xc082114000, 0x2, 0x2, 0xc082610060, 0x411
+3e2, 0x0, 0x0)
+        /go/src/net/fd_windows.go:558 +0x547
+net.(*netFD).accept(0xc082610000, 0x0, 0x0, 0x0)
+        /go/src/net/fd_windows.go:585 +0x17a
+net.(*TCPListener).AcceptTCP(0xc0820420b0, 0x794720, 0x0, 0x0)
+        /go/src/net/tcpsock_posix.go:234 +0x55
+net.(*TCPListener).Accept(0xc0820420b0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/net/tcpsock_posix.go:244 +0x53
+github.com/phuslu/goproxy/httpproxy.(*listener).startListen(0xc0820cc280)
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/listener.go:
+167 +0x5f
+created by github.com/phuslu/goproxy/httpproxy.ListenTCP
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/listener.go:
+128 +0xab8
+
+goroutine 10 [chan receive]:
+github.com/phuslu/goproxy/httpproxy.(*listener).Accept(0xc0820cc280, 0x0, 0x0, 0
+x0, 0x0)
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/httpproxy/listener.go:
+189 +0x85
+net/http.(*Server).Serve(0xc08202a420, 0x2a2160, 0xc0820cc280, 0x0, 0x0)
+        /go/src/net/http/server.go:1728 +0x99
+created by main.main
+        /home/phuslu/GOPATH/src/github.com/phuslu/goproxy/goproxy/main.go:179 +0
+x183b
+rax     0xc0841dc2a0
+rbx     0x1
+rcx     0xc0841dc1e0
+rdx     0xc
+rdi     0xc0841dc2a0
+rsi     0xc0841dc2a0
+rbp     0xc0841dc1e0
+rsp     0xc083fc6fd0
+<a href="/p/goagent/source/detail?r=8">r8</a>      0x229729daa6081821
+<a href="/p/goagent/source/detail?r=9">r9</a>      0x7ef8156f2be390c2
+<a href="/p/goagent/source/detail?r=10">r10</a>     0x5649ddd3e1214152
+<a href="/p/goagent/source/detail?r=11">r11</a>     0x1e324dcffddd7953
+<a href="/p/goagent/source/detail?r=12">r12</a>     0x229729daa6081821
+<a href="/p/goagent/source/detail?r=13">r13</a>     0x7ef8156e2be390c3
+<a href="/p/goagent/source/detail?r=14">r14</a>     0x1
+<a href="/p/goagent/source/detail?r=15">r15</a>     0xda1884c6128f0edd
+rip     0x661f4e
+rflags  0x10206
+cs      0x33
+fs      0x53
+gs      0x2b
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 21:15:45 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22009#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我知道是美国之音，但是有中文版和英文版，你给个具体网址，我测试一下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 19 21:20:36 2015">
+ Jul 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22009#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/100760226287978423299/">jnc412...@gmail.com</a
+></span>
+ 
+<pre>
+接#15 我的设置如下：
+1.gae.json
+{
+	&quot;appids&quot;: [
+		&quot;*****&quot;,
+		&quot;*****&quot;,
+		&quot;*****&quot;,
+		&quot;*****&quot;
+	],
+
+2.main.json
+&quot;filters&quot;: {
+		&quot;request&quot;: [
+			&quot;auth&quot;,
+			&quot;stripssl&quot;
+		],
+		&quot;roundtrip&quot;: [
+			&quot;autoproxy&quot;,
+			&quot;auth&quot;,
+			// &quot;iplist&quot;,
+			&quot;gae&quot;,
+			&quot;php&quot;,
+			&quot;direct&quot;
+		],
+		&quot;response&quot;: [
+		]
+	}
+
+3.iplist.json
+	&quot;google_cn&quot;: [
+			&quot;202.58.96.200&quot;,
+			&quot;202.58.96.199&quot;
+		],
+		&quot;google_hk&quot;: [
+			&quot;202.58.96.200&quot;,
+			&quot;202.58.96.199&quot;
+		]
+	},
+
+大神们看看那里出错了呀
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22009">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22009',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22009,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

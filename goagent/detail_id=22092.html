@@ -1,0 +1,3001 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"projectName": "goagent", "loggedInUserEmail": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null, "projectHomeUrl": "/p/goagent", "token": null, "relativeBaseUrl": "", "domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22092 - 
+ goagent -
+ 
+ 在中国，如果你不关心政治你就是牛羊，如果你关心政治那么你就是别人点工具：） - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22092&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22092" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22092">22092</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >在中国，如果你不关心政治你就是牛羊，如果你关心政治那么你就是别人点工具：）</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 4 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22092">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+>,
+ <span class="date" title="Fri Jul 24 00:04:42 2015">Jul 24, 2015</span>
+ 
+ </div>
+<pre>
+鹿先生在辛勤地开发翻墙工具，而使用翻墙工具的人又是别人的工具。
+
+其实每个人都可以扪心自问，我想不想打土豪分田地？nycomp把这个问题提起来了，大大地赞一个。
+
+各人只需把答案告诉自己而无需跟人比对，这个问题没有标准答案：）
+
+当你想打土豪分田地的时候，你的命就被别人掌控了，你的命就已经不属于自己。这事跟中国股民一样，一个个抱着本钱入股市，为的是大发横财，可结果多数人却成了别人的盘中餐。一般人一踏进股市，他的钱基本上就不再是他自己的了：）
+
+关于中国股市，你说那是骗人，可是你有能力把“被骗进去”的人拉出来吗？
+
+为什么我这么肯定地结论你只是别人的工具，因为改朝换代不可避免，而在座各位不知有几人能看到新王朝冉冉升起的红日。
+
+中国革命说复杂那是超级复杂，因为有各种名目和无穷无尽的障眼法。如果说简单，简单到极致，杀人抢钱。四个字就能说完了。
+
+今天平民遭遇多少压迫欺凌蒙骗，他日他们就会崩发出多少仇恨的能量，或者翻倍。那不是为确定利益分配的对抗和对话，不是双活多活，而是要杀人越货取而代之。
+
+所以，老实说，既得人身却自甘为牛羊任人剥削，既已有人格却弃置如敝履自甘为奴仆，这是很可耻的事情。
+
+人要践行自己的人权捍卫自己的和人格，这才是正常的人类。武士绝对没有必要仇恨这个那个嘛，他不是任人侵犯或伤害的窝囊废。从这个角度看，以勇气引领人生似乎是安全系数最高的算法。
+
+闲话絮语。
+
+
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:12:29 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22092#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/115544407951689275697/">softlyg...@gmail.com</a
+></span>
+ 
+<pre>
+这要看关心到什么程度吧，翻翻墙看看新闻骂两句图个嘴痛快，怎么就成了工具呢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:24:22 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22092#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+国外是有仇报仇，有恩报恩，当时就报了，所以没必要怀恨在心，所以外国人看起来简单，原因在于此，中国屁民有仇报不了仇，有恩也报不了恩，所以一旦能报仇的时候都是加倍的奉还，一旦能报恩的时候恨不得做牛做马，就是没想过做人，挺悲催的，二战日本偷袭珍珠港，美国之所不怎么恨日本，因为美国当时就报了仇，中国愤青之所以恨日本，就是因为中国大不过日本，报不了仇，所以只能心里仇恨。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:32:33 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22092#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/115544407951689275697/">softlyg...@gmail.com</a
+></span>
+ 
+<pre>
+中国愤青恨美国是因为什么仇没报
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:35:24 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22092#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#3 中国仇日是猪八戒照镜.
+
+日本曾经是中国的门生,也曾经闭关锁国几百年.但是人家抛开包袱往前走, 反而比中国进步几个档次. :)最可恨是旧天安门广场都站不满的一点点兵力, 把中国人打得死去活来.
+
+天安门广场曾经改小过, 因为某人这样批评, 毛大帅亲自写大字报抓去坐牢.几百万红卫兵高呼万寿无疆, 人数比侵华日军人数最多的时候还要多, 这位先生叫聂绀弩.无视这样的中国人的家伙, 根本就是驴.
+
+其实鲁迅是基于日本视角, 也就是&quot;前中国&quot;文明批评驴化的中国人.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:42:20 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22092#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+共产主义的理想是红旗插满全世界，而美国是最大的障碍，是自由世界的老大，如果看过 《夜来临－吴国桢见证的国共争斗》 这本书的话，你就知道共产党的斗争策略是团结所有能团结的人，斗争最强大的对手，又打又谈，又谈又打，直到最终把对手消灭。这本是我最近能一口气读完的书，太精彩了，值得一看，当然我无法判断里面说的是不是全是真的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:49:21 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22092#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+《夜来临－吴国桢见证的国共争斗》这本书详细说明了共产党的组织结构，斗争策略，颠覆手法，如果你看过这本书就回明白，为什么苏联这么多握有军权的大元帅，克格勃特务首脑贝利亚等等，被宰鸡一样宰杀，毫无反抗能力，为什么毛泽东那么恨刘少奇，非要弄死他不可，简直是太精彩，看过之后对所有的东西豁然开朗的感觉。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:49:48 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22092#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+大陆的历史难道只有轮回的命？毛贼这一届朝廷是历史最烂的，难道还有更烂的吗?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:02:36 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22092#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+《红太阳是如何升起的》也非常不错。你要想打败共产党，你就要了解它，知道它的弱点，构建你的策略。美国这叫智库。哈哈。
+
+日本为何能用那么一点的兵力，还是丙种师团横扫整个东南亚？因为战争就是一个国家，以及这个国家的政府行政效率的最佳表演舞台。你看看二战后，三个法西斯国家都成G7，为何？敢发动侵略战争的国家，都是有点底气的。战胜国里边，中国是唯一一个没有实现政治现代化的国家，因此在战后滑入最贫穷国家之列那是自然而然的事情。糟糕的行政效率导致在韩战，越战上也是一塌糊涂，伤亡率远远超过对手国，就连台湾岛都登不上去。
+
+现在习近平真有这个底气挑战东南亚诸国，尤其是美日同盟，让红旗插满世界？看看身边政府的行政效率，我就表示呵呵了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:09:50 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22092#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+个人觉得《红太阳是如何升起的》远没《夜来临－吴国桢见证的国共争斗》好看。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:21:44 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22092#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+楼主思维混乱呵！估计一时半时是治不好了，世界观定型后没法改！什么工具说，还有新王朝之说，那是主观臆造的。怎么可能还会有新的王朝？国际歌怎么说的？这是最后的斗争，团结起来到明天！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:34:55 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22092#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#9 太多个人主观性叙述的我不大喜欢，谬误比较多，我倾向于考证型的学术性强的，可读性不在考虑之列。
+这样能最大程度去伪存真。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:41:50 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22092#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#11 也不见得是个人主观，到处都是引经据典的，吴国桢也是民国历史上的重要人物，凤凰卫视推荐过的书。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:43:37 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22092#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+个人主观性叙述的也可以看看，但不要陷进去就行了。考证型的也有主观的东西在里面。这个没什么，关键是大原则把握住就行了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:44:44 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22092#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+推荐的书我没看过，不过有空的话，我也看看。先谢过推荐的fh0205z兄了！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:51:48 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22092#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+如果看《夜来临－吴国桢见证的国共争斗》的话，前面两章和最后一章可以不用看。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:53:36 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22092#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+如果凤凰推荐的，自己多个心眼看看什么版本，海外ccav不会跟党作对的。
+个人回忆录什么的，好多东西难以考证，个人记忆多半不大可靠，
+考证型的当然有主观意图在内，不过可以通过其考据的多个来源进行比较，判断真伪容易一点。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:00:17 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22092#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+《夜来临－吴国桢见证的国共争斗》是1955写的英文回忆录，到现在才翻译刊发，说明这本书基本没有什么政治目的，我相信是相当客观公正的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:05:12 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22092#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#17 就是因为现在才翻译刊发才要小心一点，翻译的名堂多着呢。澎湃就是其间高手嘛。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:16:02 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22092#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+译者是经过吴国桢的后代同意才翻译的，国外不比中国，很多人都等着给你挑刺，如果你翻的不好，就要拿你的学术声誉做赌注，这和国内的把chiang kai shek翻译成常凯申，Mencius翻译成孟修斯是不一样的好吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:22:07 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22092#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#19 你根本没明白我的意思，也没注意我提醒你的澎湃新闻这个关键词。
+吴国桢本人的著作和经过其后代授权翻译的都没有问题，但是如果你
+看的是在大陆出版的版本，一定有审查，而推荐这本书的本来就是ccav海外喉舌，经常玩
+常青树屏蔽的机构。如果是台湾版本应该ok，香港版本现在都不好说了。Got it？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:27:42 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=22092#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#20 但是就是网上下载的简体版本，也是相当令共产党难以接受的，所以要找一个可用的下载连接也是不容易的，我找了好久才找到，应该说到他们的痒处了吧。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:31:28 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=22092#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#21 干脆看英文版吧，不接受二手资讯。当作温习英文单词文法了。：）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:32:10 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22092#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/110758763191862499880/">cns...@gmail.com</a
+></span>
+ 
+<pre>
+楼主的政治历史都没学好，不同的发展阶段都有相适应的社会制度。
+比如苏联，在战争时期，采用计划经济制度，表面上看计划经济非常落后，但在那个时期起到了非常重要的作用。现在国内最重要的是什么？是稳定，是不要有战争。如果有动乱，中国经济倒退几十年，这就是你们想看到的？
+
+另外再看看俄罗斯，从社会主义到资本主义后，美国还是会说俄罗斯不民主。别人就是要针对你，你怎么做都是错的。
+
+总而言之，就目前来讲，稳定压倒一切。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:32:41 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=22092#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#21 正有此意，哈哈。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:37:17 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22092#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#22 可是英文不好还是要看中文版的呀，呵呵。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:39:50 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=22092#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#23 旧社会的三座大山压在人民身上也需要稳定压倒一切，如果不稳定，三座大山就轰隆隆的倒了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:41:06 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=22092#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/115018472562619366382/">oct.w...@gmail.com</a
+></span>
+ 
+<pre>
+#23 什么鬼，俄罗斯就是假民主真独裁，俄罗斯的地方领导人都由普京任命，普京和梅德韦杰夫两个人轮流做总统和总理，这也叫民主？还稳定压倒一切，丢人现眼。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:47:20 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22092#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/110758763191862499880/">cns...@gmail.com</a
+></span>
+ 
+<pre>
+#26
+每种制度都有利弊，重要的是适合当前的发展。从改革开放以来，中国的发展还不让你满意？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:48:48 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=22092#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/110758763191862499880/">cns...@gmail.com</a
+></span>
+ 
+<pre>
+#27
+那请详细讲讲 独裁国家如何压榨本国国民的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:51:29 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=22092#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#28 发展让我满意吗？肯定不满意，这三十年的发展付出了多大的代价？
+承受代价是谁，最终享受了发展收益的绝大部分的又是谁？
+要是我们都满意何必封锁网络限制我们自由获取资讯呢？
+进一步来讲，要是让大多数中国人满意，为什么要维稳，
+为什么要抓捕帮助共匪维稳的律师呢？你来解释解释。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 04:12:33 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=22092#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+五毛狗又来混狗粮了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 04:30:03 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=22092#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#28 cns...@gmail.com
+
+中国的发展，以前所说的全民的资源，99%的资源被1%的人分掉了，剩下的1%的资源打发99%的人口。。。。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 04:32:14 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=22092#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+这个国家发展得再好，和老百姓关系不大
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 06:56:38 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=22092#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+这个国家我不知道说什么好了。你践踏个人精神搞共产主义我忍了，你打着共产主义的旗号搞资本主义我也忍了，你嫌美国那样的资本主义为自己捞钱慢又搞奴隶制我也忍了。以前是老百姓供一个皇上，现在是所有老百姓供一堆皇上。你嫌奴隶干活不好了你可以打可以骂，我都忍了，可你不能骗我们说你在为我们服务？咱生下来不是个红二代咱认了，你手里有枪你打我欺负我我也认了，可你不来直接的，拐着弯儿地践踏奴隶的灵魂，咱都是没有智商的？咱啥都看不出来？人美国想管一管这事你就说自己家的事外人少管，人美国人闲的没事做？美国家长虐待自己家孩子美国老百姓都不答应，人看你虐待自己百姓人家肯定看不过去。说到底在你眼里我连个奴隶都不是。但我认为我是个真正的有人格有智商的人。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 07:35:36 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=22092#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/108256752271457668200/">vip121...@gmail.com</a
+></span>
+ 
+<pre>
+大陆人大多数喜欢下跪 我就是大陆人 我说的事实 所以别指望有能革命的那一天 成功就姑且不说了 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 07:40:54 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=22092#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/110158684434685666353/">cym.zh...@gmail.com</a
+></span>
+ 
+<pre>
+一个个别装逼卖高尚了
+
+看看当年法轮功发迹的速度，还有无数的王林大师
+
+大陆人和共产党没有任何区别
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 07:44:23 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=22092#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/116864184869288464416/">hjq...@gmail.com</a
+></span>
+ 
+<pre>
+其实国家民族这些概念只是政客用来谋取利益的工具，因为他们需要人，有人他们才能成事。所以说什么我们是一国的人，我们是什么民族，要在一起什么什么，说穿了就是把一定范围的人圈起来和其他人相对隔离，分化全球各地的人类让我们为那些政客服务，所以当你谈爱国谈民族，那你就是彻底的被政客利用到骨子里了！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:00:23 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=22092#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#37 大陆人道德败坏是被共产党强制败坏的，不跟这共匪败坏在这个社会活不下，这就是为什么共产党的各种运动中知识分子不是投河自尽就是上吊自杀，还要不就是失踪，反正有良知有道德不是死掉就是在牢里。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:04:46 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=22092#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#37  你一不能代表大陆人，二不敢起来反抗共匪，连说话都要自我阉割，自我审查，
+所以，真正的卖逼犯不就是你么。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:08:07 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=22092#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+再说了，法轮功又怎么了？你能找出人家干了什么伤天害理的事情？共匪都不能，共匪倒是干出活摘器官这样丧尽天良的事情。王林？他的蹿红只能说明共匪那些党棍，不是狗畜生就是傻逼弱智儿。嘴上喊着无神论的二逼狗官要找所谓大师测未来，这智商真和你有一拼。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:16:56 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=22092#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#41 一边喊着无神论，一边找王林算命，这帮兽牲才能干的出来。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:22:52 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=22092#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/118381591589772473344/">pytand...@gmail.com</a
+></span>
+ 
+<pre>
+本来翻墙的大都是有自己思想的人，不过你可以试试，把这段话发到局域网里面，看看会被多少人骂成是卖国贼，hh
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:29:43 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=22092#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#43 现在墙内墙外没多大区别，别以为共匪在墙内能忽悠到多少人。不就是一帮五毛狗在哪儿吠叫领狗粮，卢梭怎么说来着：爱国主义是流氓最后的庇护所。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:37:02 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=22092#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+不要轻易看低自己，甚至把自己归为跟共匪一类人，你要知道你今天变成这样都是共匪造成的。
+
+古代圣贤都说要以礼仪道德教化世人，治国必先富民。
+而共匪是灭绝人性，摧毁道德，摧毁信仰，残害生灵，这样的制度就会造就什么样的人。你今天这个样子是共匪造成的，不是你的错，凭什么认为自己跟共匪是一类人，不要侮辱了自己的先祖和华夏文明
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:40:44 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=22092#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+就算是这样糟糕的环境，也要不忘初心，保持一颗赤子之心，保持一份最起码的良知，正义感和明辨是非的能力
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:45:45 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=22092#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+恶意贬低矮化所有大陆人的，不就是共匪的帮凶吗。我看到还有很多很多的大陆人在觉醒后不断抗争，以命相搏，争自由，争平等，争民主，我就是为他们自豪，我也是他们中的一员，我这才明白，为何中华历经如此多的磨难，还能延续千年不绝。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc48">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 18:34:52 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c48" href="/p/goagent/issues/detail?id=22092#c48">#48</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+cns...@gmail.com：不能给您扣上“五毛”的帽子，不过您看问题的角度实在是不好恭维。您的需求只是土豆加牛肉，没有精神方面的需求。这点是太落伍了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 19:34:03 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=22092#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#27 oct.w...@gmail.com
+
+普、梅玩二人转，这也是人类史上的奇观，人家也不怕脸上挂不住，哈哈
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc52">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 25 17:02:23 2015">
+ Jul 25, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c52" href="/p/goagent/issues/detail?id=22092#c52">#52</a>
+ 
+
+ <a class="userlink"
+ href="/u/101933223632199080157/">supernov...@gmail.com</a
+></span>
+ 
+<pre>
+送四个字，用GOOGLE搜索一下，看哪些观点没跳出这个圈圈？
+尤西弗罗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc53">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 25 20:38:47 2015">
+ Jul 25, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c53" href="/p/goagent/issues/detail?id=22092#c53">#53</a>
+ 
+
+ <a class="userlink"
+ href="/u/117728682280967799759/">fid...@gmail.com</a
+></span>
+ 
+<pre>
+39楼说的很对很对，&quot;大陆人道德败坏是被共产党强制败坏的&quot;。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc55">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 02:06:18 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c55" href="/p/goagent/issues/detail?id=22092#c55">#55</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#38 国家这个词, 本身需要一种君臣民三方的共识, 各有立场, 各有所得, 各享相对的自由空间.
+
+中国曾经有过&quot;天道&quot;共识, 尊重人的欲望利益, 但是以天道制约. 不然我们的君主, 自称孤家寡人做什么? 因为政治架构能够制约他们的权欲恶性膨胀.
+
+当今的文明国家, 也是基于基督精神形成国家共识. 不要忘了, 基督代表底层民众的政治要求.从罗马帝国毒化基督到近现代人权民主启蒙运动, 拿撒勒的木匠终于回到人民中间, 代表现代文明最基准的价值观.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc56">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 02:51:49 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c56" href="/p/goagent/issues/detail?id=22092#c56">#56</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+不一定是工具，楼主言重了，不过比较吸引眼球
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 06:24:09 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=22092#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/114741054169447615112/">FanChu.C...@gmail.com</a
+></span>
+ 
+<pre>
+不关心政治就不是工具了？共匪就是要你不关心政治，做沉默的羔羊。
+不关心政治就是共匪的帮凶，成为共匪的工具。
+你不关心政治，政治关心你。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 08:19:19 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=22092#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+＃56 推荐一部片子China, a century of revolution, 一共三集的系列片。因为自己看过好几遍所以可以大胆推荐并确信不会浪费别人的时间。
+
+中共领导的暴民革命过程中，那个时代的技术人员七八成都是没脑子的人，这种感觉非常强烈，这个目测的数字也是保守的，他们手中的技术和他们本人就是不折不扣的工具。以古为镜，这话很唐突很多人也很难接受，之所以发出这样的警告为的不就是终结技术人员被人当枪使的悲剧嘛：）
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc59">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 08:26:54 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c59" href="/p/goagent/issues/detail?id=22092#c59">#59</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+人与人之间的关系就是政治, 利益分配与协商.
+
+五四运动的局限是缺乏文史研究基础, 所以提出打倒孔家店, 其实应该是朱家店.
+
+孔子是人本主义的代表, 明代以后依据朱乞丐的形象, 拿流氓文青程朱理学代替人本主义, &quot;存天理灭人欲&quot;, 公开鼓吹反人性, 鼓吹膜拜盲从. 此前的尊孔从来不是膜拜, 唐代大儒韩愈甚至提出&quot;师不必贤于弟子, 弟子不必不如师.&quot;说白了人人可以比孔子更好, 也应该更好, 因为你是后人.
+
+明代投毒文化的目的是: 灭人欲,把人当成牲口对待,死气沉沉苟活成僵尸状, 只会做事不会做人, 自觉以牲口听话的标准, 不断自我精神阉割. 那就目的达到.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc60">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 10:14:58 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c60" href="/p/goagent/issues/detail?id=22092#c60">#60</a>
+ 
+
+ <a class="userlink"
+ href="/u/110922446855674738791/">taohe...@gmail.com</a
+></span>
+ 
+<pre>
+人人有木仓就没那么复杂
+侵犯他人的都火拼淘汰掉了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc61">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jul 26 17:57:42 2015">
+ Jul 26, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c61" href="/p/goagent/issues/detail?id=22092#c61">#61</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+#58 zhangj...@gmail.com
+
+多谢推荐，过几天有空，我一定看看！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc62">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:30:04 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c62" href="/p/goagent/issues/detail?id=22092#c62">#62</a>
+ 
+
+ <a class="userlink"
+ href="/u/115456256279699830853/">chenalie...@gmail.com</a
+></span>
+ 
+<pre>
+什么概念
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22092">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22092',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22092,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

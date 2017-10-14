@@ -1,0 +1,1247 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "projectHomeUrl": "/p/goagent", "relativeBaseUrl": "", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "loggedInUserEmail": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "token": null, "projectName": "goagent", "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21601 - 
+ goagent -
+ 
+ 蓝灯的源码自编译环境终于搭建好了，以后可以自己编译了！不用再求作者了！ - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21601&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21601" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21601">21601</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >蓝灯的源码自编译环境终于搭建好了，以后可以自己编译了！不用再求作者了！</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 4 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21601">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+>,
+ <span class="date" title="Fri Jun 19 20:17:49 2015">Jun 19, 2015</span>
+ 
+ </div>
+<pre>
+蓝灯的源码自编译环境终于搭建好了，以后可以自己编译了，不用再求作者了！
+windows编译的是单文件版的，不用安装，编译完成以后，用FTP下载就可以了。
+
+可惜的是，要用自己的VPS: CentOS 7的环境，我自己本机的ubuntu没能搭建成功，怀疑是下载源被墙了，而国外的VPS网络环境畅通，所以没有这个问题 
+
+
+
+[root@vultr lantern]# make windows
+Sending build context to Docker daemon 4.608 kB
+Sending build context to Docker daemon
+Step 0 : FROM fedora:21
+ ---&gt; e26efd418c48
+Step 1 : MAINTAINER &quot;José Carlos Nieto&quot; &lt;xiam@getlantern.org&gt;
+ ---&gt; Using cache
+ ---&gt; 9890e6952523
+Step 2 : ENV GO_VERSION go1.4.2
+ ---&gt; Using cache
+ ---&gt; d9958b13629d
+Step 3 : ENV GOROOT_BOOTSTRAP /go1.4
+ ---&gt; Using cache
+ ---&gt; c27226ae220e
+Step 4 : ENV GOROOT /go
+ ---&gt; Using cache
+ ---&gt; ca1d8b693d53
+Step 5 : ENV GOPATH /
+ ---&gt; Using cache
+ ---&gt; 7225f29cf104
+Step 6 : ENV PATH $PATH:$GOROOT/bin
+ ---&gt; Using cache
+ ---&gt; 4613a4bbed50
+Step 7 : ENV WORKDIR /lantern
+ ---&gt; Using cache
+ ---&gt; c5b11e33e2c1
+Step 8 : ENV GO_PACKAGE_URL <a href="https://storage.googleapis.com/golang/go1.4.2.linux-" rel="nofollow">https://storage.googleapis.com/golang/go1.4.2.linux-</a>      amd64.tar.gz
+ ---&gt; Using cache
+ ---&gt; bfce6dab75ad
+Step 9 : RUN yum -y update &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; e9c802f275fb
+Step 10 : RUN yum install -y git tar gzip curl hostname pcre-devel mercurial &amp;&amp;       yum clean all
+ ---&gt; Using cache
+ ---&gt; 9e0ec8eebbc9
+Step 11 : RUN yum install -y gcc gcc-c++ libgcc.i686 gcc-c++.i686 pkg-config &amp;&amp;       yum clean all
+ ---&gt; Using cache
+ ---&gt; b0d4292a21a1
+Step 12 : RUN (curl -sSL $GO_PACKAGE_URL | tar -xvz -C /tmp) &amp;&amp;   mv /tmp/go $GO      ROOT_BOOTSTRAP
+ ---&gt; Using cache
+ ---&gt; f421180a459a
+Step 13 : RUN mkdir -p $GOROOT &amp;&amp;   git clone <a href="https://go.googlesource.com/go" rel="nofollow">https://go.googlesource.com/go</a> $GO      ROOT &amp;&amp;   cd $GOROOT &amp;&amp;   git checkout release-branch.go1.4
+ ---&gt; Using cache
+ ---&gt; de0ff242d5e6
+Step 14 : RUN yum install -y patch &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; a6f06533362e
+Step 15 : RUN curl <a href="https://gist.githubusercontent.com/xiam/f50f6dd6085f9a07ccfd/" rel="nofollow">https://gist.githubusercontent.com/xiam/f50f6dd6085f9a07ccfd/</a>      raw/<a href="/p/goagent/source/detail?r=5e0f472221f9c1556fe34788ff01724b63980337">5e0f472221f9c1556fe34788ff01724b63980337</a>/docker_golang | patch -p0
+ ---&gt; Using cache
+ ---&gt; 0d0bb869a51e
+Step 16 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 ./all.bash
+ ---&gt; Using cache
+ ---&gt; 096e486dab8a
+Step 17 : RUN yum install -y glibc-devel glibc-static &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; fb4cca916152
+Step 18 : RUN yum install -y glibc-devel.i686 glib2-static.i686 glibc-2.20-8.fc2      1.i686 libgcc.i686 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 0fffaebf9089
+Step 19 : RUN yum install -y mingw32-gcc.x86_64 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 17ab44965b94
+Step 20 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 GOOS=linux GOARCH=amd64 ./make.bas      h --no-clean
+ ---&gt; Using cache
+ ---&gt; 6893eb3dec4e
+Step 21 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 GOOS=linux GOARCH=386 ./make.bash       --no-clean
+ ---&gt; Using cache
+ ---&gt; eada74624a0f
+Step 22 : RUN cd $GOROOT/src &amp;&amp; CXX_FOR_TARGET=i686-w64-mingw32-g++ CC_FOR_TARGE      T=i686-w64-mingw32-gcc CGO_ENABLED=1 GOOS=windows GOARCH=386 ./make.bash --no-cl      ean
+ ---&gt; Using cache
+ ---&gt; fdf6817d59e0
+Step 23 : RUN cd $GOROOT/src &amp;&amp; GOARCH=386 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; 6c23e492aecc
+Step 24 : RUN yum install -y gtk3-devel libappindicator-gtk3 libappindicator-gtk      3-devel &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 28f9853823cf
+Step 25 : RUN yum install -y pango.i686 pango-devel.i686 gtk3-devel.i686 gdk-pix      buf2-devel.i686 cairo-gobject-devel.i686 atk-devel.i686 libappindicator-gtk3-dev      el.i686 libdbusmenu-devel.i686 dbus-devel.i686 pkgconfig.i686 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 96e13b365a3f
+Step 26 : RUN yum install -y ruby ruby-devel make &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; fa2aff7fcb18
+Step 27 : RUN gem install fpm
+ ---&gt; Using cache
+ ---&gt; e5f7fe453fc3
+Step 28 : RUN yum install -y osslsigncode mingw32-nsis &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 41a23dd054a8
+Step 29 : RUN yum install -y nodejs npm &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 27c2f39c9304
+Step 30 : RUN npm install -g gulp
+ ---&gt; Using cache
+ ---&gt; 9c11b9988d42
+Step 31 : ENV SECRETS /secrets
+ ---&gt; Using cache
+ ---&gt; a171bbe478b2
+Step 32 : RUN mkdir -p $WORKDIR
+ ---&gt; Using cache
+ ---&gt; c18487a38055
+Step 33 : RUN mkdir -p $SECRETS
+ ---&gt; Using cache
+ ---&gt; 1d3d88bde709
+Step 34 : VOLUME $WORKDIR
+ ---&gt; Using cache
+ ---&gt; 53223f1905e5
+Step 35 : WORKDIR $WORKDIR
+ ---&gt; Using cache
+ ---&gt; 2bcaf8d1c7a5
+Successfully built 2bcaf8d1c7a5
+Generating assets...
+Icon  installer-resources/windows/lantern.ico  ID:  5
+OK
+Building windows/386...
+** VERSION was not set, using git revision instead (ffc918d). This is OK while i      n development.
+Build tags:
+-rwxr-xr-x 1 root root 10502144 Jun 20 11:06 lantern_windows_386.exe
+-rw-r--r-- 1 root root  3155266 Jun 20 11:06 update_windows_386.bz2
+[root@vultr lantern]# ls
+bin                         installer-resources      run.bash
+Dockerfile                  lantern_windows_386.exe  setenv.bash
+envvars.bash.enc            Makefile                 src
+go                          pkg                      testpackages.txt
+go1.4.2.linux-amd64.tar.gz  README.md                update_windows_386.bz2
+
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 19 20:18:37 2015">
+ Jun 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21601#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+linux64的蓝灯我也编译出来了：
+
+
+[root@vultr lantern]# make linux-amd64
+Sending build context to Docker daemon 4.608 kB
+Sending build context to Docker daemon
+Step 0 : FROM fedora:21
+ ---&gt; e26efd418c48
+Step 1 : MAINTAINER &quot;José Carlos Nieto&quot; &lt;xiam@getlantern.org&gt;
+ ---&gt; Using cache
+ ---&gt; 9890e6952523
+Step 2 : ENV GO_VERSION go1.4.2
+ ---&gt; Using cache
+ ---&gt; d9958b13629d
+Step 3 : ENV GOROOT_BOOTSTRAP /go1.4
+ ---&gt; Using cache
+ ---&gt; c27226ae220e
+Step 4 : ENV GOROOT /go
+ ---&gt; Using cache
+ ---&gt; ca1d8b693d53
+Step 5 : ENV GOPATH /
+ ---&gt; Using cache
+ ---&gt; 7225f29cf104
+Step 6 : ENV PATH $PATH:$GOROOT/bin
+ ---&gt; Using cache
+ ---&gt; 4613a4bbed50
+Step 7 : ENV WORKDIR /lantern
+ ---&gt; Using cache
+ ---&gt; c5b11e33e2c1
+Step 8 : ENV GO_PACKAGE_URL <a href="https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz" rel="nofollow">https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz</a>
+ ---&gt; Using cache
+ ---&gt; bfce6dab75ad
+Step 9 : RUN yum -y update &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; e9c802f275fb
+Step 10 : RUN yum install -y git tar gzip curl hostname pcre-devel mercurial &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 9e0ec8eebbc9
+Step 11 : RUN yum install -y gcc gcc-c++ libgcc.i686 gcc-c++.i686 pkg-config &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; b0d4292a21a1
+Step 12 : RUN (curl -sSL $GO_PACKAGE_URL | tar -xvz -C /tmp) &amp;&amp;   mv /tmp/go $GOROOT_BOOTSTRAP
+ ---&gt; Using cache
+ ---&gt; f421180a459a
+Step 13 : RUN mkdir -p $GOROOT &amp;&amp;   git clone <a href="https://go.googlesource.com/go" rel="nofollow">https://go.googlesource.com/go</a> $GOROOT &amp;&amp;   cd $GOROOT &amp;&amp;   git checkout release-branch.go1.4
+ ---&gt; Using cache
+ ---&gt; de0ff242d5e6
+Step 14 : RUN yum install -y patch &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; a6f06533362e
+Step 15 : RUN curl <a href="https://gist.githubusercontent.com/xiam/f50f6dd6085f9a07ccfd/raw/5e0f472221f9c1556fe34788ff01724b63980337/docker_golang" rel="nofollow">https://gist.githubusercontent.com/xiam/f50f6dd6085f9a07ccfd/raw/5e0f472221f9c1556fe34788ff01724b63980337/docker_golang</a> | patch -p0
+ ---&gt; Using cache
+ ---&gt; 0d0bb869a51e
+Step 16 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 ./all.bash
+ ---&gt; Using cache
+ ---&gt; 096e486dab8a
+Step 17 : RUN yum install -y glibc-devel glibc-static &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; fb4cca916152
+Step 18 : RUN yum install -y glibc-devel.i686 glib2-static.i686 glibc-2.20-8.fc21.i686 libgcc.i686 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 0fffaebf9089
+Step 19 : RUN yum install -y mingw32-gcc.x86_64 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 17ab44965b94
+Step 20 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 GOOS=linux GOARCH=amd64 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; 6893eb3dec4e
+Step 21 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 GOOS=linux GOARCH=386 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; eada74624a0f
+Step 22 : RUN cd $GOROOT/src &amp;&amp; CXX_FOR_TARGET=i686-w64-mingw32-g++ CC_FOR_TARGET=i686-w64-mingw32-gcc CGO_ENABLED=1 GOOS=windows GOARCH=386 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; fdf6817d59e0
+Step 23 : RUN cd $GOROOT/src &amp;&amp; GOARCH=386 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; 6c23e492aecc
+Step 24 : RUN yum install -y gtk3-devel libappindicator-gtk3 libappindicator-gtk3-devel &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 28f9853823cf
+Step 25 : RUN yum install -y pango.i686 pango-devel.i686 gtk3-devel.i686 gdk-pixbuf2-devel.i686 cairo-gobject-devel.i686 atk-devel.i686 libappindicator-gtk3-devel.i686 libdbusmenu-devel.i686 dbus-devel.i686 pkgconfig.i686 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 96e13b365a3f
+Step 26 : RUN yum install -y ruby ruby-devel make &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; fa2aff7fcb18
+Step 27 : RUN gem install fpm
+ ---&gt; Using cache
+ ---&gt; e5f7fe453fc3
+Step 28 : RUN yum install -y osslsigncode mingw32-nsis &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 41a23dd054a8
+Step 29 : RUN yum install -y nodejs npm &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 27c2f39c9304
+Step 30 : RUN npm install -g gulp
+ ---&gt; Using cache
+ ---&gt; 9c11b9988d42
+Step 31 : ENV SECRETS /secrets
+ ---&gt; Using cache
+ ---&gt; a171bbe478b2
+Step 32 : RUN mkdir -p $WORKDIR
+ ---&gt; Using cache
+ ---&gt; c18487a38055
+Step 33 : RUN mkdir -p $SECRETS
+ ---&gt; Using cache
+ ---&gt; 1d3d88bde709
+Step 34 : VOLUME $WORKDIR
+ ---&gt; Using cache
+ ---&gt; 53223f1905e5
+Step 35 : WORKDIR $WORKDIR
+ ---&gt; Using cache
+ ---&gt; 2bcaf8d1c7a5
+Successfully built 2bcaf8d1c7a5
+Building linux/amd64...
+** VERSION was not set, using git revision instead (ffc918d). This is OK while in development.
+Build tags:
+-rwxr-xr-x 1 root root 11848043 Jun 20 11:15 lantern_linux_amd64
+-rw-r--r-- 1 root root  3111182 Jun 20 11:15 update_linux_amd64.bz2
+[root@vultr lantern]#
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 19 20:25:10 2015">
+ Jun 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21601#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+楼主真能折腾，我其实也试过在fedora 22编，可惜docker上只有21，不知道要下载多少东西，而其速度也不快，就放弃了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 19 20:34:20 2015">
+ Jun 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21601#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+主要是因为国内的下载源都被墙了，所以docker环境没有办法配好，VPS网络畅通则没有这个问题。
+Docker是一个轻量级的虚拟机，功能很强大，用来编译程序很方便
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 19 21:30:32 2015">
+ Jun 19, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21601#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+你以后干脆就直接发布编译好的版本好了，免得大家望穿秋水。：）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 00:57:30 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21601#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/112816986141695676270/">0649...@gmail.com</a
+></span>
+ 
+<pre>
+能编译一下,开机启动不自动弹网页吗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 01:24:47 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21601#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#5 你可以创建一个快捷方式，启动命令后边加上参数：-headless=true 就不弹网页了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 02:06:59 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21601#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+#6 Good!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 此法甚屌！请问怎么不让蓝灯自动设置 Windows 系统的 PAC 脚本代理呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 06:06:48 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21601#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/112816986141695676270/">0649...@gmail.com</a
+></span>
+ 
+<pre>
+#6 感谢提供解决办法
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 06:17:50 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21601#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/100015965012718812890/">democra...@gmail.com</a
+></span>
+ 
+<pre>
+谢楼主。谢#6楼。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 06:19:14 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21601#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+确实自己编译比较方便
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 06:47:57 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21601#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/104080233423458350134/">Seel...@gmail.com</a
+></span>
+ 
+<pre>
+谢楼主。谢#6楼。
+又呼吸到“新鲜“空气了！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:04:22 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21601#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我说下简要步骤:
+1.安装goLang,配好环境变量
+2.安装docker
+3.从蓝灯的github上git clone repo，然后 cd lantern,再git checkout要编译的版本
+4.make docker（创建编译环境需要的docker image虚拟机，只做一次，以后都不用做了）
+5. 编译二进制文件：make windows or make Linux-amd64，很快就能搞好。
+6.搭建ftp服务端，并把编译好的文件在本机从vps上下载下来
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21601">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21601',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21601,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

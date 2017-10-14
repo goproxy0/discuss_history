@@ -1,0 +1,3546 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-bedfc518345498ab3204d330c1727cde7e733526a09cd7df6867f6a231565091.css" media="all" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-980cd404854e87ee88b12c7281a0875365a8f966c834dc30f3f656011f7f4df6.css" media="all" rel="stylesheet" />
+  
+  
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/site-877643c520258c4fa15ac8d1664d84efd0e3db56f5e544ccac58da0e50489904.css" media="all" rel="stylesheet" />
+  
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>请使用 SiteFilters 和 RegionFilters 选项的用户尽快升级到 r859 以上版本。 · Issue #1000 · phuslu/goproxy · GitHub</title>
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta content="https://avatars1.githubusercontent.com/u/195836?v=4&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="请使用 SiteFilters 和 RegionFilters 选项的用户尽快升级到 r859 以上版本。 · Issue #1000 · phuslu/goproxy" property="og:title" /><meta content="https://github.com/phuslu/goproxy/issues/1000" property="og:url" /><meta content="autoproxy.json 除了提供 pac/gfwlist 功能，还提供了
+
+SiteFilters 针对站点选择 gae/php/direct, 可以方便策略。
+RegionFilters 针对目的 IP 归属地选择 gae/php/direct, 可以实现 APN 功能。
+
+但是之前据测试，会增大双倍内存占用， 现在这个问题已经修复。并且预计性能较之之前有提升。
+请升级或测试。谢谢。" property="og:description" />
+
+  <link rel="assets" href="https://assets-cdn.github.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="8609:2817D:78BEF72:BAB9C4C:59B3BF53" data-pjax-transient>
+  
+
+  <meta name="selected-link" value="repo_issues" data-pjax-transient>
+
+  <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="https://collector.githubapp.com/github-external/browser_event" name="octolytics-event-url" /><meta content="8609:2817D:78BEF72:BAB9C4C:59B3BF53" name="octolytics-dimension-request_id" /><meta content="sea" name="octolytics-dimension-region_edge" /><meta content="iad" name="octolytics-dimension-region_render" />
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/issues/show" data-pjax-transient="true" name="analytics-location" />
+
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+  
+
+      <meta name="hostname" content="github.com">
+  <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="Zjg1YzlhMWM0MDhiZjJmZTk3ZWU4MGExZjkzODcxY2U0OGQzYmE4NjNlNzkyYzA1ZGIzOWIyZTlmN2UxZDJlNXx7InJlbW90ZV9hZGRyZXNzIjoiMzYuMTQ5LjE5NS4xNDkiLCJyZXF1ZXN0X2lkIjoiODYwOToyODE3RDo3OEJFRjcyOkJBQjlDNEM6NTlCM0JGNTMiLCJ0aW1lc3RhbXAiOjE1MDQ5NTIxNDgsImhvc3QiOiJnaXRodWIuY29tIn0=">
+
+
+  <meta name="html-safe-nonce" content="1dfa68f2263da8b2d78986bc00d14f4fb5fd8cb3">
+
+  <meta http-equiv="x-pjax-version" content="374d3000b7ab48f823a919af6164f269">
+  
+
+      <link href="https://github.com/phuslu/goproxy/commits/master.atom" rel="alternate" title="Recent Commits to goproxy:master" type="application/atom+xml">
+
+  <meta name="description" content="Contribute to goproxy development by creating an account on GitHub.">
+  <meta name="go-import" content="github.com/phuslu/goproxy git https://github.com/phuslu/goproxy.git">
+
+  <meta content="195836" name="octolytics-dimension-user_id" /><meta content="phuslu" name="octolytics-dimension-user_login" /><meta content="27330467" name="octolytics-dimension-repository_id" /><meta content="phuslu/goproxy" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="27330467" name="octolytics-dimension-repository_network_root_id" /><meta content="phuslu/goproxy" name="octolytics-dimension-repository_network_root_nwo" /><meta content="false" name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" />
+
+
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+  </head>
+
+  <body class="logged-out env-production">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="px-2 py-4 show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+
+        <header class="Header header-logged-out  position-relative f4 py-3" role="banner">
+  <div class="container-lg d-flex px-3">
+    <div class="d-flex flex-justify-between flex-items-center">
+      <a class="header-logo-invertocat my-0" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+        <svg aria-hidden="true" class="octicon octicon-mark-github" height="32" version="1.1" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--bright d-flex flex-justify-between flex-auto">
+        <nav class="mt-0">
+          <ul class="d-flex list-style-none">
+              <li class="ml-2">
+                <a href="/features" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:features" data-selected-links="/features /features/project-management /features/code-review /features/project-management /features/integrations /features">
+                  Features
+</a>              </li>
+              <li class="ml-4">
+                <a href="/business" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:business" data-selected-links="/business /business/security /business/customers /business">
+                  Business
+</a>              </li>
+
+              <li class="ml-4">
+                <a href="/explore" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore">
+                  Explore
+</a>              </li>
+
+              <li class="ml-4">
+                    <a href="/marketplace" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:marketplace" data-selected-links=" /marketplace">
+                      Marketplace
+</a>              </li>
+              <li class="ml-4">
+                <a href="/pricing" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:pricing" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing">
+                  Pricing
+</a>              </li>
+          </ul>
+        </nav>
+
+      <div class="d-flex">
+          <div class="d-lg-flex flex-items-center mr-3">
+            <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/search" class="js-site-search-form" data-scoped-search-url="/phuslu/goproxy/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <label class="form-control header-search-wrapper js-chromeless-input-container">
+        <a href="/phuslu/goproxy/issues/1000" class="header-search-scope no-underline">This repository</a>
+      <input type="text"
+        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
+        data-hotkey="s"
+        name="q"
+        value=""
+        placeholder="Search"
+        aria-label="Search this repository"
+        data-unscoped-placeholder="Search GitHub"
+        data-scoped-placeholder="Search"
+        autocapitalize="off">
+        <input type="hidden" class="js-site-search-type-field" name="type" >
+    </label>
+</form></div>
+
+          </div>
+
+        <span class="d-inline-block">
+            <div class="HeaderNavlink px-0 py-2 m-0">
+              <a class="text-bold text-white no-underline" href="/login?return_to=%2Fphuslu%2Fgoproxy%2Fissues%2F1000" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+                <span class="text-gray">or</span>
+                <a class="text-bold text-white no-underline" href="/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+            </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+    <div id="js-flash-container">
+</div>
+
+
+
+  <div role="main">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
+    <div id="js-repo-pjax-container" data-pjax-container>
+      
+<style type="text/css" media="screen" id="issue-labels-style">
+  
+</style>
+
+
+
+
+
+
+    <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+      <div class="container repohead-details-container">
+
+        <ul class="pagehead-actions">
+  <li>
+      <a href="/login?return_to=%2Fphuslu%2Fgoproxy"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+  </a>
+  <a class="social-count" href="/phuslu/goproxy/watchers"
+     aria-label="38 users are watching this repository">
+    38
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fphuslu%2Fgoproxy"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/phuslu/goproxy/stargazers"
+      aria-label="154 users starred this repository">
+      154
+    </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fphuslu%2Fgoproxy"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+      </a>
+
+    <a href="/phuslu/goproxy/network" class="social-count"
+       aria-label="57 users forked this repository">
+      57
+    </a>
+  </li>
+</ul>
+
+        <h1 class="public ">
+  <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a href="/phuslu" class="url fn" rel="author">phuslu</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a href="/phuslu/goproxy" data-pjax="#js-repo-pjax-container">goproxy</a></strong>
+
+</h1>
+
+      </div>
+      <div class="container">
+        
+<nav class="reponav js-repo-nav js-sidenav-container-pjax"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/phuslu/goproxy" class="js-selected-navigation-item reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /phuslu/goproxy" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a href="/phuslu/goproxy/issues" class="js-selected-navigation-item selected reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /phuslu/goproxy/issues" itemprop="url">
+        <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">1,198</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/phuslu/goproxy/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /phuslu/goproxy/pulls" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">0</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+    <a href="/phuslu/goproxy/projects" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /phuslu/goproxy/projects">
+      <svg aria-hidden="true" class="octicon octicon-project" height="16" version="1.1" viewBox="0 0 15 16" width="15"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      Projects
+      <span class="Counter" >1</span>
+</a>
+
+
+    <div class="reponav-dropdown js-menu-container">
+      <button type="button" class="btn-link reponav-item reponav-dropdown js-menu-target " data-no-toggle aria-expanded="false" aria-haspopup="true">
+        Insights
+        <svg aria-hidden="true" class="octicon octicon-triangle-down v-align-middle text-gray" height="11" version="1.1" viewBox="0 0 12 16" width="8"><path fill-rule="evenodd" d="M0 5l6 6 6-6z"/></svg>
+      </button>
+      <div class="dropdown-menu-content js-menu-content">
+        <div class="dropdown-menu dropdown-menu-sw">
+          <a class="dropdown-item" href="/phuslu/goproxy/pulse" data-skip-pjax>
+            <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"/></svg>
+            Pulse
+          </a>
+          <a class="dropdown-item" href="/phuslu/goproxy/graphs" data-skip-pjax>
+            <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+            Graphs
+          </a>
+        </div>
+      </div>
+    </div>
+</nav>
+
+      </div>
+    </div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content">
+
+    
+  <div class="issues-listing" data-pjax>
+    
+      <div class="signup-prompt-bg rounded-1">
+      <div class="signup-prompt p-4 text-center mb-4 rounded-1">
+        <div class="position-relative">
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/site/dismiss_signup_prompt" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="70MKZuYON+m4u4vMxFvr0wviwWBNahUTaBmCgQZoAeGLM1NBexFwfHYokoxb7PUsngaXLR77pQfHfNbFkZ/vYw==" /></div>
+            <button type="submit" class="position-absolute top-0 right-0 btn-link link-gray" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
+              Dismiss
+            </button>
+</form>
+          <h3 class="pt-2">Join GitHub today</h3>
+          <p class="col-6 mx-auto">GitHub is home to over 20 million developers working together to host and review code, manage projects, and build software together.</p>
+          <p class="pb-2">
+            <a class="btn btn-blue" href="/join?source=prompt-issue-show" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+  <div id="show_issue" class="js-issues-results">
+
+    
+  <div
+    id="partial-discussion-header"
+    class="gh-header js-details-container Details js-socket-channel js-updatable-content issue"
+    data-channel="issue:168115924"
+    data-url="/phuslu/goproxy/issues/1000/show_partial?partial=issues%2Ftitle">
+
+  <div class="gh-header-show ">
+      <div class="gh-header-actions">
+
+          <button type="button" data-facebox="#new_issue_modal" class="btn btn-sm btn-primary float-right" data-hotkey="c" aria-haspopup="true" data-ga-click="Issues, create new issue, view:issue_show location:issue_header style:button logged_in:false">New issue</button>
+          <div id="new_issue_modal" class="d-none">
+  <div class="mt-3 mb-2 text-center">
+    <svg aria-hidden="true" class="octicon octicon-comment-discussion text-blue" height="60" version="1.1" viewBox="0 0 16 16" width="60"><path fill-rule="evenodd" d="M15 1H6c-.55 0-1 .45-1 1v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h1v3l3-3h4c.55 0 1-.45 1-1V9h1l3 3V9h1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM9 11H4.5L3 12.5V11H1V5h4v3c0 .55.45 1 1 1h3v2zm6-3h-2v1.5L11.5 8H6V2h9v6z"/></svg>
+  </div>
+
+  <div class="px-4">
+    <p class="text-center mb-4">
+      <strong>Have a question about this project?</strong> Sign up for a free GitHub account to open an issue and contact its maintainers and the community.
+    </p>
+
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/join?return_to=%2Fphuslu%2Fgoproxy%2Fissues%2Fnew" autocomplete="off" class="js-signup-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="POAdxpmns5SfGRkDnQBnHVEGNXlTwov1uUiSaNYUrGoQAuenyiiE/x/XkG6gLUoeeTmxONh7mQdTLXQw5Ycniw==" /></div>      <dl class="form-group"><dt class="input-label"><label autocapitalize="off" autofocus="autofocus" data-autocheck-authenticity-token="dvceWZ6+xwDQQmBEfYfLsDNFWbykwzsx/vrX6F2c0yqv1pa7JltYzgDgrwWpUZdsVNo1rDYfSablYS07kTsziA==" data-autocheck-url="/signup_check/username" data-facebox-id="user-login-issues" for="user_login_issues" name="user[login]">Pick a username</label></dt><dd><input autocapitalize="off" autofocus="autofocus" class="form-control" data-autocheck-authenticity-token="dvceWZ6+xwDQQmBEfYfLsDNFWbykwzsx/vrX6F2c0yqv1pa7JltYzgDgrwWpUZdsVNo1rDYfSablYS07kTsziA==" data-autocheck-url="/signup_check/username" data-facebox-id="user-login-issues" id="user_login_issues" name="user[login]" size="30" type="text" /></dd></dl>
+
+      <dl class="form-group"><dt class="input-label"><label autocapitalize="off" data-autocheck-authenticity-token="tJhpuGtoGsAbIdcj0WT7+EPOlPr2elfiAzzVz1kFE+2B8n69ZGnnjx1TQf+QMK7A6VhtdYJkBz6C/DUaJsXkZw==" data-autocheck-url="/signup_check/email" data-facebox-id="user-email-issues" for="user_email_issues" name="user[email]">Email Address</label></dt><dd><input autocapitalize="off" class="form-control" data-autocheck-authenticity-token="tJhpuGtoGsAbIdcj0WT7+EPOlPr2elfiAzzVz1kFE+2B8n69ZGnnjx1TQf+QMK7A6VhtdYJkBz6C/DUaJsXkZw==" data-autocheck-url="/signup_check/email" data-facebox-id="user-email-issues" id="user_email_issues" name="user[email]" size="30" type="text" /></dd></dl>
+
+      <dl class="form-group"><dt class="input-label"><label data-autocheck-authenticity-token="kAyrJ0DW+fCPlPhVt8pBB6/05OVtmrjNOv5B4PcotvqM4aDUD+NbKudm1vHW+pV6wj1LISg7R+M0gliKSTBGoQ==" data-autocheck-url="/signup_check/password" data-facebox-id="user-password-issues" for="user_password_issues" name="user[password]">Password</label></dt><dd><input class="form-control" data-autocheck-authenticity-token="kAyrJ0DW+fCPlPhVt8pBB6/05OVtmrjNOv5B4PcotvqM4aDUD+NbKudm1vHW+pV6wj1LISg7R+M0gliKSTBGoQ==" data-autocheck-url="/signup_check/password" data-facebox-id="user-password-issues" id="user_password_issues" name="user[password]" size="30" type="password" /></dd></dl>
+
+      <input type="hidden" name="source" class="js-signup-source" value="modal-issues">
+      <input class="form-control" id="required_field_b01e" name="required_field_b01e" style="display: none" type="text" />
+<input class="form-control" name="timestamp" type="hidden" value="1504952148182" />
+<input class="form-control" name="timestamp_secret" type="hidden" value="c715022feb073926bee882325e83d6e0064d4c97b6aa1ee82bf55141576365a6" />
+
+
+      <button class="btn btn-primary mt-2 btn-block" type="submit" data-ga-click="(Logged out) New issue modal, clicked Sign up, text:sign-up">Sign up for GitHub</button>
+</form>
+    <p class="mt-4 text-gray text-center">Already on GitHub? <a href="/login?return_to=%2Fphuslu%2Fgoproxy%2Fissues%2Fnew" data-ga-click="(Logged out) New issue modal, clicked Sign in, text:sign-in">Sign in</a> to your account</p>
+  </div>
+</div>
+
+      </div>
+
+    <h1 class="gh-header-title">
+      <span class="js-issue-title">
+        请使用 SiteFilters 和 RegionFilters 选项的用户尽快升级到 r859 以上版本。
+      </span>
+      <span class="gh-header-number">#1000</span>
+    </h1>
+  </div>
+
+
+  <div class="TableObject gh-header-meta">
+    <div class="TableObject-item">
+        <div class="State State--green">
+          <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+          Open
+        </div>
+    </div>
+    <div class="TableObject-item TableObject-item--primary">
+        <a href="/phuslu" class="author">phuslu</a>  opened this <span class="noun">Issue</span>
+        <relative-time datetime="2016-07-28T14:52:54Z">Jul 28, 2016</relative-time>
+        &middot; 35 comments
+    </div>
+  </div>
+</div>
+
+
+    <h2 class="sr-only">Comments</h2>
+    <div id="discussion_bucket" class="clearfix">
+      <div class="discussion-sidebar">
+        <div id="partial-discussion-sidebar"
+  class="js-socket-channel js-updatable-content"
+  data-channel="issue:168115924"
+  data-url="/phuslu/goproxy/issues/1000/show_partial?partial=issues%2Fsidebar">
+
+  <div class="discussion-sidebar-item sidebar-assignee js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/issues/1000?partial=issues%2Fsidebar%2Fshow%2Fassignees" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="BTBksyIDB4GX061DsFetgQjv0dHasotc9umMkB1sv0sv+dE4RSz/PWixVg7Pc5b9QyVPaETveODx1k0I8/MOCQ==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Assignees
+  </div>
+
+    <span class="css-truncate">
+    No one assigned
+</span>
+
+</form></div>
+
+  <div class="discussion-sidebar-item sidebar-labels js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/issues/1000?partial=issues%2Fsidebar%2Fshow%2Flabels" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="fIL4W+3FdhleTROKSm/28UTA8jgVdNMS9dO3mW8zYOVWS03QiuqOpaEv6Mc1S82NDwpsgYspIK7y7HYBgazRpw==" /></div>
+    <div class="js-issue-labels-container">
+      
+
+  <div class="discussion-sidebar-heading text-bold">
+    Labels
+  </div>
+
+
+    </div>
+    <div class="labels css-truncate">
+    None yet
+</div>
+
+</form></div>
+
+    <div class="discussion-sidebar-item js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/projects/issues/1000" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="p1I9/Jbl1YvKdss9U2zy6NFyQFhKmVy6msmXVG+BDbfnzHnP9VszicARtCPwTntvqYDE+avHCqGdkLxS0VgvqQ==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Projects
+  </div>
+
+    <span class="css-truncate">
+    None yet
+</span>
+
+</form></div>
+
+  <div class="discussion-sidebar-item sidebar-milestone js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/issues/1000/set_milestone?partial=issues%2Fsidebar%2Fshow%2Fmilestone" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="R3WPlT/+0ekSovk2+CQrinXUPtLVbfwvUv4w0Vr4pL9wD0ckpf1hjhzhYX4SyDKnFdGY41K6JZ29mU5JlBtJnQ==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Milestone
+  </div>
+
+      No milestone
+
+</form></div>
+
+  
+  <div id="partial-users-participants" class="discussion-sidebar-item">
+  <div class="participation">
+
+    <div class="discussion-sidebar-heading text-bold">
+      14 participants
+    </div>
+    <div class="participation-avatars">
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="phuslu" href="/phuslu"><img alt="@phuslu" class="avatar" height="26" src="https://avatars2.githubusercontent.com/u/195836?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="yqy6611" href="/yqy6611"><img alt="@yqy6611" class="avatar" height="26" src="https://avatars1.githubusercontent.com/u/13998661?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="jzp820927" href="/jzp820927"><img alt="@jzp820927" class="avatar" height="26" src="https://avatars1.githubusercontent.com/u/5740066?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="MeABc" href="/MeABc"><img alt="@MeABc" class="avatar" height="26" src="https://avatars0.githubusercontent.com/u/18194126?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="fuckGFW2015" href="/fuckGFW2015"><img alt="@fuckGFW2015" class="avatar" height="26" src="https://avatars0.githubusercontent.com/u/10451070?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="jasonliul" href="/jasonliul"><img alt="@jasonliul" class="avatar" height="26" src="https://avatars1.githubusercontent.com/u/2461165?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="wpyok500" href="/wpyok500"><img alt="@wpyok500" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/14154547?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="hcym" href="/hcym"><img alt="@hcym" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/17719498?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="linhua55" href="/linhua55"><img alt="@linhua55" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/6326116?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="dfdragon" href="/dfdragon"><img alt="@dfdragon" class="avatar" height="26" src="https://avatars1.githubusercontent.com/u/9766935?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="lazureice" href="/lazureice"><img alt="@lazureice" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/12579737?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="liweitd" href="/liweitd"><img alt="@liweitd" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/9819045?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="yaoguaishou" href="/yaoguaishou"><img alt="@yaoguaishou" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/13164891?v=4&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="blob2015" href="/blob2015"><img alt="@blob2015" class="avatar" height="26" src="https://avatars0.githubusercontent.com/u/12381704?v=4&amp;s=52" width="26" /> </a>
+    </div>
+  </div>
+</div>
+
+
+  
+
+</div>
+
+      </div>
+
+      <div class="discussion-timeline js-quote-selection-container ">
+
+        <div class="js-discussion js-socket-channel" data-channel="marked-as-read:issue:168115924">
+          
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/phuslu">
+      <img alt="@phuslu" class="avatar rounded-1" height="44" src="https://avatars1.githubusercontent.com/u/195836?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issue-168115924"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="2ad48bceb7b6894303356257247a2b20">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label text-bold tooltipped tooltipped-multiline tooltipped-s" aria-label="This user is the owner of the goproxy repository.">
+      Owner
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/phuslu" class="author">phuslu</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issue-168115924" class="timestamp"><relative-time datetime="2016-07-28T14:52:54Z">Jul 28, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>autoproxy.json 除了提供 pac/gfwlist 功能，还提供了</p>
+<ul>
+<li>SiteFilters 针对站点选择 gae/php/direct, 可以方便策略。</li>
+<li>RegionFilters 针对目的 IP 归属地选择 gae/php/direct, 可以实现 APN 功能。</li>
+</ul>
+<p>但是之前据测试，会增大双倍内存占用， 现在这个问题已经修复。并且预计性能较之之前有提升。</p>
+<p>请升级或测试。谢谢。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/yqy6611">
+      <img alt="@yqy6611" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/13998661?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-235919364"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="bdd27a9de574422e2f4a932f7af9e094">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/yqy6611" class="author">yqy6611</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-235919364" class="timestamp"><relative-time datetime="2016-07-28T14:53:45Z">Jul 28, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>社长辛苦！</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  
+    
+<div class="discussion-item discussion-item-renamed">
+  <h3 class="discussion-item-header f5 text-normal" id="event-737980400">
+
+    <span class="discussion-item-icon">
+      <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
+    </span>
+    
+
+  <img src="https://avatars0.githubusercontent.com/u/195836?v=4&amp;s=32" alt="@phuslu" height="16" width="16" class="avatar">
+  <a href="/phuslu" class="author">phuslu</a>
+  
+
+      changed the title from
+      
+      <span class="renamed-was">请使用 SiteFilters 和 RegionFilters 的用户尽快升级到 r858 以上版本。</span> to <span class="renamed-is">请使用 SiteFilters 和 RegionFilters 选项的用户尽快升级到 r859 以上版本。</span>
+    <a href="#event-737980400" class="timestamp"><relative-time datetime="2016-07-28T15:08:05Z">Jul 28, 2016</relative-time></a>
+  </h3>
+</div>
+
+
+
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-235940376"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="9adc0f7fa2371f787dd4465f07d90c33">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-235940376" class="timestamp"><relative-time datetime="2016-07-28T15:59:01Z">Jul 28, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>看来已经可以内部智能路由了。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/phuslu">
+      <img alt="@phuslu" class="avatar rounded-1" height="44" src="https://avatars1.githubusercontent.com/u/195836?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-235947040"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="79dd418434520f491b6d67d67b36626b">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label text-bold tooltipped tooltipped-multiline tooltipped-s" aria-label="This user is the owner of the goproxy repository.">
+      Owner
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/phuslu" class="author">phuslu</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-235947040" class="timestamp"><relative-time datetime="2016-07-28T16:21:31Z">Jul 28, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>嗯，在调试过程还发现一个坑。<br>
+中国政府声称台湾属于中国，ip 库也服从了这个声明。<br>
+但是 GFW 看上去并不同意这个宣告。</p>
+<p>我在 commit 的时候差点爆粗。<a href="https://github.com/phuslu/goproxy/commit/a2a340cbc54bf4c3bda3b08fb8330a21d085c3df" class="commit-link"><tt>a2a340c</tt></a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-235982336"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="aa14916e5831e2c0efea25bae9ca57bd">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-235982336" class="timestamp"><relative-time datetime="2016-07-28T18:25:25Z">Jul 28, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>具体问题，具体分析</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/MeABc">
+      <img alt="@MeABc" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/18194126?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-235994839"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="9e298493279be7ce97d77c3bf8bbca2c">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="This user has previously committed to the goproxy repository.">
+      Contributor
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/MeABc" class="author">MeABc</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-235994839" class="timestamp"><relative-time datetime="2016-07-28T19:10:02Z">Jul 28, 2016</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="MeABc edited this comment about 1 year ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>社长辛苦！</p>
+<p>反馈r859的一些情况。注: autoproxy.json 里4项全开启，两种测试模式，一个全局，一个 pac 。</p>
+<ol>
+<li>和上一个版本(r838，个人所用的上一个版本，下同)比较，性能提升很明显。</li>
+<li>全局模式下，有个别国内网站打不开。（还没有确认是不是 GP 的原因，所以暂时不表。）</li>
+<li>内存占用问题相对上一个版本，有很大改善，但好像还可以优化。下面重点说：</li>
+</ol>
+<p>"DNSCacheSize" 参数有很大影响。这里的 "DNSCacheSize" 参数主要指 direct.json 、gae.json 和 php.json 这三个配置文件里的。默认是 "DNSCacheSize": 81920 。</p>
+<p>测试配置A： "DNSCacheSize": 81920 （默认，下面简称A）<br>
+测试配置B："DNSCacheSize": 8192 （下面简称B）<br>
+内存占用以 procexp.exe 显示为准，而不是"任务管理器"。</p>
+<ol>
+<li>打开 GP 但不使用时，B 占用内存 31M， A 占用内存 62M。（正常，这不是重点。）</li>
+<li>正常使用 GP （两个视频网站且两个视频）， B 占用内存上升到 110M 以上，A 占用内存上升到 160M 以上。以 procexp.exe 里的 TCP/IP 全部断开为准（间隔时间），B 会释放内存降到 90M 左右，而 A 则一直在 160M 以上。</li>
+</ol>
+<p>但 r838 和 r859 比较，A 的区别是很明显的， r838 时 A 占用内存会上升到 300M 以上基本不会释放内存。</p>
+<p>注，以上不是严格的测试，只是正常使用下的对比。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions has-reactions js-reactions-container "
+
+    >
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/users/phuslu/reactions" class="js-pick-reaction" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="Zg72NkTIOUZnCbHvAsWsQHuieRfiMzUYcvIhfpaF3KZhe/jmy+UaRwFuRGDoiipEYFmD8RrHur1l+iKhLx+lSg==" /></div>
+      <input type="hidden" name="input[subjectId]" value="MDEyOklzc3VlQ29tbWVudDIzNTk5NDgzOQ==">
+
+      <div class="comment-reactions-options">
+          <button disabled
+                  class="btn-link reaction-summary-item tooltipped tooltipped-se tooltipped-multiline "
+                  name="input[content]"
+                  type="submit"
+                  value="THUMBS_UP react"
+                  aria-label="TonnyTonny reacted with thumbs up emoji">
+            <g-emoji alias="+1" class="emoji mr-1" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44d.png" ios-version="6.0">👍</g-emoji>
+            1
+          </button>
+      </div>
+</form></div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/fuckGFW2015">
+      <img alt="@fuckGFW2015" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/10451070?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236028563"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="e7df57d859d6a3d8412d8d1e44658100">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/fuckGFW2015" class="author">fuckGFW2015</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236028563" class="timestamp"><relative-time datetime="2016-07-28T21:19:23Z">Jul 28, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>GFW负责人是谁，其中党委书记又是谁，敢于中央保持不一致大家就应该举报这些垃圾。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jasonliul">
+      <img alt="@jasonliul" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/2461165?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236036700"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="52c3d65dae10acc00d03e9da391530ee">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jasonliul" class="author">jasonliul</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236036700" class="timestamp"><relative-time datetime="2016-07-28T21:53:20Z">Jul 28, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/phuslu" class="user-mention">@phuslu</a><br>
+中国政府声称台湾属于中国</p>
+<p>那是意淫~~<br>
+LOL</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/wpyok500">
+      <img alt="@wpyok500" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/14154547?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236076146"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="e1969d156b024bee534f921dcddbcfdc">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/wpyok500" class="author">wpyok500</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236076146" class="timestamp"><relative-time datetime="2016-07-29T02:02:55Z">Jul 29, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>gfw管不到台湾ip，跟中国ZF管不到台湾是一样一样的。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/hcym">
+      <img alt="@hcym" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/17719498?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236087487"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="b223f0486941f89787fb224db784c938">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/hcym" class="author">hcym</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236087487" class="timestamp"><relative-time datetime="2016-07-29T03:42:52Z">Jul 29, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>天热火大</p>
+<p><g-emoji alias="kissing_heart" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f618.png" ios-version="6.0">😘</g-emoji></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236112649"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="357d5a7dc90ce1bb19e0f2ad6b69e9df">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236112649" class="timestamp"><relative-time datetime="2016-07-29T07:23:30Z">Jul 29, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>喝水降火</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/hcym">
+      <img alt="@hcym" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/17719498?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236119908"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="48dfc41842b038beeb6a397e7174a94e">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/hcym" class="author">hcym</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236119908" class="timestamp"><relative-time datetime="2016-07-29T08:05:55Z">Jul 29, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>apn不用特别设置吧</p>
+<p>局域共享就可手机上网</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236124109"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="8aa57439932b18797a4a4abb4ef61b60">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236124109" class="timestamp"><relative-time datetime="2016-07-29T08:29:18Z">Jul 29, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>还真没用过手机上的APN，哪个出个手机 APN 的教程。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/linhua55">
+      <img alt="@linhua55" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/6326116?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236164713"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="8b5d7c63a5037dbcbf6cba5f8acfe47f">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/linhua55" class="author">linhua55</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236164713" class="timestamp"><relative-time datetime="2016-07-29T12:11:20Z">Jul 29, 2016</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="linhua55 edited this comment about 1 year ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/jzp820927" class="user-mention">@jzp820927</a><br>
+说一下自己的理解：<br>
+手机APN是 个网关设备， 位于 手机蜂窝网络(2G,3G,4G网) 和  互联网(因特网) 之间。供手机访问因特网用。 也就是说，只要你用手机流量上网，走的就是APN网关设备。 而手机之间的通话 是不经过这个APN网关设备的。</p>
+<p>这个APN网关设备可能位于 基站中， 将从 蜂窝网络 接收的信号/数据 转发到 因特网中，并将从因特网接收的数据 通过 蜂窝网络 传给 手机客户端中。</p>
+<p><del>其中APN网关设备可以接收几个参数，这些参数是由手机客户端设定的，APN网关设备根据这些从手机客户端接收的参数做出相应的行为。如其中有 PROXY 和 PORT 这两个可选的参数，指定了所使用HTTP代理的IP地址和端口号，从而使这个APN网关设备连接网络时，通过这个代理，不需要在Android程序中手动处理  连接代理，并将程序中的流量经过代理 的逻辑。</del></p>
+<p><del>也就是说，有两种方法可以设置并使用HTTP代理：</del></p>
+<p><del>1. 是使用APN网关设备，此时只需要在APN设置中添加PROXY 和PORT参数，不需要在Android程序中进行额外的处理。</del></p>
+<p><del>2. 是使用程序实现，手动在客户端连接代理，并将程序中的流量经过代理，此时，不能在APN设置中设置PROXY 和PORT这两个可选参数。但这样只是针对当前程序，并不是所有程序。</del></p>
+<p>手机APN设置中的 PROXY 和 PORT ，是设置手机的HTTP代理 (应该是 支持 HTTPS隧道代理的)。 <del>这个HTTP代理客户端由手机系统底层实现，不需要在手机应用中实现。</del>   手机应用可以选择使用这些设置参数来实现具体的HTTP代理客户端逻辑[3 QA2]，就像Windows系统中IE浏览器的代理设置一样，其它应用软件可以选择使用这些代理设置参数，也可以选择不使用（如谷歌地球）。可能少数手机厂商会实现透明代理（如使用redsocks来实现），从而在系统级实现代理客户端，不需要应用来实现[3 QA4]。但没有相应的设置HTTP代理 用户名和密码的参数[7][2]</p>
+<p><a href="https://github.com/phuslu" class="user-mention">@phuslu</a>  不知道这样理解对吗？</p>
+<p>有几个问题：</p>
+<ol>
+<li>如果手机系统没有实现系统级透明代理，那么有的应用可能会不支持这种代理设置，从而不经过在APN中设置的代理</li>
+<li>这个 HTTP代理应该 是/支持 HTTPS 隧道代理吧？  应该是不支持UDP协议的吧？但是如果使用中国移动的 cmwap APN网关的话，由于代理设置为 10.0.0.172:80 ， 难道它是不支持UDP协议的？</li>
+</ol>
+<p>不会现在连socks协议也不支持吧，如果是这样，说明10.0.0.172:80 不是HTTPS隧道代理<br>
+出自 <a href="http://blog.csdn.net/funnyfu0101/article/details/6337641">http://blog.csdn.net/funnyfu0101/article/details/6337641</a>  前几年的博客文章，现在应该不一样了吧。</p>
+<p>参考：<br>
+[1]<a href="https://en.wikipedia.org/wiki/Access_Point_Name">https://en.wikipedia.org/wiki/Access_Point_Name</a><br>
+[2]<a href="http://tamingthedroid.com/what-apn-settings-mean">http://tamingthedroid.com/what-apn-settings-mean</a><br>
+[3]<a href="https://superuser.com/questions/639365/what-does-a-custom-apn-profile-actually-do-and-why-do-i-have-to-re-enter-the-pr">https://superuser.com/questions/639365/what-does-a-custom-apn-profile-actually-do-and-why-do-i-have-to-re-enter-the-pr</a>    [4]<a href="http://lteuniversity.com/get_trained/expert_opinion1/b/ozachery/archive/2013/03/12/apn-fqdn-naming-structure.aspx">http://lteuniversity.com/get_trained/expert_opinion1/b/ozachery/archive/2013/03/12/apn-fqdn-naming-structure.aspx</a><br>
+[5]<a href="http://ftp1.digi.com/support/documentation/appguide_connectcellular_ipconsiderations.pdf">http://ftp1.digi.com/support/documentation/appguide_connectcellular_ipconsiderations.pdf</a><br>
+[6]<a href="http://www.qtc.jp/3GPP/Specs/23003-930.pdf">http://www.qtc.jp/3GPP/Specs/23003-930.pdf</a>   section 9.1<br>
+[7]<a href="http://tamingthedroid.com/username-password">http://tamingthedroid.com/username-password</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/dfdragon">
+      <img alt="@dfdragon" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/9766935?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236208704"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="5ffef89e7c5c51817a13df8e12368d39">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/dfdragon" class="author">dfdragon</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236208704" class="timestamp"><relative-time datetime="2016-07-29T15:17:23Z">Jul 29, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://cloud.githubusercontent.com/assets/9766935/17253168/21f11fd0-55e2-11e6-913d-7cfbcf371e91.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/9766935/17253168/21f11fd0-55e2-11e6-913d-7cfbcf371e91.png" alt="image" style="max-width:100%;"></a><br>
+说句题外话，17monipdb.dat已经有了最新版，现在的大小是2M多，ip库可以考虑一下更新了</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236229708"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="6d014c656fdc2a57506b8eb71335664a">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236229708" class="timestamp"><relative-time datetime="2016-07-29T16:37:17Z">Jul 29, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>自带的 1556587<br>
+最新的 2657479<br>
+差距还不是一般的大。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236348973"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="f2a42331e0a51e8919b28d341de8dc4d">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236348973" class="timestamp"><relative-time datetime="2016-07-30T06:58:11Z">Jul 30, 2016</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="jzp820927 edited this comment about 1 year ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>社长，autoproxy.json 能否再增加个 UrlFilters，根据 url 配置策略，比如我想 https://* 全部直连，也就是 加密协议都不走代理。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/phuslu">
+      <img alt="@phuslu" class="avatar rounded-1" height="44" src="https://avatars1.githubusercontent.com/u/195836?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236351277"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="0181f4f5f209767811cf67f9b5acd620">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label text-bold tooltipped tooltipped-multiline tooltipped-s" aria-label="This user is the owner of the goproxy repository.">
+      Owner
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/phuslu" class="author">phuslu</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236351277" class="timestamp"><relative-time datetime="2016-07-30T07:42:45Z">Jul 30, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>暂无计划。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/MeABc">
+      <img alt="@MeABc" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/18194126?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236353659"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="592d9b7f01003cd4894e6c28104305f4">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="This user has previously committed to the goproxy repository.">
+      Contributor
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/MeABc" class="author">MeABc</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236353659" class="timestamp"><relative-time datetime="2016-07-30T08:41:09Z">Jul 30, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>上图，不解释。<br>
+<a href="https://cloud.githubusercontent.com/assets/18194126/17269160/29d9d254-5674-11e6-8af4-705d96b5838d.jpg" target="_blank"><img src="https://cloud.githubusercontent.com/assets/18194126/17269160/29d9d254-5674-11e6-8af4-705d96b5838d.jpg" alt="ff" style="max-width:100%;"></a></p>
+<p>感谢社长！</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jasonliul">
+      <img alt="@jasonliul" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/2461165?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236357013"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="1a01b958573673e249a923ff36bfea62">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jasonliul" class="author">jasonliul</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236357013" class="timestamp"><relative-time datetime="2016-07-30T10:05:08Z">Jul 30, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/dfdragon" class="user-mention">@dfdragon</a><br>
+下载地址?</p>
+<p>天热, 阁下荏多废话...</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jasonliul">
+      <img alt="@jasonliul" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/2461165?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236392880"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="0213b3c7726ce876ab181ba207978b7b">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jasonliul" class="author">jasonliul</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236392880" class="timestamp"><relative-time datetime="2016-07-30T22:16:31Z">Jul 30, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><strong>17monipdb.dat 20160601</strong><br>
+<a href="https://www.upload.ee/files/6018708/17monipdb.zip.html">https://www.upload.ee/files/6018708/17monipdb.zip.html</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/lazureice">
+      <img alt="@lazureice" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/12579737?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236399054"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="759824cf9289507a03611fe8804759fc">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/lazureice" class="author">lazureice</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236399054" class="timestamp"><relative-time datetime="2016-07-31T00:32:18Z">Jul 31, 2016</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="lazureice edited this comment about 1 year ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>占用确实没有*2.<br>
+赞</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/liweitd">
+      <img alt="@liweitd" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/9819045?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236406063"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="c62257d282153d06cc2d1f99d725dae3">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/liweitd" class="author">liweitd</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236406063" class="timestamp"><relative-time datetime="2016-07-31T03:14:11Z">Jul 31, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>17monipdb.dat这个文件是干什么用的？<br>
+不需要自己找IP了吗？ <a href="https://github.com/jzp820927" class="user-mention">@jzp820927</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/MeABc">
+      <img alt="@MeABc" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/18194126?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236410801"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="4a825152f2324795561c92b76c7b9090">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="This user has previously committed to the goproxy repository.">
+      Contributor
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/MeABc" class="author">MeABc</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236410801" class="timestamp"><relative-time datetime="2016-07-31T05:09:25Z">Jul 31, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <blockquote>
+<p>17monipdb.dat这个文件是干什么用的？</p>
+</blockquote>
+<ol>
+<li></li>
+</ol>
+<p><a href="https://cloud.githubusercontent.com/assets/18194126/17274676/db1caa90-571f-11e6-8ed2-7e412be98bec.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/18194126/17274676/db1caa90-571f-11e6-8ed2-7e412be98bec.png" alt="1" style="max-width:100%;"></a></p>
+<ol start="2">
+<li></li>
+</ol>
+<p><a href="https://cloud.githubusercontent.com/assets/18194126/17274679/e557c9fe-571f-11e6-86bd-7f2a2a4f6874.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/18194126/17274679/e557c9fe-571f-11e6-86bd-7f2a2a4f6874.png" alt="2" style="max-width:100%;"></a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jasonliul">
+      <img alt="@jasonliul" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/2461165?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236413296"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="9344c8e2b8622c028b02974f397f8a4d">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jasonliul" class="author">jasonliul</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236413296" class="timestamp"><relative-time datetime="2016-07-31T06:09:39Z">Jul 31, 2016</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="jasonliul edited this comment about 1 year ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/meabc" class="user-mention">@MeABc</a><br>
+<a href="http://cdn.ipip.net/17mon/besttrace.exe">http://cdn.ipip.net/17mon/besttrace.exe</a><br>
+路由追踪程序的数据库</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/liweitd">
+      <img alt="@liweitd" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/9819045?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236413831"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="a46ceeb35e645507482980a0782a206a">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/liweitd" class="author">liweitd</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236413831" class="timestamp"><relative-time datetime="2016-07-31T06:22:38Z">Jul 31, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>谢谢！ <a href="https://github.com/meabc" class="user-mention">@MeABc</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/MeABc">
+      <img alt="@MeABc" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/18194126?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236416711"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="c8f1c56d2ad56ffbfb043c8bf43f1d69">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="This user has previously committed to the goproxy repository.">
+      Contributor
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/MeABc" class="author">MeABc</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236416711" class="timestamp"><relative-time datetime="2016-07-31T07:52:48Z">Jul 31, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/jasonliul" class="user-mention">@jasonliul</a>  嗯，了解。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/yaoguaishou">
+      <img alt="@yaoguaishou" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/13164891?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236418473"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="42887a3ef29204eeb85db84d85c3881d">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/yaoguaishou" class="author">yaoguaishou</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236418473" class="timestamp"><relative-time datetime="2016-07-31T08:44:05Z">Jul 31, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>请问goproxy有32位版本吗?</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236469072"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="cf29fe805a12ef6d4f2a0c7a4a765d8e">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236469072" class="timestamp"><relative-time datetime="2016-08-01T01:07:40Z">Aug 1, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>有，都在 release 里面</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/MeABc">
+      <img alt="@MeABc" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/18194126?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236518370"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="ae3dd484877b963368dd434500ca1d96">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="This user has previously committed to the goproxy repository.">
+      Contributor
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/MeABc" class="author">MeABc</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236518370" class="timestamp"><relative-time datetime="2016-08-01T08:22:38Z">Aug 1, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/phuslu" class="user-mention">@phuslu</a> 社长，关于 <code>全局模式下，有个别国内网站打不开。</code>  的网址我发到你邮箱了。我就不在这发了，你懂的。你有时间看下。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/blob2015">
+      <img alt="@blob2015" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/12381704?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236531569"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="25779b750e5212de8f84a5b1351ef0fa">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/blob2015" class="author">blob2015</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236531569" class="timestamp"><relative-time datetime="2016-08-01T09:23:42Z">Aug 1, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/meabc" class="user-mention">@MeABc</a><br>
+老兄，国内有些网站禁止国外ip，gae的，但是看着老兄说出来，可能不会这么简单？</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236532298"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="2fae5309555b1efe94fb3733d7379c2d">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236532298" class="timestamp"><relative-time datetime="2016-08-01T09:27:05Z">Aug 1, 2016</relative-time></a>
+
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="jzp820927 edited this comment about 1 year ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/blob2015" class="user-mention">@blob2015</a> 最新版已经支持 RegionFilters 了，内置了 17mon IP数据库，也就是可以根据 IP 数据库匹配地址位置智能路由。也就是说，现在最新版的 gp 代理国内网站，其实都是直连，不走 GAE，不信，你开着 GP 全局，访问 <a href="http://www.ip138.com%EF%BC%8Cwww.ip.cn">www.ip138.com，www.ip.cn</a> 等网站，看看就知道了。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/liweitd">
+      <img alt="@liweitd" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/9819045?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236541318"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="e72a54ee88bc9a42b49a1fe7c4044e14">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/liweitd" class="author">liweitd</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236541318" class="timestamp"><relative-time datetime="2016-08-01T10:07:55Z">Aug 1, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>RegionFilters默认下是关闭的吧？ <a href="https://github.com/jzp820927" class="user-mention">@jzp820927</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/jzp820927">
+      <img alt="@jzp820927" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/5740066?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236545774"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="e631f4b9a031f44bd28d3f93fcb0329e">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/jzp820927" class="author">jzp820927</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236545774" class="timestamp"><relative-time datetime="2016-08-01T10:30:47Z">Aug 1, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>没注意，自己开启下不就行了，我只是提醒下，现在的新工作模式。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/phuslu">
+      <img alt="@phuslu" class="avatar rounded-1" height="44" src="https://avatars1.githubusercontent.com/u/195836?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236597781"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="462c8101125d1fdcca3f114071ac96ff">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label text-bold tooltipped tooltipped-multiline tooltipped-s" aria-label="This user is the owner of the goproxy repository.">
+      Owner
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/phuslu" class="author">phuslu</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236597781" class="timestamp"><relative-time datetime="2016-08-01T14:32:11Z">Aug 1, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/meabc" class="user-mention">@MeABc</a> 来信已收到，谢谢反馈。</p>
+<p>不能重现 :(</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/MeABc">
+      <img alt="@MeABc" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/18194126?v=4&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+<div id="issuecomment-236612129"
+     class="comment previewable-edit js-comment js-task-list-container timeline-comment  "
+     data-body-version="7cb6b62f54b68f3b1d04d50ab68256a5">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="This user has previously committed to the goproxy repository.">
+      Contributor
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+      
+
+  <a href="/MeABc" class="author">MeABc</a>
+  
+
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-236612129" class="timestamp"><relative-time datetime="2016-08-01T15:19:34Z">Aug 1, 2016</relative-time></a>
+
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>。。。。</p>
+<p>看来是我不知道在哪个地方又犯了低级错误了。<br>
+但没道理啊，几十个常用的，就它一个打不开。我再看看。谢谢社长回复。</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+
+
+
+
+<!-- Rendered timeline since 2016-08-01 08:19:34 -->
+<div id="partial-timeline-marker"
+      class="js-timeline-marker js-socket-channel js-updatable-content"
+      data-channel="issue:168115924"
+      data-url="/phuslu/goproxy/issues/1000/show_partial?partial=issues%2Ftimeline_marker&amp;since=1470064774"
+      data-last-modified="Mon, 01 Aug 2016 15:19:34 GMT">
+
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/phuslu/goproxy/notifications/mark?ids=157102493" class="d-none js-timeline-marker-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="LjGhnmE1mXt9UqwQs3XiS0j8qV0BcGfNG+w+lAzHreqEOtf8sBIpi2AwAGi0thu1YWG6J987mvLQgVZSNrw4eg==" /></div>
+</form></div>
+
+
+        </div>
+
+
+        <div class="discussion-timeline-actions">
+                <div class="flash flash-warn mt-3">
+    <a href="/join?source=comment-repo" class="btn btn-primary" rel="nofollow">Sign up for free</a>
+    <strong>to join this conversation on GitHub</strong>.
+    Already have an account?
+    <a href="/login?return_to=https%3A%2F%2Fgithub.com%2Fphuslu%2Fgoproxy%2Fissues%2F1000" rel="nofollow">Sign in to comment</a>
+</div>
+
+
+        </div>
+      </div>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  </div>
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+
+      
+<div class="footer container-lg px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between py-6 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3">&copy; 2017 <span title="0.66401s from unicorn-3883566284-529fx">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li class="mr-3"><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li class="mr-3"><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage" class="footer-octicon" title="GitHub">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+    <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
+      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li class="mr-3"><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li class="mr-3"><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+    You can't perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/compat-91f98c37fc84eac24836eec2567e9912742094369a04c4eba6e3cd1fa18902d9.js"></script>
+    <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-d3f8e3cb05c4495afc78c37af32e877f99d47cb06a8158efafa2aebf5567c830.js"></script>
+    
+    <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-8a662586ed50ce5d122edec0eca4c2db052b63588ab3fc192b418f261d2d0b53.js"></script>
+    
+    
+    
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  </body>
+</html>
+

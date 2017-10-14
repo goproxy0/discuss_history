@@ -1,0 +1,1156 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "projectName": "goagent", "relativeBaseUrl": "", "loggedInUserEmail": null, "projectHomeUrl": "/p/goagent", "token": null, "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22402 - 
+ goagent -
+ 
+ 题外：中国人梦想肉翻入美国籍，美国人想的是肉翻进天堂。 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22402&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22402" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22402">22402</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >题外：中国人梦想肉翻入美国籍，美国人想的是肉翻进天堂。</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 2 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22402">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+>,
+ <span class="date" title="Sat Aug 22 07:57:35 2015">Aug 22 (2 days ago)</span>
+ 
+ </div>
+<pre>
+美国的主流社会是信仰基督教的，这一点常识应该没人会否认。信仰基督教什么意思？是想进天堂啊，从宏观上讲就是这样。
+
+似乎中国的主流社会信仰的是血缘亲情、钱、纵欲和移民美国。
+
+不知道信仰为何物，不珍视道德原则，放弃守护个人的财产，肉翻到美国其实还是奴隶。这就如同他的脚有多大，走到哪里脚印都是一样大小：）
+
+无意中闯进这个社区是因为看到Phus.Lu的一份声明在推特上被转发，大致意思是说自己从没有因为这个软件开发获得任何收入或资助云云，是主动撇清关系的那种。当时心里想啊，强国真牛逼，把一位程序员吓成这样。于是就过来看看，没想到这里这么有趣。
+
+楼上有人在讨论这里有没有党员，cym的发言永远都是真话直说，如他所言，不少人入党真的就是为了就业升职。虽然未必全部正确，但是永远原创。
+
+这里有人完整地读过一部佛经吗，有人听过讲经法师讲解过一部佛经吗？
+
+有人正在修习一部佛经吗？
+
+
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 09:42:03 2015">
+ Aug 22 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22402#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/102051527363762354674/">minorisp...@gmail.com</a
+></span>
+ 
+<pre>
+人往高处走水往低处流，对文明的追求是循序渐进的，不然墙国可能现在还在自我毁灭玩革命呢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 15:53:56 2015">
+ Aug 22 (2 days ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22402#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/104522651825521409933/">zou88866...@gmail.com</a
+></span>
+ 
+<pre>
+中国人梦想肉翻入美国籍?我不知道其它人怎么想，我是一个很少回复的人，但这次我不得不说你放屁！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 22:01:07 2015">
+ Aug 22 (44 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22402#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/111755455821357833595/">yirended...@gmail.com</a
+></span>
+ 
+<pre>
+哈哈
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 22:10:12 2015">
+ Aug 22 (44 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22402#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#2楼你得去问问令完成。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 22:38:43 2015">
+ Aug 22 (43 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22402#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/101632663002601300137/">meiantu...@gmail.com</a
+></span>
+ 
+<pre>
+如果有一个好的生活环境，相信没多少人会发美国梦。毕竟这里有你的亲人，熟悉的朋友，熟悉的生活环境，甚至爱人
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 23:02:29 2015">
+ Aug 22 (43 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22402#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/105450168595590672800/">Chan-199...@hotmail.com</a
+></span>
+ 
+<pre>
+为何是中国人就非得老死在中国，就不能离开亚洲，移民到一个相对宁静的世界？人生总得有个目标，用“移民”这个长期目标来激励自己，何尝不可？美国人去中国的首要目标是赚钱（机遇），其次是了解现代中国文化，难道他们因为是美国人，就非得留在美国了？
+
+中国人去了海外，可能会习惯性地把海外当做国内（也就中国人所说的“天朝”），按照中国的规则办事，比较少融入海外社会氛围。外国人来中国往往都毕恭毕敬的，甚至像微软为了奉承中国和中国人的意思，在Bing搜寻引擎上加入审核机制，给人的感觉有点像“哎呀有点怕你们中国人喔”。
+
+又不是说中国跟美国比就没有存在感了，一无是处。怎么说中国是个机遇市场，可以在这里努力赚钱。至于美国，则是个理想移民地之一，毕竟地广人稀，生活相对来说休闲，而且总体社会氛围比亚洲要好，人的思想意识相对来说比较中立。本质的东西确实没法比的，不是花个十几年就能赶上的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 23:12:48 2015">
+ Aug 22 (43 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22402#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/105450168595590672800/">Chan-199...@hotmail.com</a
+></span>
+ 
+<pre>
+#5 我也是这么认为。
+
+每个国家有每个国家特色，美国可以输出它的价值观，虽然不见得中国人、中东人会乐意去了解，但它（美国）的软实力确实有一定的吸引力（前提是未受到中国政史课本影响）。
+
+中国人既然很难做到中立，没办法输出能够让大众自愿去了解的价值观，那也得扮演全世界的“摇钱树”这个角色。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug 22 23:13:00 2015">
+ Aug 22 (43 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22402#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/115083367162185833266/">huangjia...@gmail.com</a
+></span>
+ 
+<pre>
+在美国只要你自己有能力，就可以掌握自己的命运。在中国就不是这么回事了，等你发了财还整天提心吊胆哪天政府来把你办了。中国政府的权利太大了，道德和法律根本没用。人就活这么一次，追寻幸福无可厚非，能肉翻当然最好了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 00:47:52 2015">
+ Aug 23 (41 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22402#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+Lz, 基督教的天堂就是丑恶的真实人生.
+光头装不了和尚. :)
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 12:58:27 2015">
+ Yesterday (29 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22402#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/110605763100963517213/">Heiligep...@gmail.com</a
+></span>
+ 
+<pre>
+装神弄鬼喜欢鼓捣大词学造句玩弄宏大叙事的半瓶醋也赶着来google code打烊前留last words了。
+
+哈哈，拉倒吧，谈论信仰这类延伸和周边话题知乎貌似更靠谱更体面，而且的确更中肯一些。不过在这里骗骗技术员道是更容易。
+
+。。。转引梁道长一个现成的表述，据道长考察，传统宗教社会的道德质素，并不必然比非宗教国家高。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 13:46:36 2015">
+ Yesterday (28 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22402#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/110605763100963517213/">Heiligep...@gmail.com</a
+></span>
+ 
+<pre>
+一张口：“美国的主流社会是信仰基督教的，这一点常识应该没人会否认。信仰基督教什么意思？是想进天堂啊”，就自证了成色，进天堂啊？美国主流？这显然默认了是拿美国中下层，非文化阶层，以及城乡结合部小资还有新移民当主流嘛。由此推断楼主的鉴赏力、判断力和口味层次也靠谱不到哪里去。
+
+再援引方肘子，如果你肯拿代表知识主流的美国科学院作下信仰调查（更具体的新语丝有数据和讨论，比如实证科学家如生物学家比起逻辑学家及数学家再比起非科学家和文科生是次第更不信宗教的），如果你肯把代表社会未来的年轻人放进调查，如果你肯考虑日渐兴起的所谓新无神论，你会由衷地感到仅凭着对彼岸事物的道听途说再加想像臆测就信口开河是个很不好的习惯。
+
+另外你得确信你分得清自由派和原教旨宗教的区别。比如，如果主教图图和你宣讲信仰，如果总统奥巴马谈及基督教，那显然实际上内涵上是在讲自由派基督教，或者在公共空间作为谈论策略甚至是讨好多数人乃至只是为了不得罪选票暴民不伤害玻璃心们的绥靖性的非正统基督教或“伪基督教”。
+
+宗教语言再漂亮堂皇，也是沙滩高楼，空中楼阁。信仰再强大，即使一时救得了火，也救不了人一世。短期看，它虽然可以使得一些反抗者异议人士坚韧顽强，给穷苦受难的人以慰藉和希望，但长远看，它也只不过使得人类盲目躁狂，冥顽不灵。非匪撰的无数历史事实也都记载了人类千多年的纷争灾难里，大都少不了宗教的影响或影子。
+
+人区别于动物的本质是理性，而理性的最好手段和成就，到目前为止，也只有科学。不断试错并校正自身的科学，是唯一最准确的，描述世界和事实的语言以及元语言，即所谓“神的语言”。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 16:24:20 2015">
+ Yesterday (26 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22402#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+神性意识不能丢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 23 23:00:50 2015">
+ Yesterday (19 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22402#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/109094320239918011176/">TMH8...@gmail.com</a
+></span>
+ 
+<pre>
+同意 楼主的观点。本来，当初五月花号的清教徒来到美洲就是为了荣耀上帝的，他们做到了，只通过200多年的努力 ，他们就成为世界老大。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 24 03:21:06 2015">
+ Today (15 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22402#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+对于自然科学家的探索和成就我尊重，对于自然科学的有限性我知晓一二。对于古圣先贤的言传身教我完全采信。
+当一个人投资时间于信仰和心灵的奥秘的时候，…我觉得唯有这样才叫不枉此生不虚此行，不然那真叫人活一世草木一秋，人于草木无异。
+翻墙出境直抒胸臆：）
+PS 高级的奴役是心灵的麻醉和禁锢，这要靠关于心灵的正确知识来破除，这是……真真正正的翻山越岭突破长城包围墙。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 24 06:33:29 2015">
+ Today (11 hours ago)
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22402#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+#13 别扯了, 是为了生活.
+
+中国人不是没有过信仰, 我们曾经信仰&quot;天道&quot;. 四书五经里面有一本不是儒家的, 就是&lt;易&gt;, 经验实用主义研究社会人文科学的著作, 历史政治从来不是逻辑科学.
+中国人信奉的是永远的变化, 变易. 尊重现实, 活得实在, 少放空屁.
+
+所有的信仰都是为了生活, 不是苟活.然后妄想骨灰不是拿来肥田, 而是供奉.
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22402">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22402',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22402,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+
