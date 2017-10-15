@@ -1,0 +1,2375 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"projectHomeUrl": "/p/goagent", "projectName": "goagent", "profileUrl": null, "domainName": null, "relativeBaseUrl": "", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "token": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21784 - 
+ goagent -
+ 
+ 既然大家都在抱怨GoProxy不知道怎么用，那我就抛砖引玉开个教程吧！ - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21784&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21784" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21784">21784</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >既然大家都在抱怨GoProxy不知道怎么用，那我就抛砖引玉开个教程吧！</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 25 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21784">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+>,
+ <span class="date" title="Tue Jul  7 23:18:42 2015">Jul 7, 2015</span>
+ 
+ </div>
+<pre>
+1：下载相应的文件，并解压。
+2：修改gae.json,iplist.json,main.json如下，注意每行之前都是几个tab键而不是空格键，对齐就好:
+iplist.json : &quot;google_hk&quot;: [
+			&quot;xx.xxx.xxx.xxx&quot;,
+			&quot;xx.xxx.xxx.xxx&quot;,
+			&quot;xx.xxx.xxx.xxx&quot;,
+			&quot;xx.xxx.xxx.xxx&quot;,
+			&quot;xx.xxx.xxx.xxx&quot;
+		]
+gae.json: &quot;appids&quot;: [
+		&quot;appid1&quot;,
+		&quot;appid2&quot;,
+		&quot;appid3&quot;,
+		&quot;appid4&quot;,
+		&quot;appid5&quot;
+	],
+main.json: 		&quot;roundtrip&quot;: [
+			&quot;autoproxy&quot;,
+			&quot;auth&quot;,
+			// &quot;iplist&quot;,
+			&quot;gae&quot;,
+			&quot;php&quot;,
+			&quot;direct&quot;
+		],
+3：运行客户端，linux下是 goproxy，windows下也是goproxy.exe，双击就可以，然后导入证书，名字是goagent.crt。
+4：然后在switchsharp里面新建代理, scheme:default, protocal:http, server: 127.0.0.1, port: 8000
+
+然后大大功告成，打完收工。
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul  7 23:49:07 2015">
+ Jul 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21784#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/113359489128203152666/">djd...@gmail.com</a
+></span>
+ 
+<pre>
+感谢楼主，能用了，但速度和GoAgent相差无几，甚至感觉更慢一点，而且以后这样更换IP，一个个的复
+
+制替换，比较麻烦，XVIDEOS也上不了，总之，没GoAgent方便，速度没GOA快，所以现在还没有用
+
+GoProxy的理由。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul  8 00:10:29 2015">
+ Jul 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21784#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+#2 找到问题所在了，<a href="https://github.com/syncthing/syncthing/issues/1814" rel="nofollow">https://github.com/syncthing/syncthing/issues/1814</a>
+正在研究。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul  8 00:10:57 2015">
+ Jul 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21784#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#2 本人不负责解答此类问题，有bug还需提交phuslu大神，这也是大家使用测试版软件的意义之所在。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul  8 00:21:49 2015">
+ Jul 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21784#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+做个记录 <a href="http://mail-index.netbsd.org/current-users/2015/05/19/msg027431.html" rel="nofollow">http://mail-index.netbsd.org/current-users/2015/05/19/msg027431.html</a>
+
+#5 推荐你是下 windows_386 的版本，看看是否能用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul  8 00:27:19 2015">
+ Jul 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21784#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/109915319819232866192/">qgt...@gmail.com</a
+></span>
+ 
+<pre>
+巧用word的查找替换，可以很方便的把goagent的iplist转入到goproxy。
+查找内容 | (|是goagent的间隔符，如果是空格或者回车，也可以换成空格或者^p)
+替换为&quot;,^p&quot;  这样替换后，第一个ip上补上一个引号，最后一个IP也处理一下就OK了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul  8 00:47:27 2015">
+ Jul 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21784#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#8 呼叫扫描鸡大仙更新一下，添加类似功能就搞定了么。哈哈哈
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  9 01:12:43 2015">
+ Jul 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21784#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/110642520286801552994/">open0...@gmail.com</a
+></span>
+ 
+<pre>
+等goproxy稳定了能否请xx-net兼容一下？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 10 23:48:31 2015">
+ Jul 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21784#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/109479465780387936264/">credit....@gmail.com</a
+></span>
+ 
+<pre>
+dial tcp 74.125.23.102:443: ConnectEx tcp: i/o timeout  咋回事啊 要不就是现实不是安全连接
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 03:34:41 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21784#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/105260796531790740057/">crystalf...@gmail.com</a
+></span>
+ 
+<pre>
+#13我也是这个问题。。。。不知道是什么情况啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 03:46:15 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21784#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+把你们的 gae.json    iplist.json 都贴出来，APPID和IP用XXXXXXXX代换，免得暴露。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul 11 03:52:29 2015">
+ Jul 11, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21784#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+#13 换ip，74.125.23.102这个不能用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 13 08:50:39 2015">
+ Jul 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21784#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/114445474815645273841/">ych5...@gmail.com</a
+></span>
+ 
+<pre>
+打开goagent.exe后
+F0713 23:49:07.891439    3788 gae.go:32] NewConfig(&quot;gae.json&quot;) failed: invalid character '&quot;' after array element
+goroutine 1 [running, locked to thread]:
+github.com/golang/glog.stacks(0xb64f00, 0x0, 0x0, 0x0)
+        /home/phuslu/GOPATH/src/github.com/golang/glog/glog.go:766 +0xd4
+github.com/golang/glog.(*loggingT).output(0xb58900, 0xc000000003, 0xc0820b7980, 0xb0b054, 0x6, 0x20, 0x0)
+        /home/phuslu/GOPATH/src/github.com/golang/glog/glog.go:717 +0x28a
+github.com/golang/glog.(*loggingT).printf(0xb58900, 0xc000000003, 0x945830, 0x19, 0xc082019f38, 0x2, 0x2)
+        /home/phuslu/GOPATH/src/github.com/golang/glog/glog.go:655 +0x1f6
+github.com/golang/glog.Fatalf(0x945830, 0x19, 0xc082019f38, 0x2, 0x2)
+        /home/phuslu/GOPATH/src/github.com/golang/glog/glog.go:1145 +0x6b
+_/home/phuslu/goproxy/httpproxy/filters/gae.init·1()
+        /home/phuslu/goproxy/httpproxy/filters/gae/gae.go:32 +0x21f
+_/home/phuslu/goproxy/httpproxy/filters/gae.init()
+        /home/phuslu/goproxy/httpproxy/filters/gae/gae.go:108 +0x147
+main.init()
+        /home/phuslu/goproxy/goproxy/main.go:270 +0x67
+是怎么回事啊  goproxy点开后没有进程
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 13 08:57:30 2015">
+ Jul 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21784#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#17
+检查appids的标点符号
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 13 13:06:21 2015">
+ Jul 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21784#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/117554922988011894473/">a1331868...@gmail.com</a
+></span>
+ 
+<pre>
+作者能解决下soundcloud的问题嘛
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 15 09:27:40 2015">
+ Jul 15, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21784#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/110396079013038083919/">image.so...@gmail.com</a
+></span>
+ 
+<pre>
+多谢楼主，已经用上了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 07:48:44 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21784#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/105521073072775127724/">dehp...@gmail.com</a
+></span>
+ 
+<pre>
+打开chrome怎么弹出了支付宝的证书确认界面
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 16 08:35:58 2015">
+ Jul 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21784#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/105773754172221224141/">gcy954...@gmail.com</a
+></span>
+ 
+<pre>
+不會用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 05:45:10 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21784#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/118434812635069362238/">vivs...@gmail.com</a
+></span>
+ 
+<pre>
+按照楼主的方法修改了对应的3个文件后，双击goagent.exe,
+弹出一个错误对话框：
+内容：
+ExecCmdline &quot;goproxy.exe -v=2&quot; failed!
+
+请教大家这个问题怎么破？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 06:16:29 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21784#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#23 windows我不常用，要不你点击一下同一目录下的goagent.exe。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 07:16:27 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21784#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/105773754172221224141/">gcy954...@gmail.com</a
+></span>
+ 
+<pre>
+我的没有goproxy exe   点这个goporxy叫我选择方式打开
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 11:25:00 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21784#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/116770532081293800841/">lin95645...@gmail.com</a
+></span>
+ 
+<pre>
+#24 
+和#23同样问题goproxy.exe -v=2 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 19:19:42 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21784#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/111445401667509811800/">wsq.wea...@gmail.com</a
+></span>
+ 
+<pre>
+GoProxy用了，很不错稳定快速。
+谢谢楼主的科普。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 21:56:24 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21784#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/111574470996026564793/">GJBG1...@gmail.com</a
+></span>
+ 
+<pre>
+同样的操作，唯有windows_386-<a href="/p/goagent/source/detail?r=112">r112</a>版正常工作。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 03:37:24 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21784#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/115369799491787332200/">gzcl...@gmail.com</a
+></span>
+ 
+<pre>
+win下挺悲剧的，下了几个版本哦，goproxy.exe都不是可执行文件 ，打开让你选择执行方式？死循环了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:24:12 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21784#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+我做第三步的时候，双击goproxy.exe闪退，怎么办啊？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:24:46 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21784#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+XP SP2系统，以前弄GAE都没问题
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 30 05:32:08 2015">
+ Jul 30, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21784#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/108443240596657950742/">rlee.pub...@gmail.com</a
+></span>
+ 
+<pre>
+感谢楼主, 另外帮忙补充2句.
+
+main.json里,
+没开php或vps的
+可以把这些都//注释掉,留着iplist和gae就行.
+
+导入证书,建议:
+Goproxy目录里有个证书管理小工具certmgr.exe,运行他,
+直接点import,一路next下去,选GoAgent.crt后,会询问放到那个类别(store)中,点选上面那个自动选择,再next.
+
+另外,用word替换ip地址的,一定要注意标点符号,尤其是两个引号.
+闪退的看下是不是这个原因.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 00:14:07 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=21784#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/104408105920610331290/">marco.ts...@gmail.com</a
+></span>
+ 
+<pre>
+33楼应该能解开大部分闪退的情况了,我也受益其中,谢谢
+顶一下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 00:51:57 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=21784#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+goagent有ipv6模式，本人受益匪浅。当ipv4不停地倒下，Ipv6至今坚挺如故！
+请问goproxy有ipv6模式吗？谢谢。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 01:51:15 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c36" href="/p/goagent/issues/detail?id=21784#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#35 接下来会加上前置代理和 ipv6 的支持。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 01:54:36 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=21784#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#36 我这里深圳联通ipv6不可用，可惜了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 02:35:55 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=21784#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/111811022902337508517/">warmingf...@gmail.com</a
+></span>
+ 
+<pre>
+@phuslu 
+
+使用 http:// 非加密 php 服务器时， GFW 能在流量中看到 refer 等信息，可否把 php 流量混淆一下呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 03:27:02 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=21784#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#36 能不能给vps/php/gae分别单独设置前置代理开关呢？goa是统一的，很不方便的。希望lu老大考虑下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 05:45:01 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=21784#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/104904872443703778053/">sujian90...@gmail.com</a
+></span>
+ 
+<pre>
+请问下，  都弄好了，可是运行后出现405   是什么意思。。求解
+
+I0731 20:44:22.093750    4692 php.go:110] 127.0.0.1:2237 &quot;PHP GET <a href="https://www.yo" rel="nofollow">https://www.yo</a>
+utube.com/watch?v=7ETJ_F3bAnI HTTP/1.1&quot; 405
+I0731 20:44:22.437500    4692 php.go:110] 127.0.0.1:2237 &quot;PHP GET <a href="https://www.yo" rel="nofollow">https://www.yo</a>
+utube.com/favicon.ico HTTP/1.1&quot; 405
+I0731 20:44:22.546875    4692 stripssl.go:126] 127.0.0.1:2242 &quot;STRIP CONNECT tra
+nslate.google.com:443 HTTP/1.1&quot; - -
+I0731 20:44:23.359375    4692 php.go:110] 127.0.0.1:2242 &quot;PHP GET https://transl
+ate.google.com/translate_a/element.js?cb=TECB_1E07F158C6FA4460B352973E9693B329&amp;c
+lient=tee&amp;hl=zh-CN HTTP/1.1&quot; 405
+I0731 20:44:25.921875    4692 php.go:110] 127.0.0.1:2243 &quot;PHP POST http://101.22
+7.10.22:10000/heartbeat?f=030002070050EDD1C07138017C281EA3D61B41-25F8-0171-9F3C-
+074FC7E6150B HTTP/1.1&quot; 405
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 09:01:06 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=21784#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/108443240596657950742/">rlee.pub...@gmail.com</a
+></span>
+ 
+<pre>
+#40
+请阅读#33
+你有php么?有就在php.json里先设置好,没有就注释掉.
+
+楼主的教程是教人学会使用,不是抄了就能用.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 11:19:32 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=21784#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/113131070995548884407/">kan11ji...@gmail.com</a
+></span>
+ 
+<pre>
+405 Not Allowed,
+请问有碰到过这个问题吗？望解决
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 31 17:55:43 2015">
+ Jul 31, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=21784#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+#35:谢谢！前置也非常重要。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  1 02:33:28 2015">
+ Aug 1, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=21784#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/104904872443703778053/">sujian90...@gmail.com</a
+></span>
+ 
+<pre>
+#42  兄台， 改好了。  可是又出现了
+
+I0801 17:29:51.343750    5940 gae.go:125] 127.0.0.1:2715 &quot;GAE POST http://site.b
+rowser.360.cn/index.php HTTP/1.1&quot; 500
+I0801 17:29:53.859375    5940 gae.go:125] 127.0.0.1:2808 &quot;GAE GET <a href="https://www.yo" rel="nofollow">https://www.yo</a>
+utube.com/feed/watch_later HTTP/1.1&quot; 500
+I0801 17:29:56.250000    5940 gae.go:125] 127.0.0.1:2808 &quot;GAE GET <a href="https://www.yo" rel="nofollow">https://www.yo</a>
+utube.com/favicon.ico HTTP/1.1&quot; 500
+I0801 17:29:57.265625    5940 gae.go:125] 127.0.0.1:2827 &quot;GAE GET https://transl
+ate.google.com/translate_a/element.js?cb=TECB_1E07F158C6FA4460B352973E9693B329&amp;c
+lient=tee&amp;hl=zh-CN HTTP/1.1&quot; 500
+I0801 17:29:57.328125    5940 gae.go:125] 127.0.0.1:2715 &quot;GAE POST http://site.b
+rowser.360.cn/index.php HTTP/1.1&quot; 500
+I0801 17:30:00.281250    5940 gae.go:125] 127.0.0.1:3160 &quot;GAE POST http://183.61
+.116.18:10009/heartbeat?f=0300020700514CB68B7714017C281E65443D1C-574D-A13F-D096-
+67E0344F8D5C HTTP/1.1&quot; 500
+
+求帮助
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 03:34:02 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=21784#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/101308065880214122330/">imy...@gmail.com</a
+></span>
+ 
+<pre>
+404. That’s an error.
+
+The requested URL /_gh/ was not found on this server. That’s all we know.
+这是为什么呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Aug  4 03:38:51 2015">
+ Aug 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=21784#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+#46 下载3.2版本的GoAgent重新上传一遍appid
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc48">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Aug  5 20:19:03 2015">
+ Aug 5, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c48" href="/p/goagent/issues/detail?id=21784#c48">#48</a>
+ 
+
+ <a class="userlink"
+ href="/u/103116328884248603652/">jay52881...@gmail.com</a
+></span>
+ 
+<pre>
+看不懂，goproxy需要上传appid吗？
+只需要修改gae.json: &quot;appids&quot;: [
+		&quot;appid1&quot;,
+		&quot;appid2&quot;,
+		&quot;appid3&quot;,
+		&quot;appid4&quot;,
+		&quot;appid5&quot;
+	],就行了嘛？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug 16 18:54:24 2015">
+ Aug 16, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=21784#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/108119139250403633778/">seanhs...@gmail.com</a
+></span>
+ 
+<pre>
+也是#13、#14的问题，
+
+dial tcp 216.58.212.133:443: i/o timeout
+dial tcp 74.125.193.90:443: i/o timeout
+
+#16，请问怎么换IP呀？iplist里没加这几个IP，proxy.ini里面也找不到，应该去哪个文件换呢？
+
+PS:直接用local文件夹里的goagent.uv没问题，用goproxy和goagent则有上述问题.
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21784">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21784',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21784,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

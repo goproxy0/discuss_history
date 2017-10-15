@@ -1,0 +1,3594 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"domainName": null, "projectName": "goagent", "token": null, "projectHomeUrl": "/p/goagent", "relativeBaseUrl": "", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21572 - 
+ goagent -
+ 
+ 小白请教 GVS ip 从哪里弄？ - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21572&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21572" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21572">21572</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >小白请教 GVS ip 从哪里弄？</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 8 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21572">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+>,
+ <span class="date" title="Wed Jun 17 17:56:14 2015">Jun 17, 2015</span>
+ 
+ </div>
+<pre>
+如题，小白请教 GVS ip 从哪里弄？， 谢谢
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:00:30 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21572#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+下载最新版checkgoogleip就能扫到，下载解压后放到GoAgent目录，双击checkip.bat扫描 <a href="https://github.com/moonshawdo/checkgoogleip/" rel="nofollow">https://github.com/moonshawdo/checkgoogleip/</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:31:40 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21572#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢 #1 , 下载了，放到goagent文件夹，运行checkip.bat 提示“不是内部或外部命令，无法运行，按任意键退出”.................... 请问这个是怎么回事呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:33:19 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21572#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+另外 “下载解压后放到GoAgent目录” ，是把解压后的文件夹复制到goagent的目录么？复制到哪个目录？ local ? server ? 还是和local与server在同一个目录下？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:43:33 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21572#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+楼主，你干脆下个python 2.7.10 windows安装包，然后运行 python checkip.py。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:43:52 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21572#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/115797144381963246600/">zhangcs....@gmail.com</a
+></span>
+ 
+<pre>
+把解压后的两个文件checkip.bat和checkip.py复制到goagent local目录下，cacert.pem不用复制，local下本来就有，双击checkip.bat.
+1楼把链接都贴给你了，你都不带看的吗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:44:30 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21572#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+这东西找IP，哗哗的跟下雨似的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:48:25 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21572#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+GoAgent目录当然是local目录，server上传后就可以删掉的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:50:58 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21572#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/117158790449271841902/">5linh...@gmail.com</a
+></span>
+ 
+<pre>
+还是推荐xx-net
+<a href="https://github.com/XX-net/XX-Net" rel="nofollow">https://github.com/XX-net/XX-Net</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 18:53:49 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21572#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢楼上各位，我去下载个python 2.7.10安装包，
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:22:22 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21572#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+小白继续请教 #6 ，扫描完毕，然后下一步呢？ 把扫描得到的ip放到哪里去？还是什么都不用做直接打开goagent即可使用？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:30:31 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21572#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#10 google_hk = xx.xx.xx.xx|xx.xx.xx.xx|xx.xx.xx.xx，把xx.xx.xx.xx替换成你找的IP。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:34:18 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21572#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+要放到proxy.user.ini 这里面？ 那这几百个ip如何批量加入呢？是每个ip后面都要加个“|”啊？？？手动一个个加？累死啦！？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:34:55 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21572#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+回复 #11 ， 谢谢。 
+那这几百个ip如何批量加入呢？是每个ip后面都要加个“|”啊？？？手动一个个加？累死啦！？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:35:23 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21572#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/104678207625893535338/">whhxm...@gmail.com</a
+></span>
+ 
+<pre>
+你看下载来的那个解压包里面有一个使用说明的。。。
+粘贴进goagent3.2.3_gvs\local\proxy.ini替换[iplist]即可。
+这些都是编程高手的理解。。
+iplist是一个编程记号位置。
+iplist下有个
+google_cn =（这里有个空格好留着）粘帖在这里
+google_hk =（这里有个空格好留着）粘在这里
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:38:54 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21572#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#13 貌似要awk sed把IP 挑出来，具体命令我也不懂，呼唤scattere大神。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:41:15 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21572#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+#13 新建记事本，复制下方代码，另存为 bandip.py，放到 checkgoogleip 目录下，然后运行 python bandip.py 即可生成一个 ip_bind.txt，而且ip延时都是1000以内，延时多少可以自行更改。
+
+iplist = []
+with open('ip_tmpok.txt') as ip_tmpok:
+    for x in ip_tmpok:
+        sline = x.strip().split(' ')
+        iplist.append(sline)
+with open('ip_bind.txt', 'w') as ip_bind:
+    iplist.sort(key=lambda x: int(x[1]))
+    out = '|'.join(x[0] for x in iplist if int(x[1]) &lt; 1000)
+    ip_bind.write(out)
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:41:21 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21572#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢 #14 我已经学习到了要把ip放在这里，但是问题是，这么多ip如果要一个个的加“|”，要累死啦。 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:42:21 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21572#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+#16  学习了，我去试试看，多谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:43:02 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21572#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+#15  感谢您的耐心解说，小白谢谢您了 ，呵呵
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:50:33 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21572#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#16 ip_tmpno里面GVS更多，你可以把这个加进py里面去
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:54:59 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21572#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+ip_tmpno.txt 里面只有两个ip：
+66.102.136.1 799 www.hudforeclosed.com 
+64.233.171.188 6230 *.google.com 
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:57:53 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21572#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我的ip_tmpno：
+
+210.242.125.58 10546 *.googlevideo.com gvs 1.0
+210.242.125.21 10826 *.googlevideo.com gvs 1.0
+210.242.125.36 10889 *.googlevideo.com gvs 1.0
+210.242.125.43 10812 *.googlevideo.com gvs 1.0
+193.120.166.116 10984 *.googlevideo.com gvs 1.0
+74.125.100.118 11950 *.c.docs.google.com gvs 1.0
+146.148.8.87 11826 *.vindicosuite.com 
+130.211.76.189 11966 *.pathintelligence.com 
+193.120.166.122 11919 *.googlevideo.com gvs 1.0
+193.92.133.42 12091 *.googlevideo.com gvs 1.0
+193.120.166.103 11498 *.googlevideo.com gvs 1.0
+86.127.118.145 12044 *.googlevideo.com gvs 1.0
+81.175.29.160 12200 *.googlevideo.com gvs 1.0
+193.92.133.28 12419 *.googlevideo.com gvs 1.0
+62.116.207.7 13027 *.googlevideo.com gvs 1.0
+202.69.26.72 7909 *.pingan.com.cn 
+210.242.125.52 7909 *.googlevideo.com gvs 1.0
+210.242.125.33 8018 *.googlevideo.com gvs 1.0
+66.102.133.180 8221 www.teendrivescotland.co.uk 
+24.156.131.111 13698 *.googlevideo.com gvs 1.0
+210.242.125.46 8409 *.googlevideo.com gvs 1.0
+85.182.250.144 8596 *.googlevideo.com gvs 1.0
+24.156.131.43 8737 *.googlevideo.com gvs 1.0
+194.78.20.22 8846 *.ringring.be 
+130.211.78.179 9173 *.qork.it 
+195.249.20.243 9173 *.googlevideo.com gvs 1.0
+94.40.70.54 9048 *.googlevideo.com gvs 1.0
+81.175.29.168 9298 *.googlevideo.com gvs 1.0
+193.120.166.115 1060 *.googlevideo.com gvs 1.0
+202.69.26.20 202 *.pingan.com.cn 
+86.127.118.146 9517 *.googlevideo.com gvs 1.0
+194.78.99.234 9824 *.googlevideo.com gvs 1.0
+118.174.27.231 9765 *.googlevideo.com gvs 1.0
+178.60.128.55 1887 *.googlevideo.com gvs 1.0
+81.175.29.184 15319 *.googlevideo.com gvs 1.0
+195.249.20.199 15444 *.googlevideo.com gvs 1.0
+195.249.20.239 1201 *.googlevideo.com gvs 1.0
+146.148.8.217 3047 *.pathintelligence.com 
+194.78.99.156 2383 *.googlevideo.com gvs 1.0
+208.117.233.114 1756 *.googlevideo.com gvs 1.0
+208.117.252.49 1791 *.c.docs.google.com gvs 1.0
+210.242.125.47 1724 *.googlevideo.com gvs 1.0
+193.92.133.48 3104 *.googlevideo.com gvs 1.0
+210.242.125.23 1842 *.googlevideo.com gvs 1.0
+208.117.236.97 17675 *.c.docs.google.com gvs 1.0
+118.174.27.41 17081 *.googlevideo.com gvs 1.0
+118.174.27.228 12026 *.googlevideo.com gvs 1.0
+208.117.231.80 13478 *.googlevideo.com gvs 1.0
+208.117.236.121 15164 *.c.docs.google.com gvs 1.0
+94.40.70.47 3543 *.googlevideo.com gvs 1.0
+81.175.29.146 3667 *.googlevideo.com gvs 1.0
+93.183.211.198 15118 *.googlevideo.com gvs 1.0
+62.116.207.43 4036 *.googlevideo.com gvs 1.0
+118.174.27.185 21217 *.googlevideo.com gvs 1.0
+86.127.118.138 4416 *.googlevideo.com gvs 1.0
+93.183.211.233 4385 *.googlevideo.com gvs 1.0
+85.182.250.22 4370 *.googlevideo.com gvs 1.0
+94.40.70.15 4307 *.googlevideo.com gvs 1.0
+64.15.116.10 5443 *.googlevideo.com gvs 1.0
+81.175.29.153 5196 *.googlevideo.com gvs 1.0
+208.117.255.83 9922 *.c.docs.google.com gvs 1.0
+210.242.125.27 4462 *.googlevideo.com gvs 1.0
+210.242.125.48 4836 *.googlevideo.com gvs 1.0
+195.249.20.232 6536 *.googlevideo.com gvs 1.0
+64.15.112.90 8955 *.googlevideo.com gvs 1.0
+24.156.131.15 5117 *.googlevideo.com gvs 1.0
+208.117.254.232 6755 *.c.docs.google.com gvs 1.0
+195.249.20.200 6817 *.googlevideo.com gvs 1.0
+210.242.125.38 4369 *.googlevideo.com gvs 1.0
+210.242.125.37 4400 *.googlevideo.com gvs 1.0
+208.117.252.21 6942 *.c.docs.google.com gvs 1.0
+118.174.27.239 7098 *.googlevideo.com gvs 1.0
+193.120.166.96 7207 *.googlevideo.com gvs 1.0
+64.15.126.102 5554 *.googlevideo.com gvs 1.0
+194.78.20.24 7784 *.ringring.be 
+194.78.99.107 7783 *.googlevideo.com gvs 1.0
+94.40.70.52 5381 *.googlevideo.com gvs 1.0
+85.182.250.175 5475 *.googlevideo.com gvs 1.0
+86.127.118.181 5382 *.googlevideo.com gvs 1.0
+93.183.211.199 5475 *.googlevideo.com gvs 1.0
+212.188.15.184 7503 *.googlevideo.com gvs 1.0
+208.117.255.208 14760 *.c.docs.google.com 
+210.242.125.28 11750 *.googlevideo.com gvs 1.0
+208.117.252.105 11828 *.c.docs.google.com gvs 1.0
+85.182.250.38 12857 *.googlevideo.com gvs 1.0
+210.153.73.31 11921 *.googlevideo.com gvs 1.0
+208.117.251.201 11999 *.c.docs.google.com gvs 1.0
+94.40.70.44 11968 *.googlevideo.com gvs 1.0
+94.40.70.56 11984 *.googlevideo.com gvs 1.0
+64.15.116.133 12015 *.googlevideo.com gvs 1.0
+193.120.166.68 12030 *.googlevideo.com gvs 1.0
+203.66.124.170 7366 *.googlevideo.com gvs 1.0
+193.92.133.13 14760 *.googlevideo.com gvs 1.0
+85.182.250.110 13184 *.googlevideo.com gvs 1.0
+194.78.99.90 13247 *.googlevideo.com gvs 1.0
+85.182.250.181 13231 *.googlevideo.com gvs 1.0
+64.15.112.46 13247 *.googlevideo.com gvs 1.0
+62.116.207.22 13263 *.googlevideo.com gvs 1.0
+173.194.11.55 9877 *.c.docs.google.com gvs 1.0
+66.102.255.55 14773 *.cnzz.com 
+208.117.224.74 15194 *.googlevideo.com gvs 1.0
+93.183.211.207 15147 *.googlevideo.com gvs 1.0
+208.117.238.52 21093 *.c.docs.google.com gvs 1.0
+86.127.118.161 16305 *.googlevideo.com gvs 1.0
+94.40.70.45 15338 *.googlevideo.com gvs 1.0
+64.15.112.57 16383 *.googlevideo.com gvs 1.0
+64.15.124.72 16321 *.googlevideo.com gvs 1.0
+85.182.250.27 16429 *.googlevideo.com gvs 1.0
+193.92.133.26 21155 *.googlevideo.com gvs 1.0
+195.249.20.225 21140 *.googlevideo.com gvs 1.0
+208.117.236.117 21188 *.c.docs.google.com gvs 1.0
+86.127.118.133 21359 *.googlevideo.com 
+210.242.125.22 16773 *.googlevideo.com gvs 1.0
+178.60.128.28 24620 *.googlevideo.com 
+193.120.166.105 16929 *.googlevideo.com gvs 1.0
+202.69.26.51 15432 *.pingan.com.cn 
+212.188.15.41 16774 *.googlevideo.com gvs 1.0
+210.242.125.26 15759 *.googlevideo.com gvs 1.0
+118.174.27.181 21842 *.googlevideo.com gvs 1.0
+93.183.211.232 16711 *.googlevideo.com gvs 1.0
+208.117.238.240 17241 *.c.docs.google.com gvs 1.0
+94.40.70.18 16180 *.googlevideo.com gvs 1.0
+193.120.166.82 15978 *.googlevideo.com gvs 1.0
+146.148.34.145 17023 dinex.cl 
+194.78.99.164 18333 *.googlevideo.com gvs 1.0
+178.60.128.17 23168 *.googlevideo.com gvs 1.0
+62.116.207.56 18473 *.googlevideo.com gvs 1.0
+85.182.250.180 17225 *.googlevideo.com gvs 1.0
+64.15.116.171 17319 *.googlevideo.com gvs 1.0
+81.175.29.162 17335 *.googlevideo.com gvs 1.0
+85.182.250.83 17304 *.googlevideo.com gvs 1.0
+62.116.207.28 17413 *.googlevideo.com gvs 1.0
+194.78.99.235 17460 *.googlevideo.com gvs 1.0
+86.127.118.180 17459 *.googlevideo.com gvs 1.0
+62.116.207.21 17615 *.googlevideo.com gvs 1.0
+146.148.16.6 41279 mobile.intencysrv.com 
+86.127.118.140 41295 *.googlevideo.com 
+81.175.29.161 47456 *.googlevideo.com 
+64.15.126.13 41342 *.googlevideo.com 
+178.60.128.29 41388 *.googlevideo.com 
+208.117.254.19 41388 *.c.docs.google.com 
+85.182.250.5 42854 *.googlevideo.com 
+93.183.211.244 41419 *.googlevideo.com 
+210.242.125.31 35801 *.googlevideo.com gvs 1.0
+203.66.124.132 34396 *.googlevideo.com gvs 1.0
+210.242.125.42 34521 *.googlevideo.com gvs 1.0
+121.195.178.57 36299 *.126.com 
+210.242.125.32 37921 *.googlevideo.com gvs 1.0
+193.92.133.17 45101 *.googlevideo.com gvs 1.0
+208.117.225.11 37096 *.googlevideo.com gvs 1.0
+210.242.125.51 44353 *.googlevideo.com gvs 1.0
+178.60.128.44 37174 *.googlevideo.com gvs 1.0
+93.183.211.235 37080 *.googlevideo.com gvs 1.0
+208.117.227.44 37190 *.googlevideo.com gvs 1.0
+24.156.131.92 37159 *.googlevideo.com gvs 1.0
+81.175.29.169 37127 *.googlevideo.com gvs 1.0
+62.116.207.32 37159 *.googlevideo.com gvs 1.0
+195.249.20.249 37174 *.googlevideo.com gvs 1.0
+195.249.20.197 37236 *.googlevideo.com gvs 1.0
+208.117.228.134 37222 *.googlevideo.com 
+130.211.115.16 37361 *.egnyte-internal.com 
+202.69.26.21 28704 *.pingan.com 
+193.120.166.119 28812 *.googlevideo.com gvs 1.0
+178.60.128.14 38079 *.googlevideo.com gvs 1.0
+118.174.27.199 42728 *.googlevideo.com gvs 1.0
+212.188.15.145 42666 *.googlevideo.com gvs 1.0
+193.92.133.12 42729 *.googlevideo.com gvs 1.0
+193.92.133.8 50093 *.googlevideo.com 
+194.78.99.14 42893 *.googlevideo.com 
+208.117.230.134 34233 *.googlevideo.com gvs 1.0
+195.249.20.227 33839 *.googlevideo.com gvs 1.0
+64.15.124.202 32965 *.googlevideo.com gvs 1.0
+193.92.133.16 33901 *.googlevideo.com gvs 1.0
+62.116.207.29 43240 *.googlevideo.com gvs 1.0
+178.60.128.33 36720 *.googlevideo.com gvs 1.0
+64.15.116.18 35387 *.googlevideo.com gvs 1.0
+193.92.133.18 36789 *.googlevideo.com gvs 1.0
+195.249.20.247 36800 *.googlevideo.com gvs 1.0
+66.102.133.42 35236 mail.ssoainc.com 
+86.127.118.160 38634 *.googlevideo.com gvs 1.0
+94.40.70.12 38646 *.googlevideo.com gvs 1.0
+93.183.211.242 38651 *.googlevideo.com gvs 1.0
+94.40.70.14 38677 *.googlevideo.com gvs 1.0
+81.175.29.149 38697 *.googlevideo.com gvs 1.0
+24.156.131.32 39065 *.googlevideo.com 
+93.183.211.196 39310 *.googlevideo.com gvs 1.0
+72.14.247.93 40071 *.outernet.is 
+72.14.247.63 13866 *.rolepoint.com 
+202.39.143.122 41186 *.googlevideo.com gvs 1.0
+66.102.136.154 16900 www.filamart.com 
+85.182.250.111 16992 *.googlevideo.com gvs 1.0
+195.249.20.228 17048 *.googlevideo.com gvs 1.0
+24.156.131.72 16977 *.googlevideo.com gvs 1.0
+208.117.230.87 17051 *.googlevideo.com gvs 1.0
+208.117.236.55 17057 *.c.docs.google.com gvs 1.0
+194.78.99.215 17079 *.googlevideo.com gvs 1.0
+64.15.112.47 17055 *.googlevideo.com gvs 1.0
+81.175.29.183 17044 *.googlevideo.com gvs 1.0
+208.117.252.14 17039 *.c.docs.google.com gvs 1.0
+208.117.251.129 17031 *.c.docs.google.com gvs 1.0
+81.175.29.157 41323 *.googlevideo.com gvs 1.0
+85.182.250.223 17114 *.googlevideo.com gvs 1.0
+24.156.131.36 16955 *.googlevideo.com gvs 1.0
+146.148.34.201 8596 myfitbodylifeprogram.com 
+146.148.9.146 8599 www.epicmember.com 
+194.78.99.80 17359 *.googlevideo.com gvs 1.0
+208.117.255.165 17191 *.c.docs.google.com gvs 1.0
+193.120.166.114 17254 *.googlevideo.com gvs 1.0
+193.92.133.10 17315 *.googlevideo.com gvs 1.0
+62.116.207.19 16508 *.googlevideo.com gvs 1.0
+193.120.166.69 8883 *.googlevideo.com gvs 1.0
+193.120.166.94 8915 *.googlevideo.com gvs 1.0
+208.117.225.5 8898 *.googlevideo.com gvs 1.0
+208.117.252.109 8934 *.c.docs.google.com gvs 1.0
+208.117.252.241 8941 *.c.docs.google.com gvs 1.0
+93.183.211.206 17887 *.googlevideo.com gvs 1.0
+118.174.27.77 18010 *.googlevideo.com gvs 1.0
+194.78.99.86 9265 *.googlevideo.com gvs 1.0
+85.182.250.107 7145 *.googlevideo.com gvs 1.0
+94.40.70.23 7228 *.googlevideo.com gvs 1.0
+81.175.29.143 7252 *.googlevideo.com gvs 1.0
+64.15.117.101 7314 *.googlevideo.com gvs 1.0
+85.182.250.235 42562 *.googlevideo.com gvs 1.0
+64.15.116.104 7383 *.googlevideo.com gvs 1.0
+86.127.118.134 7402 *.googlevideo.com gvs 1.0
+64.15.112.56 7428 *.googlevideo.com gvs 1.0
+93.183.211.237 7508 *.googlevideo.com gvs 1.0
+62.116.207.33 7578 *.googlevideo.com gvs 1.0
+93.183.211.243 7604 *.googlevideo.com gvs 1.0
+81.175.29.142 7809 *.googlevideo.com gvs 1.0
+193.92.133.57 11557 *.googlevideo.com gvs 1.0
+62.116.207.17 9277 *.googlevideo.com gvs 1.0
+178.60.128.30 21020 *.googlevideo.com gvs 1.0
+212.188.15.43 12443 *.googlevideo.com gvs 1.0
+202.69.26.71 4645 *.pingan.com 
+193.92.133.41 14719 *.googlevideo.com gvs 1.0
+130.211.76.134 4695 jobspotting.com 
+118.174.27.122 23559 *.googlevideo.com gvs 1.0
+193.120.166.70 5049 *.googlevideo.com gvs 1.0
+208.117.227.9 15151 *.googlevideo.com gvs 1.0
+193.120.166.81 5185 *.googlevideo.com gvs 1.0
+194.78.99.135 5121 *.googlevideo.com gvs 1.0
+195.249.20.248 5199 *.googlevideo.com gvs 1.0
+178.60.128.34 5271 *.googlevideo.com gvs 1.0
+213.186.229.3 5801 *.responda113.fi 
+208.117.228.36 5866 *.googlevideo.com 
+212.188.15.13 17164 *.googlevideo.com gvs 1.0
+94.40.70.21 7105 *.googlevideo.com gvs 1.0
+86.127.118.165 7106 *.googlevideo.com gvs 1.0
+64.15.119.17 7110 *.googlevideo.com gvs 1.0
+24.156.131.121 7174 *.googlevideo.com gvs 1.0
+64.15.116.111 7133 *.googlevideo.com gvs 1.0
+208.117.250.151 7256 *.c.docs.google.com gvs 1.0
+64.15.119.36 7338 *.googlevideo.com 
+94.40.70.13 6743 *.googlevideo.com gvs 1.0
+208.117.229.173 7570 *.googlevideo.com gvs 1.0
+81.175.29.145 7506 *.googlevideo.com gvs 1.0
+62.116.207.30 7552 *.googlevideo.com gvs 1.0
+64.15.117.48 7592 *.googlevideo.com gvs 1.0
+178.60.128.51 7815 *.googlevideo.com gvs 1.0
+208.117.236.172 9221 *.c.docs.google.com gvs 1.0
+193.120.166.71 6001 *.googlevideo.com gvs 1.0
+86.127.118.135 11344 *.googlevideo.com gvs 1.0
+208.117.224.46 6399 *.googlevideo.com gvs 1.0
+85.182.250.75 6138 *.googlevideo.com gvs 1.0
+195.249.20.226 6848 *.googlevideo.com gvs 1.0
+173.194.146.7 9919 *.c.docs.google.com gvs 1.0
+62.116.207.18 6422 *.googlevideo.com gvs 1.0
+212.188.15.36 6454 *.googlevideo.com gvs 1.0
+64.15.124.169 6480 *.googlevideo.com gvs 1.0
+94.40.70.50 6449 *.googlevideo.com gvs 1.0
+86.127.118.139 6484 *.googlevideo.com gvs 1.0
+74.125.213.193 4829 *.c.docs.google.com gvs 1.0
+146.148.8.192 3306 *.beautylane.com 
+208.117.230.107 7368 *.googlevideo.com gvs 1.0
+202.39.143.52 3318 *.googlevideo.com gvs 1.0
+208.117.251.78 4193 *.c.docs.google.com gvs 1.0
+208.117.236.193 13646 *.c.docs.google.com gvs 1.0
+193.120.166.78 4233 *.googlevideo.com gvs 1.0
+64.15.124.101 4180 *.googlevideo.com gvs 1.0
+193.120.166.120 4208 *.googlevideo.com gvs 1.0
+194.78.99.207 8627 *.googlevideo.com gvs 1.0
+173.194.150.154 8544 *.c.docs.google.com gvs 1.0
+85.182.250.150 4951 *.googlevideo.com gvs 1.0
+85.182.250.71 4943 *.googlevideo.com gvs 1.0
+94.40.70.17 4705 *.googlevideo.com gvs 1.0
+193.92.133.56 11155 *.googlevideo.com gvs 1.0
+208.117.238.205 6928 *.c.docs.google.com gvs 1.0
+178.60.128.47 13930 *.googlevideo.com gvs 1.0
+86.127.118.184 5774 *.googlevideo.com gvs 1.0
+93.183.211.205 17154 *.googlevideo.com gvs 1.0
+202.69.26.13 3723 *.pingan.com.cn 
+108.166.34.153 3866 *.epochcloud.com 
+121.195.178.58 4067 *.126.com 
+118.174.27.225 8695 *.googlevideo.com gvs 1.0
+85.182.250.165 4375 *.googlevideo.com gvs 1.0
+194.78.99.112 8847 *.googlevideo.com gvs 1.0
+64.15.119.43 4434 *.googlevideo.com gvs 1.0
+193.120.166.118 4707 *.googlevideo.com gvs 1.0
+81.175.29.147 4683 *.googlevideo.com gvs 1.0
+94.40.70.58 4709 *.googlevideo.com gvs 1.0
+208.117.255.72 9102 *.c.docs.google.com gvs 1.0
+193.120.166.85 4775 *.googlevideo.com gvs 1.0
+64.15.116.173 4733 *.googlevideo.com gvs 1.0
+86.127.118.154 4938 *.googlevideo.com gvs 1.0
+195.249.20.233 5008 *.googlevideo.com gvs 1.0
+66.102.255.27 5093 s.tbcdn.cn 
+213.240.44.4 5282 *.googlevideo.com gvs 1.0
+194.78.99.87 5407 *.googlevideo.com gvs 1.0
+208.117.229.229 6312 *.googlevideo.com gvs 1.0
+130.211.76.176 6572 *.qservz.com 
+193.92.133.27 7923 *.googlevideo.com gvs 1.0
+194.78.99.47 9476 *.googlevideo.com gvs 1.0
+208.117.228.165 9466 *.googlevideo.com gvs 1.0
+64.15.112.122 9462 *.googlevideo.com gvs 1.0
+173.194.149.167 4966 *.c.docs.google.com gvs 1.0
+85.182.250.220 5257 *.googlevideo.com gvs 1.0
+94.40.70.51 5276 *.googlevideo.com gvs 1.0
+193.120.166.86 5429 *.googlevideo.com gvs 1.0
+195.249.20.205 5384 *.googlevideo.com gvs 1.0
+194.78.99.137 5396 *.googlevideo.com gvs 1.0
+208.117.229.230 5486 *.googlevideo.com gvs 1.0
+118.174.27.159 6180 *.googlevideo.com gvs 1.0
+94.40.70.33 5735 *.googlevideo.com gvs 1.0
+74.125.2.244 4453 *.c.docs.google.com gvs 1.0
+81.175.29.175 5825 *.googlevideo.com gvs 1.0
+81.175.29.171 5822 *.googlevideo.com gvs 1.0
+212.188.15.6 15839 *.googlevideo.com 
+62.116.207.52 6165 *.googlevideo.com gvs 1.0
+130.211.115.40 4538 *.flux.io 
+173.194.148.212 4655 *.c.docs.google.com gvs 1.0
+24.156.131.73 7254 *.googlevideo.com gvs 1.0
+86.127.118.156 7230 *.googlevideo.com gvs 1.0
+208.117.236.211 7271 *.c.docs.google.com gvs 1.0
+93.183.211.231 7266 *.googlevideo.com gvs 1.0
+93.183.211.197 7275 *.googlevideo.com gvs 1.0
+118.174.27.186 6734 *.googlevideo.com gvs 1.0
+194.78.99.78 5323 *.googlevideo.com gvs 1.0
+208.117.233.80 5055 *.googlevideo.com gvs 1.0
+193.120.166.108 3954 *.googlevideo.com gvs 1.0
+195.249.20.201 9693 *.googlevideo.com gvs 1.0
+208.117.231.234 5184 *.googlevideo.com gvs 1.0
+24.156.131.33 5249 *.googlevideo.com gvs 1.0
+146.148.16.132 6191 mail.artcode.sk 
+124.160.89.34 2741 www.hi-lend.com 
+94.40.70.28 4689 *.googlevideo.com gvs 1.0
+64.15.124.164 5275 *.googlevideo.com gvs 1.0
+208.117.231.243 5644 *.googlevideo.com gvs 1.0
+85.182.250.147 5249 *.googlevideo.com gvs 1.0
+208.117.240.211 5639 *.c.docs.google.com gvs 1.0
+85.182.250.155 5253 *.googlevideo.com gvs 1.0
+202.69.26.7 2894 *.pingan.com 
+193.92.133.14 6099 *.googlevideo.com gvs 1.0
+81.175.29.164 5636 *.googlevideo.com gvs 1.0
+86.127.118.166 5636 *.googlevideo.com gvs 1.0
+62.116.207.51 5788 *.googlevideo.com gvs 1.0
+86.127.118.175 5730 *.googlevideo.com gvs 1.0
+212.188.15.171 10824 *.googlevideo.com gvs 1.0
+86.127.118.174 10839 *.googlevideo.com gvs 1.0
+66.102.136.1 3532 www.hudforeclosed.com 
+64.15.119.33 3618 *.googlevideo.com gvs 1.0
+178.60.128.52 11363 *.googlevideo.com gvs 1.0
+193.120.166.92 3867 *.googlevideo.com gvs 1.0
+85.182.250.243 1571 *.googlevideo.com gvs 1.0
+62.116.207.36 4200 *.googlevideo.com gvs 1.0
+93.183.211.204 2962 *.googlevideo.com gvs 1.0
+66.102.255.2 7861 *.alicdn.com 
+86.127.118.132 3011 *.googlevideo.com gvs 1.0
+64.15.116.51 5253 *.googlevideo.com gvs 1.0
+86.127.118.155 2935 *.googlevideo.com gvs 1.0
+81.175.29.182 3059 *.googlevideo.com gvs 1.0
+118.174.27.221 5422 *.googlevideo.com gvs 1.0
+93.183.211.246 3095 *.googlevideo.com gvs 1.0
+62.116.207.58 8313 *.googlevideo.com gvs 1.0
+208.117.236.204 7792 *.c.docs.google.com gvs 1.0
+81.175.29.156 5708 *.googlevideo.com gvs 1.0
+208.117.228.166 7932 *.googlevideo.com gvs 1.0
+212.188.15.181 7990 *.googlevideo.com gvs 1.0
+195.249.20.250 8011 *.googlevideo.com gvs 1.0
+212.188.15.22 15529 *.googlevideo.com 
+118.174.27.53 8333 *.googlevideo.com gvs 1.0
+121.195.178.65 4317 *.163.com 
+74.125.98.49 4704 *.c.docs.google.com gvs 1.0
+208.117.238.44 8521 *.c.docs.google.com gvs 1.0
+178.60.128.41 12002 *.googlevideo.com gvs 1.0
+194.78.99.132 8858 *.googlevideo.com gvs 1.0
+193.120.166.104 3619 *.googlevideo.com gvs 1.0
+208.117.231.38 3525 *.googlevideo.com gvs 1.0
+64.15.116.232 3549 *.googlevideo.com gvs 1.0
+208.117.251.72 3584 *.c.docs.google.com gvs 1.0
+208.117.230.41 3594 *.googlevideo.com gvs 1.0
+193.92.133.46 3777 *.googlevideo.com gvs 1.0
+24.156.131.90 3670 *.googlevideo.com gvs 1.0
+208.117.231.22 3747 *.googlevideo.com gvs 1.0
+94.40.70.34 3702 *.googlevideo.com gvs 1.0
+208.117.226.38 3860 *.googlevideo.com gvs 1.0
+85.182.250.87 3986 *.googlevideo.com gvs 1.0
+146.148.34.68 4356 *.google.stackdriver.com nginx
+81.175.29.150 4001 *.googlevideo.com gvs 1.0
+93.183.211.209 4383 *.googlevideo.com gvs 1.0
+212.188.15.26 4444 *.googlevideo.com gvs 1.0
+108.166.34.120 6410 www.wheelstiresandmore.com 
+64.15.112.175 6832 *.googlevideo.com gvs 1.0
+195.249.20.206 7029 *.googlevideo.com gvs 1.0
+202.69.26.44 4603 *.pingan.com.cn 
+193.92.133.19 8919 *.googlevideo.com gvs 1.0
+209.85.228.120 4501 *.c.docs.google.com gvs 1.0
+86.127.118.143 9027 *.googlevideo.com gvs 1.0
+74.125.166.175 5646 *.c.docs.google.com gvs 1.0
+146.148.24.114 5327 *.reeperf.com 
+118.174.27.214 2944 *.googlevideo.com gvs 1.0
+94.40.70.4 9646 *.googlevideo.com gvs 1.0
+146.148.9.42 6266 mobile.intencysrv.com 
+66.102.255.29 5485 *.alipayobjects.com 
+62.116.207.23 5826 *.googlevideo.com gvs 1.0
+208.117.255.238 5886 *.c.docs.google.com gvs 1.0
+194.78.99.15 6297 *.googlevideo.com gvs 1.0
+93.183.211.247 10360 *.googlevideo.com gvs 1.0
+62.116.207.54 5814 *.googlevideo.com gvs 1.0
+208.117.233.14 6210 *.googlevideo.com gvs 1.0
+118.174.27.28 7593 *.googlevideo.com gvs 1.0
+178.60.128.15 19062 *.googlevideo.com 
+193.92.133.7 24442 *.googlevideo.com 
+178.60.128.39 24475 *.googlevideo.com 
+118.174.27.207 15487 *.googlevideo.com 
+93.183.211.210 14094 *.googlevideo.com 
+94.40.70.55 14246 *.googlevideo.com gvs 1.0
+86.127.118.141 12315 *.googlevideo.com gvs 1.0
+86.127.118.144 14507 *.googlevideo.com gvs 1.0
+93.183.211.213 12341 *.googlevideo.com gvs 1.0
+86.127.118.185 12331 *.googlevideo.com gvs 1.0
+193.92.133.32 12411 *.googlevideo.com gvs 1.0
+93.183.211.211 12349 *.googlevideo.com gvs 1.0
+62.116.207.39 12391 *.googlevideo.com gvs 1.0
+208.117.224.90 12410 *.googlevideo.com gvs 1.0
+193.120.166.97 12467 *.googlevideo.com gvs 1.0
+94.40.70.29 14856 *.googlevideo.com gvs 1.0
+194.78.99.161 14182 *.googlevideo.com gvs 1.0
+194.78.99.142 14163 *.googlevideo.com gvs 1.0
+195.249.20.212 14186 *.googlevideo.com gvs 1.0
+64.15.112.179 14147 *.googlevideo.com gvs 1.0
+208.117.238.83 17079 *.c.docs.google.com gvs 1.0
+208.117.250.169 14802 *.c.docs.google.com gvs 1.0
+81.175.29.151 13100 *.googlevideo.com gvs 1.0
+74.125.2.184 12845 *.c.docs.google.com gvs 1.0
+194.78.99.81 12050 *.googlevideo.com gvs 1.0
+85.182.250.85 12105 *.googlevideo.com gvs 1.0
+193.120.166.107 12589 *.googlevideo.com gvs 1.0
+202.69.26.33 12656 *.pingan.com.cn 
+64.15.116.242 14051 *.googlevideo.com gvs 1.0
+202.69.26.46 12932 *.pingan.com.cn 
+146.148.34.162 13866 *.mongolab.com 
+193.120.166.111 13851 *.googlevideo.com gvs 1.0
+194.78.99.77 13597 *.googlevideo.com gvs 1.0
+208.117.250.140 17828 *.c.docs.google.com gvs 1.0
+64.15.113.175 14098 *.googlevideo.com gvs 1.0
+64.15.119.8 14137 *.googlevideo.com gvs 1.0
+118.174.27.150 16123 *.googlevideo.com gvs 1.0
+212.188.15.134 16177 *.googlevideo.com gvs 1.0
+146.148.9.120 16217 *.antvoice.com 
+208.117.230.211 16505 *.googlevideo.com gvs 1.0
+208.117.224.32 16523 *.googlevideo.com gvs 1.0
+64.15.124.241 16193 *.googlevideo.com gvs 1.0
+178.60.128.56 16250 *.googlevideo.com gvs 1.0
+94.40.70.30 16352 *.googlevideo.com gvs 1.0
+62.116.207.55 16215 *.googlevideo.com gvs 1.0
+208.117.255.227 16163 *.c.docs.google.com gvs 1.0
+202.69.26.43 8216 *.pingan.com.cn 
+195.249.20.208 20961 *.googlevideo.com 
+193.92.133.36 17008 *.googlevideo.com gvs 1.0
+193.92.133.52 17011 *.googlevideo.com gvs 1.0
+64.15.112.80 17231 *.googlevideo.com gvs 1.0
+208.117.231.145 17284 *.googlevideo.com gvs 1.0
+193.92.133.33 17285 *.googlevideo.com gvs 1.0
+81.175.29.173 9237 *.googlevideo.com gvs 1.0
+86.127.118.164 9366 *.googlevideo.com gvs 1.0
+93.183.211.222 9540 *.googlevideo.com gvs 1.0
+85.182.250.171 9572 *.googlevideo.com gvs 1.0
+130.211.76.239 9027 login.otainsight.com 
+94.40.70.25 7421 *.googlevideo.com gvs 1.0
+208.117.229.208 18381 *.googlevideo.com gvs 1.0
+64.15.117.77 8043 *.googlevideo.com gvs 1.0
+212.188.15.164 8069 *.googlevideo.com gvs 1.0
+64.15.124.231 8033 *.googlevideo.com gvs 1.0
+93.183.211.248 10408 *.googlevideo.com gvs 1.0
+208.117.233.115 8160 *.googlevideo.com gvs 1.0
+195.249.20.220 9677 *.googlevideo.com gvs 1.0
+193.120.166.87 9688 *.googlevideo.com gvs 1.0
+66.102.255.15 8213 *.taobao.com 
+202.106.93.143 11464 domino1.citicbank.com 
+124.160.89.150 12416 ebank-public.hzbank.com.cn 
+193.92.133.15 17773 *.googlevideo.com 
+64.15.112.26 15593 *.googlevideo.com 
+62.116.207.34 16288 *.googlevideo.com 
+194.78.99.213 17968 *.googlevideo.com 
+24.156.131.122 26799 *.googlevideo.com gvs 1.0
+178.60.128.58 18267 *.googlevideo.com 
+93.183.211.228 16137 *.googlevideo.com gvs 1.0
+178.60.128.23 18407 *.googlevideo.com gvs 1.0
+208.117.255.47 13060 *.c.docs.google.com gvs 1.0
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:58:51 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21572#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+208.117.230.122 13107 *.googlevideo.com gvs 1.0
+118.174.27.246 18496 *.googlevideo.com 
+41.206.96.239 27217 *.googlevideo.com 
+85.182.250.210 10345 *.googlevideo.com gvs 1.0
+85.182.250.137 9041 *.googlevideo.com gvs 1.0
+81.175.29.178 10416 *.googlevideo.com gvs 1.0
+64.15.124.102 10551 *.googlevideo.com gvs 1.0
+94.40.70.22 9023 *.googlevideo.com gvs 1.0
+208.117.231.100 13594 *.googlevideo.com gvs 1.0
+208.117.250.141 17394 *.c.docs.google.com gvs 1.0
+118.174.27.92 13749 *.googlevideo.com gvs 1.0
+85.182.250.174 9296 *.googlevideo.com gvs 1.0
+208.117.224.121 13786 *.googlevideo.com gvs 1.0
+64.15.116.167 11569 *.googlevideo.com gvs 1.0
+74.125.136.131 10367 uberproxy.corp.google.com GFE/2.0
+208.117.255.118 9513 *.c.docs.google.com gvs 1.0
+86.127.118.170 10795 *.googlevideo.com gvs 1.0
+193.120.166.89 9554 *.googlevideo.com gvs 1.0
+24.156.131.105 13964 *.googlevideo.com gvs 1.0
+86.127.118.149 10819 *.googlevideo.com gvs 1.0
+62.116.207.40 9587 *.googlevideo.com gvs 1.0
+208.117.230.110 14028 *.googlevideo.com gvs 1.0
+93.183.211.214 17198 *.googlevideo.com gvs 1.0
+146.148.34.105 9673 *.soniccloud.com 
+64.15.114.32 11337 *.googlevideo.com gvs 1.0
+86.127.118.171 9870 *.googlevideo.com gvs 1.0
+64.15.119.90 10265 *.googlevideo.com gvs 1.0
+94.40.70.5 11564 *.googlevideo.com gvs 1.0
+64.15.119.37 10328 *.googlevideo.com 
+93.183.211.220 10440 *.googlevideo.com gvs 1.0
+194.78.99.233 11548 *.googlevideo.com gvs 1.0
+208.117.224.33 15975 *.googlevideo.com gvs 1.0
+173.194.146.244 11623 *.c.docs.google.com gvs 1.0
+208.117.236.33 11558 *.c.docs.google.com gvs 1.0
+93.183.211.215 12830 *.googlevideo.com gvs 1.0
+194.78.99.218 11773 *.googlevideo.com gvs 1.0
+173.194.147.87 2429 *.c.docs.google.com gvs 1.0
+146.148.8.229 15063 *.bidswitch.net 
+194.78.99.136 19591 *.googlevideo.com gvs 1.0
+195.249.20.198 15188 *.googlevideo.com gvs 1.0
+195.249.20.235 4968 *.googlevideo.com gvs 1.0
+178.60.128.18 16379 *.googlevideo.com gvs 1.0
+194.78.99.219 5964 *.googlevideo.com gvs 1.0
+118.174.27.237 16334 *.googlevideo.com gvs 1.0
+81.175.29.186 16336 *.googlevideo.com gvs 1.0
+202.106.93.201 1145 login.wx.ecitic.com 
+178.60.128.4 6853 *.googlevideo.com gvs 1.0
+64.15.116.138 6797 *.googlevideo.com gvs 1.0
+208.117.224.85 6872 *.googlevideo.com gvs 1.0
+94.40.70.7 5182 *.googlevideo.com gvs 1.0
+94.40.70.6 5605 *.googlevideo.com gvs 1.0
+118.174.27.235 7393 *.googlevideo.com gvs 1.0
+208.117.231.4 6878 *.googlevideo.com gvs 1.0
+208.117.233.69 7560 *.googlevideo.com gvs 1.0
+93.183.211.250 6810 *.googlevideo.com gvs 1.0
+86.127.118.137 6813 *.googlevideo.com gvs 1.0
+64.15.112.85 8057 *.googlevideo.com gvs 1.0
+93.183.211.221 6843 *.googlevideo.com gvs 1.0
+62.116.207.5 8108 *.googlevideo.com gvs 1.0
+193.92.133.4 3294 *.googlevideo.com gvs 1.0
+208.117.233.19 2844 *.googlevideo.com gvs 1.0
+208.117.229.170 6107 *.googlevideo.com gvs 1.0
+118.174.27.146 8686 *.googlevideo.com gvs 1.0
+193.92.133.9 6136 *.googlevideo.com gvs 1.0
+118.174.27.36 9223 *.googlevideo.com gvs 1.0
+208.117.250.42 10452 *.c.docs.google.com gvs 1.0
+202.69.26.11 3078 *.pingan.com 
+85.182.250.102 6331 *.googlevideo.com gvs 1.0
+86.127.118.136 6368 *.googlevideo.com gvs 1.0
+208.117.236.248 5464 *.c.docs.google.com gvs 1.0
+93.183.211.217 6494 *.googlevideo.com gvs 1.0
+62.116.207.41 6542 *.googlevideo.com gvs 1.0
+85.182.250.218 6661 *.googlevideo.com gvs 1.0
+66.102.255.24 3727 *.alicdn.com 
+62.116.207.44 11995 *.googlevideo.com 
+64.15.116.19 7128 *.googlevideo.com gvs 1.0
+208.117.251.226 3991 *.c.docs.google.com gvs 1.0
+64.15.116.49 4407 *.googlevideo.com gvs 1.0
+193.92.133.23 5378 *.googlevideo.com gvs 1.0
+94.40.70.32 4415 *.googlevideo.com gvs 1.0
+85.182.250.149 4437 *.googlevideo.com gvs 1.0
+85.182.250.23 4412 *.googlevideo.com gvs 1.0
+208.117.238.146 9072 *.c.docs.google.com gvs 1.0
+178.60.128.6 7010 *.googlevideo.com gvs 1.0
+94.40.70.36 5847 *.googlevideo.com gvs 1.0
+193.120.166.93 9287 *.googlevideo.com 
+202.69.26.34 2729 *.pingan.com 
+173.194.15.85 6222 *.c.docs.google.com gvs 1.0
+178.60.128.7 7605 *.googlevideo.com gvs 1.0
+209.85.239.52 6487 *.c.docs.google.com gvs 1.0
+66.102.255.28 6738 *.alipayobjects.com 
+85.182.250.201 2884 *.googlevideo.com gvs 1.0
+208.117.224.62 3836 *.googlevideo.com gvs 1.0
+194.78.99.13 3963 *.googlevideo.com gvs 1.0
+94.40.70.39 3021 *.googlevideo.com gvs 1.0
+195.249.20.214 3922 *.googlevideo.com gvs 1.0
+193.120.166.79 4219 *.googlevideo.com gvs 1.0
+193.120.166.77 5868 *.googlevideo.com gvs 1.0
+178.60.128.12 5857 *.googlevideo.com gvs 1.0
+208.117.254.177 5563 *.c.docs.google.com gvs 1.0
+62.116.207.6 5408 *.googlevideo.com gvs 1.0
+212.188.15.144 5537 *.googlevideo.com gvs 1.0
+208.117.254.249 5631 *.c.docs.google.com gvs 1.0
+208.117.254.233 5597 *.c.docs.google.com gvs 1.0
+24.156.131.83 5456 *.googlevideo.com gvs 1.0
+64.15.126.22 9338 *.googlevideo.com gvs 1.0
+208.117.238.171 5662 *.c.docs.google.com gvs 1.0
+86.127.118.176 5299 *.googlevideo.com gvs 1.0
+118.174.27.198 6179 *.googlevideo.com gvs 1.0
+118.174.27.141 18116 *.googlevideo.com 
+212.188.15.39 9422 *.googlevideo.com gvs 1.0
+93.183.211.224 5309 *.googlevideo.com gvs 1.0
+208.117.254.173 6067 *.c.docs.google.com gvs 1.0
+208.117.225.29 3270 *.googlevideo.com gvs 1.0
+94.40.70.41 4881 *.googlevideo.com gvs 1.0
+85.182.250.14 4912 *.googlevideo.com gvs 1.0
+208.117.252.12 5640 *.c.docs.google.com gvs 1.0
+64.15.124.175 5058 *.googlevideo.com gvs 1.0
+85.182.250.12 4906 *.googlevideo.com gvs 1.0
+178.60.128.22 6783 *.googlevideo.com gvs 1.0
+86.127.118.179 5951 *.googlevideo.com gvs 1.0
+195.249.20.240 6769 *.googlevideo.com gvs 1.0
+93.183.211.226 5992 *.googlevideo.com gvs 1.0
+208.117.238.78 6734 *.c.docs.google.com gvs 1.0
+118.174.27.116 10465 *.googlevideo.com gvs 1.0
+85.182.250.46 9592 *.googlevideo.com gvs 1.0
+208.117.231.111 6766 *.googlevideo.com gvs 1.0
+93.183.211.225 5997 *.googlevideo.com gvs 1.0
+81.175.29.132 9962 *.googlevideo.com gvs 1.0
+195.249.20.236 8257 *.googlevideo.com gvs 1.0
+208.117.227.138 5002 *.googlevideo.com gvs 1.0
+24.156.131.27 5309 *.googlevideo.com gvs 1.0
+81.175.29.135 9306 *.googlevideo.com gvs 1.0
+202.69.26.47 1770 *.pingan.com 
+202.69.26.169 1754 *.pingan.com.cn 
+208.117.231.15 10445 *.googlevideo.com gvs 1.0
+146.148.34.80 2854 *.beautypro.com.br 
+64.15.114.10 5622 *.googlevideo.com 
+85.182.250.69 6624 *.googlevideo.com gvs 1.0
+208.117.229.239 3978 *.googlevideo.com gvs 1.0
+74.125.139.131 7186 uberproxy.corp.google.com GFE/2.0
+64.15.114.8 5707 *.googlevideo.com gvs 1.0
+64.15.116.174 5703 *.googlevideo.com gvs 1.0
+208.117.229.201 7821 *.googlevideo.com gvs 1.0
+41.206.96.68 7811 *.googlevideo.com gvs 1.0
+64.15.119.78 7829 *.googlevideo.com gvs 1.0
+64.15.119.11 10631 *.googlevideo.com gvs 1.0
+85.182.250.184 7747 *.googlevideo.com gvs 1.0
+202.69.26.9 6761 *.wanlitong.com 
+208.117.254.166 9860 *.c.docs.google.com gvs 1.0
+85.182.250.47 9784 *.googlevideo.com gvs 1.0
+208.117.255.76 15078 *.c.docs.google.com gvs 1.0
+111.168.255.135 9812 *.googlevideo.com gvs 1.0
+64.15.116.229 7126 *.googlevideo.com gvs 1.0
+208.117.230.135 8618 *.googlevideo.com gvs 1.0
+118.174.27.204 8554 *.googlevideo.com gvs 1.0
+208.117.233.44 8624 *.googlevideo.com gvs 1.0
+208.117.227.36 7623 *.googlevideo.com gvs 1.0
+24.156.131.106 7930 *.googlevideo.com gvs 1.0
+118.174.27.95 6547 *.googlevideo.com gvs 1.0
+208.117.224.115 5851 *.googlevideo.com gvs 1.0
+208.117.240.100 5852 *.c.docs.google.com gvs 1.0
+208.117.230.136 9002 *.googlevideo.com gvs 1.0
+24.156.131.95 6157 *.googlevideo.com gvs 1.0
+208.117.255.11 6168 *.c.docs.google.com gvs 1.0
+194.78.99.145 10164 *.googlevideo.com gvs 1.0
+64.15.116.114 6273 *.googlevideo.com gvs 1.0
+208.117.224.87 6278 *.googlevideo.com gvs 1.0
+64.15.126.115 6266 *.googlevideo.com gvs 1.0
+64.15.126.82 12138 *.googlevideo.com gvs 1.0
+208.117.238.161 6401 *.c.docs.google.com gvs 1.0
+85.182.250.145 6398 *.googlevideo.com gvs 1.0
+212.188.15.52 11447 *.googlevideo.com gvs 1.0
+208.117.230.90 14172 *.googlevideo.com gvs 1.0
+208.117.224.102 14193 *.googlevideo.com 
+118.174.27.31 15309 *.googlevideo.com 
+208.117.230.241 14376 *.googlevideo.com 
+202.69.26.48 9604 www.4008000000.com 
+118.174.27.32 16090 *.googlevideo.com gvs 1.0
+121.195.178.66 10314 *.163.com 
+202.69.26.22 6529 *.pingan.com 
+212.188.15.186 13262 *.googlevideo.com gvs 1.0
+208.117.252.129 16124 *.c.docs.google.com gvs 1.0
+208.117.240.23 11089 *.c.docs.google.com gvs 1.0
+173.194.2.173 8501 *.c.docs.google.com gvs 1.0
+85.182.250.90 11704 *.googlevideo.com gvs 1.0
+146.148.16.207 7921 *.pathintelligence.com 
+208.117.227.11 11739 *.googlevideo.com gvs 1.0
+208.117.231.83 16670 *.googlevideo.com gvs 1.0
+173.194.150.235 13903 *.c.docs.google.com gvs 1.0
+194.78.99.184 8250 *.googlevideo.com gvs 1.0
+24.156.131.87 7860 *.googlevideo.com gvs 1.0
+208.117.229.135 8285 *.googlevideo.com gvs 1.0
+118.174.27.137 9274 *.googlevideo.com gvs 1.0
+208.117.250.117 15146 *.c.docs.google.com gvs 1.0
+212.188.15.136 13174 *.googlevideo.com gvs 1.0
+194.78.99.179 15697 *.googlevideo.com gvs 1.0
+202.69.26.50 1949 *.wanlitong.com 
+85.182.250.185 5952 *.googlevideo.com gvs 1.0
+85.182.250.151 6203 *.googlevideo.com gvs 1.0
+202.69.26.31 5683 *.pingan.com 
+64.15.126.75 10871 *.googlevideo.com gvs 1.0
+85.182.250.78 5640 *.googlevideo.com gvs 1.0
+146.148.9.147 14013 ads.betweendigital.com 
+130.211.78.84 14632 www.eslife.es 
+208.117.251.110 13059 *.c.docs.google.com 
+121.195.178.222 11993 *.163.com 
+24.156.131.69 13606 *.googlevideo.com gvs 1.0
+208.117.238.84 13791 *.c.docs.google.com gvs 1.0
+64.15.126.116 13565 *.googlevideo.com gvs 1.0
+61.219.131.204 12078 *.googlevideo.com gvs 1.0
+66.102.255.1 12360 *.alicdn.com 
+64.15.124.142 12396 *.googlevideo.com gvs 1.0
+24.156.131.23 12537 *.googlevideo.com gvs 1.0
+85.182.250.86 10227 *.googlevideo.com gvs 1.0
+108.166.34.223 10375 www.dolbeninvestors.com 
+173.194.48.143 12527 *.c.docs.google.com gvs 1.0
+212.188.15.161 10400 *.googlevideo.com gvs 1.0
+64.15.116.235 10400 *.googlevideo.com gvs 1.0
+173.194.138.39 12559 *.c.docs.google.com gvs 1.0
+85.182.250.121 13007 *.googlevideo.com gvs 1.0
+85.182.250.106 10515 *.googlevideo.com gvs 1.0
+64.15.116.197 10546 *.googlevideo.com gvs 1.0
+121.195.178.201 9084 *.youdao.com 
+24.156.131.81 10850 *.googlevideo.com gvs 1.0
+64.15.116.175 13447 *.googlevideo.com gvs 1.0
+208.117.227.45 13512 *.googlevideo.com gvs 1.0
+194.78.99.56 15266 *.googlevideo.com gvs 1.0
+208.117.229.167 10890 *.googlevideo.com gvs 1.0
+64.15.119.9 10878 *.googlevideo.com 
+124.160.89.157 17247 weixin.hzbank.com.cn 
+64.15.117.12 19452 *.googlevideo.com 
+118.174.27.90 19749 *.googlevideo.com gvs 1.0
+85.182.250.224 22338 *.googlevideo.com gvs 1.0
+66.102.255.9 11183 *.alicdn.com 
+208.117.228.132 22941 *.googlevideo.com 
+85.182.250.143 11482 *.googlevideo.com gvs 1.0
+208.117.231.70 23071 *.googlevideo.com gvs 1.0
+64.15.116.243 17299 *.googlevideo.com gvs 1.0
+118.174.27.120 19162 *.googlevideo.com gvs 1.0
+208.117.231.117 19361 *.googlevideo.com gvs 1.0
+118.174.27.51 19800 *.googlevideo.com gvs 1.0
+202.69.26.15 10493 *.pingan.com.cn 
+130.211.115.15 11024 *.league.life 
+108.166.34.140 25772 www.edata-share.com 
+85.182.250.73 12110 *.googlevideo.com gvs 1.0
+208.117.238.170 25866 *.c.docs.google.com gvs 1.0
+208.117.252.193 5117 *.c.docs.google.com gvs 1.0
+208.117.225.9 5151 *.googlevideo.com gvs 1.0
+118.174.27.56 5226 *.googlevideo.com gvs 1.0
+209.85.228.216 7937 *.c.docs.google.com gvs 1.0
+208.117.255.37 17885 *.c.docs.google.com gvs 1.0
+212.188.15.25 21136 *.googlevideo.com gvs 1.0
+66.102.133.52 35147 mail.itlnet.com 
+64.15.117.102 36470 *.googlevideo.com gvs 1.0
+208.117.236.206 37737 *.c.docs.google.com gvs 1.0
+208.117.252.104 35212 *.c.docs.google.com gvs 1.0
+111.168.255.132 35380 *.googlevideo.com gvs 1.0
+118.174.27.217 37741 *.googlevideo.com gvs 1.0
+194.78.99.185 36997 *.googlevideo.com gvs 1.0
+74.125.212.226 41205 *.c.docs.google.com gvs 1.0
+66.102.133.179 41244 www.dentalcareperth.co.uk 
+208.117.225.14 41502 *.googlevideo.com gvs 1.0
+85.182.250.169 41631 *.googlevideo.com gvs 1.0
+173.194.12.73 41727 *.c.docs.google.com gvs 1.0
+202.69.26.1 42974 *.pingan.com 
+66.102.255.46 42923 *.lw.aliimg.com 
+111.168.255.136 43231 *.googlevideo.com gvs 1.0
+194.78.99.149 43559 *.googlevideo.com gvs 1.0
+212.188.15.155 43512 *.googlevideo.com gvs 1.0
+194.78.99.17 43692 *.googlevideo.com gvs 1.0
+208.117.255.108 45937 *.c.docs.google.com gvs 1.0
+85.182.250.56 46958 *.googlevideo.com gvs 1.0
+208.117.252.13 13788 *.c.docs.google.com gvs 1.0
+194.78.99.154 14321 *.googlevideo.com gvs 1.0
+24.156.131.7 20208 *.googlevideo.com gvs 1.0
+85.182.250.15 7083 *.googlevideo.com gvs 1.0
+64.15.116.37 14501 *.googlevideo.com gvs 1.0
+212.188.15.16 15525 *.googlevideo.com gvs 1.0
+85.182.250.233 8286 *.googlevideo.com gvs 1.0
+202.69.26.37 8909 *.pingan.com 
+85.182.250.176 11233 *.googlevideo.com gvs 1.0
+202.69.26.32 8935 *.pingan.com.cn 
+66.102.255.16 6862 *.tmall.com 
+108.166.34.220 9013 limitedpartner.welshcarson.com 
+85.182.250.200 7114 *.googlevideo.com gvs 1.0
+202.69.26.19 4023 *.pingan.com.cn 
+208.117.224.48 22161 *.googlevideo.com gvs 1.0
+118.174.27.78 9689 *.googlevideo.com gvs 1.0
+108.166.34.159 6233 *.epochcloud.com 
+208.117.240.80 9909 *.c.docs.google.com gvs 1.0
+64.15.112.117 8166 *.googlevideo.com gvs 1.0
+64.15.112.19 8194 *.googlevideo.com gvs 1.0
+64.18.3.16 6486 api-s8.postini.com Apache
+212.188.15.17 10174 *.googlevideo.com gvs 1.0
+208.117.252.8 4676 *.c.docs.google.com gvs 1.0
+209.85.228.102 1817 *.c.docs.google.com gvs 1.0
+173.194.140.247 11166 *.c.docs.google.com gvs 1.0
+173.194.23.51 7408 *.c.docs.google.com 
+173.194.201.125 11478 *.google.com 
+64.15.117.108 5770 *.googlevideo.com gvs 1.0
+118.174.27.72 6738 *.googlevideo.com gvs 1.0
+173.194.55.28 3298 *.c.docs.google.com gvs 1.0
+208.117.250.100 6710 *.c.docs.google.com gvs 1.0
+108.166.34.155 9609 *.epochcloud.com 
+208.117.230.82 2021 *.googlevideo.com gvs 1.0
+194.78.99.100 2361 *.googlevideo.com gvs 1.0
+208.117.254.67 2177 *.c.docs.google.com gvs 1.0
+66.102.133.95 5137 FSCONNECTION.LEXUSFINANCIAL.COM 
+208.117.238.217 14274 *.c.docs.google.com gvs 1.0
+212.188.15.5 2878 *.googlevideo.com gvs 1.0
+212.188.15.146 2887 *.googlevideo.com gvs 1.0
+208.117.236.182 4464 *.c.docs.google.com gvs 1.0
+74.125.111.35 2785 *.c.docs.google.com gvs 1.0
+118.174.27.48 6530 *.googlevideo.com gvs 1.0
+208.117.238.18 12884 *.c.docs.google.com gvs 1.0
+146.148.24.103 2082 *.qservz.com 
+208.117.227.29 2133 *.googlevideo.com gvs 1.0
+208.117.236.52 3098 *.c.docs.google.com gvs 1.0
+24.156.131.4 2974 *.googlevideo.com gvs 1.0
+111.168.255.134 2864 *.googlevideo.com gvs 1.0
+212.188.15.18 3463 *.googlevideo.com gvs 1.0
+208.117.236.15 3773 *.c.docs.google.com gvs 1.0
+74.125.212.198 1766 *.c.docs.google.com gvs 1.0
+202.69.26.40 417 *.pingan.com 
+173.194.2.235 2077 *.c.docs.google.com gvs 1.0
+66.102.133.74 1254 www.mitchssurfshop.com 
+208.117.252.214 1670 *.c.docs.google.com gvs 1.0
+208.117.229.139 2288 *.googlevideo.com gvs 1.0
+194.78.99.101 4690 *.googlevideo.com gvs 1.0
+64.15.112.4 4073 *.googlevideo.com gvs 1.0
+85.182.250.16 4272 *.googlevideo.com gvs 1.0
+84.235.77.209 4271 *.googlevideo.com gvs 1.0
+118.174.27.244 10121 *.googlevideo.com 
+85.182.250.179 5225 *.googlevideo.com gvs 1.0
+64.15.126.117 5639 *.googlevideo.com gvs 1.0
+212.188.15.165 6114 *.googlevideo.com gvs 1.0
+209.85.228.145 4247 *.c.docs.google.com gvs 1.0
+130.211.115.33 5049 *.correctiveeducation.com 
+208.117.242.133 5058 *.c.docs.google.com gvs 1.0
+208.117.225.12 5107 *.googlevideo.com gvs 1.0
+173.194.11.56 5150 *.c.docs.google.com gvs 1.0
+208.117.253.114 5380 *.googlevideo.com gvs 1.0
+208.117.230.203 5425 *.googlevideo.com gvs 1.0
+66.102.136.71 5526 www.gsp.kodak.com 
+194.78.99.16 7996 *.googlevideo.com gvs 1.0
+173.194.149.42 5596 *.c.docs.google.com gvs 1.0
+208.117.236.241 5547 *.c.docs.google.com gvs 1.0
+208.117.238.41 5648 *.c.docs.google.com gvs 1.0
+85.182.250.17 5785 *.googlevideo.com gvs 1.0
+85.182.250.120 5860 *.googlevideo.com gvs 1.0
+118.174.27.142 5944 *.googlevideo.com gvs 1.0
+212.188.15.185 6246 *.googlevideo.com gvs 1.0
+194.78.99.91 12247 *.googlevideo.com gvs 1.0
+85.182.250.101 8370 *.googlevideo.com gvs 1.0
+121.195.178.63 6092 *.163.com 
+212.188.15.169 8567 *.googlevideo.com gvs 1.0
+118.174.27.184 9287 *.googlevideo.com gvs 1.0
+208.117.230.97 6713 *.googlevideo.com gvs 1.0
+118.174.27.83 6725 *.googlevideo.com gvs 1.0
+64.15.113.143 9109 *.googlevideo.com gvs 1.0
+208.117.254.248 9208 *.c.docs.google.com gvs 1.0
+24.156.131.120 9323 *.googlevideo.com gvs 1.0
+208.117.227.134 6901 *.googlevideo.com gvs 1.0
+85.182.250.203 6885 *.googlevideo.com gvs 1.0
+208.117.251.148 7057 *.c.docs.google.com gvs 1.0
+208.117.229.171 7318 *.googlevideo.com gvs 1.0
+64.15.119.38 7399 *.googlevideo.com 
+108.166.34.141 7972 www.edata-share.com 
+208.117.240.216 108074 *.c.docs.google.com 
+118.174.27.57 110779 *.googlevideo.com 
+64.15.112.9 110954 *.googlevideo.com 
+173.194.146.3 111647 *.c.docs.google.com 
+209.85.228.103 103237 *.c.docs.google.com gvs 1.0
+202.69.26.24 2610 *.pingan.com 
+146.148.16.65 3187 *.live.iponweb.com 
+173.194.135.169 3636 *.c.docs.google.com gvs 1.0
+208.117.238.241 6622 *.c.docs.google.com gvs 1.0
+24.156.131.71 3677 *.googlevideo.com gvs 1.0
+64.15.119.121 3552 *.googlevideo.com gvs 1.0
+66.102.255.50 4475 *.alicdn.com 
+64.15.117.49 8073 *.googlevideo.com gvs 1.0
+118.174.27.233 8699 *.googlevideo.com gvs 1.0
+173.194.139.111 6911 *.c.docs.google.com gvs 1.0
+85.182.250.72 10008 *.googlevideo.com gvs 1.0
+146.148.24.225 52420 *.gcp.wazestg.com nginx
+146.148.24.10 49854 *.monkeydata.cz 
+66.102.255.5 52350 *.alicdn.com 
+194.78.99.239 57281 *.googlevideo.com 
+208.117.251.197 52984 *.c.docs.google.com 
+118.174.27.33 50501 *.googlevideo.com 
+208.117.224.60 53051 *.googlevideo.com 
+85.182.250.105 52969 *.googlevideo.com 
+208.117.253.105 53055 *.googlevideo.com 
+121.195.178.64 50297 *.163.com 
+64.15.114.30 53492 *.googlevideo.com 
+64.15.114.73 50910 *.googlevideo.com gvs 1.0
+24.156.131.112 51113 *.googlevideo.com gvs 1.0
+85.182.250.211 50851 *.googlevideo.com gvs 1.0
+64.15.113.171 51206 *.googlevideo.com gvs 1.0
+64.15.116.103 51208 *.googlevideo.com gvs 1.0
+208.117.229.140 54038 *.googlevideo.com 
+85.182.250.91 53718 *.googlevideo.com gvs 1.0
+208.117.238.38 57359 *.c.docs.google.com gvs 1.0
+64.15.112.71 57351 *.googlevideo.com gvs 1.0
+118.174.27.133 51381 *.googlevideo.com gvs 1.0
+64.15.126.47 57362 *.googlevideo.com gvs 1.0
+64.233.160.211 54313 *.ext.google.com GFE/2.0
+72.14.248.159 9380 www.techstackerpro.com 
+85.182.250.37 5639 *.googlevideo.com gvs 1.0
+64.15.112.33 53364 *.googlevideo.com gvs 1.0
+208.117.250.74 53771 *.c.docs.google.com gvs 1.0
+173.194.138.109 1933 *.c.docs.google.com gvs 1.0
+74.125.212.162 3496 *.c.docs.google.com gvs 1.0
+173.194.140.87 12360 *.c.docs.google.com gvs 1.0
+209.85.228.73 2056 *.c.docs.google.com gvs 1.0
+24.156.131.82 3955 *.googlevideo.com gvs 1.0
+208.117.255.206 4368 *.c.docs.google.com gvs 1.0
+24.156.131.41 4320 *.googlevideo.com gvs 1.0
+85.182.250.76 4276 *.googlevideo.com gvs 1.0
+208.117.240.198 4391 *.c.docs.google.com gvs 1.0
+64.15.116.74 4253 *.googlevideo.com gvs 1.0
+64.15.119.57 4337 *.googlevideo.com gvs 1.0
+202.69.26.55 2768 *.pingan.com 
+209.85.228.10 3198 *.c.docs.google.com gvs 1.0
+64.15.112.28 5393 *.googlevideo.com gvs 1.0
+207.126.155.6 3532 api-s11.postini.com Apache
+208.117.252.230 3526 *.c.docs.google.com gvs 1.0
+24.156.131.48 3661 *.googlevideo.com gvs 1.0
+130.211.82.234 3682 *.sort.io 
+208.117.253.41 3868 *.googlevideo.com gvs 1.0
+208.117.238.14 4003 *.c.docs.google.com gvs 1.0
+208.117.236.184 4003 *.c.docs.google.com gvs 1.0
+24.156.131.110 4188 *.googlevideo.com gvs 1.0
+85.182.250.77 2499 *.googlevideo.com gvs 1.0
+66.102.255.23 2946 *.alicdn.com 
+208.117.236.118 17686 *.c.docs.google.com 
+118.174.27.74 5534 *.googlevideo.com gvs 1.0
+209.85.228.245 2475 *.c.docs.google.com gvs 1.0
+64.18.2.13 4970 api-s7.postini.com Apache
+66.102.133.77 3522 www.ffwdusa.com 
+209.85.225.11 3809 *.c.docs.google.com gvs 1.0
+85.182.250.240 3885 *.googlevideo.com gvs 1.0
+208.117.251.214 4239 *.c.docs.google.com gvs 1.0
+208.117.224.53 4392 *.googlevideo.com gvs 1.0
+209.85.228.23 2138 *.c.docs.google.com gvs 1.0
+146.148.34.124 4701 *.cdlvr.net 
+64.233.169.211 16021 *.ext.google.com GFE/2.0
+208.117.227.78 3437 *.googlevideo.com gvs 1.0
+64.15.116.179 3751 *.googlevideo.com gvs 1.0
+194.78.99.57 3838 *.googlevideo.com gvs 1.0
+208.117.240.217 3806 *.c.docs.google.com gvs 1.0
+173.194.137.240 4390 *.c.docs.google.com gvs 1.0
+64.15.112.7 3932 *.googlevideo.com gvs 1.0
+118.174.27.147 1809 *.googlevideo.com gvs 1.0
+173.194.137.111 4553 *.c.docs.google.com gvs 1.0
+173.194.1.46 6346 *.c.docs.google.com gvs 1.0
+208.117.236.169 12370 *.c.docs.google.com gvs 1.0
+212.188.15.20 5945 *.googlevideo.com gvs 1.0
+208.117.224.41 5987 *.googlevideo.com gvs 1.0
+194.78.99.22 3926 *.googlevideo.com gvs 1.0
+209.85.228.140 2552 *.c.docs.google.com gvs 1.0
+208.117.255.103 4228 *.c.docs.google.com gvs 1.0
+194.78.99.240 5661 *.googlevideo.com gvs 1.0
+208.117.236.246 10455 *.c.docs.google.com gvs 1.0
+108.166.34.158 2577 *.epochcloud.com 
+74.125.34.106 4445 *.adyoulike.com 
+194.78.99.120 11599 *.googlevideo.com gvs 1.0
+24.156.131.97 5540 *.googlevideo.com gvs 1.0
+173.194.17.237 3961 *.c.docs.google.com gvs 1.0
+24.156.131.42 2465 *.googlevideo.com gvs 1.0
+64.15.124.176 5661 *.googlevideo.com gvs 1.0
+208.117.227.132 3503 *.googlevideo.com gvs 1.0
+173.194.140.179 8135 *.c.docs.google.com gvs 1.0
+64.15.126.76 10303 *.googlevideo.com gvs 1.0
+208.117.228.71 12066 *.googlevideo.com 
+208.117.238.13 10337 *.c.docs.google.com gvs 1.0
+72.14.246.120 7326 www.quantemplate.com 
+208.117.228.175 7490 *.googlevideo.com gvs 1.0
+85.182.250.116 7743 *.googlevideo.com gvs 1.0
+208.117.231.210 8085 *.googlevideo.com gvs 1.0
+173.194.12.92 9305 *.c.docs.google.com gvs 1.0
+194.78.99.76 11224 *.googlevideo.com gvs 1.0
+64.15.117.15 7713 *.googlevideo.com gvs 1.0
+208.117.240.212 8110 *.c.docs.google.com gvs 1.0
+118.174.27.115 13464 *.googlevideo.com gvs 1.0
+85.182.250.48 10426 *.googlevideo.com gvs 1.0
+66.102.255.7 125593 *.alicdn.com 
+66.102.255.8 125593 *.alicdn.com 
+146.148.24.121 126408 *.netcosports.com 
+173.194.14.80 126166 *.c.docs.google.com 
+212.188.15.137 126270 *.googlevideo.com 
+64.15.116.43 126364 *.googlevideo.com 
+209.85.228.115 121879 *.c.docs.google.com gvs 1.0
+194.78.99.79 127284 *.googlevideo.com 
+118.174.27.86 126855 *.googlevideo.com 
+208.117.229.231 125835 *.googlevideo.com 
+85.182.250.41 122202 *.googlevideo.com gvs 1.0
+64.15.124.109 126145 *.googlevideo.com 
+64.15.119.13 122226 *.googlevideo.com gvs 1.0
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 19:59:27 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21572#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+72.14.246.186 119287 *.tool.myrmex.coop 
+146.148.8.5 119116 tempbuddy.com 
+64.15.119.47 99379 *.googlevideo.com 
+212.188.15.54 127461 *.googlevideo.com 
+212.188.15.140 127126 *.googlevideo.com 
+85.182.250.6 127117 *.googlevideo.com 
+64.15.116.109 126933 *.googlevideo.com 
+74.125.165.144 126912 *.c.docs.google.com 
+208.117.236.6 127115 *.c.docs.google.com 
+74.125.2.120 127098 *.c.docs.google.com 
+208.117.240.33 127765 *.c.docs.google.com 
+173.194.131.230 120414 *.c.docs.google.com gvs 1.0
+72.14.246.240 1433 www.bugsense.com 
+209.85.226.110 120018 *.c.docs.google.com gvs 1.0
+208.117.228.109 120315 *.googlevideo.com gvs 1.0
+64.15.116.46 120051 *.googlevideo.com gvs 1.0
+209.85.228.44 1497 *.c.docs.google.com gvs 1.0
+64.15.112.23 120142 *.googlevideo.com gvs 1.0
+208.117.242.161 1505 *.c.docs.google.com gvs 1.0
+66.102.255.18 121039 *.m.taobao.com 
+194.78.99.48 124003 *.googlevideo.com gvs 1.0
+208.117.254.54 121121 *.c.docs.google.com gvs 1.0
+118.174.27.132 124124 *.googlevideo.com 
+194.78.99.196 124189 *.googlevideo.com 
+208.117.254.214 129755 *.c.docs.google.com 
+118.174.27.135 122592 *.googlevideo.com gvs 1.0
+64.15.112.169 81002 *.googlevideo.com gvs 1.0
+209.85.228.203 7760 *.c.docs.google.com gvs 1.0
+118.174.27.176 11465 *.googlevideo.com gvs 1.0
+85.182.250.198 10515 *.googlevideo.com gvs 1.0
+208.117.227.141 12694 *.googlevideo.com gvs 1.0
+208.117.240.140 12713 *.c.docs.google.com gvs 1.0
+208.117.251.239 12697 *.c.docs.google.com gvs 1.0
+64.15.114.76 12696 *.googlevideo.com gvs 1.0
+208.117.251.142 12727 *.c.docs.google.com gvs 1.0
+64.233.183.131 78658 uberproxy.corp.google.com GFE/2.0
+74.125.12.238 5449 *.c.docs.google.com gvs 1.0
+173.194.79.131 78622 uberproxy.corp.google.com GFE/2.0
+146.148.34.106 8016 antakshri.ikdam.com 
+208.117.252.74 6938 *.c.docs.google.com gvs 1.0
+202.69.26.42 5071 *.pingan.com 
+202.106.93.132 5087 domino.citicbank.com 
+194.78.99.105 83031 *.googlevideo.com gvs 1.0
+208.117.227.68 10288 *.googlevideo.com gvs 1.0
+194.78.99.23 10416 *.googlevideo.com gvs 1.0
+146.148.9.115 11477 *.live.iponweb.com 
+208.117.233.104 10213 *.googlevideo.com gvs 1.0
+24.156.131.5 10253 *.googlevideo.com gvs 1.0
+208.117.227.144 10637 *.googlevideo.com gvs 1.0
+208.117.252.54 6642 *.c.docs.google.com gvs 1.0
+208.117.229.233 10620 *.googlevideo.com gvs 1.0
+64.15.116.211 9979 *.googlevideo.com gvs 1.0
+74.125.97.38 10809 *.c.docs.google.com gvs 1.0
+194.78.99.229 9711 *.googlevideo.com gvs 1.0
+124.160.89.21 6567 *.jojin.com 
+130.211.82.72 6566 *.impdesk.com 
+208.117.238.80 9637 *.c.docs.google.com gvs 1.0
+208.117.226.19 9457 *.googlevideo.com gvs 1.0
+108.166.34.128 7102 compliance.sorin-na.com 
+85.182.250.205 8392 *.googlevideo.com gvs 1.0
+64.15.113.139 13779 *.googlevideo.com gvs 1.0
+209.85.228.118 3400 *.c.docs.google.com gvs 1.0
+173.194.213.125 10711 *.google.com 
+118.174.27.211 8109 *.googlevideo.com gvs 1.0
+64.15.112.176 4452 *.googlevideo.com gvs 1.0
+194.78.99.144 9449 *.googlevideo.com gvs 1.0
+64.15.126.87 10787 *.googlevideo.com gvs 1.0
+208.117.254.194 5772 *.c.docs.google.com gvs 1.0
+24.156.131.13 5996 *.googlevideo.com gvs 1.0
+212.188.15.56 7972 *.googlevideo.com gvs 1.0
+173.194.11.57 7990 *.c.docs.google.com gvs 1.0
+173.194.135.175 7983 *.c.docs.google.com gvs 1.0
+118.174.27.102 6001 *.googlevideo.com gvs 1.0
+209.85.228.166 5207 *.c.docs.google.com gvs 1.0
+208.117.224.61 5569 *.googlevideo.com gvs 1.0
+74.125.34.138 8091 www.songpop.net 
+64.18.1.13 8424 api-s6.postini.com Apache
+208.117.251.88 11959 *.c.docs.google.com gvs 1.0
+85.182.250.215 11381 *.googlevideo.com gvs 1.0
+194.78.99.204 12375 *.googlevideo.com gvs 1.0
+64.15.112.107 11710 *.googlevideo.com gvs 1.0
+64.15.117.104 11688 *.googlevideo.com gvs 1.0
+74.125.173.116 9732 *.c.docs.google.com gvs 1.0
+208.117.236.83 12487 *.c.docs.google.com gvs 1.0
+130.211.115.82 10143 *.blockcypher.com 
+66.102.136.187 9613 www.peakstrategy.com 
+108.166.34.156 10532 *.epochcloud.com 
+85.182.250.51 9648 *.googlevideo.com gvs 1.0
+64.15.113.172 9687 *.googlevideo.com gvs 1.0
+85.182.250.26 9667 *.googlevideo.com gvs 1.0
+202.69.26.63 9978 *.pingan.com.cn 
+124.160.89.155 10440 ebank.hzbank.com.cn 
+208.117.254.167 11012 *.c.docs.google.com gvs 1.0
+208.117.254.112 11073 *.c.docs.google.com gvs 1.0
+146.148.9.252 5234 *.mycloudproxy.com 
+194.78.99.199 11549 *.googlevideo.com gvs 1.0
+66.102.255.26 11217 s.tbcdn.cn 
+173.194.12.9 11355 *.c.docs.google.com gvs 1.0
+208.117.227.38 11759 *.googlevideo.com gvs 1.0
+118.174.27.69 11772 *.googlevideo.com gvs 1.0
+173.194.218.125 11777 *.google.com 
+173.194.131.231 11786 *.c.docs.google.com gvs 1.0
+85.182.250.139 11752 *.googlevideo.com gvs 1.0
+208.117.240.79 11782 *.c.docs.google.com gvs 1.0
+209.85.228.152 11813 *.c.docs.google.com gvs 1.0
+74.125.107.118 11748 *.c.docs.google.com gvs 1.0
+173.194.14.78 6199 *.c.docs.google.com gvs 1.0
+64.15.116.134 11972 *.googlevideo.com gvs 1.0
+173.194.148.232 6393 *.c.docs.google.com gvs 1.0
+209.85.228.119 5317 *.c.docs.google.com gvs 1.0
+173.194.146.20 6736 *.c.docs.google.com gvs 1.0
+64.15.112.95 12492 *.googlevideo.com gvs 1.0
+208.117.229.196 13346 *.googlevideo.com gvs 1.0
+208.117.228.37 13193 *.googlevideo.com 
+64.15.119.86 6190 *.googlevideo.com gvs 1.0
+130.211.78.50 8530 *.bidswitch.net 
+85.182.250.8 7026 *.googlevideo.com gvs 1.0
+212.188.15.31 14292 *.googlevideo.com gvs 1.0
+208.117.233.51 8326 *.googlevideo.com gvs 1.0
+74.125.3.170 8483 *.c.docs.google.com gvs 1.0
+64.15.124.140 8558 *.googlevideo.com gvs 1.0
+118.174.27.215 8892 *.googlevideo.com gvs 1.0
+208.117.238.177 9004 *.c.docs.google.com gvs 1.0
+64.233.168.211 8981 *.ext.google.com GFE/2.0
+212.188.15.32 9103 *.googlevideo.com gvs 1.0
+194.78.99.6 9223 *.googlevideo.com gvs 1.0
+118.174.27.165 9289 *.googlevideo.com gvs 1.0
+74.125.2.41 6746 *.c.docs.google.com gvs 1.0
+118.174.27.196 9464 *.googlevideo.com gvs 1.0
+64.15.112.165 9657 *.googlevideo.com gvs 1.0
+146.148.9.116 6692 a.trgt.eu 
+130.211.115.43 7054 www.kliptag.com 
+146.148.16.54 7248 mail.ads02-campus-media.de 
+202.69.26.226 5738 s1.24money.com 
+209.85.228.246 6768 *.c.docs.google.com gvs 1.0
+74.125.97.130 10126 *.c.docs.google.com 
+208.117.240.101 7591 *.c.docs.google.com gvs 1.0
+208.117.240.20 7713 *.c.docs.google.com gvs 1.0
+24.156.131.28 7620 *.googlevideo.com gvs 1.0
+64.15.112.178 8107 *.googlevideo.com gvs 1.0
+118.174.27.96 8989 *.googlevideo.com gvs 1.0
+118.174.27.70 9039 *.googlevideo.com gvs 1.0
+85.182.250.95 7323 *.googlevideo.com gvs 1.0
+208.117.255.239 8301 *.c.docs.google.com gvs 1.0
+74.125.96.56 5852 *.c.docs.google.com gvs 1.0
+209.85.228.169 4706 *.c.docs.google.com gvs 1.0
+64.15.114.33 5073 *.googlevideo.com gvs 1.0
+208.117.230.37 6591 *.googlevideo.com gvs 1.0
+208.117.255.164 6567 *.c.docs.google.com gvs 1.0
+208.117.228.133 6614 *.googlevideo.com 
+85.182.250.97 4103 *.googlevideo.com gvs 1.0
+66.102.136.76 10224 Avaya.STEPQ.com 
+212.188.15.159 15851 *.googlevideo.com 
+173.194.55.58 6438 *.c.docs.google.com gvs 1.0
+194.78.99.33 12632 *.googlevideo.com gvs 1.0
+209.85.228.153 7896 *.c.docs.google.com gvs 1.0
+108.166.34.82 9074 *.instantcheckmate.com 
+130.211.78.235 9657 *.wildixin.com 
+208.117.227.47 8850 *.googlevideo.com gvs 1.0
+64.15.117.51 8707 *.googlevideo.com gvs 1.0
+64.15.112.92 8797 *.googlevideo.com gvs 1.0
+208.117.227.49 8854 *.googlevideo.com gvs 1.0
+85.182.250.9 8294 *.googlevideo.com gvs 1.0
+124.160.89.158 8236 mbank.hzbank.com.cn 
+85.182.250.52 8302 *.googlevideo.com gvs 1.0
+118.174.27.26 10534 *.googlevideo.com gvs 1.0
+146.148.34.231 10619 *.grw.io 
+146.148.9.170 12293 a.trgt.eu 
+118.174.27.121 12415 *.googlevideo.com gvs 1.0
+146.148.9.255 10640 *.vindicosuite.com 
+208.117.224.17 17995 *.googlevideo.com 
+209.85.228.9 11438 *.c.docs.google.com gvs 1.0
+208.117.231.92 11486 *.googlevideo.com gvs 1.0
+24.156.131.21 5578 *.googlevideo.com gvs 1.0
+208.117.250.132 11578 *.c.docs.google.com gvs 1.0
+208.117.230.206 5996 *.googlevideo.com gvs 1.0
+118.174.27.236 11148 *.googlevideo.com gvs 1.0
+208.117.230.85 11820 *.googlevideo.com gvs 1.0
+85.182.250.250 6243 *.googlevideo.com gvs 1.0
+66.102.255.49 8074 *.cnzz.com 
+64.15.112.170 8317 *.googlevideo.com gvs 1.0
+208.117.252.236 8663 *.c.docs.google.com gvs 1.0
+173.194.135.206 7537 *.c.docs.google.com gvs 1.0
+66.102.255.51 8313 *.alicdn.com 
+118.174.27.139 9160 *.googlevideo.com gvs 1.0
+72.14.248.127 5956 *.gybo.com 
+208.117.252.106 8569 *.c.docs.google.com gvs 1.0
+85.182.250.28 8595 *.googlevideo.com gvs 1.0
+85.182.250.117 8601 *.googlevideo.com gvs 1.0
+209.85.228.173 8670 *.c.docs.google.com gvs 1.0
+118.174.27.75 9820 *.googlevideo.com gvs 1.0
+146.148.8.21 12399 *.bidswitch.net 
+24.156.131.51 17978 *.googlevideo.com 
+208.117.251.145 12754 *.c.docs.google.com gvs 1.0
+64.233.160.131 12820 uberproxy.corp.google.com GFE/2.0
+64.15.116.9 12900 *.googlevideo.com gvs 1.0
+208.117.230.51 12995 *.googlevideo.com gvs 1.0
+74.125.107.234 15825 *.c.docs.google.com gvs 1.0
+74.125.166.218 10398 *.c.docs.google.com gvs 1.0
+118.174.27.27 15580 *.googlevideo.com gvs 1.0
+74.125.173.141 10567 *.c.docs.google.com gvs 1.0
+208.117.227.145 20416 *.googlevideo.com gvs 1.0
+108.166.34.108 11185 www.bigby.com 
+74.125.165.234 12099 *.c.docs.google.com gvs 1.0
+118.174.27.76 11534 *.googlevideo.com gvs 1.0
+118.174.27.220 11571 *.googlevideo.com gvs 1.0
+194.78.99.37 15378 *.googlevideo.com gvs 1.0
+64.15.126.16 16475 *.googlevideo.com gvs 1.0
+64.15.126.42 268334 *.googlevideo.com gvs 1.0
+208.117.254.139 878655 *.c.docs.google.com 
+173.194.135.249 533884 *.c.docs.google.com 
+173.194.200.165 450950 *.googleadservices.com 
+209.85.228.88 156955 *.c.docs.google.com gvs 1.0
+24.156.131.11 164403 *.googlevideo.com gvs 1.0
+208.117.226.7 139071 *.googlevideo.com gvs 1.0
+24.156.131.56 8517 *.googlevideo.com gvs 1.0
+64.15.116.168 8670 *.googlevideo.com gvs 1.0
+24.156.131.52 8737 *.googlevideo.com gvs 1.0
+208.117.238.227 9358 *.c.docs.google.com gvs 1.0
+208.117.236.177 9639 *.c.docs.google.com gvs 1.0
+74.125.97.17 7807 *.c.docs.google.com gvs 1.0
+212.188.15.141 10004 *.googlevideo.com gvs 1.0
+194.78.99.8 166063 *.googlevideo.com gvs 1.0
+130.211.115.186 9660 *.mycloudproxy.com 
+118.174.27.101 9699 *.googlevideo.com gvs 1.0
+118.174.27.224 10062 *.googlevideo.com gvs 1.0
+64.15.116.4 10046 *.googlevideo.com gvs 1.0
+85.182.250.58 10860 *.googlevideo.com gvs 1.0
+146.148.34.168 10361 *.google.stackdriver.com nginx
+208.117.229.236 10531 *.googlevideo.com gvs 1.0
+85.182.250.140 6330 *.googlevideo.com gvs 1.0
+212.188.15.133 18430 *.googlevideo.com 
+208.117.230.33 18943 *.googlevideo.com gvs 1.0
+208.117.238.180 19122 *.c.docs.google.com gvs 1.0
+72.14.249.25 6687 www.postmark.com 
+85.182.250.230 6955 *.googlevideo.com gvs 1.0
+74.125.166.233 6932 *.c.docs.google.com gvs 1.0
+64.15.116.169 7102 *.googlevideo.com gvs 1.0
+212.188.15.138 7916 *.googlevideo.com gvs 1.0
+146.148.24.133 9987 *.qservz.com 
+85.182.250.141 8208 *.googlevideo.com gvs 1.0
+64.15.124.103 1899 *.googlevideo.com gvs 1.0
+85.182.250.234 1571 *.googlevideo.com gvs 1.0
+64.15.116.101 1951 *.googlevideo.com gvs 1.0
+208.117.224.95 3488 *.googlevideo.com gvs 1.0
+212.188.15.142 5882 *.googlevideo.com gvs 1.0
+64.15.126.69 18941 *.googlevideo.com gvs 1.0
+208.117.236.215 20734 *.c.docs.google.com gvs 1.0
+118.174.27.105 22373 *.googlevideo.com gvs 1.0
+118.174.27.112 20957 *.googlevideo.com gvs 1.0
+85.182.250.249 14998 *.googlevideo.com gvs 1.0
+64.15.116.170 7286 *.googlevideo.com gvs 1.0
+208.117.224.42 7287 *.googlevideo.com gvs 1.0
+64.15.119.117 7310 *.googlevideo.com gvs 1.0
+173.194.76.129 12182 uberproxy.corp.google.com GFE/2.0
+64.15.116.50 14135 *.googlevideo.com gvs 1.0
+208.117.250.181 13171 *.c.docs.google.com gvs 1.0
+64.15.112.21 14183 *.googlevideo.com gvs 1.0
+64.15.116.82 14302 *.googlevideo.com gvs 1.0
+208.117.231.106 13784 *.googlevideo.com gvs 1.0
+208.117.242.1 14482 *.c.docs.google.com gvs 1.0
+208.117.229.178 13742 *.googlevideo.com gvs 1.0
+208.117.238.20 13033 *.c.docs.google.com gvs 1.0
+173.194.142.82 15680 *.c.docs.google.com gvs 1.0
+208.117.224.68 15306 *.googlevideo.com gvs 1.0
+208.117.255.36 15745 *.c.docs.google.com gvs 1.0
+208.117.227.175 15785 *.googlevideo.com gvs 1.0
+64.15.114.31 15817 *.googlevideo.com gvs 1.0
+64.15.126.90 15825 *.googlevideo.com gvs 1.0
+208.117.236.178 15961 *.c.docs.google.com gvs 1.0
+208.117.236.23 15909 *.c.docs.google.com gvs 1.0
+173.194.135.185 16031 *.c.docs.google.com gvs 1.0
+208.117.254.151 20760 *.c.docs.google.com gvs 1.0
+64.15.116.107 21454 *.googlevideo.com gvs 1.0
+208.117.229.210 21354 *.googlevideo.com gvs 1.0
+173.194.131.208 21635 *.c.docs.google.com gvs 1.0
+64.15.124.146 21432 *.googlevideo.com gvs 1.0
+208.117.236.162 21594 *.c.docs.google.com gvs 1.0
+173.194.148.76 21649 *.c.docs.google.com gvs 1.0
+208.117.231.140 21482 *.googlevideo.com gvs 1.0
+64.15.112.53 21491 *.googlevideo.com gvs 1.0
+64.15.112.81 21466 *.googlevideo.com gvs 1.0
+208.117.236.194 22170 *.c.docs.google.com gvs 1.0
+208.117.236.173 22199 *.c.docs.google.com gvs 1.0
+173.194.139.252 17046 *.c.docs.google.com gvs 1.0
+72.14.249.83 23690 www.gluwa.com 
+208.117.250.6 28788 *.c.docs.google.com 
+208.117.228.167 22985 *.googlevideo.com gvs 1.0
+208.117.229.235 161834 *.googlevideo.com 
+173.194.137.205 162008 *.c.docs.google.com 
+74.125.96.20 161807 *.c.docs.google.com 
+173.194.4.47 161760 *.c.docs.google.com 
+64.15.117.8 160603 *.googlevideo.com 
+208.117.238.226 162348 *.c.docs.google.com 
+64.15.116.8 100949 *.googlevideo.com 
+173.194.146.122 161960 *.c.docs.google.com 
+208.117.231.135 162466 *.googlevideo.com 
+208.117.227.14 145865 *.googlevideo.com gvs 1.0
+208.117.227.140 146164 *.googlevideo.com gvs 1.0
+173.194.131.245 146113 *.c.docs.google.com gvs 1.0
+173.194.140.82 163112 *.c.docs.google.com 
+74.125.100.88 140525 *.c.docs.google.com gvs 1.0
+208.117.227.79 140492 *.googlevideo.com gvs 1.0
+64.15.117.103 140482 *.googlevideo.com gvs 1.0
+74.125.107.151 147122 *.c.docs.google.com gvs 1.0
+74.125.165.135 140575 *.c.docs.google.com gvs 1.0
+74.125.218.66 140590 *.c.docs.google.com gvs 1.0
+208.117.224.57 146643 *.googlevideo.com gvs 1.0
+208.117.253.8 140732 *.googlevideo.com gvs 1.0
+208.117.230.121 147477 *.googlevideo.com gvs 1.0
+74.125.111.107 2665 *.c.docs.google.com gvs 1.0
+208.117.250.25 147834 *.c.docs.google.com gvs 1.0
+208.117.252.212 142249 *.c.docs.google.com gvs 1.0
+173.194.144.46 7803 *.c.docs.google.com gvs 1.0
+64.15.124.208 7358 *.googlevideo.com gvs 1.0
+173.194.146.73 7874 *.c.docs.google.com gvs 1.0
+64.15.112.87 170480 *.googlevideo.com 
+173.194.135.205 153668 *.c.docs.google.com 
+64.15.116.234 7833 *.googlevideo.com gvs 1.0
+64.15.116.203 7898 *.googlevideo.com gvs 1.0
+173.194.142.234 155860 *.c.docs.google.com gvs 1.0
+74.125.213.35 7961 *.c.docs.google.com gvs 1.0
+208.117.250.8 8300 *.c.docs.google.com gvs 1.0
+173.194.138.7 6637 *.c.docs.google.com gvs 1.0
+208.117.255.243 8305 *.c.docs.google.com gvs 1.0
+208.117.238.43 8480 *.c.docs.google.com gvs 1.0
+208.117.228.172 9540 *.googlevideo.com gvs 1.0
+208.117.233.15 3448 *.googlevideo.com gvs 1.0
+64.15.112.112 5958 *.googlevideo.com gvs 1.0
+72.14.248.193 5924 chromestatus.com ghs
+64.15.124.228 3716 *.googlevideo.com gvs 1.0
+208.117.225.13 4171 *.googlevideo.com gvs 1.0
+208.117.251.108 4180 *.c.docs.google.com gvs 1.0
+74.125.7.50 12241 *.c.docs.google.com gvs 1.0
+208.117.231.137 4229 *.googlevideo.com gvs 1.0
+208.117.224.107 154417 *.googlevideo.com 
+64.15.116.102 4350 *.googlevideo.com gvs 1.0
+64.15.119.97 6755 *.googlevideo.com gvs 1.0
+208.117.238.82 4484 *.c.docs.google.com gvs 1.0
+74.125.107.104 6726 *.c.docs.google.com gvs 1.0
+173.194.136.104 6654 *.c.docs.google.com gvs 1.0
+64.15.116.42 7202 *.googlevideo.com gvs 1.0
+64.15.126.58 18240 *.googlevideo.com gvs 1.0
+208.117.250.240 12537 *.c.docs.google.com 
+173.194.129.21 9101 *.c.docs.google.com gvs 1.0
+208.117.229.147 9180 *.googlevideo.com gvs 1.0
+208.117.236.203 9207 *.c.docs.google.com gvs 1.0
+208.117.254.168 13052 *.c.docs.google.com gvs 1.0
+64.15.114.75 9467 *.googlevideo.com gvs 1.0
+173.194.218.193 12883 m.google.com 
+74.125.96.79 6301 *.c.docs.google.com gvs 1.0
+208.117.224.6 8353 *.googlevideo.com gvs 1.0
+208.117.224.31 5822 *.googlevideo.com gvs 1.0
+64.15.112.76 7593 *.googlevideo.com gvs 1.0
+208.117.229.204 8522 *.googlevideo.com gvs 1.0
+173.194.138.144 6039 *.c.docs.google.com gvs 1.0
+208.117.251.7 7787 *.c.docs.google.com gvs 1.0
+64.15.112.142 6572 *.googlevideo.com gvs 1.0
+72.14.247.254 5585 *.zeetings.com 
+64.15.113.174 7675 *.googlevideo.com gvs 1.0
+64.15.116.6 9262 *.googlevideo.com gvs 1.0
+64.15.119.10 21581 *.googlevideo.com gvs 1.0
+208.117.224.26 12196 *.googlevideo.com gvs 1.0
+208.117.230.207 12633 *.googlevideo.com gvs 1.0
+74.125.102.170 7246 *.c.docs.google.com gvs 1.0
+208.117.236.75 9082 *.c.docs.google.com gvs 1.0
+208.117.238.173 10870 *.c.docs.google.com gvs 1.0
+208.117.230.170 6467 *.googlevideo.com gvs 1.0
+72.14.248.81 3346 xbrl-mirror.wdesk.com 
+208.117.230.28 7599 *.googlevideo.com gvs 1.0
+208.117.224.5 12624 *.googlevideo.com gvs 1.0
+208.117.236.181 3928 *.c.docs.google.com gvs 1.0
+64.15.112.134 7488 *.googlevideo.com gvs 1.0
+64.15.119.115 3818 *.googlevideo.com gvs 1.0
+64.15.126.101 4066 *.googlevideo.com gvs 1.0
+64.15.112.120 4145 *.googlevideo.com gvs 1.0
+173.194.28.170 1692 *.c.docs.google.com gvs 1.0
+64.15.117.45 4219 *.googlevideo.com gvs 1.0
+208.117.254.202 8870 *.c.docs.google.com gvs 1.0
+208.117.227.147 2554 *.googlevideo.com gvs 1.0
+208.117.240.9 2427 *.c.docs.google.com gvs 1.0
+72.14.246.146 2477 *.imggaming.com 
+64.15.124.229 2697 *.googlevideo.com gvs 1.0
+64.15.117.106 6841 *.googlevideo.com gvs 1.0
+208.117.254.25 6924 *.c.docs.google.com gvs 1.0
+208.117.236.114 6999 *.c.docs.google.com gvs 1.0
+208.117.238.246 10868 *.c.docs.google.com 
+74.125.96.83 4376 *.c.docs.google.com gvs 1.0
+208.117.227.146 7859 *.googlevideo.com gvs 1.0
+173.194.27.114 7077 *.c.docs.google.com gvs 1.0
+208.117.254.77 9181 *.c.docs.google.com gvs 1.0
+208.117.238.179 10286 *.c.docs.google.com gvs 1.0
+72.14.246.5 4995 projects.teamdev.com 
+208.117.252.9 5083 *.c.docs.google.com gvs 1.0
+208.117.224.120 11845 *.googlevideo.com 
+173.194.128.166 6112 *.c.docs.google.com gvs 1.0
+208.117.238.197 12555 *.c.docs.google.com gvs 1.0
+208.117.236.205 5922 *.c.docs.google.com gvs 1.0
+208.117.236.214 14194 *.c.docs.google.com gvs 1.0
+208.117.254.24 14356 *.c.docs.google.com gvs 1.0
+173.194.1.239 7622 *.c.docs.google.com gvs 1.0
+173.194.141.44 14604 *.c.docs.google.com gvs 1.0
+208.117.252.40 8947 *.c.docs.google.com gvs 1.0
+208.117.240.66 9275 *.c.docs.google.com gvs 1.0
+173.194.195.211 9382 *.ext.google.com GFE/2.0
+173.194.2.171 9291 *.c.docs.google.com gvs 1.0
+72.14.249.114 10392 be.kaplan.com 
+208.117.226.17 10453 *.googlevideo.com gvs 1.0
+208.117.242.65 10549 *.c.docs.google.com gvs 1.0
+173.194.67.125 10643 *.google.com 
+208.117.239.3 13414 *.c.docs.google.com gvs 1.0
+64.15.116.112 11520 *.googlevideo.com gvs 1.0
+64.15.117.74 11489 *.googlevideo.com gvs 1.0
+208.117.236.195 12027 *.c.docs.google.com gvs 1.0
+74.125.212.69 12042 *.c.docs.google.com gvs 1.0
+208.117.227.4 9406 *.googlevideo.com gvs 1.0
+208.117.254.75 12397 *.c.docs.google.com gvs 1.0
+64.15.116.140 9455 *.googlevideo.com gvs 1.0
+64.15.124.233 9438 *.googlevideo.com gvs 1.0
+208.117.251.146 9485 *.c.docs.google.com gvs 1.0
+208.117.231.7 9592 *.googlevideo.com gvs 1.0
+208.117.224.112 9855 *.googlevideo.com gvs 1.0
+208.117.233.113 10159 *.googlevideo.com gvs 1.0
+208.117.224.86 185040 *.googlevideo.com gvs 1.0
+64.15.117.81 185333 *.googlevideo.com 
+208.117.253.72 183470 *.googlevideo.com gvs 1.0
+208.117.228.135 187324 *.googlevideo.com 
+208.117.251.119 187413 *.c.docs.google.com 
+64.15.126.4 189692 *.googlevideo.com 
+64.15.119.91 186141 *.googlevideo.com gvs 1.0
+208.117.227.39 196180 *.googlevideo.com gvs 1.0
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:05:25 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21572#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+#22 新版本的已经支持gvs ip了，不用到ip_tmpno里找了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:07:00 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21572#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+在linux下把IP 挑出来的步骤：
+1：cat ip_tmpok.txt | awk -F' ' '{print $1}' &gt;&gt; ipok.txt
+2: 用文本编辑打开 ipok.txt，然后查找\n替换成|就可以了。
+本人awk sed菜鸟，期待高手给出以不到位的办法。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:10:08 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21572#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+ip.txt 里就是好IP，干嘛到别处找
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:11:58 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21572#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+#22，这么多的ip，请问您是如何一个个的加入到proxy.ini里面去的？因为每个ip后面要加“|” 。 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:12:39 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21572#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+#27， 这多的ip，请问您是如何一个个的加入到proxy.ini里面去的？因为每个ip后面要加“|” 。 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:13:12 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=21572#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+#26 windows下呢？谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:13:46 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21572#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#27 谢谢，还是大神眼界开阔，给迷途的人指明方向。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:23:26 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21572#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#29 我是分出IP段，用gogotester再扫一遍，导出即可。方法有点笨。
+
+你可以用#16的bandip.py文件筛筛看看，应该会快一些。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:34:33 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21572#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+#32  的这个办法貌似是目前可用的方法里面比较快的了，谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 20:57:09 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=21572#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/116326853761552387466/">scattere...@gmail.com</a
+></span>
+ 
+<pre>
+#26
+
+checkgoogleip 我没用过，如果文件格式没理解错，取最快的10个ip，可以这样写
+awk -F' ' '{printf &quot;%08d %s\n&quot;, $2, $1}' ip_tmpno.txt | sort | uniq | head -n10 | cut -d' ' -f2 | paste -sd\|
+
+win下如果装了cygwin, 也可以这样操作, 但多数win用户大概不愿这样操作, 还是用 #16 的方法好了
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 21:11:02 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=21572#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+作者的说明:
+如果执行成功，会在该目录新建一个ip.txt文件，里面的IP列表就是可用列表,ip_tmperror.txt会保留查询失败的IP，ip_tmpok.txt会保留查询成功的IP
+-------------------------------
+ip.txt 里是可用ip,是按延迟排序好了的,并且是自动加 | 的
+执行完bat之后,把ip.txt里的ip直接复制到google_hk = xx  就行了
+如果在扫描过程中,扫描的比较慢,或者你不想扫了,可以按ctrl+C，这样会结束bat
+结束了不要紧，ip.txt会保留符合你设置延迟的ip
+所以不用什么命令，也不用什么脚本，这个就是自动的，你就直接运行就行，运行完用ip.txt的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 21:55:46 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=21572#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/113527100617616198321/">a1363507...@gmail.com</a
+></span>
+ 
+<pre>
+大哥们，我用了ip.txt里面的ip，为什么翻墙会显示404?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 22:04:56 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=21572#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/113527100617616198321/">a1363507...@gmail.com</a
+></span>
+ 
+<pre>
+大婶救命啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jun 17 22:14:39 2015">
+ Jun 17, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=21572#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/100130881789315854978/">thonysun...@gmail.com</a
+></span>
+ 
+<pre>
+感谢 #36 Kisesy大神！ ip.txt里面的列表是已经全部加了“|”的 ！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jun 18 03:08:07 2015">
+ Jun 18, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=21572#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/115018472562619366382/">oct.w...@gmail.com</a
+></span>
+ 
+<pre>
+安装包里有个readme文件，不会的自己看啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21572">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21572',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21572,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

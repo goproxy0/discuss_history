@@ -1,0 +1,639 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"loggedInUserEmail": null, "relativeBaseUrl": "", "projectHomeUrl": "/p/goagent", "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "domainName": null, "projectName": "goagent", "token": null, "profileUrl": null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22312 - 
+ goagent -
+ 
+ Heroku部署snova-c4-java-server-0.22.0.war的官方教程修復(原因是heroku-deploy的官方代碼錯誤) - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22312&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22312" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22312">22312</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >Heroku部署snova-c4-java-server-0.22.0.war的官方教程修復(原因是heroku-deploy的官方代碼錯誤)</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 3 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22312">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/109772715956749602638/">nakitaka...@gmail.com</a
+>,
+ <span class="date" title="Thu Aug 13 11:05:00 2015">Aug 13, 2015</span>
+ 
+ </div>
+<pre>
+Heroku部署snova-c4-java-server-0.22.0.war的官方教程修復，
+原因是heroku-deploy的官方代碼錯誤，導致下一行運行失敗：
+heroku deploy:war --war &lt;path_to_war_file&gt; --app &lt;app_name&gt;
+
+====================================================================================================
+修復方法(heroku-deploy的bug)：
+官方教程是四個步驟：
+heroku login
+heroku plugins:install <a href="https://github.com/heroku/heroku-deploy" rel="nofollow">https://github.com/heroku/heroku-deploy</a>  --只需执行一次，以后不用执行
+heroku apps:create      --此步创建一个app，名字随机，记住此步的appname（域名不含.herokuapp.com）。更新不用执行此步
+heroku deploy:war --war &lt;path_to_war_file&gt; --app &lt;app_name&gt;
+
+執行完第二個步驟後，用Editplus修改本地文件
+【C:\Documents and Settings\Administrator\.heroku\plugins\heroku-deploy\lib\heroku\command\deploy.rb】
+====================
+JAR_FILE = &quot;#{Heroku::Plugin.directory}/heroku-deploy/heroku-deploy-complete.jar&quot;
+==========---&gt;&gt;&gt;==========
+JAR_FILE = &quot;\&quot;#{Heroku::Plugin.directory}/heroku-deploy/heroku-deploy-complete.jar\&quot;&quot;
+====================
+也就是在【JAR_FILE = &quot;(路徑)&quot;】-&gt;【JAR_FILE = &quot;\&quot;(路徑)\&quot;&quot;】，(路徑)兩邊還要各加多【\&quot;】
+然後執行第四個步驟，就可以上傳成功。
+====================================================================================================
+
+說明：
+此方法在XP SP3下用成功上傳。
+詳細說明：
+此方法在VMWARE下，在8GB的Ramdisk內安裝並運行的原版XP SP3下，用穩定的VPN或ProxyCap成功上傳。
+
+
+以下操作最好都在純淨的XP系統下操作，必要時用到Sandboxie，易於檢測。
+
+========================================01========================================
+安裝jdk-7u76-windows-i586.exe。
+安裝heroku-toolbelt.exe的全部功能(包括git和ruby)。
+
+官方教程是四個步驟：
+heroku login
+heroku plugins:install <a href="https://github.com/heroku/heroku-deploy" rel="nofollow">https://github.com/heroku/heroku-deploy</a>  --只需执行一次，以后不用执行
+heroku apps:create      --此步创建一个app，名字随机，记住此步的appname（域名不含.herokuapp.com）。更新不用执行此步
+heroku deploy:war --war &lt;path_to_war_file&gt; --app &lt;app_name&gt;
+
+以下是詳細解釋：
+========================================01========================================
+========================================02========================================
+打開CMD轉到任意目錄，複製命令粘帖執行：
+==========
+heroku login
+******username
+******password
+y
+==========
+(如果環境變量裡面沒有這個路徑“C:\Program Files\Git\bin”的話，會提示找不到ssh-keygen.exe)
+========================================02========================================
+========================================03========================================
+上傳時，每個heroku賬號對應一個key，都要執行
+heroku keys:add
+然後
+複製文件夾：“C:\Documents and Settings\Administrator\.ssh”到“C:\Program Files\Git\.ssh”
+才可以。
+
+或者是CMD到目錄“C:\Program Files\Git\bin”，才執行命令
+heroku keys:add
+========================================03========================================
+========================================04========================================
+執行命令行：
+heroku plugins:install <a href="https://github.com/heroku/heroku-deploy" rel="nofollow">https://github.com/heroku/heroku-deploy</a>
+等待幾分鐘後，會把網址
+<a href="https://github.com/heroku/heroku-deploy" rel="nofollow">https://github.com/heroku/heroku-deploy</a>
+裡面的內容一模一樣地下載到此目錄：
+C:\Documents and Settings\Administrator\.heroku\plugins\heroku-deploy
+
+所以直接下載【heroku-deploy-master.zip】，然後解壓到：
+C:\Documents and Settings\Administrator\.heroku\plugins\heroku-deploy
+一樣可以使用。
+========================================04========================================
+========================================05========================================
+預先創建好一個heroku app：【&lt;app_name&gt;】
+========================================05========================================
+========================================06========================================
+snova-c4-java-server-0.22.0.war放入文件夾【C:\Soft\】
+執行命令行：
+heroku deploy:war --war &quot;C:\Soft\snova-c4-java-server-0.22.0.war&quot; --app &lt;app_name&gt;
+
+此時會出現錯誤信息：
+Uploading C:/Soft/snova-c4-java-server-0.22.0.war....
+Error: Unable to access jarfile C:/Documents
+
+因為XP下文件夾【C:\Documents and Settings】的路徑含有空格，上面的錯誤信息可猜測要讀取的jarfile在此路徑內，
+因為路徑有空格，所以被識別出【C:/Documents】，可以肯定是路徑的問題。
+
+經過繁瑣的調查(Everything搜索*.jar，Sandboxie下運行此命令行)：
+Uploading時會調用JAR文件：
+C:\Documents and Settings\Administrator\.heroku\plugins\heroku-deploy\heroku-deploy-complete.jar
+
+從錯誤信息：
+Error: Unable to access jarfile C:/Documents
+來看，應該是路徑問題，該路徑識別不了空格。
+
+然後谷歌搜索：【&quot;Unable to access jarfile&quot; &quot;heroku-deploy-complete.jar&quot;】
+只有一個結果：
+<a href="https://github.com/heroku/heroku-deploy/blob/master/lib/heroku/command/deploy.rb" rel="nofollow">https://github.com/heroku/heroku-deploy/blob/master/lib/heroku/command/deploy.rb</a>
+
+發現這一行：
+JAR_FILE = &quot;#{Heroku::Plugin.directory}/heroku-deploy/heroku-deploy-complete.jar&quot;
+
+於是修改本地文件【C:\Documents and Settings\Administrator\.heroku\plugins\heroku-deploy\lib\heroku\command\deploy.rb】
+====================
+JAR_FILE = &quot;#{Heroku::Plugin.directory}/heroku-deploy/heroku-deploy-complete.jar&quot;
+==========---&gt;&gt;&gt;==========
+JAR_FILE = &quot;\&quot;#{Heroku::Plugin.directory}/heroku-deploy/heroku-deploy-complete.jar\&quot;&quot;
+====================
+錯誤信息終於消失了，可以正常上傳。
+
+看來HEROKU官方代碼也有BUG！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+========================================06========================================
+========================================07========================================
+修改好deploy.rb文件後，再次執行命令行：
+heroku deploy:war --war &quot;C:\Soft\snova-c4-java-server-0.22.0.war&quot; --app &lt;app_name&gt;
+
+此時首先會下載【webapp-runner.jar】文件到目錄：
+C:\Documents and Settings\Administrator\Local Settings\Temp\heroku-deploy6651480029903505880\heroku\app
+
+用URLSnooper看到【webapp-runner.jar】文件下載地址：
+<a href="http://central.maven.org/maven2/com/github/jsimone/webapp-runner/8.0.23.0/webapp-runner-8.0.23.0.jar" rel="nofollow">http://central.maven.org/maven2/com/github/jsimone/webapp-runner/8.0.23.0/webapp-runner-8.0.23.0.jar</a>
+下載時自動命名為【webapp-runner.jar】。
+
+下載完成後，創建了文件：
+Procfile
+system.properties
+複製了【C:\Soft\】文件夾：
+【C:\Soft\snova-c4-java-server-0.22.0.war】
+-&gt;
+【.\Soft\snova-c4-java-server-0.22.0.war】
+
+然後會把【heroku-deploy6651480029903505880\heroku\app】文件夾壓縮成文件【heroku-deploy6651480029903505880\heroku\slug.tgz】
+
+再上傳文件【slug.tgz】，此時用VPN上傳會穩定，VPN不行就用ProxyCap全局代理到CCProxy的SOCKS5端口來上傳。
+上傳不穩定時會提示網絡問題：
+========================================
+八月 09, 2015 3:12:38 下午 org.apache.http.impl.execchain.RetryExec execute
+信息: I/O exception (java.net.SocketException) caught when processing request to {s}-&gt;<a href="https://s3-external-1.amazonaws.com:443" rel="nofollow">https://s3-external-1.amazonaws.com:443</a>: Sof
+tware caused connection abort: socket write error
+八月 09, 2015 3:12:38 下午 org.apache.http.impl.execchain.RetryExec execute
+信息: Retrying request to {s}-&gt;<a href="https://s3-external-1.amazonaws.com:443" rel="nofollow">https://s3-external-1.amazonaws.com:443</a>
+八月 09, 2015 3:14:11 下午 org.apache.http.impl.execchain.RetryExec execute
+信息: I/O exception (java.net.SocketException) caught when processing request to {s}-&gt;<a href="https://s3-external-1.amazonaws.com:443" rel="nofollow">https://s3-external-1.amazonaws.com:443</a>: Con
+nection reset by peer: socket write error
+八月 09, 2015 3:14:11 下午 org.apache.http.impl.execchain.RetryExec execute
+信息: Retrying request to {s}-&gt;<a href="https://s3-external-1.amazonaws.com:443" rel="nofollow">https://s3-external-1.amazonaws.com:443</a>
+========================================
+
+結束。
+========================================07========================================
+========================================08========================================
+最後根據以上整理得出【Snova_Server_Upload】文件夾，直接把它上傳到Dropbox內，再在Heroku管理界面處Deploy入Heroku即可。
+
+不過經測試經過Dropbox來Deploy失敗。
+========================================08========================================
+
+</pre>
+
+</div>
+
+ 
+
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22312">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22312',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22312,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

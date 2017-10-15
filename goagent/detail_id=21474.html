@@ -1,0 +1,1614 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "projectName": "goagent", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "relativeBaseUrl": "", "token": null, "domainName": null, "profileUrl": null, "projectHomeUrl": "/p/goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21474 - 
+ goagent -
+ 
+ 搞定goagent做tor前置代理问题。。。。 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21474&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21474" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21474">21474</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >搞定goagent做tor前置代理问题。。。。</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 12 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21474">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/105260796531790740057/">crystalf...@gmail.com</a
+>,
+ <span class="date" title="Fri Jun 12 03:09:57 2015">Jun 12, 2015</span>
+ 
+ </div>
+<pre>
+看了meek的介绍。。
+<a href="https://trac.torproject.org/projects/tor/wiki/doc/meek" rel="nofollow">https://trac.torproject.org/projects/tor/wiki/doc/meek</a>
+然后就想既然meek-server要部署到GAE上，那么goagent就能作为meek－client的前置代理了。。。。
+
+1.下载
+git clone <a href="https://git.torproject.org/pluggable-transports/meek.git" rel="nofollow">https://git.torproject.org/pluggable-transports/meek.git</a>
+
+进入appengine，修改app.yaml第一行“application:YourAppID”
+
+2.创建APP
+这个不用再提了，不过现在创建APP可选两个集群，一个是美国的，一个是欧盟的，我两个都创建了一个。
+
+3.部署
+然后就是部署上传了。用过很多办法，都没有办法上传到GAE，最后是下载了这个东西GoogleCloudSDKInstaller.exe才成功的。。。
+这里碰到很多问题。
+
+首先、要修改GoogleCloudSDKInstaller.exe安装路径，不能有中文，不能有空格。PS：它自动安装的就有一个空格，如果不小心点了。安装后，要自己去修改路径把空格给去掉。（5555,自己在这里找了很多好久的问题）
+
+其次、要修改它自动安装的python的编码问题。把python下lib中的mimetypes.py文件中的ctype = ctype.encode的三行注释掉。
+
+然后就是用Google Cloud SDK Shell去上传了，最后，最好用goapp deploy上传，我用appcfg.py update上传失败。
+
+找了第三方SDUpload，都传不上去。。
+
+PS：希望大神能用goagent自带的上传工具写个教程啊。。。。。
+
+4使用
+这个就是最后一步了，在torrc文件中加入
+HTTPSProxy 127.0.0.1:8087
+UseBridges 1
+Bridge meek 0.0.2.0:1 url=<a href="https://YourAppID.appspot.com/" rel="nofollow">https://YourAppID.appspot.com/</a> front=www.google.com
+ClientTransportPlugin meek exec ./PluggableTransports/meek-client --log meek-client.log
+
+皆大欢喜了。
+
+打完收工。。。。。
+
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 03:16:04 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21474#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/105260796531790740057/">crystalf...@gmail.com</a
+></span>
+ 
+<pre>
+最后再提一句，tor这个真的有点看人品的。。。我这里看youtube看720p没有问题。
+如果circuit不理想，只能看看360p了。。。。浏览网页速度上比用其他的网桥要快
+
+有没有哪位大神研究了tor，怎么设置circuit连接节点，把得到的节点按快慢速度，连到一个circuit里面，这能满速油管了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 03:16:21 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21474#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+瓦咔咔，这个很爽哦，我马上试试看，谢谢楼主分享。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 04:04:43 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21474#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+push to deploy:<a href="http://googlecloudplatform.blogspot.com/2013/07/google-app-engine-hello-world-using.html?m=1" rel="nofollow">http://googlecloudplatform.blogspot.com/2013/07/google-app-engine-hello-world-using.html?m=1</a>
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 08:47:26 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21474#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/116326853761552387466/">scattere...@gmail.com</a
+></span>
+ 
+<pre>
+meek gae 和 goagent 没关系
+app.yaml 不用修改, 可用 goapp deploy -application new_appid 指定新的appid
+上传 appid 需要访问 appengine.google.com , 可通过 vpn , 或在 hosts , 或在本地 dns server 中加入可用ip指向 appengine.google.com
+tor 启动 meek gae, 需要访问 www.google.com , 再走vpn意义就不大了, 可在 hosts , 或在本地 dns server 中加入可用ip指向 www.google.com
+meek gae 的服务端20150222后就没有再修改, 但现在速度的确有提升, 应是中转服务器 meek.bamsoftware.com 的带宽加大了
+用 meek gae 追求 youtube 速度, 目前还是算了吧
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 09:01:41 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21474#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/105260796531790740057/">crystalf...@gmail.com</a
+></span>
+ 
+<pre>
+meek gae 和 goagent 是没关系
+但是我这里不用goagent作前置代理，压根就连不上。。。
+你用改hosts和dns的方法，没有goagent来的快了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 09:31:00 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21474#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/109474245040765929427/">yun36041...@gmail.com</a
+></span>
+ 
+<pre>
+tor只会用桥来翻。。另外有个叫AdvOR貌似也用tor的技术，翻起来比较容易点
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 10:11:56 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21474#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/100078883655852273606/">torgoage...@gmail.com</a
+></span>
+ 
+<pre>
+捣鼓了一下确实用上了，goapp deploy上传速度满快的，可惜必须走vpn，不支持goa proxy。另外楼主没说，你装GoogleCloudSDKInstaller.exe得把go language选上。现在goa的用途大大扩展了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jun 12 17:28:16 2015">
+ Jun 12, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21474#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/105260796531790740057/">crystalf...@gmail.com</a
+></span>
+ 
+<pre>
+#7,GoogleCloudSDKInstaller.exe,我是全选安装的，这个倒是忘了，嘿嘿，不过没有装也没有关系，安装完，可以用命令行补上。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 06:05:17 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21474#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/100015965012718812890/">democra...@gmail.com</a
+></span>
+ 
+<pre>
+想请问一下楼上各位，用goagent做前置代理的速度和安全性如何。以下是自己折腾的记录，还没搞掂，求指点。
+
+未完成的一次部署：
+过程：
+创建appid：lusblake2 (就是简单地填写这个appid的名称，然后点击创建，没有看到楼主提到的美国或欧盟的具体参数)
+已经安装了gcloud sdk, 
+rc是默认的路径，（没有任何设置，直接按回车）
+已经执行gcloud auth login，成功。
+已经安装pkg-go
+已经执行git clone <a href="https://git.torproject.org/pluggable-transports/meek.git" rel="nofollow">https://git.torproject.org/pluggable-transports/meek.git</a> 
+已经修改～/meek/appengine/app.yaml
+openvpn工作环境正常
+
+
+尝试执行上传命令
+
+goapp deploy -oauth -application lusblake2 meek
+
+出错提示：
+can't load package: package meek: cannot find package &quot;meek&quot; in any of: 
+	/home/hps/google-cloud-sdk/platform/google_appengine/goroot/src/meek (from $GOROOT) 
+	/home/hps/google-cloud-sdk/platform/google_appengine/gopath/src/meek (from $GOPATH) 
+goapp deploy: unable to find app.yaml at meek (unable to resolve package) 
+
+之前执行gcloud preview app run /home/hps/meek/appengine/app.yam出错，
+执行gcloud preview app run /home/lisa/meek也出错。
+
+
+Set your default project ID by running the following command and replacing PROJECT with your own project ID:
+
+$ gcloud config set project PROJECT
+
+If you do not know what your project ID is, refer to Identifying projects.
+
+问题的关键是命名本地的项目为刚刚申请的appid吗？
+
+请问如何进行这临门一脚？
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:09:12 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21474#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我的GAE部署meek的成功经验：
+
+1.必须用VPN,否则无法进行google账户认证,推荐使用VPNGate.
+2. python的环境变量要设置，pyOpenssl要用pip更新。
+3. 要安装go_appengine_sdk_windows（googlecloudSDK可不用安装），并设置go_appengine的环境变量
+4. app.yaml的第一行application:后面除了要写appid以外，meek-reflect一定要删除，否则部署会报错（appcfg.py错误）。
+5. readme文件不能放在appengine目录里面，appengine目录只能有两个文件：app.yaml和reflect.go
+6.最后运行：goapp deploy.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:22:05 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21474#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+按照#10的做就没差啦，速度嘛，tor是为了速度而存在么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:31:40 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21474#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+大家对蓝灯搭配tor的安全性怎么看？ 蓝灯用的是http，不是https不是socks4也不是socks5。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:42:33 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21474#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+你说的代理方式其实跟安全性没有关系，不管是哪一种代理方式都是指浏览器和程序客户端之间通讯方式，属于内部通讯，安全与否要看程序客户端和服务器端的通讯方式是怎样的。比如ss可以用rc4-md5的或者aes之内的对外加密方式，本地则用sock5跟浏览器通讯。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:43:38 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21474#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/100015965012718812890/">democra...@gmail.com</a
+></span>
+ 
+<pre>
+请问各位goapp deploy 命令怎么写？是否要cd到某一个目录下？擦汗。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:47:37 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21474#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+只要环境变量配好，在哪一个目录执行都无所谓。
+你最好是cd到meek的appengine那个目录执行，并把readme文件删掉，同时修改app.yaml文件
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 07:54:40 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21474#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+#13 明白了，意思是明文传播也不会不安全，因为都是在本机。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 08:00:02 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21474#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+是的，说白了，本地代理都是将本地的访问请求汇聚给代理客户端，然后由代理客户端统一打包发送出去，所以代理客户端跟远程代理服务器之间的通讯加密方式才是至关重要的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 08:17:24 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21474#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#14 goapp deploy就这个命令，没其他了，敲完回车等待上传完毕收工。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 09:01:37 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21474#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/100015965012718812890/">democra...@gmail.com</a
+></span>
+ 
+<pre>
+# 14 对，刚才灵光一现，自己想到了。已经定位出了故障就出在命令的写法。多谢Kingtope，多谢Redfrog！！！
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:50:50 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21474#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+照葫芦画瓢，打完还不能收工，因为连不上。
+ubuntu 1404
+tor1502
+照着楼主的指引设置torrc（此前没有任何内容），连接的时候出错提示：正在连接中继目录 失败 (缺少 pluggable 传输类型网桥 - 0.0.2.0:1)
+访问appid.appspot.com已经显示 I’m just a happy little web server.
+是不是还有什么步骤没做？谢谢！
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:54:48 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21474#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+既然已经显示 I’m just a happy little web server.，就说明GAE MEEK已经部署成功。
+
+肯定是你的torrc文件错了，我的torrc给你参考下：
+
+HTTPSProxy 127.0.0.1:8087
+SocksListenAddress 127.0.0.1
+
+ClientOnly 1
+DataDirectory ./Data
+GeoIPFile ./Data/geoip
+GeoIPv6File ./Data/geoip6
+Log notice file ./tor.log
+
+UseBridges 1
+
+
+
+ClientTransportPlugin meek exec ./PluggableTransports/meek-client --log ./meek-client.log
+bridge meek 0.0.2.0:1 url=<a href="https://yourappid.appspot.com/" rel="nofollow">https://yourappid.appspot.com/</a> front=www.google.com
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:23:34 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21474#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+Linux下不能这种玩法，会报SSL证书错误，具体原因不明。你只能在windows下这么玩。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 20:30:03 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21474#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+# 23 老兄用的是tor浏览器还是安装到系统里的tor？
+在下用的是64位ubuntu1404tor浏览器，老兄的torrc复制并修改之后，一启动就会被部分修改，而且出现相同的错误提示。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 20:38:01 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21474#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我用的是命令行的tor,不是tor浏览器。
+在Ubuntu下不能这种玩法，会出现证书错误，只能在windows下玩
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21474">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21474',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21474,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

@@ -1,0 +1,5185 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"token": null, "projectHomeUrl": "/p/goagent", "domainName": null, "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "loggedInUserEmail": null, "relativeBaseUrl": "", "projectName": "goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22048 - 
+ goagent -
+ 
+ 经验证，php go服务端可以同时在goproxy和goagent上运行，感觉goagent会快些。 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22048&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22048" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22048">22048</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >经验证，php go服务端可以同时在goproxy和goagent上运行，感觉goagent会快些。</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 13 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22048">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+>,
+ <span class="date" title="Tue Jul 21 20:23:38 2015">Jul 21, 2015</span>
+ 
+ </div>
+<pre>
+经验证，php go服务端可以同时在goproxy和goagent上运行，感觉goagent会快些。
+
+目前php go能部署的平台非常少：只有heroku和C9(非常不可靠，免费版定时关机) 
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 20:26:19 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=22048#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/118289642934399167425/">lg560...@gmail.com</a
+></span>
+ 
+<pre>
+C9定时关机？是什么判断条件？时间是多少呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jul 21 21:25:14 2015">
+ Jul 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22048#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/107892137552823167163/">rph...@gmail.com</a
+></span>
+ 
+<pre>
+怎么部署啊，，
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 08:38:06 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22048#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+请教一下，heroku同步dropbox上传的文件，是指index.go这个文件吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 09:24:06 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22048#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#3
+以前专门有个包，现在链接失效了。
+这里有介绍，先大致了解一下它怎么工作还有目录结构。
+<a href="https://devcenter.heroku.com/articles/getting-started-with-go" rel="nofollow">https://devcenter.heroku.com/articles/getting-started-with-go</a>
+不管它那个toolbelt,到这里部属那个列子
+<a href="https://github.com/heroku/go-getting-started" rel="nofollow">https://github.com/heroku/go-getting-started</a>
+同步到dropbox后替换go文件，再回来deploy
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 09:44:51 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22048#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#4 这个好像有点复杂，我主要是想问lz在下面链接提到的用dropbox把文件拖上去的文件是哪个
+<a href="https://code.google.com/p/goagent/issues/detail?id=22037#c19" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=22037#c19</a>
+
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 09:53:59 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22048#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#5 dropbox不是拖过去那么简单，你要会用git才行，
+通过git clone整个目录，然后上传到dropbox，再完成
+deploy。反正你得对云端和各个云平台的部署比较熟悉。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 10:07:23 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22048#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#6可以详细讲讲deploy之前的步骤吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 10:08:35 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22048#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#5
+拖上去一个文件没用，还有配置文件，目录结构。他传的可能是这里2楼的，按heroku要求的结构配置的。现在不知道为什么失效了。
+<a href="https://code.google.com/p/goagent/issues/detail?id=22018" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=22018</a>
+那个go-getting-started提供了基础的配置文件和目录结构，也是1.42的。
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 18:33:19 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22048#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/117347848207208895832/">u78...@gmail.com</a
+></span>
+ 
+<pre>
+heroku我有账号 dropbox我也有账号 但什么git呀 拖放呀 deploy呀我不会呀
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 20:54:41 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22048#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+是时候出一个Heroku部署php go的简明教程了，我之前一直很纠结：到底是发布git的教程还是dropbox的教程。 后来想来git部署的思路很清晰准确规范，不容易出错，而且功能强大、灵活性好，所以还是现公布git部署的教程。dropbox的虽然简单，但是上传文件经常容易失败，局限性很大，灵活性不如git，dropbox部署方式后面再讲。
+
+1. Heroku部署php go的git方法教程：
+
+   a. 注册一个Heroku账号： <a href="https://signup.heroku.com/signup/dc" rel="nofollow">https://signup.heroku.com/signup/dc</a>
+
+   b. 安装：Heroku toolbelt部署工具包： <a href="https://devcenter.heroku.com/articles/getting-started-with-python#set-up" rel="nofollow">https://devcenter.heroku.com/articles/getting-started-with-python#set-up</a>
+
+   c. 下载index.go :<a href="https://github.com/phuslu/goproxy/tree/master/fetchserver/php" rel="nofollow">https://github.com/phuslu/goproxy/tree/master/fetchserver/php</a>
+
+
+   d. 打开CMD窗口依次运行下面的命令：
+      heroku login
+
+      输入注册邮箱
+      输入账号密码
+      登录成功：Authentication successful.
+
+     接着运行下面的命令：
+
+     git clone <a href="https://github.com/freeformz/go-heroku-example" rel="nofollow">https://github.com/freeformz/go-heroku-example</a>
+     cd go-heroku-example
+
+     进入go-heroku-example目录，删除web.go,然后把前面下载的index.go放进去
+
+    回到CMD窗口，运行下面的命令
+    heroku create
+    创建一个app,并记住app的名称
+
+    接着运行下面的命令：
+    git add . -A
+    git commit -am &quot;make it better&quot;
+    git push heroku master
+
+    出现类似下面的信息，表示部署完成：
+
+Counting objects: 16, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (14/14), 3.32 KiB | 0 bytes/s, done.
+Total 14 (delta 0), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Go app detected
+remote: -----&gt; Checking Godeps/Godeps.json file.
+remote: -----&gt; Installing go1.4.2... done
+remote: -----&gt; Running: godep go install -tags heroku ./...
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types -&gt; web, worker
+remote:
+remote: -----&gt; Compressing... done, 2.2MB
+remote: -----&gt; Launching... done, v5
+remote:        <a href="https://fierce-everglades-1629.herokuapp.com/" rel="nofollow">https://fierce-everglades-1629.herokuapp.com/</a> deployed to Heroku
+remote:
+remote: Verifying deploy.... done.
+To <a href="https://git.heroku.com/fierce-everglades-1629.git" rel="nofollow">https://git.heroku.com/fierce-everglades-1629.git</a>
+   bde7e61..1b53d2d  master -&gt; master
+
+测试一下，在浏览器输入：app名称.herokuapp.com，如果返回以下信息，表示部署成功：
+
+
+Application Error
+An error occurred in the application and your page could not be served. Please try again in a few moments.
+
+
+然后把php网址：http://app名称.herokuapp.com，填入php.json里面，并在main.json把php移到最前面，运行goproxy  
+
+Heroku通过git部署php go服务端到此完成！
+
+
+      
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 21:11:56 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22048#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+2. Heroku部署php go的dropbox方法教程：
+
+   a. 注册一个Heroku账号： <a href="https://signup.heroku.com/signup/dc" rel="nofollow">https://signup.heroku.com/signup/dc</a>
+   b. 注册一个dropbox账号： <a href="https://www.dropbox.com/" rel="nofollow">https://www.dropbox.com/</a>
+   c. 下载index.go :<a href="https://github.com/phuslu/goproxy/tree/master/fetchserver/php" rel="nofollow">https://github.com/phuslu/goproxy/tree/master/fetchserver/php</a>
+   d. 下载go程序部署的示范文件夹 :<a href="https://github.com/freeformz/go-heroku-example/archive/master.zip" rel="nofollow">https://github.com/freeformz/go-heroku-example/archive/master.zip</a>
+   d. 解压文件并进入go-heroku-example文件夹，删除web.go,然后把前面下载的index.go放进去。
+   e. 登录进入Heroku，进入主控面板，并创建一个app,记住app的名字。
+
+   f. 进入该app的控制面板，点击deploy,接着点击dropbox，connnect to dropbox,用你注册的dropbox账号登录，把Heroku的这个app跟dropbox关联起来
+
+   g. 登录dropbox,点击应用=》Heroku,找到那个app,把前面准备好的go-heroku-example文件夹里面的文件全部上传上去
+
+   h.重新回到heroku的那个app页面，点击deploy=&gt;dropbox,然后转到Deploy your latest changes，随便敲几个字，再点deploy,heroku就能自动同步dropbox上传的文件并编译了,heroku能够自动识别go程序，自动安装go编译器，自动编译程序，自动部署。
+
+然后部署完成。
+
+测试一下，php网址是 http://app名.herokuapp.com,如果成功，进入网址会提示如下信息：
+
+Application Error
+An error occurred in the application and your page could not be served. Please try again in a few moments.
+
+
+然后把php网址：http://app名称.herokuapp.com，填入php.json里面，并在main.json把php移到最前面，运行goproxy  
+
+Heroku通过dropbox部署php go服务端到此完成！
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 22:41:01 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22048#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/108573445135250363590/">yimin...@gmail.com</a
+></span>
+ 
+<pre>
+#10
+很完全的教程，谢谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 22:47:32 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22048#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+速度怎么样，弱弱地问
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 22:52:15 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22048#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+速度很快，刷刷的开网页，看视频只能在480P以下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 22:59:29 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c16" href="/p/goagent/issues/detail?id=22048#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#15 php 的 go 版有更新，性能进一步提高了。
+看视频需要客户端做 autorange, 慢慢来。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:05:37 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22048#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#14
+一般，时快时慢，个别时候开网页会出Application Error，美国服务器，欧洲不知如何。30分钟无连接休眠，一天限制18个小时，听说似乎还有流量限制？只要不要像c9那样直接封号就好。163的信箱被ban，等php的autorange完善了，在gae封死的时候多注册几个看个360p吧，建议不要滥用。
+好处是不会出现“上传者禁止所在地区播放”的情况，在这里回复不会出错。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:08:13 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c18" href="/p/goagent/issues/detail?id=22048#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#17 Application Error 是该 limit 的问题，我正在准备再客户端加上重试来解决。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:17:22 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22048#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#16 好的，我部署一下新版的index.go试试
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:25:13 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22048#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/118197154100814779632/">SelenaRi...@gmail.com</a
+></span>
+ 
+<pre>
+#18 php端有計劃支持WebSockets麼？速度應該會更快。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:26:54 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c21" href="/p/goagent/issues/detail?id=22048#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#18 很难，我像保持通用性，任何一个空间都可以部署。所以不太愿意和 websocket 绑定。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:29:22 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=22048#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+ #18
+辛苦了，慢慢完善吧，只要gae还能找来ip就优先用gae，它可不能跟google比，一窝蜂上它服务器受不了肯定会采取措施的，国内信箱被ban就是警示。希望以后能有更多的空间可以部署分流。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:43:51 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22048#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+dropbox升级实在方便，1分钟完工。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:47:28 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=22048#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#12 谢谢详细的教程。
+关于登录dropbox，把go-heroku-example文件夹的里面的文件上传，dropbox怎样上传文件夹，我是新建同文件名的文件夹，再上传文件。
+部署完成后有个问题，现在所有需要用代理的页面都是Application Error的页面
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:54:03 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22048#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#24
+登录dropbox,点击应用=》Heroku,找到自己的app，点击app，然后点击页面右上角的那个“加号”（最后修改时间上面）上传文件。不要上传整个文件夹，是把go-heroku-example文件夹里面的所有文件上传上去（删除web.go,替换了index.go）
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Wed Jul 22 23:59:39 2015">
+ Jul 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=22048#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/117347848207208895832/">u78...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢#10 #12大侠的教程！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:03:58 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22048#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/106973364280885081576/">sharedu...@gmail.com</a
+></span>
+ 
+<pre>
+部署好了， 打开的怎么是hello, heroku  ？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:07:18 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=22048#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+升级后怎么反而不能用了呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:09:21 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=22048#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#29 是不是所有要代理的页面都是Application Error
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:10:07 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=22048#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#30 对啊，前个版本都是ok的，可惜我没保存，直接覆盖掉了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:10:53 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=22048#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+我现在用的是wss上来的。也是部署在heroku上。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:15:08 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=22048#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#31
+新版没问题，我直接传就是新版。
+两天前refine的
+<a href="https://github.com/phuslu/goproxy/commit/9730417114058c1b7321779a7ad6a806bbf49c3c" rel="nofollow">https://github.com/phuslu/goproxy/commit/9730417114058c1b7321779a7ad6a806bbf49c3c</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:18:56 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=22048#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#33 你那个不是新版，新版是18小时前更新的，不过我可以重新部署旧版的试试。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:23:30 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=22048#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/115505225560669680890/">lingd...@gmail.com</a
+></span>
+ 
+<pre>
+最新版index.go部署后没有问题，可以正常使用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:24:13 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=22048#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/106973364280885081576/">sharedu...@gmail.com</a
+></span>
+ 
+<pre>
+部署好了不是显示Application Error
+An error occurred in the application and your page could not be served. Please try again in a few moments.
+
+而是现实 Hello Heroku怎么回事？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:25:49 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=22048#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#34
+只是没看到那个commit，今天部署的那一个肯定是新版的。
+4.73 KB (4,850 字节)
+刚只用那一个试过，没问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:28:34 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=22048#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+换个版本还是全部代理显示出错，看来哪里没有部署好。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:48:27 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=22048#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我这里新版没有问题，Heroku和C9都OK。
+
+所以还是尽量用git来部署会更好，go程序编译绝对不会有问题，下面几条命令就可以搞定：
+ heroku login
+ heroku git:clone -a appname
+ cd appname
+ 进入删除旧index.go,替换新的index.go
+ git add . -A
+ git commit -am &quot;make it better2&quot;
+ git push heroku master
+
+返回以下信息，部署成功：
+
+Counting objects: 16, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (14/14), 3.32 KiB | 0 bytes/s, done.
+Total 14 (delta 0), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Go app detected
+remote: -----&gt; Checking Godeps/Godeps.json file.
+remote: -----&gt; Installing go1.4.2... done
+remote: -----&gt; Running: godep go install -tags heroku ./...
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types -&gt; web, worker
+remote:
+remote: -----&gt; Compressing... done, 2.2MB
+remote: -----&gt; Launching... done, v5
+remote:        <a href="https://appname.herokuapp.com/" rel="nofollow">https://appname.herokuapp.com/</a> deployed to Heroku
+remote:
+remote: Verifying deploy.... done.
+To <a href="https://git.heroku.com/appname.git" rel="nofollow">https://git.heroku.com/appname.git</a>
+   bde7e61..1b53d2d  master -&gt; master
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 00:57:43 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=22048#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+删掉原来的app，重建一个部署就好了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:18:18 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=22048#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/101972151761602739800/">phu...@hotmail.com</a
+></span>
+ 
+<pre>
+又修改了 index.go 一下，做了伪装。请尽快重新部署一下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:22:52 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=22048#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#41
+收到。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:23:56 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=22048#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+phu，请问这个php有没有流量TLS加密，流量发送是安全的吗，用这个在论坛发帖有没有风险？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:28:43 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c44" href="/p/goagent/issues/detail?id=22048#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#43 不安全，如果需要安全的考虑的话，请把 fetchserver 的改成 <a href="https://xxxx.app.com" rel="nofollow">https://xxxx.app.com</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:34:43 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=22048#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#40 我删了重新部署还是不行，不知道问题在哪里
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:36:51 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=22048#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/106973364280885081576/">sharedu...@gmail.com</a
+></span>
+ 
+<pre>
+#39
+
+为何我部署好了 打开xx.herokuapp.com 网页显示的是“hello, heroku”  2个单词？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:39:03 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=22048#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#45 重新搭建heroku cli环境呢？我的就是前几个版本混杂在一起，彻底
+删除后，搭建成v4版本的就好了，以前是3.95.3
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc48">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:39:27 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c48" href="/p/goagent/issues/detail?id=22048#c48">#48</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+新版部署完毕,速度更快了，就是goproxy重新加载启动太慢，看来goproxy很占系统资源
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 01:41:25 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=22048#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#47 你是用git吗？我是用dropbox
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc50">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 02:08:45 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c50" href="/p/goagent/issues/detail?id=22048#c50">#50</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#49 我放弃dropbox，改成git了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc54">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 03:34:58 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c54" href="/p/goagent/issues/detail?id=22048#c54">#54</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+你没有认真看我的教程，web.go删了吗？index.go替换了吗？显然没有，你怎么可能部署成功
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc56">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 04:02:31 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c56" href="/p/goagent/issues/detail?id=22048#c56">#56</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+php比gae更快更好用么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 04:05:51 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=22048#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/117227265231876718264/">hjbhug...@gmail.com</a
+></span>
+ 
+<pre>
+#54
+删了，我一开始还想问cd go-heroku-example后，go-heroku-example目录在哪里，后来搜索在c盘用户找到了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 04:31:35 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=22048#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#53 要修改 index.go 文件的换行编码，原为 Unix 的，要改成 Windows 的，我用 Notepad2 可以改
+
+#10 执行 git push heroku master 这一步时报错
+
+fatal: 'heroku' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc60">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 04:49:31 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c60" href="/p/goagent/issues/detail?id=22048#c60">#60</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#59 文件 - 换行编码
+
+原为 Unix(LF)，改成 Windows (CR+LF)，保存
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc61">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 04:53:27 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c61" href="/p/goagent/issues/detail?id=22048#c61">#61</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#10 问题解决，教程里少说了两个步骤
+
+在建好 app 并 cd go-heroku-example 后
+
+git init
+
+再
+
+heroku git:remote -a 所建的app名称
+
+然后再
+
+git add . -A
+git commit -am &quot;make it better&quot;
+git push heroku master
+
+就成功了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc62">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 05:24:14 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c62" href="/p/goagent/issues/detail?id=22048#c62">#62</a>
+ 
+
+ <a class="userlink"
+ href="/u/110807761722570332450/">xsl0...@gmail.com</a
+></span>
+ 
+<pre>
+能教一下c9上怎么布署吗？弄了半天搞不定，老是找不到文件。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc65">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 06:11:13 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c65" href="/p/goagent/issues/detail?id=22048#c65">#65</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#64 Heroku | No such app
+
+是这提示，不过可能是作者有意为之，不是bug
+
+部署成功后，goproxy能用了，速度不错
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc66">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 06:12:27 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c66" href="/p/goagent/issues/detail?id=22048#c66">#66</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+<a title="【误报】php go紧急bug!" class=closed_ref href="/p/goagent/issues/detail?id=22080"> Issue 22080 </a> has been merged into this issue.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc67">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 06:51:12 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c67" href="/p/goagent/issues/detail?id=22048#c67">#67</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+Sorry,我刚才确实是误报了bug，那个提示是假的，其实服务端程序是在运行的。
+
+我刚才重新仔细检查了我的教程的，应该是没有问题的，一步一步按照我的教程部署，一定可以部署成功。有问题的，一定是疏漏了什么地方，或者操作不正确。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc68">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 07:16:26 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c68" href="/p/goagent/issues/detail?id=22048#c68">#68</a>
+ 
+
+ <a class="userlink"
+ href="/u/101456580252411662998/">godistan...@gmail.com</a
+></span>
+ 
+<pre>
+开网页偶尔会出 net/http: TLS handshake timeout 要再刷新，同时加的有c9，不确定是连哪个时候出。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc69">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 07:18:43 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c69" href="/p/goagent/issues/detail?id=22048#c69">#69</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#57 运行git commit命令之前，你先运行下面的两条命令试试:
+git config --global user.email &quot;eric@outlook.com&quot; 
+git config --global user.name &quot;eric&quot;
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc70">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 07:20:32 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c70" href="/p/goagent/issues/detail?id=22048#c70">#70</a>
+ 
+
+ <a class="userlink"
+ href="/u/101456580252411662998/">godistan...@gmail.com</a
+></span>
+ 
+<pre>
+还有EOF，这个应该是c9，这会儿连哪个都慢。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc71">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 07:36:34 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c71" href="/p/goagent/issues/detail?id=22048#c71">#71</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+#67 按你的教程，我试了很多次都不成功，app都删除重建了好几次
+
+后来在 heroku 网站找到一篇相关文章，加上 &quot;heroku git:remote -a 所建的app名称&quot; 才成功的
+
+<a href="https://devcenter.heroku.com/articles/git" rel="nofollow">https://devcenter.heroku.com/articles/git</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc72">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul 23 07:53:52 2015">
+ Jul 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c72" href="/p/goagent/issues/detail?id=22048#c72">#72</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+heroku create的时候已经自动建立了跟app的远程关联,无需外运行git remote命令
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc73">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:31:58 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c73" href="/p/goagent/issues/detail?id=22048#c73">#73</a>
+ 
+
+ <a class="userlink"
+ href="/u/115941087208427724098/">ice6...@ice.lux.edu.mx</a
+></span>
+ 
+<pre>
+
+
+D:\fetchserver-php&gt;cd D:\fetchserver-heroku
+
+D:\fetchserver-heroku&gt;git clone <a href="https://github.com/freeformz/go-heroku-example" rel="nofollow">https://github.com/freeformz/go-heroku-example</a>
+Cloning into 'go-heroku-example'...
+remote: Counting objects: 64, done.
+remote: Total 64 (delta 0), reused 0 (delta 0), pack-reused 64
+Unpacking objects: 100% (64/64), done.
+Checking connectivity... done.
+
+D:\fetchserver-heroku&gt;cd go-heroku-example
+
+D:\fetchserver-heroku\go-heroku-example&gt;git init
+Reinitialized existing Git repository in D:/fetchserver-heroku/go-heroku-example
+/.git/
+
+D:\fetchserver-heroku\go-heroku-example&gt;heroku git:remote -a XXXXXX
+set git remote heroku to <a href="https://git.heroku.com/XXXXXX.git" rel="nofollow">https://git.heroku.com/XXXXXX.git</a>
+
+D:\fetchserver-heroku\go-heroku-example&gt;git add .
+warning: You ran 'git add' with neither '-A (--all)' or '--ignore-removal',
+whose behaviour will change in Git 2.0 with respect to paths you removed.
+Paths like 'web.go' that are
+removed from your working tree are ignored with this version of Git.
+
+* 'git add --ignore-removal &lt;pathspec&gt;', which is the current default,
+  ignores paths you removed from your working tree.
+
+* 'git add --all &lt;pathspec&gt;' will let you also record the removals.
+
+Run 'git status' to check the paths you removed from your working tree.
+
+warning: LF will be replaced by CRLF in index.go.
+The file will have its original line endings in your working directory.
+
+D:\fetchserver-heroku\go-heroku-example&gt;git commit -am &quot;make it better&quot;
+[master b22db34] make it better
+warning: LF will be replaced by CRLF in index.go.
+The file will have its original line endings in your working directory.
+ 2 files changed, 271 insertions(+), 20 deletions(-)
+ create mode 100644 index.go
+ delete mode 100644 web.go
+
+D:\fetchserver-heroku\go-heroku-example&gt;git push heroku master
+Counting objects: 67, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (57/57), done.
+Writing objects: 100% (67/67), 9.03 KiB | 0 bytes/s, done.
+Total 67 (delta 22), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Go app detected
+remote: -----&gt; Checking Godeps/Godeps.json file.
+remote: -----&gt; Installing go1.4.2... done
+remote: -----&gt; Running: godep go install -tags heroku ./...
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types -&gt; web, worker
+remote:
+remote: -----&gt; Compressing... done, 2.2MB
+remote: -----&gt; Launching... done, v3
+remote:        <a href="https://XXXXXX.herokuapp.com/" rel="nofollow">https://XXXXXX.herokuapp.com/</a> deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To <a href="https://git.heroku.com/XXXXXX.git" rel="nofollow">https://git.heroku.com/XXXXXX.git</a>
+ * [new branch]      master -&gt; master
+
+D:\fetchserver-heroku\go-heroku-example&gt;
+
+部署成功了~ ~
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc74">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:38:13 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c74" href="/p/goagent/issues/detail?id=22048#c74">#74</a>
+ 
+
+ <a class="userlink"
+ href="/u/115941087208427724098/">ice6...@ice.lux.edu.mx</a
+></span>
+ 
+<pre>
+请教下，index.go发布新版后，只能删掉已经部署的app重来吗，能不能不删除，直接更新呢？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc75">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 00:56:00 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c75" href="/p/goagent/issues/detail?id=22048#c75">#75</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+good question! 这是我到这里以来，有人问过的最有水平的一个问题，说明你确实认真思考过。
+
+当然不用删除APP，重新搞，那还玩毛，具体升级步骤如下：
+
+heroku login
+heroku git:remote -a appname
+heroku git:clone -a appname
+cd appname
+
+然后进入appname目录，用最新的index.go替换老的index.go.
+
+回到CMD窗口，继续运行：
+
+git add . -A
+git commit -am &quot;upgrade&quot;
+git push heroku master
+
+ounting objects: 16, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (14/14), 3.32 KiB | 0 bytes/s, done.
+Total 14 (delta 0), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Go app detected
+remote: -----&gt; Checking Godeps/Godeps.json file.
+remote: -----&gt; Installing go1.4.2... done
+remote: -----&gt; Running: godep go install -tags heroku ./...
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types -&gt; web, worker
+remote:
+remote: -----&gt; Compressing... done, 2.2MB
+remote: -----&gt; Launching... done, v5
+remote:        <a href="https://appname.herokuapp.com/" rel="nofollow">https://appname.herokuapp.com/</a> deployed to Heroku
+remote:
+remote: Verifying deploy.... done.
+To <a href="https://git.heroku.com/appname.git" rel="nofollow">https://git.heroku.com/appname.git</a>
+   bde7e61..1b53d2d  master -&gt; master
+
+部署完成！
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc76">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:17:48 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c76" href="/p/goagent/issues/detail?id=22048#c76">#76</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+index.go和goproxy都升级了，improve index.go performance
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc77">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:26:25 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c77" href="/p/goagent/issues/detail?id=22048#c77">#77</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+你不会是蹲守吧，这么快就发现了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc78">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:30:46 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c78" href="/p/goagent/issues/detail?id=22048#c78">#78</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#77
+都3个小时了，呵呵，蹲守的话不够尽职。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc79">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:37:11 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c79" href="/p/goagent/issues/detail?id=22048#c79">#79</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我已经升级完毕
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc80">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:38:33 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c80" href="/p/goagent/issues/detail?id=22048#c80">#80</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+升级后有没有性能提升的？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc81">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:40:59 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c81" href="/p/goagent/issues/detail?id=22048#c81">#81</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+升级后速度是快些，phu真是够拼的，精益求精，希望能再快点，最好能看1080P~
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc82">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:45:40 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c82" href="/p/goagent/issues/detail?id=22048#c82">#82</a>
+ 
+
+ <a class="userlink"
+ href="/u/110807761722570332450/">xsl0...@gmail.com</a
+></span>
+ 
+<pre>
+heroku在我这里好慢。。。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc83">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:49:56 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c83" href="/p/goagent/issues/detail?id=22048#c83">#83</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+我这里也慢，时高时低的，搞得我根本没心思部署php go了。
+就期待看看phus.lu的vps如何，再搞个vps来玩好了，免费云平台始终不是长久之计。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc84">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:53:23 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c84" href="/p/goagent/issues/detail?id=22048#c84">#84</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#81
+都看1080P会把网站拖垮的，都不用等gfw来封，网站自己封。建议多站注册分流，在gae封死的情况下看看360p。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc85">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:55:34 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c85" href="/p/goagent/issues/detail?id=22048#c85">#85</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+用heroku看1080p的油管，应该很快要你交出credit card了吧？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc86">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:56:40 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c86" href="/p/goagent/issues/detail?id=22048#c86">#86</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#84 开玩笑的，能刷刷的看网页就很满足了，看高清视频那不是害别人，再说heroku还远没有达到流畅看视频的程度，没有那个必要
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc87">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 01:59:25 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c87" href="/p/goagent/issues/detail?id=22048#c87">#87</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#85 是的，做人要厚道，不能太贪了，能这样免费翻出去就很满足了，毕竟没给钱
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc88">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:02:46 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c88" href="/p/goagent/issues/detail?id=22048#c88">#88</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#87 我今天趁手上没活干，给多日没亲近的c9加了个MEOW前置，我去，居然跑到1.5m，
+真是让我大开眼界，以前不加前置，最多700k，后来根本就没速度了，现在居然还小小
+升级一把，开心。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc89">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:08:26 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c89" href="/p/goagent/issues/detail?id=22048#c89">#89</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#88 那还是你ss前置给力，不关meow鸟事吧
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc90">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:15:03 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c90" href="/p/goagent/issues/detail?id=22048#c90">#90</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+我就是喜欢meow的http转换特性，何况go的效率本来比ss的python版，c#版高啊，还超强抗断线。
+李家坡节点确实很给力。我这的线路，李家坡+美帝大水管是天作之合。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc91">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:34:35 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c91" href="/p/goagent/issues/detail?id=22048#c91">#91</a>
+ 
+
+ <a class="userlink"
+ href="/u/106973364280885081576/">sharedu...@gmail.com</a
+></span>
+ 
+<pre>
+出现EOF是何解？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc92">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:42:19 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c92" href="/p/goagent/issues/detail?id=22048#c92">#92</a>
+ 
+
+ <a class="userlink"
+ href="/u/106973364280885081576/">sharedu...@gmail.com</a
+></span>
+ 
+<pre>
+打开任何网页都是显示 Application Error
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc93">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 02:58:18 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c93" href="/p/goagent/issues/detail?id=22048#c93">#93</a>
+ 
+
+ <a class="userlink"
+ href="/u/115941087208427724098/">ice6...@ice.lux.edu.mx</a
+></span>
+ 
+<pre>
+多个账号，怎么添加到php.json中，能均衡负载吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc94">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 03:36:10 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c94" href="/p/goagent/issues/detail?id=22048#c94">#94</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#93
+	&quot;fetchservers&quot;: [
+		{
+			&quot;url&quot;: &quot;<a href="https://yourapp.herokuapp.com/" rel="nofollow">https://yourapp.herokuapp.com/</a>&quot;,
+			&quot;password&quot;: &quot;123456&quot;,
+			&quot;sslverify&quot;: false
+		},
+		{
+			&quot;url&quot;: &quot;<a href="https://yourapp.herokuapp.com/" rel="nofollow">https://yourapp.herokuapp.com/</a>&quot;,
+			&quot;password&quot;: &quot;123456&quot;,
+			&quot;sslverify&quot;: false
+		}
+	]
+现在似乎还均衡不了，等autorange吧，不过多少能分流，感觉是随机连的，但第一个帐号连的机会最多。前几天试的结果是如果你第一次连googlevideo用的一个帐号，就会一直用这一个，换视频换频道换浏览器都一样，只是连上试下，看到走流量就关了。用Proxifier监测的。
+		
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc96">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 03:59:37 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c96" href="/p/goagent/issues/detail?id=22048#c96">#96</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#94 没错，是这样的，优先连第一个账号
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc97">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 04:03:05 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c97" href="/p/goagent/issues/detail?id=22048#c97">#97</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#94 #96 是的，如果遇到静态资源（图片或视频），才会随机选择。
+
+大家觉得这个合理么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc98">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 04:03:55 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c98" href="/p/goagent/issues/detail?id=22048#c98">#98</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+autorange 和 vps 正在开发，估计先完成 vps， 然后统一搞定 autorange
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc99">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 04:06:15 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c99" href="/p/goagent/issues/detail?id=22048#c99">#99</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#97 目前这样设定没有问题，对于看网页来说没有任何影响
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc100">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 04:26:06 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c100" href="/p/goagent/issues/detail?id=22048#c100">#100</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#97
+不耗流量的都用一个没什么关系，图片随机选也好，不知道autorange以后视频会如何处理，同一个视频能用多个帐号连吗？还是在同一个帐号上分段多线程？dash的时候，缓冲够了停止播放一会儿再次缓冲有可能实现换帐号吗？起码换视频了要换一个帐号，随机有没有可能又随到这个，造成不平衡。帐号循环着用呢？容易实现吗？现在应该还没有考虑速度，随机或循环到的帐号没速度是不是会自动换？如果刚好是没唤醒呢，刚好换了以后唤醒了。能不能开机运行就把每个帐号连一下唤醒，等个20分钟用不用都再连一次？咱说起来容易，实现起来可能很麻烦呀，如果不太容易实现就不要考虑那么多，慢慢来，看个低清不断流换视频能换号就行。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc101">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 06:38:31 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c101" href="/p/goagent/issues/detail?id=22048#c101">#101</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+现在视频不是随机的，最新的客户端和服务端，和前两天试的情况一样，只会连第一个。随机的时候应该是图片。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc102">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 07:06:37 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c102" href="/p/goagent/issues/detail?id=22048#c102">#102</a>
+ 
+
+ <a class="userlink"
+ href="/u/115941087208427724098/">ice6...@ice.lux.edu.mx</a
+></span>
+ 
+<pre>
+开了下youtube主页，5个休眠的app全活了~ ~
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc103">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 07:41:22 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c103" href="/p/goagent/issues/detail?id=22048#c103">#103</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+周末应该更慢，但感觉比昨晚快，应该是新版本的功劳，只遇到一次EOF。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc104">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:09:52 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c104" href="/p/goagent/issues/detail?id=22048#c104">#104</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+这个时间点，php慢的不行，可能跟网络有关系
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc105">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:11:44 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c105" href="/p/goagent/issues/detail?id=22048#c105">#105</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#101 你说的是 youtube 上的视频吗？<a href="/p/goagent/source/detail?r=132">r132</a> 已经修复。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc106">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:29:14 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c106" href="/p/goagent/issues/detail?id=22048#c106">#106</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#105
+恩，说的就是youtube的视频。
+已更新，效果不是一般的好，哈哈。（似乎autorange都有了）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc107">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:31:19 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ <span class="role_label">Project Member</span>
+ <a name="c107" href="/p/goagent/issues/detail?id=22048#c107">#107</a>
+ 
+
+ <a class="userlink"
+ href="/u/phuslu.bot/">phuslu.bot</a
+></span>
+ 
+<pre>
+#106 高分辨率的视频还是必须要 autorange 的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc108">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul 24 08:38:34 2015">
+ Jul 24, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c108" href="/p/goagent/issues/detail?id=22048#c108">#108</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+#107
+最多看个480p吧，主要是能不断流，这种空间不好去费流量，还是优先用gae，老版goagent的gae是完美的，goproxy设成php两个换个用。只希望以后能部署的地方越来越多。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc109">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 00:10:25 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c109" href="/p/goagent/issues/detail?id=22048#c109">#109</a>
+ 
+
+ <a class="userlink"
+ href="/u/109151962303922537054/">zhuyin...@gmail.com</a
+></span>
+ 
+<pre>
+请问楼主Heroku通过dropbox部署php go服务端完成了，下面怎么做（详细步骤）谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc110">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 01:04:27 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c110" href="/p/goagent/issues/detail?id=22048#c110">#110</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+main.json:
+                     &quot;roundtrip&quot;: [
+			&quot;autoproxy&quot;,
+			&quot;php&quot;,
+			&quot;gae&quot;,			
+			&quot;direct&quot;
+
+php:json:              &quot;fetchservers&quot;: [
+		
+                 {
+			&quot;url&quot;: &quot;<a href="http://appname.herokuapp.com/" rel="nofollow">http://appname.herokuapp.com/</a>&quot;,
+			&quot;password&quot;: &quot;123456&quot;,
+			&quot;sslverify&quot;: false
+		}
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc111">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 04:23:32 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c111" href="/p/goagent/issues/detail?id=22048#c111">#111</a>
+ 
+
+ <a class="userlink"
+ href="/u/109151962303922537054/">zhuyin...@gmail.com</a
+></span>
+ 
+<pre>
+唉，还是不太明白
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc112">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 16:34:00 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c112" href="/p/goagent/issues/detail?id=22048#c112">#112</a>
+ 
+
+ <a class="userlink"
+ href="/u/111697909833153894447/">softw...@gmail.com</a
+></span>
+ 
+<pre>
+补充，碰到这个错误信息
+
+warning: LF will be replaced by CRLF in ...
+
+不需要用 Notepad2 手动去改文件编码，同样命令再执行一遍，软件会自动改换行编码的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc113">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jul 27 19:40:41 2015">
+ Jul 27, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c113" href="/p/goagent/issues/detail?id=22048#c113">#113</a>
+ 
+
+ <a class="userlink"
+ href="/u/117085474544752166889/">cxj...@gmail.com</a
+></span>
+ 
+<pre>
+
+我知道goproxy里面可以配置多个php的服务端。
+
+php的服务端在goagent里面是不是只能配置一个？
+如果可以，那么应该怎么分隔? 
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22048">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22048',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22048,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

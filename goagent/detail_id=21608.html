@@ -1,0 +1,5492 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"token": null, "projectHomeUrl": "/p/goagent", "domainName": null, "profileUrl": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "loggedInUserEmail": null, "relativeBaseUrl": "", "projectName": "goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21608 - 
+ goagent -
+ 
+ gogotester跨平台版本，内置180w ip，开箱即用 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21608&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21608" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21608">21608</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >gogotester跨平台版本，内置180w ip，开箱即用</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 11 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21608">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+>,
+ <span class="date" title="Sat Jun 20 10:48:45 2015">Jun 20, 2015</span>
+ 
+ </div>
+<pre>
+<a href="https://github.com/NKUCodingCat/gogotester_python" rel="nofollow">https://github.com/NKUCodingCat/gogotester_python</a>
+
+欢迎提交issues
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 10:57:14 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21608#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/114255133369633707531/">fh0205z...@gmail.com</a
+></span>
+ 
+<pre>
+好，楼主好样的，以后找IP就靠这个了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 11:10:04 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21608#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+先支持.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 17:52:32 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21608#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+IPv6 is not avalible 的 avalible 写错了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 17:53:40 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21608#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+英文不好，不要太在意哈哈哈哈～
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 17:56:58 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21608#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+话说,我这其实是可以用ipv6,但是它说不支持,判断的标准是不是可以访问www.ipv6.org.tw?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:06:04 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21608#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+是的，已经修改成ipv6.baidu.com, 氖可以自己手动改一下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:22:24 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21608#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/118308311326205427443/">fanq...@gmail.com</a
+></span>
+ 
+<pre>
+运行gogotester_python后，网络就断开了，不能上网，我是老机器了，只有1G内存，请问是我的电脑问题吗。谢谢解答
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:24:48 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21608#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#7 那位……我估计是你的网速不够……因为那么多TCP连接确实会堵死
+
+#8 在/res/ip_4.txt 和 /res/ip_6.txt 里面，ip贴goagent的proxy.ini里
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:28:45 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21608#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+说实在的我已经弄不清我到底网线是否支持ipv6了
+我可以打开
+<a href="http://ipv6.google.com" rel="nofollow">http://ipv6.google.com</a>
+<a href="http://6rank.edu.cn/" rel="nofollow">http://6rank.edu.cn/</a>
+<a href="http://ipv6-only.netsh.org/" rel="nofollow">http://ipv6-only.netsh.org/</a>
+<a href="http://ipv6-test.com/" rel="nofollow">http://ipv6-test.com/</a>
+<a href="http://ipv6test.isoc.hk/" rel="nofollow">http://ipv6test.isoc.hk/</a>
+这些都是正常的,但是某些网站显示我在用6to4技术,是不是跟这有关,并不是真正的ipv6网络
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:31:27 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21608#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+To #10 这个我也不知道，你看看你的网卡的地址是多少，就算是6to4你也有ipv6对吧-，-，不是FE80开头就行 
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:41:47 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21608#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+1.您在公网上的 IPv4 地址是 xxxxxxxx
+2.您在公网上的 IPv6 地址是 2002:1bc8:6880::1bc8:6880
+3.您的 IPv6 服务似乎是.: 6to4
+4.您的互联网服务提供商（ISP）看起来是 CHINA169-BACKBONE CNCGROUP China169 Backbone,CN
+5.好消息!您当前位置当前电脑上的浏览器，预计将在IPv6启动之后继续正常运行。
+6.您似乎正在使用公共的6转4网关；您的路由器可能自动为您提供该功能。这种公共网关没有服务层协议；您在使用中可能会碰到性能问题。最好从您的ISP那里获取原生IPv6地址。 [更多信息]
+7.您的DNS服务器(通常由您的网络服务商提供)已经可以接入IPv6互联网了。
+
+可以访问ipv6型的网站,但是本身网络并不是原生的IPv6.....
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:44:42 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21608#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+不太清楚，你可以试试追踪一下
+话说扫一扫不就知道了么～
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:52:28 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21608#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/113384776842209274765/">jsnjyc...@gmail.com</a
+></span>
+ 
+<pre>
+还没下，和checkgoogleip有什么区别？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 18:57:41 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21608#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+区别就是那是我写的哈哈哈哈～
+嗯我主要是觉得gogotester性能不是很好才自己写的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:00:42 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21608#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+...我真是容易误删评论
+代码这样写,在我这里是不行了,需要改成这样
+RES[&quot;v6&quot;] = Socket_Test.Socket_Test(GetAdd(v6, 4)[4][0],80)[0]
+才能扫到ip
+2607:f8b0:4007:804::d103   0229   *.google.com
+2607:f8b0:4007:804::b23c   0231   *.google.com
+2607:f8b0:4007:804::8ef7   0232   *.google.com
+2607:f8b0:4007:804::16de   0235   *.google.com
+2607:f8b0:4007:804::5419   0235   *.google.com
+2607:f8b0:4007:804::26f0   0242   *.google.com
+2607:f8b0:4007:804::1928   0248   *.google.com
+2607:f8b0:4007:804::7208   0251   *.google.com
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:06:48 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21608#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+不少好IP，多谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:10:43 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21608#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+TO #18 是因为ipv6.tw.org那的问题吧……
+你试试改成ipv6.baidu.com?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:20:42 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21608#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+不行,是这样的，测试ipv6.google.com经过这句代码后
+J = socket.getaddrinfo(Name, 80, 0, 0, socket.IPPROTO_TCP)
+会被转换成ipv4地址,这就是6to4
+[(2, 0, 6, '', ('203.133.8.246', 80))
+这样 IPy.IP(i[4][0]).version() 的版本就跟之前参数的 6 不匹配, 那么就会出错
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:25:27 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21608#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+为什么我觉得氖萌的更像4to6.。。。
+= =你看看你的网卡的v6地址和上面的2002什么的是不是一样，不是的话估计是不行
+就算你强行上goagent我也不确定结果会怎样，氖试试吧
+我这是原生v6帮不到你，抱歉
+以及你可以试试把J打印出来看看嗯
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:30:52 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=21608#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/113384776842209274765/">jsnjyc...@gmail.com</a
+></span>
+ 
+<pre>
+如果中途中断，ip.txt不显示任何ip
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:33:23 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21608#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#23 我可是有finally的喂……
+你不会强行结束进程吧……
+去看看log.log
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:51:40 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21608#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+在检测ipv6的时候把代码写成这样
+	#v6
+	try:
+		RES[&quot;v6&quot;] = Socket_Test.Socket_Test(GetAdd(v6, 6)[4][0],80)[0]
+	except:
+		RES[&quot;v6&quot;] = False
+	try:
+		RES[&quot;v6&quot;] = Socket_Test.Socket_Test(GetAdd(v6, 4)[4][0],80)[0]
+	except:
+		RES[&quot;v6&quot;] = False
+这样像我这个也能检测正常
+我用扫出来的ipv6地址 翻墙是正常的
+说是4to6也可以了, 就是我这其实只支持ip4,但是访问ip6网站的时候,会把ip6的ip转成ip4的来访问
+还有那个J，就是 [(2, 0, 6, '', ('203.133.8.246', 80)) 这个
+lz的这个工具确实不错, 我用的第一个可以扫ipv6的工具,呵呵
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:52:02 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21608#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+想问下新版的checkgoogleIP哪里有IP.txt输出，怎么我看到的还是ip_tmpok和ip_tmpno, 我的checkip.py已经更新（6.7修改）
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:54:00 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21608#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#25 嘛……我也不知道诶那这样就应该只是ISP自带双栈了吧……我应该对这种情况加以考虑的，等我考完再改吧
+
+#26 你来错地方了吧……
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:57:33 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21608#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+你不是说checkgoogleIP也是你说写的吗，顺便问问
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 19:58:42 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21608#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+= =没！有！说！过！哼！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:05:30 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=21608#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/118308311326205427443/">fanq...@gmail.com</a
+></span>
+ 
+<pre>
+看样子是我的网络要升级了，现在用的是4M联通，升10M应该没问题吧，谢谢楼主了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:06:50 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21608#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#30 私以为你还是降低线程数比较好
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:15:15 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21608#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/112313152194890322412/">jimsusan...@gmail.com</a
+></span>
+ 
+<pre>
+怎么用这东西扫ip？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:16:32 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21608#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+伸手党自己去看README.md
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:17:25 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=21608#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/118308311326205427443/">fanq...@gmail.com</a
+></span>
+ 
+<pre>
+这个怎样降低线程数，谢谢老大指点
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:18:51 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=21608#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#34 在config.ini里面可以改，Thread_Num那里
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:40:56 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=21608#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+在下无知，扫出来的IP放在哪里的？在ggc.txt里？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 20:41:02 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=21608#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/118308311326205427443/">fanq...@gmail.com</a
+></span>
+ 
+<pre>
+我试试，谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 21:21:17 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=21608#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+INFO - [Sun, 21 Jun 2015 12:20:00] IP pool Status: v6_Tested: 0, v6_Succ: 0, v6_
+Total: 0
+INFO - [Sun, 21 Jun 2015 12:20:05] IP pool Status: v4_Tested: 47760, v4_Succ: 0,
+ v4_Total: 1095680
+INFO - [Sun, 21 Jun 2015 12:20:05] IP pool Status: v6_Tested: 0, v6_Succ: 0, v6_
+Total: 0
+什么含义？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 21:24:34 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=21608#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+那个dos窗口什么时候才运行结束？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 21:25:40 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=21608#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+楼主，恭请您老大解说一下
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 21:31:20 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=21608#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+一次仅搜出40个IP？再搜一次也没用！只更新一下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 21:33:08 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=21608#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+运行半个小时，没有结果，只好关了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:27:07 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=21608#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#36 在/res/ip_4.txt 和 ip_6.txt里面
+#38 含义就是测试了47760个v4的ip一个成功的都没有v4一共有109W个IP
+#39 找完了就结束了……但是您这是断网的即视感
+#40 懒得解释……
+#41 40个是因为配置文件里面写的就是找40就完了……更多的话去config.ini里面改，我的经验是不会比1w多，顺便……我记得好像我写的是如果是0就是没限制还是怎么的……忘了
+#42 没有结果……好吧你是#36/#38 啊……你依赖装了么……要不你试试把except里面全部raise出来看看
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:28:48 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=21608#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+啊我说错了……如果上限小于等于0会停止……
+那你们还是设个int.max级别的上限吧……反正也就一个数嘛
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:29:48 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=21608#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+那个…………我说一下……config.ini里面是设置……可以随便改的……一共也没几个选项啊嘤
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:41:01 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=21608#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+config.ini有两个，改任一个，还是两个都要改？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:41:56 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=21608#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+你用哪边的就改哪边的咯→_→
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc48">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:43:57 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c48" href="/p/goagent/issues/detail?id=21608#c48">#48</a>
+ 
+
+ <a class="userlink"
+ href="/u/106664483198578668721/">feng7943...@gmail.com</a
+></span>
+ 
+<pre>
+能不能导入IP段?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc49">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:44:53 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c49" href="/p/goagent/issues/detail?id=21608#c49">#49</a>
+ 
+
+ <a class="userlink"
+ href="/u/105195860803703482123/">jiangxin...@gmail.com</a
+></span>
+ 
+<pre>
+为什么扫描结果中的ipv6.txt里没有内容。什么情况，是我的网络环境不支持么？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc50">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:46:56 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c50" href="/p/goagent/issues/detail?id=21608#c50">#50</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#48 啊咧这是个好想法【我这么说你就知道你还是手工复制粘贴进ggc.txt吧】
+        但是要不要加个这样的组件呢……我也不造看心情吧
+#49 没有大概就是没有吧……不清楚，启动的时候有没有出现ipv6 is not avaliable?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc52">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:52:43 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c52" href="/p/goagent/issues/detail?id=21608#c52">#52</a>
+ 
+
+ <a class="userlink"
+ href="/u/105195860803703482123/">jiangxin...@gmail.com</a
+></span>
+ 
+<pre>
+#50 出现ipv6 is not avaliable ，这个怎么破？是否有必要？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc53">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:52:54 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c53" href="/p/goagent/issues/detail?id=21608#c53">#53</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+那啥……ipv6.txt最后才生成的……你等会……
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc54">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 22:53:45 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c54" href="/p/goagent/issues/detail?id=21608#c54">#54</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#52 出现了只能说明你没有ipv6 ， 这种事我也没办法……只能问ISP
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc55">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:08:22 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c55" href="/p/goagent/issues/detail?id=21608#c55">#55</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+想扫出适用于HOSTS的IP，config.ini中应该怎样设置？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc56">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:10:11 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c56" href="/p/goagent/issues/detail?id=21608#c56">#56</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#55 抱歉这个功能可没有……你试试直接https打开ipv4的结果看看行不行
+        说实话自动生成host这点没想过，考完试再说
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc57">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:12:27 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c57" href="/p/goagent/issues/detail?id=21608#c57">#57</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+楼主啊，还要装什么依赖？我只下载那个压缩包，解压后，就开始扫了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc58">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:15:24 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c58" href="/p/goagent/issues/detail?id=21608#c58">#58</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#57 我个人的建议是你把except掉的错误抛出来看看……以及如果你的网不太好的话开的线程少一点
+        依赖的话我是说如果你想运行源代码的话装gevent和IPy，欢迎上github fork
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc59">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:18:16 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c59" href="/p/goagent/issues/detail?id=21608#c59">#59</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+我还需要学习，不懂编程，回楼主，谢谢你的回复
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc60">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:21:18 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c60" href="/p/goagent/issues/detail?id=21608#c60">#60</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#59 请加油，以及我这是百兆光纤，所以线程比较高也没什么事
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc61">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:23:28 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c61" href="/p/goagent/issues/detail?id=21608#c61">#61</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+IPv4 is not avalible
+IPv6 is not avalible
+Generating the IP pool.......Please Wait
+
+
+
+IPv4 is not avalible
+IPv6 is not avalible
+Generating the IP pool.......Please Wait
+
+
+
+GoGo Tester Py - Ver 0.7.1 alpha
+
+Devloped by NKUCodingcat &lt;admin@nkucodingcat.com&gt;
+
+
+INFO - [Sun, 21 Jun 2015 14:20:40] Watch Dog Start Working
+INFO - [Sun, 21 Jun 2015 14:20:40] Socket Test Work Done
+
+
+运行提示如上
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc62">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:25:05 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c62" href="/p/goagent/issues/detail?id=21608#c62">#62</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+我10兆宽带
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc63">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:26:44 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c63" href="/p/goagent/issues/detail?id=21608#c63">#63</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#61 v4 v6都连不上的是什么鬼啦喂(╯‵□′)╯︵┻━┻，你运行的是哪个
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc64">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:28:48 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c64" href="/p/goagent/issues/detail?id=21608#c64">#64</a>
+ 
+
+ <a class="userlink"
+ href="/u/100429459173865323563/">silkworm...@gmail.com</a
+></span>
+ 
+<pre>
+卖萌可耻 (ˉ(∞)ˉ)
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc65">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:30:21 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c65" href="/p/goagent/issues/detail?id=21608#c65">#65</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+楼猪是女的！太萌JB了！我要吐了！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc66">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:32:59 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c66" href="/p/goagent/issues/detail?id=21608#c66">#66</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+老！子！是！男！的！
+我有女朋友楼上这群基佬快走开！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc67">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:34:42 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c67" href="/p/goagent/issues/detail?id=21608#c67">#67</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+gogotester_python.exe   运行的是这个程序，回楼主
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc68">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:37:19 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c68" href="/p/goagent/issues/detail?id=21608#c68">#68</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#67 那就很奇怪了难道你网速慢到打不开百度么……不科学啊……
+        原因不明，去github留个issues吧我考完试再折腾这个
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc69">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:42:02 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c69" href="/p/goagent/issues/detail?id=21608#c69">#69</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+关代理后能正常运行了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc70">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:44:51 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c70" href="/p/goagent/issues/detail?id=21608#c70">#70</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#69 你不会是开了全局吧……………………………………
+       我要把这条写进README
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc71">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jun 20 23:59:40 2015">
+ Jun 20, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c71" href="/p/goagent/issues/detail?id=21608#c71">#71</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+goagent的全局代理也只代理浏览器吧，我没有开系统代理
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc72">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 00:01:02 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c72" href="/p/goagent/issues/detail?id=21608#c72">#72</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+不不不他是直接改系统的…………
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc73">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:12:19 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c73" href="/p/goagent/issues/detail?id=21608#c73">#73</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+config.ini中这个是扫描线程数吗？如果不是，请问哪个是，多谢！
+
+Sock_Thread_Num=50
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc74">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:13:38 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c74" href="/p/goagent/issues/detail?id=21608#c74">#74</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+嗯，就是这个
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc75">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:13:41 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c75" href="/p/goagent/issues/detail?id=21608#c75">#75</a>
+ 
+
+ <a class="userlink"
+ href="/u/113384776842209274765/">jsnjyc...@gmail.com</a
+></span>
+ 
+<pre>
+#24，我是ctrl+c结束的，log里也没东西
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc76">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:14:45 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c76" href="/p/goagent/issues/detail?id=21608#c76">#76</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#75 你要是没有成功找到的IP log里面也是不会有东西的
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc77">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:18:57 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c77" href="/p/goagent/issues/detail?id=21608#c77">#77</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+扫了几万个ip，一个好ip也没有，不对呀
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc78">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:20:22 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c78" href="/p/goagent/issues/detail?id=21608#c78">#78</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#77 你看看是不是线程太多或者超时太短，带宽不够一般都会这样
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc79">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:23:02 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c79" href="/p/goagent/issues/detail?id=21608#c79">#79</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+楼主：不敢恭维了！搜到41个IP，在gogo tester 测试只有一个可用的！！！证书都是：NN 的。
+
+41个IP:74.125.12.181|74.125.12.185|74.125.102.233|74.125.102.147|203.211.0.204|192.119.29.7|173.194.14.109|209.85.225.80|208.117.244.101|208.117.230.105|64.15.119.62|208.117.253.107|208.117.251.72|173.194.144.79|173.194.28.220|208.117.251.84|208.117.252.16|173.194.137.144|74.125.218.100|74.125.97.110|173.194.15.116|173.194.138.7|74.125.209.132|209.85.226.171|74.125.2.113|173.194.150.122|74.125.212.8|208.117.255.245|173.194.21.137|173.194.151.28|149.3.177.74|212.188.7.207|220.255.6.206|64.15.112.139|220.255.6.146|173.194.27.151|220.255.6.138|74.125.165.143|197.84.128.32|220.255.5.224|173.194.149.122
+
+一个可用：208.117.244.101
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc80">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:24:31 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c80" href="/p/goagent/issues/detail?id=21608#c80">#80</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#79 = =gogotester还没支持gvs，你看看goagent和gogotester的issues你就知道了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc81">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 01:25:45 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c81" href="/p/goagent/issues/detail?id=21608#c81">#81</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#79 goagent最新版可以用gvs，详情请看<a href="https://github.com/goagent/goagent/pull/139" rel="nofollow">https://github.com/goagent/goagent/pull/139</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc82">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 03:12:24 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c82" href="/p/goagent/issues/detail?id=21608#c82">#82</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+[Num]
+Limit=40
+Limit_v6=80
+
+[TPool]
+Sock_Thread_Num=50
+SSL_Thread_Num=2
+
+[Socket]
+Timeout=1
+Loop=3
+
+[SSL]
+Socket_Timeout=300
+SSL_Timeout=300
+
+这样配置也一个都没有扫到
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc83">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 03:14:45 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c83" href="/p/goagent/issues/detail?id=21608#c83">#83</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#82 我觉得我应该写写代码逻辑顺序
+        首先是socket尝试链接IP成功以后才是SSL链接
+        你没改Socket里面的TimeOut……所以其实没什么卵用的……
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc84">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 03:24:35 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c84" href="/p/goagent/issues/detail?id=21608#c84">#84</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+楼主，对于我10兆带宽，你推荐一个配置，我照改，如何？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc85">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 03:26:02 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c85" href="/p/goagent/issues/detail?id=21608#c85">#85</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+[Num]
+Limit=40
+Limit_v6=80
+
+[TPool]
+Sock_Thread_Num=20
+SSL_Thread_Num=2
+
+[Socket]
+Timeout=2
+Loop=3
+
+[SSL]
+Socket_Timeout=10
+SSL_Timeout=10
+
+
+不妨试试，如果还是不行……再说
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc86">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 03:44:21 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c86" href="/p/goagent/issues/detail?id=21608#c86">#86</a>
+ 
+
+ <a class="userlink"
+ href="/u/101687490636482581464/">sundaqin...@gmail.com</a
+></span>
+ 
+<pre>
+不行，快一万个ip，一个好ip也没有
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc87">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 04:27:04 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c87" href="/p/goagent/issues/detail?id=21608#c87">#87</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+这个软件和CheckGoogleIP比哪个好？需要删除其中一个吗？或者各有所长，都要保留。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc88">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 05:14:30 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c88" href="/p/goagent/issues/detail?id=21608#c88">#88</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+To #86 不行的话我也不知道为什么，也许是环境因素？
+To #87 你自己喜欢怎样都行啦
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc89">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 05:36:20 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c89" href="/p/goagent/issues/detail?id=21608#c89">#89</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+我自己跑了一圈是这样的
+
+cjt@cjt-Inspiron-5737:~$ python /home/cjt/Desktop/gogotester_python.git/packed/Main_Gevent.py
+Generating the IP pool.......Please Wait
+
+
+
+GoGo Tester Py - Ver 0.7.1 alpha
+
+Devloped by NKUCodingcat &lt;admin@nkucodingcat.com&gt;
+
+
+INFO - [Sun, 21 Jun 2015 20:34:43] Watch Dog Start Working
+INFO - [Sun, 21 Jun 2015 20:34:45] 2404:6800:4004:80c::5d6c is avaliable, cert: *.google.com, delay: 0.2691 
+INFO - [Sun, 21 Jun 2015 20:34:45] 2404:6800:4004:809::1ae0 is avaliable, cert: *.google.com, delay: 0.2692 
+INFO - [Sun, 21 Jun 2015 20:34:45] 2404:6800:4004:80b::ca0a is avaliable, cert: *.google.com, delay: 0.2694 
+INFO - [Sun, 21 Jun 2015 20:34:45] 2404:6800:4004:80d::cded is avaliable, cert: *.google.com, delay: 0.2645 
+INFO - [Sun, 21 Jun 2015 20:34:46] 2404:6800:4004:80a::a5a1 is avaliable, cert: *.google.com, delay: 0.2621 
+INFO - [Sun, 21 Jun 2015 20:34:46] 2404:6800:4004:80b::e6b2 is avaliable, cert: *.google.com, delay: 0.2592 
+INFO - [Sun, 21 Jun 2015 20:34:46] 2404:6800:4004:808::d641 is avaliable, cert: *.google.com, delay: 0.2593 
+INFO - [Sun, 21 Jun 2015 20:34:46] 2404:6800:4004:80a::d7de is avaliable, cert: *.google.com, delay: 0.2646 
+INFO - [Sun, 21 Jun 2015 20:34:46] 2404:6800:4004:80d::86aa is avaliable, cert: *.google.com, delay: 0.2675 
+INFO - [Sun, 21 Jun 2015 20:34:47] 2404:6800:4004:809::219 is avaliable, cert: *.google.com, delay: 0.2725 
+INFO - [Sun, 21 Jun 2015 20:34:48] 2404:6800:4004:80b::c943 is avaliable, cert: *.google.com, delay: 0.2610 
+INFO - [Sun, 21 Jun 2015 20:34:48] 2404:6800:4004:809::e8db is avaliable, cert: *.google.com, delay: 0.2601 
+INFO - [Sun, 21 Jun 2015 20:34:48] 2404:6800:4004:80a::37aa is avaliable, cert: *.google.com, delay: 0.2600 
+INFO - [Sun, 21 Jun 2015 20:34:48] 2404:6800:4004:806::ac00 is avaliable, cert: *.google.com, delay: 0.2582 
+INFO - [Sun, 21 Jun 2015 20:34:48] IP pool Status: v4_Tested: 135, v4_Succ: 0, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:34:48] IP pool Status: v6_Tested: 144, v6_Succ: 14, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:34:48] 2404:6800:4004:808::138a is avaliable, cert: *.google.com, delay: 0.2626 
+INFO - [Sun, 21 Jun 2015 20:34:48] 2404:6800:4004:809::2e6 is avaliable, cert: *.google.com, delay: 0.2628 
+INFO - [Sun, 21 Jun 2015 20:34:49] 2404:6800:4004:80b::beb9 is avaliable, cert: *.google.com, delay: 0.2601 
+INFO - [Sun, 21 Jun 2015 20:34:49] 2404:6800:4004:80a::3c4b is avaliable, cert: *.google.com, delay: 0.2672 
+INFO - [Sun, 21 Jun 2015 20:34:49] 2404:6800:4004:808::cfbb is avaliable, cert: *.google.com, delay: 0.2640 
+INFO - [Sun, 21 Jun 2015 20:34:49] 2404:6800:4004:806::81c is avaliable, cert: *.google.com, delay: 0.2612 
+INFO - [Sun, 21 Jun 2015 20:34:49] 2404:6800:4004:809::6603 is avaliable, cert: *.google.com, delay: 0.2605 
+INFO - [Sun, 21 Jun 2015 20:34:50] 212.188.7.120 is avaliable, cert: *.googlevideo.com, delay: 0.4205 
+INFO - [Sun, 21 Jun 2015 20:34:50] 2404:6800:4004:808::99a9 is avaliable, cert: *.google.com, delay: 0.2576 
+INFO - [Sun, 21 Jun 2015 20:34:50] 2404:6800:4004:809::6680 is avaliable, cert: *.google.com, delay: 0.2582 
+INFO - [Sun, 21 Jun 2015 20:34:50] 2404:6800:4004:80d::3315 is avaliable, cert: *.google.com, delay: 0.2599 
+INFO - [Sun, 21 Jun 2015 20:34:51] 2404:6800:4004:80c::5eb0 is avaliable, cert: *.google.com, delay: 0.2599 
+INFO - [Sun, 21 Jun 2015 20:34:51] 2404:6800:4004:80c::e809 is avaliable, cert: *.google.com, delay: 0.2618 
+INFO - [Sun, 21 Jun 2015 20:34:51] 2404:6800:4004:809::7122 is avaliable, cert: *.google.com, delay: 0.2633 
+INFO - [Sun, 21 Jun 2015 20:34:51] 2404:6800:4004:80c::2540 is avaliable, cert: *.google.com, delay: 0.2633 
+INFO - [Sun, 21 Jun 2015 20:34:51] 2404:6800:4004:80d::de9d is avaliable, cert: *.google.com, delay: 0.2621 
+INFO - [Sun, 21 Jun 2015 20:34:52] 2404:6800:4004:80a::c40f is avaliable, cert: *.google.com, delay: 0.2544 
+INFO - [Sun, 21 Jun 2015 20:34:52] 2404:6800:4004:808::604c is avaliable, cert: *.google.com, delay: 0.2634 
+INFO - [Sun, 21 Jun 2015 20:34:52] 2404:6800:4004:80c::5a82 is avaliable, cert: *.google.com, delay: 0.2638 
+INFO - [Sun, 21 Jun 2015 20:34:53] 2404:6800:4004:80a::7d3a is avaliable, cert: *.google.com, delay: 0.2584 
+INFO - [Sun, 21 Jun 2015 20:34:53] 74.125.111.108 is avaliable, cert: *.c.docs.google.com, delay: 0.4150 
+INFO - [Sun, 21 Jun 2015 20:34:53] 2404:6800:4004:80a::fc97 is avaliable, cert: *.google.com, delay: 0.2598 
+INFO - [Sun, 21 Jun 2015 20:34:53] IP pool Status: v4_Tested: 265, v4_Succ: 2, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:34:53] IP pool Status: v6_Tested: 276, v6_Succ: 34, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:34:53] 2404:6800:4004:80a::c9cd is avaliable, cert: *.google.com, delay: 0.2556 
+INFO - [Sun, 21 Jun 2015 20:34:54] 2404:6800:4004:80c::ddf1 is avaliable, cert: *.google.com, delay: 0.2609 
+INFO - [Sun, 21 Jun 2015 20:34:54] 2404:6800:4004:80b::a5ba is avaliable, cert: *.google.com, delay: 0.2586 
+INFO - [Sun, 21 Jun 2015 20:34:54] 2404:6800:4004:806::7ef6 is avaliable, cert: *.google.com, delay: 0.2612 
+INFO - [Sun, 21 Jun 2015 20:34:54] 208.117.236.74 is avaliable, cert: *.c.docs.google.com, delay: 0.4846 
+INFO - [Sun, 21 Jun 2015 20:34:54] 2404:6800:4004:80c::4bf is avaliable, cert: *.google.com, delay: 0.2623 
+INFO - [Sun, 21 Jun 2015 20:34:55] 2607:f8b0:4007:804::872b is avaliable, cert: *.google.com, delay: 0.1584 
+INFO - [Sun, 21 Jun 2015 20:34:55] 2404:6800:4004:80c::753 is avaliable, cert: *.google.com, delay: 0.2648 
+INFO - [Sun, 21 Jun 2015 20:34:55] 2607:f8b0:4007:804::92cc is avaliable, cert: *.google.com, delay: 0.1668 
+INFO - [Sun, 21 Jun 2015 20:34:55] 2404:6800:4004:80a::9c6e is avaliable, cert: *.google.com, delay: 0.2578 
+INFO - [Sun, 21 Jun 2015 20:34:55] 2607:f8b0:4007:804::c554 is avaliable, cert: *.google.com, delay: 0.1644 
+INFO - [Sun, 21 Jun 2015 20:34:56] 2404:6800:4004:809::53a6 is avaliable, cert: *.google.com, delay: 0.2640 
+INFO - [Sun, 21 Jun 2015 20:34:56] 2607:f8b0:4007:804::f595 is avaliable, cert: *.google.com, delay: 0.1633 
+INFO - [Sun, 21 Jun 2015 20:34:56] 2404:6800:4004:80d::3ad2 is avaliable, cert: *.google.com, delay: 0.2568 
+INFO - [Sun, 21 Jun 2015 20:34:56] 2404:6800:4004:80a::4e90 is avaliable, cert: *.google.com, delay: 0.2613 
+INFO - [Sun, 21 Jun 2015 20:34:57] 2404:6800:4004:80d::e2c3 is avaliable, cert: *.google.com, delay: 0.2590 
+INFO - [Sun, 21 Jun 2015 20:34:57] 2404:6800:4004:809::baf2 is avaliable, cert: *.google.com, delay: 0.2571 
+INFO - [Sun, 21 Jun 2015 20:34:57] 2404:6800:4004:80b::a32f is avaliable, cert: *.google.com, delay: 0.2562 
+INFO - [Sun, 21 Jun 2015 20:34:57] 2404:6800:4004:80a::21aa is avaliable, cert: *.google.com, delay: 0.2579 
+INFO - [Sun, 21 Jun 2015 20:34:57] 2607:f8b0:4007:804::6165 is avaliable, cert: *.google.com, delay: 0.1636 
+INFO - [Sun, 21 Jun 2015 20:34:58] 2404:6800:4004:80a::6810 is avaliable, cert: *.google.com, delay: 0.2584 
+INFO - [Sun, 21 Jun 2015 20:34:58] 2607:f8b0:4007:804::ba8f is avaliable, cert: *.google.com, delay: 0.1658 
+INFO - [Sun, 21 Jun 2015 20:34:58] 2404:6800:4004:808::a1ac is avaliable, cert: *.google.com, delay: 0.2612 
+INFO - [Sun, 21 Jun 2015 20:34:58] 2404:6800:4004:80a::7e9a is avaliable, cert: *.google.com, delay: 0.2604 
+INFO - [Sun, 21 Jun 2015 20:34:58] IP pool Status: v4_Tested: 395, v4_Succ: 3, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:34:58] IP pool Status: v6_Tested: 411, v6_Succ: 57, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:34:58] 2404:6800:4004:80a::47c9 is avaliable, cert: *.google.com, delay: 0.2555 
+INFO - [Sun, 21 Jun 2015 20:34:58] 2404:6800:4004:80d::44bb is avaliable, cert: *.google.com, delay: 0.2601 
+INFO - [Sun, 21 Jun 2015 20:34:59] 2404:6800:4004:808::bc44 is avaliable, cert: *.google.com, delay: 0.2613 
+INFO - [Sun, 21 Jun 2015 20:34:59] 2404:6800:4004:809::aa1b is avaliable, cert: *.google.com, delay: 0.2671 
+INFO - [Sun, 21 Jun 2015 20:34:59] 2404:6800:4004:80a::79ed is avaliable, cert: *.google.com, delay: 0.2583 
+INFO - [Sun, 21 Jun 2015 20:34:59] 2404:6800:4004:809::75 is avaliable, cert: upload.video.google.com, delay: 0.2637 
+INFO - [Sun, 21 Jun 2015 20:35:00] 2404:6800:4004:80a::2579 is avaliable, cert: *.google.com, delay: 0.2629 
+INFO - [Sun, 21 Jun 2015 20:35:00] 2404:6800:4004:80a::9d34 is avaliable, cert: *.google.com, delay: 0.2612 
+INFO - [Sun, 21 Jun 2015 20:35:00] 2404:6800:4004:80a::e677 is avaliable, cert: *.google.com, delay: 0.2621 
+INFO - [Sun, 21 Jun 2015 20:35:00] 2404:6800:4004:80d::704b is avaliable, cert: *.google.com, delay: 0.2628 
+INFO - [Sun, 21 Jun 2015 20:35:01] 2404:6800:4004:80c::3019 is avaliable, cert: *.google.com, delay: 0.2581 
+INFO - [Sun, 21 Jun 2015 20:35:01] 2404:6800:4004:80c::bf49 is avaliable, cert: *.google.com, delay: 0.2607 
+INFO - [Sun, 21 Jun 2015 20:35:01] 2404:6800:4004:80b::941d is avaliable, cert: *.google.com, delay: 0.2620 
+INFO - [Sun, 21 Jun 2015 20:35:01] 2404:6800:4004:808::9c96 is avaliable, cert: *.google.com, delay: 0.2674 
+INFO - [Sun, 21 Jun 2015 20:35:02] 2404:6800:4004:80a::5d5 is avaliable, cert: *.google.com, delay: 0.2593 
+INFO - [Sun, 21 Jun 2015 20:35:02] 2404:6800:4004:806::d6a8 is avaliable, cert: *.google.com, delay: 0.2594 
+INFO - [Sun, 21 Jun 2015 20:35:02] 2607:f8b0:4007:804::b6d3 is avaliable, cert: *.google.com, delay: 0.1612 
+INFO - [Sun, 21 Jun 2015 20:35:02] 2607:f8b0:4007:804::c42e is avaliable, cert: *.google.com, delay: 0.1581 
+INFO - [Sun, 21 Jun 2015 20:35:02] 66.185.84.58 is avaliable, cert: *.googlevideo.com, delay: 0.2637 
+INFO - [Sun, 21 Jun 2015 20:35:02] 173.194.142.250 is avaliable, cert: *.c.docs.google.com, delay: 0.3080 
+INFO - [Sun, 21 Jun 2015 20:35:03] 2404:6800:4004:80b::530 is avaliable, cert: *.google.com, delay: 0.2636 
+INFO - [Sun, 21 Jun 2015 20:35:03] 2404:6800:4004:80c::c559 is avaliable, cert: *.google.com, delay: 0.2637 
+INFO - [Sun, 21 Jun 2015 20:35:03] 2404:6800:4004:80d::88cf is avaliable, cert: *.google.com, delay: 0.2618 
+INFO - [Sun, 21 Jun 2015 20:35:03] IP pool Status: v4_Tested: 531, v4_Succ: 5, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:03] IP pool Status: v6_Tested: 546, v6_Succ: 78, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:03] 2404:6800:4004:80d::16cd is avaliable, cert: *.google.com, delay: 0.2610 
+INFO - [Sun, 21 Jun 2015 20:35:03] 2404:6800:4004:80a::5bcc is avaliable, cert: *.google.com, delay: 0.2612 
+INFO - [Sun, 21 Jun 2015 20:35:03] 2404:6800:4004:806::f223 is avaliable, cert: *.google.com, delay: 0.2644 
+INFO - [Sun, 21 Jun 2015 20:35:04] 2404:6800:4004:80b::8fec is avaliable, cert: *.google.com, delay: 0.2567 
+INFO - [Sun, 21 Jun 2015 20:35:04] 2404:6800:4004:80d::274d is avaliable, cert: *.google.com, delay: 0.2573 
+INFO - [Sun, 21 Jun 2015 20:35:04] 2404:6800:4004:809::3938 is avaliable, cert: *.google.com, delay: 0.2569 
+INFO - [Sun, 21 Jun 2015 20:35:05] 2404:6800:4004:806::2347 is avaliable, cert: *.google.com, delay: 0.2603 
+INFO - [Sun, 21 Jun 2015 20:35:05] 2404:6800:4004:80c::905d is avaliable, cert: *.google.com, delay: 0.2610 
+INFO - [Sun, 21 Jun 2015 20:35:05] 2404:6800:4004:80d::e8e1 is avaliable, cert: *.google.com, delay: 0.2611 
+INFO - [Sun, 21 Jun 2015 20:35:05] 2404:6800:4004:806::5ddf is avaliable, cert: *.google.com, delay: 0.2802 
+INFO - [Sun, 21 Jun 2015 20:35:05] 2404:6800:4004:80c::f1d7 is avaliable, cert: *.google.com, delay: 0.2613 
+INFO - [Sun, 21 Jun 2015 20:35:06] 2607:f8b0:4007:804::a314 is avaliable, cert: *.google.com, delay: 0.1598 
+INFO - [Sun, 21 Jun 2015 20:35:06] 2404:6800:4004:808::e000 is avaliable, cert: *.google.com, delay: 0.2590 
+INFO - [Sun, 21 Jun 2015 20:35:06] 2404:6800:4004:80b::630d is avaliable, cert: *.google.com, delay: 0.2633 
+INFO - [Sun, 21 Jun 2015 20:35:06] 173.194.138.143 is avaliable, cert: *.c.docs.google.com, delay: 0.3563 
+INFO - [Sun, 21 Jun 2015 20:35:07] 118.143.88.72 is avaliable, cert: *.googlevideo.com, delay: 0.0586 
+INFO - [Sun, 21 Jun 2015 20:35:07] 2607:f8b0:4007:804::99a9 is avaliable, cert: *.google.com, delay: 0.1580 
+INFO - [Sun, 21 Jun 2015 20:35:07] 2404:6800:4004:806::4c78 is avaliable, cert: *.google.com, delay: 0.2623 
+INFO - [Sun, 21 Jun 2015 20:35:07] 2404:6800:4004:80b::c58b is avaliable, cert: *.google.com, delay: 0.2577 
+INFO - [Sun, 21 Jun 2015 20:35:08] 95.143.84.143 is avaliable, cert: *.googlevideo.com, delay: 0.2780 
+INFO - [Sun, 21 Jun 2015 20:35:08] 2404:6800:4004:80c::8c79 is avaliable, cert: *.google.com, delay: 0.2691 
+INFO - [Sun, 21 Jun 2015 20:35:08] 2404:6800:4004:80b::96e0 is avaliable, cert: *.google.com, delay: 0.2671 
+INFO - [Sun, 21 Jun 2015 20:35:08] IP pool Status: v4_Tested: 790, v4_Succ: 8, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:08] IP pool Status: v6_Tested: 550, v6_Succ: 97, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:09] 2404:6800:4004:80a::82bd is avaliable, cert: *.google.com, delay: 0.2628 
+INFO - [Sun, 21 Jun 2015 20:35:09] 2404:6800:4004:80d::e4b3 is avaliable, cert: *.google.com, delay: 0.2621 
+INFO - [Sun, 21 Jun 2015 20:35:09] 2404:6800:4004:808::5f76 is avaliable, cert: *.google.com, delay: 0.2567 
+INFO - [Sun, 21 Jun 2015 20:35:09] 2404:6800:4004:80d::be2e is avaliable, cert: *.google.com, delay: 0.2726 
+INFO - [Sun, 21 Jun 2015 20:35:09] 2404:6800:4004:808::6c0c is avaliable, cert: *.google.com, delay: 0.2575 
+INFO - [Sun, 21 Jun 2015 20:35:10] 2607:f8b0:4007:804::b46e is avaliable, cert: *.google.com, delay: 0.1648 
+INFO - [Sun, 21 Jun 2015 20:35:11] 2404:6800:4004:809::ad76 is avaliable, cert: *.google.com, delay: 0.2643 
+INFO - [Sun, 21 Jun 2015 20:35:11] 2404:6800:4004:808::69f7 is avaliable, cert: *.google.com, delay: 0.2597 
+INFO - [Sun, 21 Jun 2015 20:35:11] 91.213.30.132 is avaliable, cert: *.googlevideo.com, delay: 0.3884 
+INFO - [Sun, 21 Jun 2015 20:35:11] 2404:6800:4004:80d::5820 is avaliable, cert: *.google.com, delay: 0.2622 
+INFO - [Sun, 21 Jun 2015 20:35:11] 2404:6800:4004:80b::c9fe is avaliable, cert: *.google.com, delay: 0.2612 
+INFO - [Sun, 21 Jun 2015 20:35:11] 2607:f8b0:4007:804::e86b is avaliable, cert: *.google.com, delay: 0.1633 
+INFO - [Sun, 21 Jun 2015 20:35:12] 2404:6800:4004:80a::55c8 is avaliable, cert: *.google.com, delay: 0.2609 
+INFO - [Sun, 21 Jun 2015 20:35:12] 2404:6800:4004:808::f7fc is avaliable, cert: *.google.com, delay: 0.2601 
+INFO - [Sun, 21 Jun 2015 20:35:12] 2404:6800:4004:806::1acd is avaliable, cert: *.google.com, delay: 0.2568 
+INFO - [Sun, 21 Jun 2015 20:35:12] 2404:6800:4004:80d::e0da is avaliable, cert: *.google.com, delay: 0.2617 
+INFO - [Sun, 21 Jun 2015 20:35:13] 220.255.5.215 is avaliable, cert: *.googlevideo.com, delay: 0.1263 
+INFO - [Sun, 21 Jun 2015 20:35:13] 2607:f8b0:4007:804::a7 is avaliable, cert: *.googleadservices.com, delay: 0.1620 
+INFO - [Sun, 21 Jun 2015 20:35:13] 2607:f8b0:4007:804::f201 is avaliable, cert: *.google.com, delay: 0.1600 
+INFO - [Sun, 21 Jun 2015 20:35:13] 2404:6800:4004:809::7b6 is avaliable, cert: *.google.com, delay: 0.2616 
+INFO - [Sun, 21 Jun 2015 20:35:13] IP pool Status: v4_Tested: 1048, v4_Succ: 10, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:13] IP pool Status: v6_Tested: 550, v6_Succ: 115, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:13] 2404:6800:4004:808::287d is avaliable, cert: *.google.com, delay: 0.2585 
+INFO - [Sun, 21 Jun 2015 20:35:13] 2404:6800:4004:80d::821 is avaliable, cert: *.google.com, delay: 0.2575 
+INFO - [Sun, 21 Jun 2015 20:35:14] 2607:f8b0:4007:804::7175 is avaliable, cert: *.google.com, delay: 0.1620 
+INFO - [Sun, 21 Jun 2015 20:35:14] 2404:6800:4004:80b::afca is avaliable, cert: *.google.com, delay: 0.2652 
+INFO - [Sun, 21 Jun 2015 20:35:14] 2607:f8b0:4007:804::9849 is avaliable, cert: *.google.com, delay: 0.1607 
+INFO - [Sun, 21 Jun 2015 20:35:14] 2607:f8b0:4007:804::2348 is avaliable, cert: *.google.com, delay: 0.1619 
+INFO - [Sun, 21 Jun 2015 20:35:14] 2404:6800:4004:80a::875a is avaliable, cert: *.google.com, delay: 0.2647 
+INFO - [Sun, 21 Jun 2015 20:35:15] 2404:6800:4004:80b::bf33 is avaliable, cert: *.google.com, delay: 0.2590 
+INFO - [Sun, 21 Jun 2015 20:35:15] 173.194.138.71 is avaliable, cert: *.c.docs.google.com, delay: 0.3645 
+INFO - [Sun, 21 Jun 2015 20:35:15] 220.255.5.138 is avaliable, cert: *.googlevideo.com, delay: 0.0961 
+INFO - [Sun, 21 Jun 2015 20:35:15] 2607:f8b0:4007:804::bb9b is avaliable, cert: *.google.com, delay: 0.1670 
+INFO - [Sun, 21 Jun 2015 20:35:16] 2404:6800:4004:806::4a4b is avaliable, cert: *.google.com, delay: 0.2625 
+INFO - [Sun, 21 Jun 2015 20:35:16] 2404:6800:4004:80d::202b is avaliable, cert: *.google.com, delay: 0.2588 
+INFO - [Sun, 21 Jun 2015 20:35:16] 2404:6800:4004:80a::3790 is avaliable, cert: *.google.com, delay: 0.2565 
+INFO - [Sun, 21 Jun 2015 20:35:16] 2404:6800:4004:808::7641 is avaliable, cert: *.google.com, delay: 0.2589 
+INFO - [Sun, 21 Jun 2015 20:35:17] 74.125.100.25 is avaliable, cert: *.c.docs.google.com, delay: 0.3350 
+INFO - [Sun, 21 Jun 2015 20:35:18] 220.255.6.15 is avaliable, cert: *.googlevideo.com, delay: 0.1701 
+INFO - [Sun, 21 Jun 2015 20:35:18] 208.117.251.129 is avaliable, cert: *.c.docs.google.com, delay: 0.3428 
+INFO - [Sun, 21 Jun 2015 20:35:18] 2404:6800:4004:80c::c832 is avaliable, cert: *.google.com, delay: 0.2636 
+INFO - [Sun, 21 Jun 2015 20:35:18] 2404:6800:4004:809::3b93 is avaliable, cert: *.google.com, delay: 0.2568 
+INFO - [Sun, 21 Jun 2015 20:35:18] IP pool Status: v4_Tested: 1305, v4_Succ: 15, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:18] IP pool Status: v6_Tested: 550, v6_Succ: 130, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:19] 173.194.136.85 is avaliable, cert: *.c.docs.google.com, delay: 0.4575 
+INFO - [Sun, 21 Jun 2015 20:35:19] 209.85.239.21 is avaliable, cert: *.c.docs.google.com, delay: 0.4570 
+INFO - [Sun, 21 Jun 2015 20:35:19] 74.125.100.88 is avaliable, cert: *.c.docs.google.com, delay: 0.3389 
+INFO - [Sun, 21 Jun 2015 20:35:21] 2404:6800:4004:80d::8d4b is avaliable, cert: *.google.com, delay: 0.2710 
+INFO - [Sun, 21 Jun 2015 20:35:21] 2404:6800:4004:806::386e is avaliable, cert: *.google.com, delay: 0.2617 
+INFO - [Sun, 21 Jun 2015 20:35:21] 173.194.14.55 is avaliable, cert: *.c.docs.google.com, delay: 0.3947 
+INFO - [Sun, 21 Jun 2015 20:35:22] 193.134.255.220 is avaliable, cert: *.googlevideo.com, delay: 0.2066 
+INFO - [Sun, 21 Jun 2015 20:35:22] 193.92.133.56 is avaliable, cert: *.googlevideo.com, delay: 0.4404 
+INFO - [Sun, 21 Jun 2015 20:35:22] 208.117.254.104 is avaliable, cert: *.c.docs.google.com, delay: 0.3900 
+INFO - [Sun, 21 Jun 2015 20:35:23] 208.117.251.137 is avaliable, cert: *.c.docs.google.com, delay: 0.3924 
+INFO - [Sun, 21 Jun 2015 20:35:23] IP pool Status: v4_Tested: 1561, v4_Succ: 23, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:23] IP pool Status: v6_Tested: 550, v6_Succ: 132, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:24] 208.117.236.193 is avaliable, cert: *.c.docs.google.com, delay: 0.3283 
+INFO - [Sun, 21 Jun 2015 20:35:24] 2404:6800:4004:80c::9b50 is avaliable, cert: *.google.com, delay: 0.2618 
+INFO - [Sun, 21 Jun 2015 20:35:24] 173.194.52.45 is avaliable, cert: *.c.docs.google.com, delay: 0.4035 
+INFO - [Sun, 21 Jun 2015 20:35:24] 173.194.147.156 is avaliable, cert: *.c.docs.google.com, delay: 0.3154 
+INFO - [Sun, 21 Jun 2015 20:35:24] 2404:6800:4004:80d::429e is avaliable, cert: *.google.com, delay: 0.2589 
+INFO - [Sun, 21 Jun 2015 20:35:26] 2404:6800:4004:806::733a is avaliable, cert: *.google.com, delay: 0.2651 
+INFO - [Sun, 21 Jun 2015 20:35:26] 2404:6800:4004:80a::18ad is avaliable, cert: *.google.com, delay: 0.2674 
+INFO - [Sun, 21 Jun 2015 20:35:26] 208.117.238.182 is avaliable, cert: *.c.docs.google.com, delay: 0.3907 
+INFO - [Sun, 21 Jun 2015 20:35:26] 2404:6800:4004:808::eb15 is avaliable, cert: *.google.com, delay: 0.2689 
+INFO - [Sun, 21 Jun 2015 20:35:28] 173.194.52.48 is avaliable, cert: *.c.docs.google.com, delay: 0.3331 
+INFO - [Sun, 21 Jun 2015 20:35:28] IP pool Status: v4_Tested: 1816, v4_Succ: 28, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:28] IP pool Status: v6_Tested: 550, v6_Succ: 137, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:31] 208.117.225.6 is avaliable, cert: *.googlevideo.com, delay: 0.2281 
+INFO - [Sun, 21 Jun 2015 20:35:31] 209.85.226.47 is avaliable, cert: *.c.docs.google.com, delay: 0.3324 
+INFO - [Sun, 21 Jun 2015 20:35:33] IP pool Status: v4_Tested: 2068, v4_Succ: 30, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:33] IP pool Status: v6_Tested: 550, v6_Succ: 137, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:34] 208.117.250.180 is avaliable, cert: *.c.docs.google.com, delay: 0.3161 
+INFO - [Sun, 21 Jun 2015 20:35:35] 64.15.116.106 is avaliable, cert: *.googlevideo.com, delay: 0.3224 
+INFO - [Sun, 21 Jun 2015 20:35:35] 173.194.146.212 is avaliable, cert: *.c.docs.google.com, delay: 0.4068 
+INFO - [Sun, 21 Jun 2015 20:35:36] 208.117.255.10 is avaliable, cert: *.c.docs.google.com, delay: 0.2954 
+INFO - [Sun, 21 Jun 2015 20:35:38] 74.125.11.88 is avaliable, cert: *.c.docs.google.com, delay: 0.3586 
+INFO - [Sun, 21 Jun 2015 20:35:39] IP pool Status: v4_Tested: 2328, v4_Succ: 35, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:39] IP pool Status: v6_Tested: 550, v6_Succ: 137, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:39] 202.169.175.104 is avaliable, cert: *.googlevideo.com, delay: 0.0837 
+INFO - [Sun, 21 Jun 2015 20:35:39] 208.117.255.102 is avaliable, cert: *.c.docs.google.com, delay: 0.2982 
+INFO - [Sun, 21 Jun 2015 20:35:41] 220.255.6.77 is avaliable, cert: *.googlevideo.com, delay: 0.1932 
+INFO - [Sun, 21 Jun 2015 20:35:44] IP pool Status: v4_Tested: 2588, v4_Succ: 38, v4_Total: 1096192
+INFO - [Sun, 21 Jun 2015 20:35:44] IP pool Status: v6_Tested: 550, v6_Succ: 137, v6_Total: 2097152
+INFO - [Sun, 21 Jun 2015 20:35:45] 173.194.148.132 is avaliable, cert: *.c.docs.google.com, delay: 0.3724 
+INFO - [Sun, 21 Jun 2015 20:35:46] 216.21.170.53 is avaliable, cert: *.googlevideo.com, delay: 0.3053 
+INFO - [Sun, 21 Jun 2015 20:35:46] Socket Test Work Done
+INFO - [Sun, 21 Jun 2015 20:35:49] 64.15.126.100 is avaliable, cert: *.googlevideo.com, delay: 0.3428 
+
+
+Search Complete. The result will be saved at /home/cjt/Desktop/gogotester_python.git/packed//res
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc90">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 06:51:09 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c90" href="/p/goagent/issues/detail?id=21608#c90">#90</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+出来的IP，还要全选复制导入到gogo tester中，再导出，才能放到proxy.ini中使用，没有CheckGoogleIP那么方便,直接就能使用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc91">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 06:53:14 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c91" href="/p/goagent/issues/detail?id=21608#c91">#91</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#90 gogtester并不认gvs，所以你还是直接扔进Proxy.ini吧
+        具体细节看楼上
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc92">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 07:05:47 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c92" href="/p/goagent/issues/detail?id=21608#c92">#92</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#80 刚才看歪意思了……
+        好吧你可以试试用正则表达式替换, 把(?&lt;=[\dabcdef])\s+.+$换成&quot;|&quot;以及\s+换成“”
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc93">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 07:09:08 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c93" href="/p/goagent/issues/detail?id=21608#c93">#93</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+#91 可能我没表达清楚，checkgoogleip最后出来的是，下面这样的IP，可以放到proxy.ini中直接用，
+
+但gogotester_python最后出来的IP，还要放到gogo tester中转换一下格式，才能用。
+
+173.194.22.169|208.117.236.227|209.85.228.200|85.182.250.228
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc94">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 07:11:19 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c94" href="/p/goagent/issues/detail?id=21608#c94">#94</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+恩后来我看懂意思了
+其实可以用regex替换
+1. 删掉开始那两行
+2. 把(?&lt;=[\dabcdef])\s+.+$ 替换成 |
+3. 把\s+替换成空
+4.删掉末尾的 | 
+然后就好了→_→
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc95">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 15:48:13 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c95" href="/p/goagent/issues/detail?id=21608#c95">#95</a>
+ 
+
+ <a class="userlink"
+ href="/u/112313152194890322412/">jimsusan...@gmail.com</a
+></span>
+ 
+<pre>
+扫出来的ip在什么位置，上面的楼主能截个图吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc96">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 17:25:19 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c96" href="/p/goagent/issues/detail?id=21608#c96">#96</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+#93，gogotester_python搜出来的IP，如何放到gogo tester中转换格式，才能使用？谢谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc97">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 17:37:27 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c97" href="/p/goagent/issues/detail?id=21608#c97">#97</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#95 在/res/ip_4.txt 和 /res/ip_6.txt里面
+#96 最新版本的生成文件的最后一行是已经转换好格式的数据
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc98">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 17:44:42 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c98" href="/p/goagent/issues/detail?id=21608#c98">#98</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+最新版本的/res/ip_4.txt最后一行看了，没有已转换好格式的数据。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc99">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 17:46:08 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c99" href="/p/goagent/issues/detail?id=21608#c99">#99</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+哦草我更了源代码忘记更打包好的部分了 = =你等下……
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc100">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 17:49:22 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c100" href="/p/goagent/issues/detail?id=21608#c100">#100</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+你再试试，应该没问题了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc101">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 18:02:40 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c101" href="/p/goagent/issues/detail?id=21608#c101">#101</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+#100 看到了，多谢，good job,will done.
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc102">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 18:49:43 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c102" href="/p/goagent/issues/detail?id=21608#c102">#102</a>
+ 
+
+ <a class="userlink"
+ href="/u/108624022798487360207/">hongwang...@gmail.com</a
+></span>
+ 
+<pre>
+赞楼主！ 目前电信已经全面升级到双栈接入方式（我是个例外，几天前隆重返回ipv4单栈）。楼主的方案还没有去尝试（稍后）。
+To #13 Kisesy:您好！您测试的网站是 test-ipv6.com吗？您的系统是XP2002～2003版本，升级到sp2~sp3d的吗？ 请与我联系：hongwang777@riseup.net 我们应该有很多可以探讨的。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc103">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 19:38:06 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c103" href="/p/goagent/issues/detail?id=21608#c103">#103</a>
+ 
+
+ <a class="userlink"
+ href="/u/108063289147214719846/">zhangj...@gmail.com</a
+></span>
+ 
+<pre>
+尼玛不好好复习还写代码！
+
+这是为看到的最搞笑的软件发布，笑到人肚子疼。技术人员就应该这样过自己的个性人生。
+
+小白只能站在观众席里欢呼鼓掌。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc104">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 19:40:59 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c104" href="/p/goagent/issues/detail?id=21608#c104">#104</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#103 你不能理解一个一个明天就要靠考结构化学的人的人生QAQ
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc105">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 21:02:41 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c105" href="/p/goagent/issues/detail?id=21608#c105">#105</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+不懂请教：搜出的IP在gogotester再测试，证书全是：NN 的，应是无效IP，在goagent中能用吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc106">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 21:03:12 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c106" href="/p/goagent/issues/detail?id=21608#c106">#106</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+不懂请教：搜出的IP在gogotester再测试，证书全是：NN 的，应是无效IP，在goagent中能用吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc107">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 21:48:50 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c107" href="/p/goagent/issues/detail?id=21608#c107">#107</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#106 请看#79-#81
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc108">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 22:12:20 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c108" href="/p/goagent/issues/detail?id=21608#c108">#108</a>
+ 
+
+ <a class="userlink"
+ href="/u/117653484582339882632/">popvi...@gmail.com</a
+></span>
+ 
+<pre>
+哦哦，原来要从dos窗口复制出来哈，嘿嘿，我刚刚还在等什么时候结束呢
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc109">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Jun 21 22:14:58 2015">
+ Jun 21, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c109" href="/p/goagent/issues/detail?id=21608#c109">#109</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+楼上……你去/res/ip_4.txt和ip_6.txt里面看看去…………
+你直接从DOS复制出来我没啥意见但是你不觉得挺麻烦吗= =
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc110">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jun 22 01:00:49 2015">
+ Jun 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c110" href="/p/goagent/issues/detail?id=21608#c110">#110</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+#106 ，直说行不行不就完了，NN能不能用？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc111">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jun 22 02:13:03 2015">
+ Jun 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c111" href="/p/goagent/issues/detail?id=21608#c111">#111</a>
+ 
+
+ <a class="userlink"
+ href="/u/118308311326205427443/">fanq...@gmail.com</a
+></span>
+ 
+<pre>
+线程数调低了，还是断网，没有ip可找了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc112">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jun 22 02:58:48 2015">
+ Jun 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c112" href="/p/goagent/issues/detail?id=21608#c112">#112</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+#110 行，goagent请升级到最新版
+#111 这样我也没办法……嗯……原因不明
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc113">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Jun 22 04:16:34 2015">
+ Jun 22, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c113" href="/p/goagent/issues/detail?id=21608#c113">#113</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+#102 我用的win7，联通。
+怎么，你不喜欢v6吗，装个普通不支持ipv6的无线路由就行了,自动屏蔽v6直接v4上网,想用v6时,把插到无线路由器WAN上的线,插到无线路由器LAN上,就又能v6了,呵呵,就是不太方便
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc114">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Tue Jun 23 03:04:20 2015">
+ Jun 23, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c114" href="/p/goagent/issues/detail?id=21608#c114">#114</a>
+ 
+
+ <a class="userlink"
+ href="/u/114144797469372533296/">chenjing...@gmail.com</a
+></span>
+ 
+<pre>
+To #111 你是windows XP么，如果是的话我觉得我大概找到问题所在了
+试试根据这个<a href="https://msdn.microsoft.com/zh-cn/library/aa560610(v=bts.10).aspx" rel="nofollow">https://msdn.microsoft.com/zh-cn/library/aa560610(v=bts.10).aspx</a> 把port开多一点，我开到了0x8fff（36383）个，没有断网和找不到IP的迹象
+我原来测试时候用的XP估计是改过的= =
+To #86 你要是XP你也试试
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21608">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21608',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21608,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

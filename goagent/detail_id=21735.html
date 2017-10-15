@@ -1,0 +1,1980 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "projectName": "goagent", "loggedInUserEmail": null, "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "relativeBaseUrl": "", "token": null, "domainName": null, "profileUrl": null, "projectHomeUrl": "/p/goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 21735 - 
+ goagent -
+ 
+ 别扫了，FangMonthFucker有问题 - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21735&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D21735" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=21735">21735</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >别扫了，FangMonthFucker有问题</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 4 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A21735">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+>,
+ <span class="date" title="Thu Jul  2 19:24:04 2015">Jul 2, 2015</span>
+ 
+ </div>
+<pre>
+GoAgent中实测good_ip 47个，但放到FangMonthFucker中测，只有一个能用。
+
+后台扫IP.exe，WIN7中已装NET 4.0，还是无法运行，提示我要安装4.0，WIN8.1就更纠结，没4.0无法运行，为何不能支持4.5？
+
+神奇的是，GoGo Tester 2.3.9也是说需4.0，但在WIN8.1中运行毫无问题。明显是 后台扫IP.exe 有问题，有BUG，不完善。
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc1">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:30:41 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c1" href="/p/goagent/issues/detail?id=21735#c1">#1</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+在WinXP中，后台扫IP.EXE运行后，进程中根本看不到，也不知是否运行成功，请问进程名叫什么？如果就叫 后台扫IP.exe，那进程中真没有。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:34:39 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=21735#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/110158684434685666353/">cym.zh...@gmail.com</a
+></span>
+ 
+<pre>
+换电脑
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:35:57 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=21735#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+4台电脑，一台XP，一台WIN7，两台WIN8.1，都测试不能用，还怎么换？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:37:20 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=21735#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+我楼顶说了：“GoAgent中实测good_ip 47个，但放到FangMonthFucker中测，只有一个能用”。
+
+别选择性失明，你们至少也测试一下。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:45:07 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=21735#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/106315082181120139906/">liuyupen...@gmail.com</a
+></span>
+ 
+<pre>
+我只说一个问题
+“.NET Framework 4.5 是一个针对 .NET Framework 4 的高度兼容的就地更新。”
+来源于微软官网，所以8.1能跑不奇怪吧
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:45:39 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=21735#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+看了几个帖子，有不少人说，一运行 后台扫IP.EXE，NET 4.0就提示出错，说需安装4.0，但明明安装了4.0的。
+
+我在楼顶说了，GoGo Tester 2.3.9同样需4.0，但在WIN8.1中运行毫无问题。
+
+我说句那什么的话，不是无视，是解决不了吧？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:47:32 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=21735#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+#5 GoGo Tester 2.3.9需4.0，后台扫IP.EXE也需4.0，那为何同样是在8.1系统中，前者运行的挺好，后者总是不能运行？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:52:31 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=21735#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/109474245040765929427/">yun36041...@gmail.com</a
+></span>
+ 
+<pre>
+我也觉得有bug,谷歌25万ip那个,后台扫ip正常运行,3.8亿的就不成,也是说net4.0没安装
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:52:38 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=21735#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/115873927424369861669/">410904...@qq.com</a
+></span>
+ 
+<pre>
+楼主情况跟我一样，我win8
+1.MotherFuckerFang.exe能导入ip，但是一随机测试，软件崩溃，提示必须安装net4.0
+2.后台扫IP.exe扫描时候系统卡很久，磁盘cpu占用爆满，然后就无响应，只好任务管理器结束进程。
+
+最可怕的是win8自带net4.5，但是安装net4.0，提示，系统已经安装4.0，无需重复安装。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 19:56:53 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=21735#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/104678207625893535338/">whhxm...@gmail.com</a
+></span>
+ 
+<pre>
+我用其内置的ip倒是找到近1k的好。ip。。慢慢等死再说了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 20:07:28 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=21735#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+两者扫描结果没差
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 20:10:09 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=21735#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+#9 请认真看贴，上面的帖子中反复说，GoGo Tester 2.3.9也需4.0，但在WIN8.1中运行没问题，这就说明 后台扫IP.EXE有BUG，有问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 20:14:37 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=21735#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/113185936925742798660/">agrohea...@gmail.com</a
+></span>
+ 
+<pre>
+扫完就好了，扫了20个地址，youtube fb 都可以
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 20:14:59 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=21735#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+#8 谷歌25万IP，能否给个链接，多谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 20:26:17 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=21735#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/105103954198592007698/">ddddabo...@gmail.com</a
+></span>
+ 
+<pre>
+你这算什么态度？huanghua做这个软件，收你一分钱了吗？你用这个态度对待他，有资格用这个软件吗？发现BUG你可以反映，软件有bug是非常非常常见的事。这么贬低他的软件干什么呢？你自己看看你的发言， #14 jzm...@gmail.com #8 谷歌25万IP，能否给个链接，多谢！ 就你这种人，做伸手党还有人愿意搭理你吗？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 20:30:08 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=21735#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/104395250725894770729/">huangsha...@gmail.com</a
+></span>
+ 
+<pre>
+有可能是系统带的 .Net 4.0 是Client Profile版的，IP.EXE 编译时要求的是 .Net 4.0 完整版的，所以要运行估计还是要去微软网站上下载 .Net 4.0 安装
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 20:45:53 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=21735#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/118308311326205427443/">fanq...@gmail.com</a
+></span>
+ 
+<pre>
+用FangMomFucker扫ip自定义ip.txt再扫 还是很好用的，后台扫IP.exe会很卡已弃用。谢谢huang大神的扫描鸡	
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 21:25:52 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=21735#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+Microsoft .NET Framework 4.6 RC
+<a href="http://download.microsoft.com/download/5/1/1/511BD803-609C-4B08-BD52-D6FC1835018F/NDP46-KB3006563-x86-x64-AllOS-ENU.exe" rel="nofollow">http://download.microsoft.com/download/5/1/1/511BD803-609C-4B08-BD52-D6FC1835018F/NDP46-KB3006563-x86-x64-AllOS-ENU.exe</a>
+
+这个版本bug少得多
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 21:39:05 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=21735#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/107200530133350295378/">bgdistan...@gmail.com</a
+></span>
+ 
+<pre>
+1、&quot;GoAgent中实测good_ip 47个，但放到FangMonthFucker中测，只有一个能用&quot;
+把延迟调到800。
+2、&quot;win7装了NET 4.0，还是无法运行&quot;，就说明不是4.0的问题，检查自己系统配置。
+3、&quot;GoGo Tester 2.3.9也是说需4.0，但在WIN8.1中运行毫无问题&quot;,FangMonthFucker也是说需4.0，在WIN8.1中运行同样毫无问题，这个你怎么不提？这两个才是能放在一起比的。后台扫IP.exe是个另类软件，对系统配置各方面要求都高。
+总的来说第一你不会用，第二你机器烂。
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 22:56:44 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=21735#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/117347848207208895832/">u78...@gmail.com</a
+></span>
+ 
+<pre>
+希望能推出net 3.5运行的扫描软件！net 4.0太高级了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 23:14:58 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=21735#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/111713283247171329848/">allgg.u...@gmail.com</a
+></span>
+ 
+<pre>
+特意登陆来发个言：
+我觉得是系统本身的问题。也许有的精简版少了某些组件导致的。
+本来自己在实体机上运行该软件的，后来又开虚拟机运行。结果挂了。
+实体机64位win7 sp1 msdn，虚拟机32位win7 ghost精简版
+实体机运行了几天下来没发现明显问题。
+虚拟机中线程过高，比如作者推荐的1000，但程序运行一会后挂了，900线程可以
+后台扫描.exe那个我估计也可能是内置扫描线程挺高的。所以开了一会就报错退出了。没在用了。
+现在也不开虚拟机了，就在本机扫了。
+都是自己找国家地址段，大批量扫，电脑开着也是开着，网络走的少，
+还有说的GOA中有很多，但软件中少，可能是ping值设置问题。
+我现在都在扫描300ms内的了，情况不一样了，
+前阵子gvs没封的这么凶，都找150ms的，
+现在封的多了，提高撒网捕捉效率，只好300ms了。
+能翻就翻，慢归慢，国策国情就这样，聊胜于无。
+以前看YouTube觉得快点很爽，后来设置下proxy配置文件，也能达到要求。更何况又不是天天tube
+总之看个人需求，是在不行不是还有checkgoogleip吗
+记住：能看到这个issues上就已经证明你翻墙成功了。
+快？慢？多？少？取决与你后期怎么去操作。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 23:28:55 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=21735#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/104250021151503260244/">huanghua...@gmail.com</a
+></span>
+ 
+<pre>
+#1
+xp就不要用后台扫ip了，因为32位xp最多有2.8g-3.2g内存,内存不够
+windows8.1我实测没问题，很有可能你的系统不是原版,如果出现System.OutOfMemoryException
+还是内存不足的问题
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Jul  2 23:52:00 2015">
+ Jul 2, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=21735#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/111445401667509811800/">wsq.wea...@gmail.com</a
+></span>
+ 
+<pre>
+个人觉得FangMomFucker是个非常不错的扫ip工具。楼主说说的问题不是工具本身的问题。
+
+切菜把收切了，不要归罪与菜单。炒股陪也也不要怪美帝。
+
+赞下#21楼。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 06:02:32 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=21735#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/117922005993909500805/">gxs...@gmail.com</a
+></span>
+ 
+<pre>
+感谢楼主，不知为什么没人反映问题，都好用？或者我不会用，
+我想反映下，
+1.win7 32位 安装版 4g内存，时常会崩溃，
+2.如运行后台扫描，说没net4.0无法运行，
+但我装了4.5，
+3.扫出的IP，带宽测试，显示无法测速，实际似乎也无法使用。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc26">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 07:09:03 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c26" href="/p/goagent/issues/detail?id=21735#c26">#26</a>
+ 
+
+ <a class="userlink"
+ href="/u/111713283247171329848/">allgg.u...@gmail.com</a
+></span>
+ 
+<pre>
+#25
+我想也确实有一部分人在埋怨，我倒是觉得还是自己的操作方法抑或系统导致的。
+
+用句流行的话是“是不是你打开的方式不对？”
+
+1、win7 x64任务管理器看软件进程没有 *32 表示是64位程序。
+   参考 #21 我32位下也实际运行过，但是线程设置的不是很高。但也坚挺的扫了几百万的IP没有出现过异常。
+
+2、查看是否有这样的文件夹
+
+C:\Windows\Microsoft.NET\Framework
+C:\Windows\Microsoft.NET\Framework64（64位才有）
+   其中是否有v3.0 v3.5 v4.0.30319 之类的文件夹。
+   是否.net运行库没有安装全。
+
+官方地址：
+<a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=17718" rel="nofollow">http://www.microsoft.com/zh-cn/download/details.aspx?id=17718</a>
+
+或者直接另存为：
+<a href="http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe" rel="nofollow">http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe</a>
+
+  
+3、人家作者其实有时候也很无奈，也看到他在issues里提过
+
+   自己写了说明书没人自己去阅读，然后到issues里提问题。
+
+   其实写的很清楚了。宽带测速只能测试gws。gvs的无法测速:(
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 09:56:29 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=21735#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/116642018264006539699/">agrochem...@gmail.com</a
+></span>
+ 
+<pre>
+扫描鸡要求硬件比较高，我用不了，我是xp sp2，一直用最老版的gogotester软件。一样也挺好用！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 10:01:03 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=21735#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/104268559946293972752/">dat...@gmail.com</a
+></span>
+ 
+<pre>
+可以正常使用呀。
+
+只是不知道是不是心里作用呀，只要那边一扫描，goagent这边就出现坏ip了。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 17:42:11 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=21735#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/104248460592007050901/">dingmaox...@gmail.com</a
+></span>
+ 
+<pre>
+这个东西看来要求电脑配置较高，我的电脑4核8线程主频2.4G，运行正常。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 18:48:54 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=21735#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/113142620916926969234/">jzm...@gmail.com</a
+></span>
+ 
+<pre>
+我是楼主，我错了，我向作者道歉，对不起，看来软件需电脑硬件配置高才能运行，软件本身没问题。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 19:15:30 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=21735#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/117922005993909500805/">gxs...@gmail.com</a
+></span>
+ 
+<pre>
+感谢回复，
+1.我觉得我的系统和net没问题，安装是完全的，有那些文件夹，
+装了4.5是不能装4.0的，而4.5是在apu驱动里，必装的。
+2.我的重点不是测速，而是说扫出的IP不能用。
+比如其中的官方，自带好ip，和我自己的ip池，能扫出很多，但都不能用。
+3.几种找到的批量测试都不太好用，不如gogo，但gg添加量太小。
+我瞎猜，这东西有那么复杂么，不就是ping一下么。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 19:48:01 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=21735#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/111713283247171329848/">allgg.u...@gmail.com</a
+></span>
+ 
+<pre>
+#31 有的服务器是禁止ping的。
+
+倘若你把IP直接用ping xxx.xxx.xxx.xxx -t 连续ping的话，好的IP不大会time out，
+
+但是我也遇到过ping值很小。 100以内的，连续ping的话，大概有10%--20%的机率ping不通
+
+另外原理可不是简单ping，而是连接目标443端口，https？。具体你可以google之，看看这个端口是起什么作用的。也就有了所谓证书的说法了。
+
+ping只是让你知道你和目标机器之间的来回延迟有多大。
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Jul  3 19:55:35 2015">
+ Jul 3, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=21735#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/111713283247171329848/">allgg.u...@gmail.com</a
+></span>
+ 
+<pre>
+看你说批量测试。
+
+开始我是用pinginfoview来批量测试的。
+
+后来用了angry ip scanner。
+
+当然这两个软件也可以按延迟顺序导出的，只是导出的内容需要自己修改下。
+
+我看到有人用excel ，我倒是用ultraedit习惯了。总归是能编辑成proxy.ini需要的IP格式类型的
+
+实在不行，手动一个一个加呗。没技术还没体力不成
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Jul  4 02:35:21 2015">
+ Jul 4, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=21735#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/117922005993909500805/">gxs...@gmail.com</a
+></span>
+ 
+<pre>
+我说的ping是广义,
+pinginfoview我用过，不准，
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="21735">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A21735',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 21735,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

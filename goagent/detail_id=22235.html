@@ -1,0 +1,2662 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"projectName": "goagent", "loggedInUserEmail": null, "relativeBaseUrl": "", "assetHostPath": "https://ssl.gstatic.com/codesite/ph", "domainName": null, "assetVersionPath": "https://ssl.gstatic.com/codesite/ph/10671232128890609530", "token": null, "profileUrl": null, "projectHomeUrl": "/p/goagent"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Issue 22235 - 
+ goagent -
+ 
+ lantern2.0.0_kingtope_15.7.2编译文件发布 （去除PAC去除启动弹窗） - 
+ https://github.com/goagent/goagent - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/10671232128890609530/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ .attachments { width:33%; border-top:2px solid #999; padding-top: 3px; margin-left: .7em;}
+ .attachments table { margin-bottom: 0.75em; }
+ .attachments table tr td { padding: 0; margin: 0; font-size: 95%; }
+ .preview { border: 2px solid #c3d9ff; padding: 1px; }
+ .preview:hover { border: 2px solid blue; }
+ .label { white-space: nowrap; }
+ .derived { font-style:italic }
+ .cursor_on .author {
+ background: url(https://ssl.gstatic.com/codesite/ph/images/show-arrow.gif) no-repeat 2px;
+ }
+ .hiddenform {
+ display: none;
+ }
+
+ 
+ </style>
+</head>
+<body class="t3">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22235&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoagent%2Fissues%2Fdetail%3Fid%3D22235" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/goagent">
+ <a href="/p/goagent/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/goagent/"><span itemprop="name">goagent</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/goagent/"><span itemprop="description">https://github.com/goagent/goagent</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/goagent/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/goagent/issues/list"
+ class="tab active">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="https://code.google.com/export-to-github/export?project=goagent">
+ <button>Export to GitHub</button>
+ 
+ </a>
+ 
+ 
+ <div class=gtbc></div>
+</div>
+
+ 
+ <div style="font-weight: bold; color: #c00; margin-top: 5px; margin-left: 13px;">
+ READ-ONLY: This project has been <a href='https://code.google.com/archive/p/goagent'>archived</a>. For more information see <a href='https://code.google.com/p/support/wiki/ReadOnlyTransition'>this post</a>.
+ </div>
+ 
+
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList">
+ <span>Search</span>
+ <form action="list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ 
+<option disabled="disabled">Search within:</option>
+<option value="1" >&nbsp;All issues</option>
+<option value="2" selected=selected>&nbsp;Open issues</option>
+
+<option value="6" >&nbsp;New issues</option>
+<option value="7" >&nbsp;Issues to verify</option>
+
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q"
+ value="" autocomplete="off"
+ 
+ onkeydown="_blurOnEsc(event)"></span>
+ 
+ 
+ <span id="search_colspec"><input type="hidden" name="colspec" value="ID Opened Reporter Modified Summary Stars" ></span>
+ 
+ 
+ 
+ <input type="hidden" name="cells" value="tiles" >
+ <input type="submit" value="Search">
+ </form>
+ </span> &nbsp;
+ <span class="inIssueAdvSearch">
+ <a href="advsearch">Advanced search</a>
+ </span> &nbsp;
+ <span class="inIssueSearchTips">
+ <a href="searchtips">Search tips</a>
+ </span> &nbsp;
+ <span class="inIssueSubscriptions">
+ <a href="/p/goagent/issues/subscriptions">Subscriptions</a>
+ </span>
+</div>
+</div>
+ </td>
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+<div id="color_control" class="">
+<div id="issueheader">
+<table cellpadding="0" cellspacing="0" width="100%"><tbody>
+ <tr>
+ <td class="vt h3" nowrap="nowrap" style="padding:0 5px">
+ 
+ 
+ Issue <a href="detail?id=22235">22235</a>:
+ </td>
+ <td width="90%" class="vt">
+ <span class="h3" >lantern2.0.0_kingtope_15.7.2编译文件发布 （去除PAC去除启动弹窗）</span>
+ </td>
+ <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td nowrap="nowrap">
+ 
+ 
+ 6 people starred this issue and may be notified of changes.
+ 
+ 
+ 
+ </td>
+ <td align="center" nowrap="nowrap">
+ 
+ <a href="https://code.google.com/p/goagent/issues/list?cursor=goagent%3A22235">Back to list</a>
+ 
+ </td>
+ </tr>
+ 
+</tbody></table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="issuepage" id="meta-container">
+<tbody class="collapse"> 
+ <tr>
+ <td id="issuemeta">
+ <div id="meta-float">
+ 
+<table cellspacing="0" cellpadding="0">
+ <tr><th align="left">Status:&nbsp;</th>
+ <td width="100%">
+ 
+ <span title="Issue has not had initial review yet">New</span>
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ 
+ <tr><th align="left">Owner:&nbsp;</th><td>
+ 
+ 
+ ----
+ 
+ 
+ </td>
+ </tr>
+ 
+ 
+ 
+ <tr><td colspan="2">
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Type-Defect"
+ title="Report of a software defect"
+ class="label"><b>Type-</b>Defect</a>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div style="padding-top:2px">
+ 
+ <a href="list?q=label:Priority-Medium"
+ title="Normal priority"
+ class="label"><b>Priority-</b>Medium</a>
+ 
+ </div>
+ 
+ 
+ </td></tr>
+ 
+</table>
+<div class="rel_issues">
+ 
+ 
+ 
+</div>
+
+
+ <br><br>
+ 
+
+
+ 
+ </div>&nbsp;
+ </td>
+ <td class="vt issuedescription" width="100%" id="cursorarea" >
+ 
+<div class="cursor_off vt issuedescription" id="hc0">
+ 
+ 
+ <div class="author">
+ 
+ Reported by
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+>,
+ <span class="date" title="Thu Aug  6 22:51:24 2015">Aug 6, 2015</span>
+ 
+ </div>
+<pre>
+lantern2.0.0_kingtope_15.7.2编译文件发布（去除PAC去除启动弹窗）
+
+<a href="https://copy.com/2CrA8Dc6iGor9Va4/lantern2.0.0_kingtope_15.7.2.tar?download=1" rel="nofollow">https://copy.com/2CrA8Dc6iGor9Va4/lantern2.0.0_kingtope_15.7.2.tar?download=1</a>
+
+去除PAC去除启动弹窗的实现方法：
+
+//pacOn()
+//addExitFunc(pacOff)
+//ui.Show()
+
+感谢 bgdistan...@gmail.com和Kisesy提供的建议
+
+我抓取的源代码最后commit时间： Aug 7 11:57:44 ，编译文件基本跟源代码同步，最后一条commit记录如下，：
+
+[root@vultr lantern]# git log
+commit <a href="/p/goagent/source/detail?r=e6a5b570456ca12711ae197e1da793fbbd1576b1">e6a5b570456ca12711ae197e1da793fbbd1576b1</a>
+Author: fffw &lt;fffw@getlantern.org&gt;
+Date:   Fri Aug 7 11:57:44 2015 +0800
+
+    Merge pull request #2893 from getlantern/really-remove-cfr-from-ps
+
+    *really* remove CloudFront and DNSimple support from peerscanner
+
+
+
+</pre>
+
+</div>
+
+ 
+
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc2">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 23:25:26 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c2" href="/p/goagent/issues/detail?id=22235#c2">#2</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+Generating assets...
+make: stat: Makefile: Permission denied
+make: *** No rule to make target 'docker-genassets'.  Stop.
+Makefile:267: recipe for target 'genassets' failed
+make: *** [genassets] Error 2
+
+
+编译过程出现这个问题如何解决？谢谢
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc3">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 23:32:41 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c3" href="/p/goagent/issues/detail?id=22235#c3">#3</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+真快啊，又更新了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc4">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug  6 23:33:43 2015">
+ Aug 6, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c4" href="/p/goagent/issues/detail?id=22235#c4">#4</a>
+ 
+
+ <a class="userlink"
+ href="/u/112790729047204665384/">wujianpi...@gmail.com</a
+></span>
+ 
+<pre>
+赞一个！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc5">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 00:11:02 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c5" href="/p/goagent/issues/detail?id=22235#c5">#5</a>
+ 
+
+ <a class="userlink"
+ href="/u/114984780492130171058/">syhtfb...@gmail.com</a
+></span>
+ 
+<pre>
+这是最新的？应该怎么理解这个版本号？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc6">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 00:19:17 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c6" href="/p/goagent/issues/detail?id=22235#c6">#6</a>
+ 
+
+ <a class="userlink"
+ href="/u/114033169287966003070/">redfrog...@gmail.com</a
+></span>
+ 
+<pre>
+#5 版本号=年份+月份+本月内再次必要更新的小版本号。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc7">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 00:20:32 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c7" href="/p/goagent/issues/detail?id=22235#c7">#7</a>
+ 
+
+ <a class="userlink"
+ href="/u/101994464459370655569/">Kishen...@gmail.com</a
+></span>
+ 
+<pre>
+谢谢大神！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc8">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 01:36:49 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c8" href="/p/goagent/issues/detail?id=22235#c8">#8</a>
+ 
+
+ <a class="userlink"
+ href="/u/106088583427384130526/">jasonli...@gmail.com</a
+></span>
+ 
+<pre>
+<a href="https://github.com/getlantern/lantern/releases/tag/2.0.0%2Bstable" rel="nofollow">https://github.com/getlantern/lantern/releases/tag/2.0.0%2Bstable</a>
+作者再度更新
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc9">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 01:43:22 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c9" href="/p/goagent/issues/detail?id=22235#c9">#9</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+只是重新贴了标签，源代码没有改变
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc10">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 02:15:25 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c10" href="/p/goagent/issues/detail?id=22235#c10">#10</a>
+ 
+
+ <a class="userlink"
+ href="/u/106080400071354691807/">beema...@gmail.com</a
+></span>
+ 
+<pre>
+感谢大神，现在用蓝灯速度很快啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc11">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 02:57:52 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c11" href="/p/goagent/issues/detail?id=22235#c11">#11</a>
+ 
+
+ <a class="userlink"
+ href="/u/110158684434685666353/">cym.zh...@gmail.com</a
+></span>
+ 
+<pre>
+感谢大神
+
+速度不错
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc12">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 03:21:38 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c12" href="/p/goagent/issues/detail?id=22235#c12">#12</a>
+ 
+
+ <a class="userlink"
+ href="/u/118163387403412008299/">vvvv...@gmail.com</a
+></span>
+ 
+<pre>
+有没有编译好的.exe文件呢...
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc13">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 03:38:18 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c13" href="/p/goagent/issues/detail?id=22235#c13">#13</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+#12 下载解压，Windows那个再解压，自己加后缀 .exe 即可。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc14">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 03:44:20 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c14" href="/p/goagent/issues/detail?id=22235#c14">#14</a>
+ 
+
+ <a class="userlink"
+ href="/u/106080400071354691807/">beema...@gmail.com</a
+></span>
+ 
+<pre>
+用了新版速度没了，速度很快的旧版被替换掉了，有个版本速度特别快，下了太多，现在不知道是哪个了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc15">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 03:49:47 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c15" href="/p/goagent/issues/detail?id=22235#c15">#15</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+这个版本根本就没有设置代理的功能,就算设置了全局代理也没用
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc16">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 03:57:59 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c16" href="/p/goagent/issues/detail?id=22235#c16">#16</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+能发一下原版吗
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc17">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 04:40:04 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c17" href="/p/goagent/issues/detail?id=22235#c17">#17</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+原版在此：
+<a href="https://copy.com/4dCj1Vqus78HIiZH/lantern2.0.0_kingtope_15.7.2-orginal.tar?download=1" rel="nofollow">https://copy.com/4dCj1Vqus78HIiZH/lantern2.0.0_kingtope_15.7.2-orginal.tar?download=1</a>
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc18">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 04:43:07 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c18" href="/p/goagent/issues/detail?id=22235#c18">#18</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#2  你提供的信息不全，我无法判断。 你把你操作的详细步骤，还有命令行和提示信息的完整信息都贴出来
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc19">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 04:48:35 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c19" href="/p/goagent/issues/detail?id=22235#c19">#19</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#14  新版的速度确实没有旧版的快，不知道是否跟新版的黑名单机制有关系，旧版的下载链接如下：
+
+<a href="https://copy.com/cmaPqolxbTzvuiZx/Lantern2B11-NOPAC-NOUI150805.bz2?download=1" rel="nofollow">https://copy.com/cmaPqolxbTzvuiZx/Lantern2B11-NOPAC-NOUI150805.bz2?download=1</a>
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc20">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 04:57:59 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c20" href="/p/goagent/issues/detail?id=22235#c20">#20</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+原版可以正常设置
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc21">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 05:03:39 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c21" href="/p/goagent/issues/detail?id=22235#c21">#21</a>
+ 
+
+ <a class="userlink"
+ href="/u/Kisesy/">Kisesy</a
+></span>
+ 
+<pre>
+补丁和LZ提供的原版,放到这里了,比较方便
+<a href="http://alresvor.0fees.us/lantern/" rel="nofollow">http://alresvor.0fees.us/lantern/</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc22">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 05:49:54 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c22" href="/p/goagent/issues/detail?id=22235#c22">#22</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+新版速度并不见得就比旧版的慢，刚才又测了一遍，今天编译的新版蓝灯在移动10M上跑出了满速：
+<a href="http://i.imgur.com/QqwQp9Z.jpg" rel="nofollow">http://i.imgur.com/QqwQp9Z.jpg</a>
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc23">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 06:28:17 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c23" href="/p/goagent/issues/detail?id=22235#c23">#23</a>
+ 
+
+ <a class="userlink"
+ href="/u/110158684434685666353/">cym.zh...@gmail.com</a
+></span>
+ 
+<pre>
+电信线路也是新版快
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc24">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 07:07:24 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c24" href="/p/goagent/issues/detail?id=22235#c24">#24</a>
+ 
+
+ <a class="userlink"
+ href="/u/114984780492130171058/">syhtfb...@gmail.com</a
+></span>
+ 
+<pre>
+这个更新速度，马上就要变成神灯了啊
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc25">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 07:21:36 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c25" href="/p/goagent/issues/detail?id=22235#c25">#25</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+virtualbox 安装 fedora 22
+然后运行过的命令是
+sudo dnf install gcc kernel-devel kernel-headers dkms make bzip2 perl
+sudo dnf upgrade
+
+安装 guest additional tool之后，用 proxifier 让虚拟机用代理上网
+之后运行过的命令依次是
+sudo install go docker
+sudo git clone <a href="https://github.com/getlantern/lantern.git" rel="nofollow">https://github.com/getlantern/lantern.git</a>
+cd lantern
+system start docker
+sudo make docker
+sudo make windows
+
+然后就卡壳了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc27">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 07:56:42 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c27" href="/p/goagent/issues/detail?id=22235#c27">#27</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+多谢
+我再试试
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc28">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 07:57:43 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c28" href="/p/goagent/issues/detail?id=22235#c28">#28</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我感觉你的docker应该没有装好，严格按照我下面的步骤再执行一次：
+
+cd  ~
+wget <a href="https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz" rel="nofollow">https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz</a>
+tar -xvf go1.4.2.linux-amd64.tar.gz
+sudo cp -r go /usr/local/go   
+
+mkdir mygo 
+vi /etc/profile
+ 
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=~/mygo 
+
+然后ESC，:wq 存盘退出
+
+source /etc/profile
+
+curl -sSL <a href="https://get.docker.com/" rel="nofollow">https://get.docker.com/</a> | sh
+sudo service docker start
+
+sudo docker run hello-world          //检验docker是否安装成功
+
+如果docker安装成功，会提示类似下面的内容：
+“Unable to find image 'hello-world:latest' locally
+latest: Pulling from hello-world
+a8219747be10: Pull complete 
+91c95931e552: Already exists 
+hello-world:latest: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be relied on to provide security.
+Digest: sha256:aa03e5d0d5553b4c3473e89c8619cf79df368babd1.7.1cf5daeb82aab55838d
+Status: Downloaded newer image for hello-world:latest
+Hello from Docker.
+This message shows that your installation appears to be working correctly.”
+
+接着运行：
+
+yum install git  bzip2
+git clone -b valencia --depth 1  --single-branch git://github.com/getlantern/lantern.git
+make docker
+看看这一步能不能成功，如果能成功，这一步会耗时30-40分钟左右，最后提示docker image successfully 创建。
+这是最重要的一步，如果这一步做成了，编译就不会有问题；这一步没有做好，编译就没法做了，你就算运行make windows也没用。
+
+
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc29">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Fri Aug  7 08:04:29 2015">
+ Aug 7, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c29" href="/p/goagent/issues/detail?id=22235#c29">#29</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+sorry,更正一下：少了一个cd lantern，也就是：
+git clone -b valencia --depth 1  --single-branch git://github.com/getlantern/lantern.git
+cd lantern
+make docker
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc30">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 01:16:47 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c30" href="/p/goagent/issues/detail?id=22235#c30">#30</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+依然不行。
+按顺序操作一遍之后，输出结果如下
+
+Sending build context to Docker daemon  5.12 kB
+Sending build context to Docker daemon 
+Step 0 : FROM fedora:21
+ ---&gt; e26efd418c48
+Step 1 : MAINTAINER &quot;José Carlos Nieto&quot; &lt;xiam@getlantern.org&gt;
+ ---&gt; Using cache
+ ---&gt; 2316bccf09c0
+Step 2 : ENV GO_VERSION go1.4.2
+ ---&gt; Using cache
+ ---&gt; 68551bd7b344
+Step 3 : ENV GOROOT_BOOTSTRAP /go1.4
+ ---&gt; Using cache
+ ---&gt; 2bdca3014b80
+Step 4 : ENV GOROOT /go
+ ---&gt; Using cache
+ ---&gt; ece4a2dbd79d
+Step 5 : ENV GOPATH /
+ ---&gt; Using cache
+ ---&gt; b5816b460058
+Step 6 : ENV PATH $PATH:$GOROOT/bin
+ ---&gt; Using cache
+ ---&gt; b3b22c8190bd
+Step 7 : ENV WORKDIR /lantern
+ ---&gt; Using cache
+ ---&gt; 09434c020aff
+Step 8 : ENV GO_PACKAGE_URL <a href="https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz" rel="nofollow">https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz</a>
+ ---&gt; Using cache
+ ---&gt; 8081330badc8
+Step 9 : RUN yum -y update &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 7af34719306b
+Step 10 : RUN yum install -y git tar gzip curl hostname pcre-devel mercurial &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 32cbf73de28c
+Step 11 : RUN yum install -y gcc gcc-c++ libgcc.i686 gcc-c++.i686 pkg-config &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 6eb4ee1af048
+Step 12 : RUN (curl -sSL $GO_PACKAGE_URL | tar -xvz -C /tmp) &amp;&amp;   mv /tmp/go $GOROOT_BOOTSTRAP
+ ---&gt; Using cache
+ ---&gt; 96028f5baab4
+Step 13 : RUN mkdir -p $GOROOT &amp;&amp;   git clone <a href="https://go.googlesource.com/go" rel="nofollow">https://go.googlesource.com/go</a> $GOROOT &amp;&amp;   cd $GOROOT &amp;&amp;   git checkout release-branch.go1.4
+ ---&gt; Using cache
+ ---&gt; cd2784a3f765
+Step 14 : RUN yum install -y patch &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; c343b189cd07
+Step 15 : RUN curl <a href="https://gist.githubusercontent.com/xiam/f50f6dd6085f9a07ccfd/raw/5e0f472221f9c1556fe34788ff01724b63980337/docker_golang" rel="nofollow">https://gist.githubusercontent.com/xiam/f50f6dd6085f9a07ccfd/raw/5e0f472221f9c1556fe34788ff01724b63980337/docker_golang</a> | patch -p0
+ ---&gt; Using cache
+ ---&gt; 4ae367d8a722
+Step 16 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 ./all.bash
+ ---&gt; Using cache
+ ---&gt; fa20ad437254
+Step 17 : RUN yum install -y glibc-devel glibc-static &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 0f168a6fcbf1
+Step 18 : RUN yum install -y glibc-devel.i686 glib2-static.i686 glibc-2.20-8.fc21.i686 libgcc.i686 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 59a1432472c0
+Step 19 : RUN yum install -y yum-utils &amp;&amp; yum-config-manager --add-repo=<a href="https://copr.fedoraproject.org/coprs/lantw44/arm-linux-gnueabi-toolchain/repo/fedora-21/lantw44-arm-linux-gnueabi-toolchain-fedora-21.repo" rel="nofollow">https://copr.fedoraproject.org/coprs/lantw44/arm-linux-gnueabi-toolchain/repo/fedora-21/lantw44-arm-linux-gnueabi-toolchain-fedora-21.repo</a> &amp;&amp; yum install -y arm-linux-gnueabi-gcc arm-linux-gnueabi-binutils arm-linux-gnueabi-glibc &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 3217ffc893e8
+Step 20 : RUN yum install -y mingw32-gcc.x86_64 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; e5ebb820af47
+Step 21 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 GOOS=linux GOARCH=amd64 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; b7d23d9c778c
+Step 22 : RUN cd $GOROOT/src &amp;&amp; CGO_ENABLED=1 GOOS=linux GOARCH=386 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; fc867598b727
+Step 23 : RUN cd $GOROOT/src &amp;&amp; CXX_FOR_TARGET=arm-linux-gnueabi-g++ CC_FOR_TARGET=arm-linux-gnueabi-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=7 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; 9cd2b61c2b95
+Step 24 : RUN cd $GOROOT/src &amp;&amp; CXX_FOR_TARGET=i686-w64-mingw32-g++ CC_FOR_TARGET=i686-w64-mingw32-gcc CGO_ENABLED=1 GOOS=windows GOARCH=386 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; e788f212ab04
+Step 25 : RUN cd $GOROOT/src &amp;&amp; GOARCH=386 ./make.bash --no-clean
+ ---&gt; Using cache
+ ---&gt; ee93a14b86c9
+Step 26 : RUN yum install -y gtk3-devel libappindicator-gtk3 libappindicator-gtk3-devel &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; 85fce3950917
+Step 27 : RUN yum install -y pango.i686 pango-devel.i686 gtk3-devel.i686 gdk-pixbuf2-devel.i686 cairo-gobject-devel.i686 atk-devel.i686 libappindicator-gtk3-devel.i686 libdbusmenu-devel.i686 dbus-devel.i686 pkgconfig.i686 &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; a656f997f082
+Step 28 : RUN yum install -y ruby ruby-devel make &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; fac8eb882f74
+Step 29 : RUN gem install fpm
+ ---&gt; Using cache
+ ---&gt; b9a67c905b37
+Step 30 : RUN yum install -y osslsigncode mingw32-nsis &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; dfadc0dbe0c1
+Step 31 : RUN yum install -y nodejs npm &amp;&amp; yum clean all
+ ---&gt; Using cache
+ ---&gt; ce4c96c60674
+Step 32 : RUN npm install -g gulp
+ ---&gt; Using cache
+ ---&gt; cc383561713d
+Step 33 : ENV SECRETS /secrets
+ ---&gt; Using cache
+ ---&gt; 2e902b9d85ce
+Step 34 : RUN mkdir -p $WORKDIR
+ ---&gt; Using cache
+ ---&gt; f270fd7533fd
+Step 35 : RUN mkdir -p $SECRETS
+ ---&gt; Using cache
+ ---&gt; 74dd5433c531
+Step 36 : VOLUME $WORKDIR
+ ---&gt; Using cache
+ ---&gt; e29eaaddfb4b
+Step 37 : WORKDIR $WORKDIR
+ ---&gt; Using cache
+ ---&gt; 9b06cf7cc97c
+Successfully built 9b06cf7cc97c
+Generating assets...
+make: stat: Makefile: Permission denied
+make: *** No rule to make target 'docker-genassets'.  Stop.
+Makefile:267: recipe for target 'genassets' failed
+make: *** [genassets] Error 2
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc31">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 01:25:00 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c31" href="/p/goagent/issues/detail?id=22235#c31">#31</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+这是你运行make docker的结果还是单独运行make windows的结果？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc32">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 01:53:24 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c32" href="/p/goagent/issues/detail?id=22235#c32">#32</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+是make windows 的结果
+
+make docker 的结果就到
+Step 36 : VOLUME $WORKDIR
+ ---&gt; Using cache
+ ---&gt; e29eaaddfb4b
+Step 37 : WORKDIR $WORKDIR
+ ---&gt; Using cache
+ ---&gt; 9b06cf7cc97c
+Successfully built 9b06cf7cc97c
+
+这里就没有下文了
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc33">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 01:59:34 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c33" href="/p/goagent/issues/detail?id=22235#c33">#33</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+你已经很接近成功了，虚拟机的好处就是方便给docker设置全局代理,我在单机Ubuntu上因为全局VPN的问题还是没有把docker环境配成功。你试下下面的命令:
+
+sudo chmod 777 Makefile
+sudo make windows
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc34">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 02:16:24 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c34" href="/p/goagent/issues/detail?id=22235#c34">#34</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+虚拟机刚才重启了，直接运行sudo make windows 会出现以下提示
+Sending build context to Docker daemon 
+Post http:///var/run/docker.sock/v1.19/build?cgroupparent=&amp;cpuperiod=0&amp;cpuquota=0&amp;cpusetcpus=&amp;cpusetmems=&amp;cpushares=0&amp;dockerfile=Dockerfile&amp;memory=0&amp;memswap=0&amp;rm=1&amp;t=lantern-builder dial unix /var/run/docker.sock: no such file or directory. Are you trying to connect to a TLS-enabled daemon without TLS?
+Makefile:216: recipe for target 'docker' failed
+make: *** [docker] Error 1
+
+所以先运行了 sudo systemctl start docker
+然后运行你给的两条命令。
+
+
+结果依然不行。输出的最后部分如下。好像没什么变化
+Step 36 : VOLUME $WORKDIR
+ ---&gt; Using cache
+ ---&gt; e29eaaddfb4b
+Step 37 : WORKDIR $WORKDIR
+ ---&gt; Using cache
+ ---&gt; 9b06cf7cc97c
+Successfully built 9b06cf7cc97c
+Generating assets...
+make: stat: Makefile: Permission denied
+make: *** No rule to make target 'docker-genassets'.  Stop.
+Makefile:267: recipe for target 'genassets' failed
+make: *** [genassets] Error 2
+
+
+
+
+
+
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc35">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 02:38:33 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c35" href="/p/goagent/issues/detail?id=22235#c35">#35</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+我也没招了，现在就是makefile的执行权限的问题了，这个搞定了你就成功了，只有一步之遥了，你自己搞定吧，我只能做到这了，实在不行，你从蓝灯github下一个makefile把它覆盖试试
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc36">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 02:54:18 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c36" href="/p/goagent/issues/detail?id=22235#c36">#36</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+我再想想办法吧。之前su 成 root了还是提示权限不够。不知道为什么
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc37">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 05:20:17 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c37" href="/p/goagent/issues/detail?id=22235#c37">#37</a>
+ 
+
+ <a class="userlink"
+ href="/u/105724805268215631170/">uuu...@gmail.com</a
+></span>
+ 
+<pre>
+试了一下新版发现还真不错。现在vps用个两三天就会被定点干扰，然后又要重新装换ip，真的很蛋筒
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc38">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 17:35:48 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c38" href="/p/goagent/issues/detail?id=22235#c38">#38</a>
+ 
+
+ <a class="userlink"
+ href="/u/111588632966417968196/">zero92...@gmail.com</a
+></span>
+ 
+<pre>
+#35
+就认准你的版本，以后这里关了怎么找你呢?
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc39">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sat Aug  8 17:42:53 2015">
+ Aug 8, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c39" href="/p/goagent/issues/detail?id=22235#c39">#39</a>
+ 
+
+ <a class="userlink"
+ href="/u/111588632966417968196/">zero92...@gmail.com</a
+></span>
+ 
+<pre>
+我这广东地区，早上蓝灯速度非常快youtubi 1080P很快就满了和打开国内的youku差不多速度，晚上就不行了,估计是地区问题.100M光纤独享
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc40">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 00:02:49 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c40" href="/p/goagent/issues/detail?id=22235#c40">#40</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+#39 
+这里关闭之前我会公布以后蓝灯发布的论坛，就是xxnet公布的那个Googlegroup的fqlt.
+我用virtual box装了Ubuntu14.04,但是虚拟机里面Ubuntu死活不能上网，请问下你对虚拟机里面的Linux是怎么进行网络设置让它能够上网的？
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc41">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 19:06:22 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c41" href="/p/goagent/issues/detail?id=22235#c41">#41</a>
+ 
+
+ <a class="userlink"
+ href="/u/111588632966417968196/">zero92...@gmail.com</a
+></span>
+ 
+<pre>
+#40
+我一般用的是VM虚拟机，用桥接的话不用再linux系统设置ip什么的，他会自动去找主机的。
+如果设置映射的话VM会装一个虚拟的网卡，然后在系统里面设置ip、网关等东西(和平时这是物理机一样)
+virtual box一般都差不多吧，网上搜搜。
+顺便问问xxnet的googlegroup的地址是这个吗?
+<a href="https://groups.google.com/forum/#!forum/fqlt" rel="nofollow">https://groups.google.com/forum/#!forum/fqlt</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc42">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 22:53:41 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c42" href="/p/goagent/issues/detail?id=22235#c42">#42</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+windows 系统 安装 virtualbox 以及 proxifier。将virtualbox.exe 加入proxifier清单，流量一律走代理。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc43">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Sun Aug  9 23:57:40 2015">
+ Aug 9, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c43" href="/p/goagent/issues/detail?id=22235#c43">#43</a>
+ 
+
+ <a class="userlink"
+ href="/u/101003603716105211870/">kingtope...@gmail.com</a
+></span>
+ 
+<pre>
+是的，我就去这个论坛，以后蓝灯就在这个上面发布了：
+<a href="https://groups.google.com/forum/#!forum/fqlt" rel="nofollow">https://groups.google.com/forum/#!forum/fqlt</a>
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc44">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 00:07:45 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c44" href="/p/goagent/issues/detail?id=22235#c44">#44</a>
+ 
+
+ <a class="userlink"
+ href="/u/113359489128203152666/">djd...@gmail.com</a
+></span>
+ 
+<pre>
+楼主老大，求个去弹窗，保留PAC版本，非常感谢！
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc45">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 00:57:42 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c45" href="/p/goagent/issues/detail?id=22235#c45">#45</a>
+ 
+
+ <a class="userlink"
+ href="/u/xyuanmu/">xyuanmu</a
+></span>
+ 
+<pre>
+#44 djd...@gmail.com
+
+下载这里的补丁即可：<a href="https://code.google.com/p/goagent/issues/detail?id=22204#c17" rel="nofollow">https://code.google.com/p/goagent/issues/detail?id=22204#c17</a>
+解压密码为 1234，只运行 lantern-patch.exe 去蓝灯弹窗。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc46">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Mon Aug 10 05:09:57 2015">
+ Aug 10, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c46" href="/p/goagent/issues/detail?id=22235#c46">#46</a>
+ 
+
+ <a class="userlink"
+ href="/u/113359489128203152666/">djd...@gmail.com</a
+></span>
+ 
+<pre>
+#45 多谢，问题是现在没有蓝灯B11带弹窗的版本，只有去PAC去弹窗的B11版本，我现在就是想用这个补
+
+丁，也是无从用起啊，如果用安装版的蓝灯，PAC功能又太弱。
+</pre>
+ 
+ 
+ </div>
+ 
+
+ 
+ 
+ 
+ 
+ <div class="cursor_off vt issuecomment"
+ id="hc47">
+ <div style="float:right; margin-right:.3em; text-align:right">
+ <span class="date" title="Thu Aug 13 05:48:12 2015">
+ Aug 13, 2015
+ </span>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">
+ 
+ <a name="c47" href="/p/goagent/issues/detail?id=22235#c47">#47</a>
+ 
+
+ <a class="userlink"
+ href="/u/104645705867021312759/">zazone2...@gmail.com</a
+></span>
+ 
+<pre>
+虚拟机换装Linux Mint 相同步骤，最终成功。
+感谢K先生指导。
+
+祝各位好远。
+</pre>
+ 
+ 
+ </div>
+ 
+
+
+ 
+
+
+ </td>
+ </tr>
+
+</tbody>
+</table>
+<br>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/dit_scripts.js"></script>
+
+
+
+</div> 
+<form name="delcom" action="delComment.do?q=&amp;can=2&amp;groupby=&amp;sort=&amp;colspec=ID+Opened+Reporter+Modified+Summary+Stars" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="id" value="22235">
+ <input type="hidden" name="token" value="">
+</form>
+
+<div id="helparea"></div>
+<script type="text/javascript">
+ _onload();
+ function delComment(sequence_num, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.mode.value = delete_mode;
+ 
+ f.submit();
+ return false;
+ }
+ 
+ _floatMetadata();
+</script>
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/kibbles.js"></script>
+<script type="text/javascript">
+ _setupKibblesOnDetailPage(
+ 'https://code.google.com/p/goagent/issues/list?cursor\x3dgoagent%3A22235',
+ '/p/goagent/issues/entry',
+ '',
+ '',
+ '', 'goagent', 22235,
+ false, false, codesite_token);
+</script>
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/10671232128890609530/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+
